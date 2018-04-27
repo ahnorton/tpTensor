@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10224,        297]
-NotebookOptionsPosition[      9031,        253]
-NotebookOutlinePosition[      9375,        268]
-CellTagsIndexPosition[      9332,        265]
+NotebookDataLength[      4558,        176]
+NotebookOptionsPosition[      3403,        134]
+NotebookOutlinePosition[      3748,        149]
+CellTagsIndexPosition[      3705,        146]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -27,50 +27,30 @@ Cell[CellGroupData[{
 Cell["About this document", "Subsection"],
 
 Cell[TextData[{
- "Optional contact details.  Delete or adjust as you like.\n\n",
+ "Optional contact details.  Delete or adjust as you like,\n\n",
  StyleBox["Name:",
   FontWeight->"Bold"],
- "         \n",
+ "                \n",
  StyleBox["Affiliation:",
   FontWeight->"Bold"],
- "        \n",
- StyleBox["Email:\nWeb page:",
+ "     \n",
+ StyleBox["Email:",
   FontWeight->"Bold"],
- "       \n",
- StyleBox["Interests:",
+ "               ",
+ StyleBox["\nWeb page:",
   FontWeight->"Bold"],
- "         "
-}], "Text",
- CellChangeTimes->{{3.654798685839645*^9, 3.654798744603736*^9}, {
-  3.654798777611349*^9, 3.654798909401593*^9}, {3.654799038871855*^9, 
-  3.654799083959156*^9}, {3.6547991293027763`*^9, 3.654799302228733*^9}, {
-  3.654799443922553*^9, 3.6547994664339647`*^9}, {3.654800851919887*^9, 
-  3.654800921070936*^9}}]
+ "      "
+}], "Text"]
 }, Open  ]],
 
 Cell[TextData[{
  "This file is an ",
  StyleBox["Example Notebook",
   FontSlant->"Italic"],
- " for tpTensor.\nCopyright \[Copyright] 2015  <Your Name Here. Adjust \
-year(s) of version(s) of this example file as necessary>. \n\ntpTensor is a \
-computer algebra package for index-free tensor computations. \nCopyright \
-\[Copyright] 2015  Andrew H. Norton."
-}], "Text",
- CellChangeTimes->{
-  3.654794080388735*^9, {3.654794207414565*^9, 3.6547942777556267`*^9}, {
-   3.654794316164823*^9, 3.65479434238864*^9}, {3.6547943895719213`*^9, 
-   3.654794407763636*^9}, {3.654796962034231*^9, 3.6547970379533377`*^9}, {
-   3.654797079168549*^9, 3.65479716799959*^9}, {3.654797225486847*^9, 
-   3.6547972446865892`*^9}, {3.654797444860201*^9, 3.654797446268126*^9}, {
-   3.654797963205742*^9, 3.654798069588646*^9}, {3.654798103892292*^9, 
-   3.6547981206279488`*^9}, {3.6547982481944923`*^9, 3.654798273681931*^9}, {
-   3.654798457167695*^9, 3.6547985700141478`*^9}, {3.654798958937048*^9, 
-   3.654798959464834*^9}, {3.654799701599029*^9, 3.6547997187828913`*^9}, 
-   3.654800068714348*^9, 3.6548001680729227`*^9, {3.6548002006324663`*^9, 
-   3.654800232696151*^9}, {3.654800289927326*^9, 3.654800385798175*^9}, {
-   3.6548176643712893`*^9, 3.654817674114665*^9}, {3.6548177223391323`*^9, 
-   3.654817740049796*^9}, {3.6548177792143087`*^9, 3.6548178032011213`*^9}}],
+ " for tpTensor.\nCopyright \[Copyright] 20xx  <your name>. \n\ntpTensor is a \
+computer algebra package for index-free tensor computation. \nCopyright \
+\[Copyright] 2015-2018  Andrew H. Norton."
+}], "Text"],
 
 Cell[CellGroupData[{
 
@@ -96,113 +76,12 @@ This example notebook is part of  tpTensor.
 ------------------------------------------------------------------------------\
 -\
 \>", "Text"]
-}, Closed]],
+}, Open  ]],
 
 Cell["Package input files and misc functions ", "Subsection"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<tpTensor`\>\"", "]"}]], "Input"],
-
-Cell[BoxData[
- TagBox[
-  DynamicModuleBox[{Typeset`var$$ = False}, 
-   InterpretationBox[
-    StyleBox[
-     PaneSelectorBox[{False->GridBox[{
-        {
-         OpenerBox[Dynamic[Typeset`var$$],
-          Appearance->Automatic,
-          AutoAction->False,
-          ContinuousAction->False,
-          
-          Enabled->
-           Automatic], "\<\" tpTensor 0.5.0: A package for index-free tensor \
-algebra.\\n Copyright \[Copyright] 2015 Andrew H. Norton.\\n \
-\[VeryThinSpace]Released under GPLv3 or later.\"\>"}
-       },
-       AutoDelete->False,
-       BaselinePosition->{1, 1},
-       GridBoxAlignment->{"Columns" -> {{Left}}},
-       GridBoxBackground->{"Columns" -> {{Automatic}}},
-       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-       
-       GridBoxSpacings->{"Columns" -> {{0.2}}, "Rows" -> {{0.5}}}], True->
-      GridBox[{
-        {
-         OpenerBox[Dynamic[Typeset`var$$],
-          Appearance->Automatic,
-          AutoAction->False,
-          ContinuousAction->False,
-          
-          Enabled->
-           Automatic], "\<\" tpTensor 0.5.0: A package for index-free tensor \
-algebra.\\n Copyright \[Copyright] 2015 Andrew H. Norton.\\n \
-\[VeryThinSpace]Released under GPLv3 or later.\"\>"},
-        {"", 
-         PaneBox[
-          
-          TemplateBox[{
-           "\"\\n    tpTensor is free software: you can redistribute it \
-and/or modify\\n    it under the terms of the GNU General Public License as \
-published by\\n    the Free Software Foundation, either version 3 of the \
-License, or\\n    (at your option) any later version.\\n  \\n    tpTensor is \
-distributed in the hope that it will be useful,\\n    but WITHOUT ANY \
-WARRANTY; without even the implied warranty of\\n    MERCHANTABILITY or \
-FITNESS FOR A PARTICULAR PURPOSE.  See the\\n    GNU General Public License \
-for more details.\\n  \\n    You should have received a copy of the GNU \
-General Public License\\n    along with tpTensor. If not, see \"",TagBox[
-             ButtonBox[
-              
-              PaneSelectorBox[{
-               False -> "\"http://www.gnu.org/licenses/\"", True -> 
-                StyleBox[
-                 "\"http://www.gnu.org/licenses/\"", {"HyperlinkActive"}]}, 
-               Dynamic[
-                CurrentValue["MouseOver"]], BaseStyle -> {"Hyperlink"}, 
-               FrameMargins -> 0, ImageSize -> Automatic], BaseStyle -> 
-              "Hyperlink", ButtonData -> {
-                URL["http://www.gnu.org/licenses/"], None}, ButtonNote -> 
-              "http://www.gnu.org/licenses/"], 
-             Annotation[#, "http://www.gnu.org/licenses/", "Hyperlink"]& ],
-            "\".\""},
-           "RowDefault"],
-          ImageMargins->0]}
-       },
-       AutoDelete->False,
-       BaselinePosition->{1, 1},
-       GridBoxAlignment->{"Columns" -> {{Left}}},
-       GridBoxBackground->{"Columns" -> {{Automatic}}},
-       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-       
-       GridBoxSpacings->{"Columns" -> {{0.2}}, "Rows" -> {{0.5}}}]}, Dynamic[
-      Typeset`var$$],
-      Alignment->Automatic,
-      BaselinePosition->Baseline,
-      DefaultBaseStyle->"OpenerView",
-      ImageMargins->0,
-      ImageSize->Automatic],
-     Deployed->False,
-     StripOnInput->False],
-    OpenerView[{
-     " tpTensor 0.5.0: A package for index-free tensor algebra.\n Copyright \
-\[Copyright] 2015 Andrew H. Norton.\n \[VeryThinSpace]Released under GPLv3 or \
-later.", 
-      Row[{
-       "\n    tpTensor is free software: you can redistribute it and/or \
-modify\n    it under the terms of the GNU General Public License as published \
-by\n    the Free Software Foundation, either version 3 of the License, or\n   \
- (at your option) any later version.\n  \n    tpTensor is distributed in the \
-hope that it will be useful,\n    but WITHOUT ANY WARRANTY; without even the \
-implied warranty of\n    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \
- See the\n    GNU General Public License for more details.\n  \n    You \
-should have received a copy of the GNU General Public License\n    along with \
-tpTensor. If not, see ", 
-        Hyperlink["http://www.gnu.org/licenses/"], "."}]}, False]],
-   DynamicModuleValues:>{}],
-  Setting[#, {0}]& ]], "Output"]
-}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -246,13 +125,15 @@ Abstract here.
 
 Cell["Introduction", "TeX: Section"],
 
-Cell["Section", "TeX: Section"],
+Cell["Section name 1", "TeX: Section"],
+
+Cell["Section name 2", "TeX: Section"],
 
 Cell["References", "TeX: Section"]
 }, Open  ]]
 },
 WindowSize->{1345, 911},
-WindowMargins->{{Automatic, 318}, {Automatic, 74}},
+WindowMargins->{{Automatic, 312}, {Automatic, 111}},
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"TeXitStyle.nb"
 ]
@@ -271,33 +152,31 @@ Cell[CellGroupData[{
 Cell[580, 22, 24, 0, 66, "Chapter"],
 Cell[CellGroupData[{
 Cell[629, 26, 41, 0, 51, "Subsection"],
-Cell[673, 28, 654, 19, 186, "Text"]
+Cell[673, 28, 339, 14, 161, "Text"]
 }, Open  ]],
-Cell[1342, 50, 1357, 22, 137, "Text"],
+Cell[1027, 45, 299, 7, 137, "Text"],
 Cell[CellGroupData[{
-Cell[2724, 76, 53, 0, 51, "Subsection"],
-Cell[2780, 78, 875, 19, 436, "Text"]
-}, Closed]],
-Cell[3670, 100, 61, 0, 43, "Subsection"],
-Cell[CellGroupData[{
-Cell[3756, 104, 74, 1, 28, "Input"],
-Cell[3833, 107, 4266, 96, 83, "Output"]
+Cell[1351, 56, 53, 0, 51, "Subsection"],
+Cell[1407, 58, 875, 19, 436, "Text"]
 }, Open  ]],
+Cell[2297, 80, 61, 0, 51, "Subsection"],
+Cell[2361, 82, 74, 1, 29, "Input"],
 Cell[CellGroupData[{
-Cell[8136, 208, 124, 2, 59, "Input"],
-Cell[8263, 212, 66, 0, 34, "Output"],
-Cell[8332, 214, 50, 0, 34, "Output"]
+Cell[2460, 87, 124, 2, 61, "Input"],
+Cell[2587, 91, 66, 0, 35, "Output"],
+Cell[2656, 93, 50, 0, 35, "Output"]
 }, Open  ]],
-Cell[8397, 217, 58, 1, 34, "Input"],
-Cell[8458, 220, 26, 0, 34, "Input"]
+Cell[2721, 96, 58, 1, 35, "Input"],
+Cell[2782, 99, 26, 0, 35, "Input"]
 }, Open  ]],
-Cell[8499, 223, 272, 9, 5, "Text"],
+Cell[2823, 102, 272, 9, 5, "Text"],
 Cell[CellGroupData[{
-Cell[8796, 236, 27, 0, 92, "TeX: Title"],
-Cell[8826, 238, 79, 6, 118, "TeX: Text"],
-Cell[8908, 246, 36, 0, 63, "TeX: Section"],
-Cell[8947, 248, 31, 0, 63, "TeX: Section"],
-Cell[8981, 250, 34, 0, 63, "TeX: Section"]
+Cell[3120, 115, 27, 0, 92, "TeX: Title"],
+Cell[3150, 117, 79, 6, 118, "TeX: Text"],
+Cell[3232, 125, 36, 0, 63, "TeX: Section"],
+Cell[3271, 127, 38, 0, 63, "TeX: Section"],
+Cell[3312, 129, 38, 0, 63, "TeX: Section"],
+Cell[3353, 131, 34, 0, 63, "TeX: Section"]
 }, Open  ]]
 }
 ]

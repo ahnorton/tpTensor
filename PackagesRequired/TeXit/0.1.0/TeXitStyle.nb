@@ -1,0 +1,246 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6966,        238]
+NotebookOptionsPosition[      5378,        201]
+NotebookOutlinePosition[      5733,        216]
+CellTagsIndexPosition[      5690,        213]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[StyleData[StyleDefinitions -> "Default.nb"]],
+
+Cell[StyleData["Title"],
+ FontFamily->"Lato",
+ FontSize->50,
+ FontWeight->"Plain",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False},
+ FontColor->RGBColor[0.8, 0.042999923704890516`, 0.007995727473868924]],
+
+Cell[StyleData["Section"],
+ TextAlignment->Left,
+ FontFamily->"Lato",
+ FontSize->36,
+ FontWeight->"Plain",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False},
+ FontColor->RGBColor[
+  0.7612268253604944, 0.29576562142366675`, 0.08555733577477684]],
+
+Cell[StyleData["Subsection"],
+ FontFamily->"Lato",
+ FontSize->25,
+ FontWeight->"Plain",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False},
+ FontColor->RGBColor[
+  0.7803921568627451, 0.4235294117647059, 0.1607843137254902]],
+
+Cell[StyleData["Subsubsection"],
+ FontFamily->"Lato",
+ FontSize->21,
+ FontWeight->"Plain",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False},
+ FontColor->RGBColor[
+  0.7137254901960784, 0.21568627450980393`, 0.03137254901960784]],
+
+Cell[StyleData["Code"],
+ FontFamily->"Courier",
+ FontSize->16,
+ FontWeight->"Bold",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False}],
+
+Cell[StyleData["Input"],
+ FontFamily->"Courier",
+ FontSize->16,
+ FontWeight->"Bold",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False}],
+
+Cell[StyleData["Output"],
+ FontFamily->"Courier",
+ FontSize->16,
+ FontWeight->"Plain",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False}],
+
+Cell[StyleData["Text"],
+ FontFamily->"Utopia",
+ FontSize->18,
+ FontWeight->"Plain",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False}],
+
+Cell[StyleData["TeX: Title"],
+ ShowGroupOpener->False,
+ CellMargins->{{30, 2}, {10, 6}},
+ Evaluatable->True,
+ CellEvaluationFunction->TeXEvalTitle,
+ ShowCellLabel->False,
+ CellLabelMargins->{{0, 0}, {0, 0}},
+ MenuSortingValue->1000,
+ FontFamily->"Lato",
+ FontSize->50,
+ FontColor->RGBColor[0.8, 0.043137254901960784`, 0.00784313725490196],
+ Background->RGBColor[
+  0.9568627450980393, 0.9568627450980393, 0.9568627450980393]],
+
+Cell[StyleData["TeX: Section"],
+ ShowGroupOpener->True,
+ CellMargins->{{35, 2}, {2, 1}},
+ Evaluatable->True,
+ CellEvaluationFunction->TeXEvalSection,
+ ShowCellLabel->False,
+ CellLabelMargins->{{0, 0}, {0, 0}},
+ MenuSortingValue->1010,
+ FontFamily->"Lato",
+ FontSize->36,
+ FontColor->RGBColor[
+  0.7607843137254902, 0.29411764705882354`, 0.08235294117647059],
+ Background->RGBColor[
+  0.9568627450980393, 0.9568627450980393, 0.9568627450980393]],
+
+Cell[StyleData["TeX: Subsection"],
+ ShowGroupOpener->True,
+ CellMargins->{{50, 2}, {2, 1}},
+ Evaluatable->True,
+ CellEvaluationFunction->TeXEvalSubsection,
+ ShowCellLabel->False,
+ MenuSortingValue->1011,
+ FontFamily->"Lato",
+ FontSize->25,
+ FontColor->RGBColor[
+  0.7803921568627451, 0.4235294117647059, 0.1607843137254902],
+ Background->RGBColor[
+  0.9568627450980393, 0.9568627450980393, 0.9568627450980393]],
+
+Cell[StyleData["TeX: Subsubsection"],
+ ShowGroupOpener->True,
+ CellMargins->{{66, 2}, {2, 1}},
+ Evaluatable->True,
+ CellEvaluationFunction->TeXEvalSubsubsection,
+ ShowCellLabel->False,
+ MenuSortingValue->1012,
+ FontFamily->"Lato",
+ FontSize->21,
+ FontColor->RGBColor[
+  0.7137254901960784, 0.21568627450980393`, 0.03137254901960784],
+ Background->RGBColor[
+  0.9568627450980393, 0.9568627450980393, 0.9568627450980393]],
+
+Cell[StyleData["TeX: Text"],
+ ShowGroupOpener->False,
+ CellMargins->{{66, 2}, {2, 1}},
+ Evaluatable->True,
+ CellEvaluationFunction->TeXEvalText,
+ ShowCellLabel->False,
+ MenuSortingValue->1020,
+ FontFamily->"Source Code Pro",
+ FontSize->15,
+ FontWeight->"Plain",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False},
+ Background->RGBColor[
+  0.9568627450980393, 0.9568627450980393, 0.9568627450980393]],
+
+Cell[StyleData["TeX: Label"],
+ CellDingbat->Cell[
+  "label\[VeryThinSpace]:", FontColor -> RGBColor[0.7, 0.7, 0.7]],
+ ShowGroupOpener->False,
+ CellMargins->{{120, 2}, {2, 1}},
+ Evaluatable->True,
+ CellEvaluationFunction->TeXEvalLabel,
+ ShowCellLabel->False,
+ MenuSortingValue->1030,
+ FontFamily->"Utopia",
+ FontSize->18],
+
+Cell[StyleData["TeX: Command"],
+ CellDingbat->Cell[
+  "TeX\[VeryThinSpace]:", FontColor -> RGBColor[0.7, 0.7, 0.7]],
+ ShowGroupOpener->False,
+ CellMargins->{{120, 2}, {2, 1}},
+ Evaluatable->True,
+ CellEvaluationFunction->TeXEvalCommand,
+ ShowCellLabel->False,
+ CellLabelMargins->{{0, 0}, {0, 0}},
+ MenuSortingValue->1040,
+ FontFamily->"Utopia",
+ FontSize->18],
+
+Cell[StyleData["Print"],
+ MenuSortingValue->10000,
+ FontFamily->"Courier",
+ FontSize->14,
+ FontWeight->"Plain",
+ FontSlant->"Plain",
+ FontVariations->{"StrikeThrough"->False,
+ "Underline"->False}]
+},
+WindowSize->{808, 911},
+WindowMargins->{{45, Automatic}, {Automatic, 154}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"PrivateStylesheetFormatting.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 49, 0, 40, 49, 0, "StyleData", "StyleDefinitions", ""],
+Cell[610, 22, 239, 7, 117, 24, 0, "StyleData", "Title", "All"],
+Cell[852, 31, 279, 9, 92, 26, 0, "StyleData", "Section", "All"],
+Cell[1134, 42, 257, 8, 60, 29, 0, "StyleData", "Subsection", "All"],
+Cell[1394, 52, 263, 8, 49, 32, 0, "StyleData", "Subsubsection", "All"],
+Cell[1660, 62, 168, 6, 66, 23, 0, "StyleData", "Code", "All"],
+Cell[1831, 70, 169, 6, 51, 24, 0, "StyleData", "Input", "All"],
+Cell[2003, 78, 171, 6, 51, 25, 0, "StyleData", "Output", "All"],
+Cell[2177, 86, 168, 6, 53, 23, 0, "StyleData", "Text", "All"],
+Cell[2348, 94, 425, 12, 109, 29, 0, "StyleData", "TeX: Title", "All",
+ MenuSortingValue->1000],
+Cell[2776, 108, 444, 13, 80, 31, 0, "StyleData", "TeX: Section", "All",
+ MenuSortingValue->1010],
+Cell[3223, 123, 410, 12, 67, 34, 0, "StyleData", "TeX: Subsection", "All",
+ MenuSortingValue->1011],
+Cell[3636, 137, 419, 12, 62, 37, 0, "StyleData", "TeX: Subsubsection", "All",
+ MenuSortingValue->1012],
+Cell[4058, 151, 432, 14, 55, 28, 0, "StyleData", "TeX: Text", "All",
+ MenuSortingValue->1020],
+Cell[4493, 167, 320, 10, 42, 29, 0, "StyleData", "TeX: Label", "All",
+ MenuSortingValue->1030],
+Cell[4816, 179, 359, 11, 42, 31, 0, "StyleData", "TeX: Command", "All",
+ MenuSortingValue->1040],
+Cell[5178, 192, 196, 7, 42, 24, 0, "StyleData", "Print", "All",
+ MenuSortingValue->10000]
+}
+]
+*)
+

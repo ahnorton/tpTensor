@@ -1,1 +1,1 @@
-Get[FileNameJoin[{"RuleNumbers", "0.5", "RuleNumbers.m"}]]
+Get[FileNameJoin[{"RuleNumbers", "1.0.0", "RuleNumbers.m"}]]

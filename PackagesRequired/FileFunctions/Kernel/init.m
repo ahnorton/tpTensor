@@ -1,1 +1,1 @@
-Get[FileNameJoin[{"FileFunctions", "0.1", "FileFunctions.m"}]]
+Get[FileNameJoin[{"FileFunctions", "1.0.0", "FileFunctions.m"}]]

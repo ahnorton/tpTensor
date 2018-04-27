@@ -1,0 +1,12 @@
+
+The style file needs to be be moved into the StyleSheets directory,
+
+> mv TeXitStyle.nb ~/.Mathematica/SystemFiles/FrontEnd/StyleSheets/TeXitStyle.nb
+
+NB. To use the TeXit package it is essential that your notebook stylesheet be TeXitStyle.
+After moving the stylesheet to its correct location the TeXitStyle should be a menu item:
+
+   Format -> Stylesheet -> TeXitStyle
+
+(but perhaps Mathematica needs to be restarted before this item appears?)
+
