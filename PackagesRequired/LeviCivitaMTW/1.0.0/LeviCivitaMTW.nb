@@ -1,0 +1,530 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     20961,        522]
+NotebookOptionsPosition[     19487,        474]
+NotebookOutlinePosition[     20036,        493]
+CellTagsIndexPosition[     19993,        490]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Levi-Civita tensor", "Title"],
+
+Cell[TextData[{
+ "This package provides the Levi-Civita tensors  ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[CurlyEpsilon]", 
+    RowBox[{" ", 
+     RowBox[{"i", " ", "j", " ", "k", " ", "l"}]}]], TraditionalForm]]],
+ "   and  ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["\[CurlyEpsilon]", 
+    RowBox[{" ", 
+     RowBox[{"i", " ", "j", " ", "k", " ", "l"}]}]], TraditionalForm]]],
+ "   as defined in the book \[OpenCurlyDoubleQuote]Gravitation\
+\[CloseCurlyDoubleQuote] by Misner, Thorne, and Wheeler (MTW).\n\n",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " provides ",
+ Cell[BoxData[
+  RowBox[{
+   ButtonBox["LeviCivitaTensor",
+    BaseStyle->"Link",
+    ButtonData->"paclet:ref/LeviCivitaTensor"], "[", 
+   StyleBox["d", "TI"], "]"}]], "InlineFormula"],
+ "  but this is better because it sorts symbolic indices (so simplifies) \n\
+and is defined for arbitrary coords. It also has the contravariant version \
+(with correct sign in spacetime)."
+}], "Text",
+ CellChangeTimes->{{3.433630532387532*^9, 3.433630580939618*^9}, {
+   3.514436494929123*^9, 3.514436592794004*^9}, {3.51443713953931*^9, 
+   3.514437348267345*^9}, {3.514437380797297*^9, 3.514437500343915*^9}, {
+   3.514437779405796*^9, 3.514437868828825*^9}, {3.5144379011985083`*^9, 
+   3.514437901502117*^9}, {3.514438009853454*^9, 3.514438042861424*^9}, {
+   3.514438407414926*^9, 3.514438578909215*^9}, {3.514438628583852*^9, 
+   3.514438656761771*^9}, 3.514442169363268*^9, {3.682828507328052*^9, 
+   3.682828579935047*^9}, {3.682828623790793*^9, 3.6828286517423887`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"BeginPackage", "[", "\"\<LeviCivitaMTW`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.514442136256213*^9, 3.5144421422555103`*^9}, 
+   3.514442497010435*^9, {3.514442880899723*^9, 3.51444288161765*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LeviCivita", "::", "usage"}], "=", 
+  "\"\<LeviCivita[ i, j, k, l ]  =  \!\(\*SubscriptBox[\(\[CurlyEpsilon]\), \
+\(\(\[VeryThinSpace]\)\(i\[VeryThinSpace]j\[VeryThinSpace]k\[VeryThinSpace]l\)\
+\)]\)  = |det(g)|\!\(\*SuperscriptBox[\(\\\ \), \(1/2\)]\) [ i j k l ] ,  as \
+defined in MTW (page 202). \n\nThe symbol \[CurlyEpsilon] is not defined \
+here. It is used in the above description only to \nindicate the conventional \
+tensor component notation for LeviCivita[ ].\n\nLeviCivita[ ] has also been \
+defined for 2 and 3 dimensions: LeviCivita[ i, j ] , LeviCivita[ i, j, k ].\n\
+The assumed index ranges are:\n\n  2-dim:  1,2\n  3-dim:  1,2,3\n  4-dim:  \
+0,1,2,3\n\nIf a non-orthonormal tensor basis is being used (eg., a coordinate \
+basis in coordinates \nother than Minkowski or Euclidean)  then the factor  \
+LC<dim>SqrtAbsDetg  \[Congruent]  |det(g)|\!\(\*SuperscriptBox[\(\\\ \), \
+\(1/2\)]\) \nshould be defined by the user after loading this package. \n\n\
+The default values are:   \n   LC2SqrtAbsDetg = 1,\n   LC3SqrtAbsDetg = 1,\n  \
+ LC4SqrtAbsDetg = 1.\n\nSee also :  ? LeviCivitaUp\n\>\"", " "}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.514438836588166*^9, {3.514438888930148*^9, 3.5144391887255363`*^9}, {
+   3.514441251096506*^9, 3.514441834489295*^9}, 3.5144421009864063`*^9, {
+   3.514442196243388*^9, 3.514442307452917*^9}, {3.514443223849684*^9, 
+   3.514443368837406*^9}, {3.514443458435966*^9, 3.514443563589048*^9}, {
+   3.514443599906528*^9, 3.514443606345992*^9}, {3.5144436431773148`*^9, 
+   3.514443649683651*^9}, {3.5144436851104593`*^9, 3.514443705163241*^9}, {
+   3.514443743124483*^9, 3.514443743935347*^9}, {3.51444380899816*^9, 
+   3.5144438366986732`*^9}, {3.514443927141955*^9, 3.514443931284321*^9}, {
+   3.514486557782249*^9, 3.514486576872519*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LeviCivitaUp", "::", "usage"}], "=", 
+  "\"\<LeviCivitaUp[ i, j, k, l ]  =  \
+\!\(\*SuperscriptBox[\(\[CurlyEpsilon]\), \(\(\[VeryThinSpace]\)\(i\
+\[VeryThinSpace]j\[VeryThinSpace]k\[VeryThinSpace]l\)\)]\)  =  - |det(g)|\!\(\
+\*SuperscriptBox[\(\\\ \), \(\(-1\)/2\)]\) [ i j k l ] ,  as defined in MTW \
+(page 202).\n\nSee  ? LeviCivita  for the full documentation.\n\>\""}]], \
+"Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.514441871119001*^9, 3.514441982038352*^9}, {
+   3.514443571703155*^9, 3.5144436404783077`*^9}, {3.514443671838375*^9, 
+   3.514443707113656*^9}, 3.514443939600416*^9, {3.514443987693673*^9, 
+   3.5144439882691708`*^9}, 3.514486587154971*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"LC4SqrtAbsDetg", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LC3SqrtAbsDetg", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LC2SqrtAbsDetg", "=", "1"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.51443751086255*^9, 3.514437513357986*^9}, {
+  3.5144377281588182`*^9, 3.514437728303348*^9}, {3.514437873104279*^9, 
+  3.514437875909374*^9}, {3.5144379914082117`*^9, 3.514438005732211*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}]], "Input",
+ InitializationCell->True],
+
+Cell["LeviCivita[  ]   are the covariant components ...", "Text",
+ CellChangeTimes->{{3.433630532387532*^9, 3.433630580939618*^9}, {
+  3.514436494929123*^9, 3.514436592794004*^9}, {3.51443713953931*^9, 
+  3.514437348267345*^9}, {3.514437380797297*^9, 3.514437486237719*^9}, {
+  3.514437549839695*^9, 3.514437624988377*^9}, {3.51443824180686*^9, 
+  3.5144382447185373`*^9}, {3.5144383070739927`*^9, 3.5144383115662317`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "LeviCivita", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivita", "[", 
+      RowBox[{"j", ",", "i", ",", "k", ",", "l"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"i", ",", "j"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], " ", ";", 
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivita", "[", 
+      RowBox[{"i", ",", "k", ",", "j", ",", "l"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"j", ",", "k"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], ";", 
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivita", "[", 
+      RowBox[{"i", ",", "j", ",", "l", ",", "k"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"k", ",", "l"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"i", "==", "j"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"j", "==", "k"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"k", "==", "l"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"0", ",", "1", ",", "2", ",", "3"}], "]"}], " ", ":=", " ", 
+   "LC4SqrtAbsDetg"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.433630588082277*^9, 3.433630608542195*^9}, {
+   3.433630670931962*^9, 3.433630679922851*^9}, {3.433631072154611*^9, 
+   3.433631098375171*^9}, {3.433631171996997*^9, 3.433631244965324*^9}, {
+   3.433631275749963*^9, 3.433631452590122*^9}, {3.433631490361109*^9, 
+   3.433631500227877*^9}, {3.433631530914482*^9, 3.43363156155231*^9}, {
+   3.433631963644841*^9, 3.433631965398806*^9}, {3.433632074925466*^9, 
+   3.433632093319554*^9}, {3.514437645427968*^9, 3.514437647962401*^9}, {
+   3.514437741389064*^9, 3.5144377414882717`*^9}, {3.514437894026903*^9, 
+   3.514437896743032*^9}, 3.514438051194832*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivita", "[", 
+      RowBox[{"j", ",", "i", ",", "k"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"i", ",", "j"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], " ", ";", 
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivita", "[", 
+      RowBox[{"i", ",", "k", ",", "j"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"j", ",", "k"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"i", "==", "j"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"j", "==", "k"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"1", ",", "2", ",", "3"}], "]"}], " ", ":=", " ", 
+   "LC3SqrtAbsDetg"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.433630588082277*^9, 3.433630608542195*^9}, {
+   3.433630670931962*^9, 3.433630679922851*^9}, {3.433631072154611*^9, 
+   3.433631098375171*^9}, {3.433631171996997*^9, 3.433631244965324*^9}, {
+   3.433631275749963*^9, 3.433631452590122*^9}, {3.433631490361109*^9, 
+   3.433631500227877*^9}, {3.433631530914482*^9, 3.43363156155231*^9}, {
+   3.433631963644841*^9, 3.433631965398806*^9}, {3.433632074925466*^9, 
+   3.433632093319554*^9}, {3.433632359332599*^9, 3.433632430417391*^9}, {
+   3.514437932211133*^9, 3.5144379344418583`*^9}, 3.514438054557272*^9, {
+   3.514438218011709*^9, 3.5144382302379913`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivita", "[", 
+      RowBox[{"j", ",", "i"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"i", ",", "j"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"i_", ",", "j_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"i", "==", "j"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivita", "[", 
+    RowBox[{"1", ",", "2"}], "]"}], " ", ":=", " ", "LC2SqrtAbsDetg"}], 
+  ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.433630588082277*^9, 3.433630608542195*^9}, {
+   3.433630670931962*^9, 3.433630679922851*^9}, {3.433631072154611*^9, 
+   3.433631098375171*^9}, {3.433631171996997*^9, 3.433631244965324*^9}, {
+   3.433631275749963*^9, 3.433631452590122*^9}, {3.433631490361109*^9, 
+   3.433631500227877*^9}, {3.433631530914482*^9, 3.43363156155231*^9}, {
+   3.433631963644841*^9, 3.433631965398806*^9}, {3.433632074925466*^9, 
+   3.433632093319554*^9}, {3.433632359332599*^9, 3.433632430417391*^9}, {
+   3.433632470510017*^9, 3.433632510339109*^9}, {3.514437936696006*^9, 
+   3.514437938484558*^9}, 3.514438057316875*^9, {3.514438253438188*^9, 
+   3.514438261795189*^9}}],
+
+Cell["LeviCivitaUp[  ]   are the contravariant components ...", "Text",
+ CellChangeTimes->{{3.433630532387532*^9, 3.433630580939618*^9}, {
+  3.514436494929123*^9, 3.514436592794004*^9}, {3.51443713953931*^9, 
+  3.514437348267345*^9}, {3.514437380797297*^9, 3.514437486237719*^9}, {
+  3.514437549839695*^9, 3.514437624988377*^9}, {3.51443824180686*^9, 
+  3.5144382447185373`*^9}, {3.514438282008828*^9, 3.514438288621546*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "LeviCivitaUp", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivitaUp", "[", 
+      RowBox[{"j", ",", "i", ",", "k", ",", "l"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"i", ",", "j"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], " ", ";", 
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivitaUp", "[", 
+      RowBox[{"i", ",", "k", ",", "j", ",", "l"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"j", ",", "k"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], ";", 
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivitaUp", "[", 
+      RowBox[{"i", ",", "j", ",", "l", ",", "k"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"k", ",", "l"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"i", "==", "j"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"j", "==", "k"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_", ",", "l_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"k", "==", "l"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"0", ",", "1", ",", "2", ",", "3"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", "1"}], "/", "LC4SqrtAbsDetg"}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.433630588082277*^9, 3.433630608542195*^9}, {
+   3.433630670931962*^9, 3.433630679922851*^9}, {3.433631072154611*^9, 
+   3.433631098375171*^9}, {3.433631171996997*^9, 3.433631244965324*^9}, {
+   3.433631275749963*^9, 3.433631452590122*^9}, {3.433631490361109*^9, 
+   3.433631500227877*^9}, {3.433631530914482*^9, 3.43363156155231*^9}, {
+   3.433631963644841*^9, 3.433631965398806*^9}, {3.433632074925466*^9, 
+   3.433632093319554*^9}, {3.514437645427968*^9, 3.514437647962401*^9}, {
+   3.514437741389064*^9, 3.5144377414882717`*^9}, {3.514437894026903*^9, 
+   3.514437896743032*^9}, 3.514438051194832*^9, {3.5144383197096767`*^9, 
+   3.51443832151828*^9}, {3.5144383688955317`*^9, 3.514438371738573*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivitaUp", "[", 
+      RowBox[{"j", ",", "i", ",", "k"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"i", ",", "j"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], " ", ";", 
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivitaUp", "[", 
+      RowBox[{"i", ",", "k", ",", "j"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"j", ",", "k"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"i", "==", "j"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_", ",", "k_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"j", "==", "k"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"1", ",", "2", ",", "3"}], "]"}], " ", ":=", 
+   RowBox[{
+    RowBox[{"-", "1"}], "/", " ", "LC3SqrtAbsDetg"}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.433630588082277*^9, 3.433630608542195*^9}, {
+   3.433630670931962*^9, 3.433630679922851*^9}, {3.433631072154611*^9, 
+   3.433631098375171*^9}, {3.433631171996997*^9, 3.433631244965324*^9}, {
+   3.433631275749963*^9, 3.433631452590122*^9}, {3.433631490361109*^9, 
+   3.433631500227877*^9}, {3.433631530914482*^9, 3.43363156155231*^9}, {
+   3.433631963644841*^9, 3.433631965398806*^9}, {3.433632074925466*^9, 
+   3.433632093319554*^9}, {3.433632359332599*^9, 3.433632430417391*^9}, {
+   3.514437932211133*^9, 3.5144379344418583`*^9}, 3.514438054557272*^9, {
+   3.514438218011709*^9, 3.5144382302379913`*^9}, 3.5144383254811773`*^9, {
+   3.514438371942916*^9, 3.5144383740053453`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"LeviCivitaUp", "[", 
+      RowBox[{"j", ",", "i"}], "]"}]}], "/;", " ", 
+    RowBox[{
+     RowBox[{"Order", "[", 
+      RowBox[{"i", ",", "j"}], "]"}], "==", 
+     RowBox[{"-", "1"}]}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"i_", ",", "j_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"0", "/;", " ", 
+    RowBox[{"i", "==", "j"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LeviCivitaUp", "[", 
+    RowBox[{"1", ",", "2"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"-", "1"}], "/", "LC2SqrtAbsDetg"}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.433630588082277*^9, 3.433630608542195*^9}, {
+   3.433630670931962*^9, 3.433630679922851*^9}, {3.433631072154611*^9, 
+   3.433631098375171*^9}, {3.433631171996997*^9, 3.433631244965324*^9}, {
+   3.433631275749963*^9, 3.433631452590122*^9}, {3.433631490361109*^9, 
+   3.433631500227877*^9}, {3.433631530914482*^9, 3.43363156155231*^9}, {
+   3.433631963644841*^9, 3.433631965398806*^9}, {3.433632074925466*^9, 
+   3.433632093319554*^9}, {3.433632359332599*^9, 3.433632430417391*^9}, {
+   3.433632470510017*^9, 3.433632510339109*^9}, {3.514437936696006*^9, 
+   3.514437938484558*^9}, 3.514438057316875*^9, {3.514438253438188*^9, 
+   3.514438261795189*^9}, 3.514438326743536*^9, {3.5144383744150867`*^9, 
+   3.514438375763493*^9}}],
+
+Cell[BoxData[
+ RowBox[{"End", "[", "]"}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{"EndPackage", "[", "]"}]], "Input",
+ InitializationCell->True]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1468, 1263},
+WindowMargins->{{467, Automatic}, {Automatic, 51}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.25, 1.25 Inherited],
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 35, 0, 116, "Title"],
+Cell[605, 24, 1551, 35, 120, "Text"],
+Cell[2159, 61, 252, 4, 58, "Input",
+ InitializationCell->True],
+Cell[2414, 67, 1849, 27, 617, "Input",
+ InitializationCell->True],
+Cell[4266, 96, 713, 13, 163, "Input",
+ InitializationCell->True],
+Cell[4982, 111, 484, 10, 109, "Input",
+ InitializationCell->True],
+Cell[5469, 123, 101, 2, 58, "Input",
+ InitializationCell->True],
+Cell[5573, 127, 423, 5, 38, "Text"],
+Cell[5999, 134, 2772, 69, 234, "Input",
+ InitializationCell->True],
+Cell[8774, 205, 2010, 50, 159, "Input",
+ InitializationCell->True],
+Cell[10787, 257, 1441, 34, 109, "Input",
+ InitializationCell->True],
+Cell[12231, 293, 425, 5, 38, "Text"],
+Cell[12659, 300, 2933, 71, 234, "Input",
+ InitializationCell->True],
+Cell[15595, 373, 2140, 52, 159, "Input",
+ InitializationCell->True],
+Cell[17738, 427, 1564, 36, 109, "Input",
+ InitializationCell->True],
+Cell[19305, 465, 78, 2, 58, "Input",
+ InitializationCell->True],
+Cell[19386, 469, 85, 2, 58, "Input",
+ InitializationCell->True]
+}, Open  ]]
+}
+]
+*)
+

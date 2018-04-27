@@ -1,0 +1,1 @@
+Get[FileNameJoin[{"PowersOfTrig", "1.0", "PowersOfTrig.m"}]]

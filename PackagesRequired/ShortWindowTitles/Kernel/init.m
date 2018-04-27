@@ -1,0 +1,1 @@
+Get[FileNameJoin[{"ShortWindowTitles", "0.5", "ShortWindowTitles.m"}]]

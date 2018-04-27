@@ -1,0 +1,203 @@
+
+% Size ordering is...
+% \big
+% \Big
+% \bigg
+% \Bigg
+
+\newcommand{\ED}{2{\small ED}}  % use as {\ED} in text to aviod blank-space problems
+
+\newcommand{\LW}{Li\'enard--Wiechert}  % use as {\LW} in text to aviod blank-space problems
+\newcommand{\FS}{Frenet--Serret}       % use as {\FS} in text to aviod blank-space problems
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\diag}{{\rm diag}}
+\newcommand{\ddd}{\dddot}          % just a name change
+\newcommand{\dddd}{\ddddot}        % just a name change
+\newcommand{\ndot}[2]{{\stackrel{{}_{(#1)}}{#2}}}
+
+% The macros that use \tensor still take _ and ^  to define index position.
+% eg.,  \kap{_1}  \kap{_1^2}
+
+\newcommand{\N}[1]{\tensor{N}{#1}}
+\newcommand{\kap}[1]{\tensor*{\kappa}{#1}}
+\newcommand{\W}[1]{\tensor{W}{#1}}
+\newcommand{\Y}[1]{\tensor{Y}{#1}}
+\newcommand{\Yd}[1]{\tensor{\dot Y}{#1}}
+% \newcommand{\e}[1]{\tensor{{\bf e}}{#1}}
+
+\newcommand{\nN}{\tensor{n}{_N}} 
+\newcommand{\dotnN}{\tensor{\dot n}{_N}} 
+\newcommand{\thetaN}{\tensor{\hat\theta}{_N}}
+\newcommand{\phiN}{\tensor{\hat\phi}{_N}}
+
+\newcommand{\nY}{\tensor{n}{_Y}}
+\newcommand{\dotnY}{\tensor{\dot n}{_Y}} 
+\newcommand{\thetaY}{\tensor{\hat\theta}{_Y}}
+\newcommand{\phiY}{\tensor{\hat\phi}{_Y}}
+
+% Electromagnetic constants...
+\newcommand{\muzero}{\tensor{\mu}{_0}}
+\newcommand{\epszero}{\tensor{\epsilon}{_0}}
+
+
+\newcommand{\mb}{\overline m}                     % bare mass from the MP equations 
+\newcommand{\mB}{m_{{}_{\!B\!}}}             % bare mass 
+\newcommand{\qB}{q_{{}_{\!B\!}}}             % bare charge 
+\newcommand{\lamB}{\lambda_{{}_{\!B\!}}}     % bare wavelength
+\newcommand{\me}{m_{\rm e}}                  % electron mass
+
+
+\newcommand{\ret}{{\rm ret}}
+\newcommand{\adv}{{\rm adv}}
+\newcommand{\src}{{\rm src}}
+\newcommand{\tot}{{\rm tot}}
+\newcommand{\ext}{{\rm ext}}
+\newcommand{\chg}{{\rm chg}}
+% \newcommand{\chg}{{(z)}}
+\newcommand{\sys}{{\rm sys}}
+\newcommand{\inn}{{\rm in}}
+\newcommand{\out}{{\rm out}}
+\newcommand{\sph}{{\rm sph}}
+\newcommand{\Max}{{\rm Maxwell}}
+\newcommand{\mech}{{\rm mech}}
+% \newcommand{\dip}{{\rm dipole}}
+\newcommand{\dip}{{\rm dp}}
+\newcommand{\edp}{{\rm e.dp}}
+\newcommand{\mdp}{{\rm m.dp}}
+\newcommand{\far}{{\rm far}}
+
+\newcommand{\advret}{{\!\!\!\! \scriptsize {\begin{tabular}{l}\vspace{-11pt} \\ \adv \vspace{-3pt} \\ \ret \end{tabular}} \!\!\!\!\! }}
+
+\newcommand{\free}{{\rm free}}
+\newcommand{\ind}{{\rm ind}}
+\newcommand{\rad}{{\rm rad}}
+\newcommand{\inter}{{\rm int}}
+
+\newcommand{\z}[1]{\tensor{z}{#1}}
+\newcommand{\zd}[1]{\tensor{\dot z}{#1}}
+\newcommand{\zdd}[1]{\tensor{\ddot z}{#1}}
+\newcommand{\zddd}[1]{\tensor{\dddot z}{#1}}
+\newcommand{\zdddd}[1]{\tensor{\ndot{4}{z}}{#1}}
+
+
+% Haven't made up my mind what to use for the sphere radius, so use a macro...
+\newcommand{\sr}{\tensor{r}{_\!_\circ_\!}}        %  old
+\newcommand{\ro}{{\tensor{r}{_\!_\circ}}}         %  as used in Mathematica
+\newcommand{\rod}{{\tensor{\dot r}{_\!_\circ}}}   
+\newcommand{\rodd}{{\tensor{\ddot r}{_\!_\circ}}}       
+\newcommand{\roddd}{{\tensor{\dddot r}{_\!_\circ}}}     
+\newcommand{\rosqr}{{\tensor{r}{_\!_\circ^\!^2}}} %  ro^2 with the 2 nicely placed.
+\newcommand{\rb}{{\bar r}}                        %  as used in Mathematica
+% \newcommand{\rx}{{\tensor{r}{_x}}}                %  used in static potential
+% \newcommand{\sx}{{\tensor{s}{_x}}}                %  used in static potential
+\newcommand{\rx}{{r_x}}                %  used in static potential
+\newcommand{\sx}{{s_x}}                %  used in static potential
+
+% Tension...
+\newcommand{\tauo}{\tensor{\Sigma}{_\circ}}   %  old
+
+% Helix radius...
+\newcommand{\rh}{{r_{\rm h}}}                    %  as used in Mathematica
+% \newcommand{\rh}{{\tensor{r}{_\!_{\rm h}_\!}}}   %  as used in Mathematica
+
+% A general reduced wavelength: lambar = lambda/(2pi)
+\newcommand{\lambar}{\lambda\!\!\!\!\,\bar{\phantom{o}}}
+
+% The codata standard for Compton wavelength, with a subscript C for Compton...
+\newcommand{\lamC}{\lambda_{{}_{\!C}}}
+
+% The codata standard for reduced Compton wavelength, with a subscript C for Compton...
+\newcommand{\lambarC}{\lambar_{{}_{C}}}
+
+% Always subscript, so no _ needed:   \an{n} == <k , z_n>  ...
+\newcommand{\an}[1]{\tensor{a}{_(_#1_)}}
+
+% Lagrangian, Euler operator, Noether current...
+\newcommand{\Lag}{\mathscr{L}}
+\newcommand{\LagO}{\tensor{\Lag}{_0}}                             % O not 0  (re. name)   Use \tLag instead.
+\newcommand{\Lagl}{\tensor{\Lag}{_1}}                             % l not 1  (re. name)   Use \tLag instead.
+\newcommand{\tLag}[1]{\tensor{\Lag}{#1}}                          % Usage: \tLag{_0}, \tLag{_1},...  tensor Lag.
+% \newcommand{\Lagn}[2]{\tensor*{\Lag}{^{(#1)\,}_{\; #2}}}        % Usage: \Lagn{n}{\alpha}  n=0,1,2 
+\newcommand{\emN}[1]{\tensor{\mathcal{N}}{_#1_{\!}}}              % Usage: \emN{v} 
+\newcommand{\Dn}[2]{\tensor*{D}{^{(#1)\!}_{#2}}}                  % Usage: \Dn{n}{\alpha}  n=0,1,2 
+\newcommand{\Lagn}[2]{\tensor*{D}{^{(#1)\!}_{#2}}\Lag}            % Usage: \Lagn{n}{\alpha}  n=0,1,2 
+% Old defn...
+\newcommand{\Euler}[1]{\tensor{\mathcal{E}}{_#1}}                 % Usage: \Euler{\alpha} 
+% New defn...
+\newcommand{\Eu}[1]{\tensor{\mathcal{E}}{#1}}                     % Usage: \Eu{_\alpha} \Eu{_i_j}  etc.   
+
+
+% Labeled Lagrangians...
+\newcommand{\Lmech}{\tensor{\Lag}{_{\rm mech}}}
+\newcommand{\Lchg}{\tensor{\Lag}{_{\rm chg}}}
+
+% The fundamental lengths. 
+% Can not use numerals in command names!...
+\newcommand{\lam}[1]{\tensor*{\lambda}{#1}}                       % usage  \lam{_1}, \lam{_1^2} 
+
+% Lie deriv...  
+\newcommand{\Lie}[1]{\tensor{\mathcal{L}}{_#1}}                   % Usage: \Lie{v} 
+
+% Fast and slow spinors...
+\newcommand{\psis}{\tensor{\psi}{_{\rm s}}}
+\newcommand{\psif}{\tensor{\psi}{_{\rm f}}}
+\newcommand{\dpsis}{\tensor{\dot \psi}{_{\rm s}}}
+\newcommand{\dpsif}{\tensor{\dot \psi}{_{\rm f}}}
+
+% 3-vector bold notation...
+% \newcommand{\bbeta}{{\boldsymbol \beta}}
+% \newcommand{\btheta}{{\boldsymbol \theta}}
+
+% Two argument variation... 
+\newcommand{\dvw}[2]{\tensor{\delta}{_{(#1,\,#2)}}}              % Usage: delta version:        \dvw{v}{\omega}
+\newcommand{\Dvw}[2]{\tensor{\nabla}{_{\!(#1,\,#2)}}}            % Usage: nabla version:        \Dvw{v}{\omega}
+\newcommand{\tDvw}[2]{\tensor{\tilde\nabla}{_{\!(#1,\,#2)}}}     % Usage: tilda nabla version:  \tDvw{v}{\omega}
+
+% ---------------------------------------------------------------------------
+% To keep cut and pastes working...
+
+% Use this one if sub-scripted...
+% eg.,  \ndotd{4}{z}{\alpha}
+\newcommand{\ndotd}[3]{{\stackrel{{}_{(#1)}}{#2}}_{\!#3}}
+
+\newcommand{\fsc}{{\alpha}}
+
+% Schrodinger wave function...
+\newcommand{\psiS}{\psi_{{\!}_S}}
+
+\newcommand{\Sf}{|S|_{{}_{0}}}     % free-particle spin magnitude
+\newcommand{\mf}{m_{{}_{0}}}       % free-particle mass
+
+% Get rid of this...
+\newcommand{\Gam}[2]{{\Gamma^{#1}_{\phantom{#1}#2}}}
+
+\newcommand{\rH}{r_{{}_{\!H}}}
+\newcommand{\wH}{\omega_{{}_{\!H}}}
+\newcommand{\gH}{\gamma_{{}_{\!H}}}
+\newcommand{\bH}{\beta_{{}_{\!H}}}
+\newcommand{\aH}{\alpha_{{}_{\!H}}}
+\newcommand{\mH}{m_{{}_{\!H}}}
+\newcommand{\SH}{S_{{}_{\!H}}}
+
+% -------------------------------------------------------------------------------
+% From  http://tex.stackexchange.com/questions/96479/how-can-i-type-lambda-bar
+
+% For a lower bar, 
+% \makeatletter
+% \newcommand{\lambdabar}{{\mathchoice
+%   {\smash@bar\textfont\displaystyle{0.25}{1.2}\lambda}
+%   {\smash@bar\textfont\textstyle{0.25}{1.2}\lambda}
+%   {\smash@bar\scriptfont\scriptstyle{0.25}{1.2}\lambda}
+%   {\smash@bar\scriptscriptfont\scriptscriptstyle{0.25}{1.2}\lambda}
+% }}
+% \newcommand{\smash@bar}[4]{%
+%   \smash{\rlap{\raisebox{-#3\fontdimen5#10}{$\m@th#2\mkern#4mu\mathchar'26$}}}%
+% }
+% \makeatother
+
+% For a bar that matches hbar, 
+\newcommand{\lambdabar}{{\mkern0.75mu\mathchar '26\mkern -9.75mu\lambda}}
+
+% -------------------------------------------------------------------------------
+

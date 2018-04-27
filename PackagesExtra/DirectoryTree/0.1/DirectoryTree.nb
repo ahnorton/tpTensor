@@ -1,0 +1,2065 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    108098,       2057]
+NotebookOptionsPosition[    103506,       1903]
+NotebookOutlinePosition[    103874,       1919]
+CellTagsIndexPosition[    103831,       1916]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Tree listings of directories", "Title",
+ CellChangeTimes->{{3.6820309852288847`*^9, 3.682031008508483*^9}}],
+
+Cell["\<\
+Could do this using an IndentedPrint function for general nested lists.\
+\>", "Text",
+ CellChangeTimes->{{3.6820311348429527`*^9, 3.682031139307866*^9}, {
+  3.6820312256737823`*^9, 3.682031254217534*^9}, {3.6820385377404623`*^9, 
+  3.682038572379959*^9}}],
+
+Cell["\<\
+Each list in the data is of the form   { dir,  sub1, sub2, .... }    where  \
+subN  are in dir.  Each subN is a filename or dir list. \
+\>", "Text",
+ CellChangeTimes->{{3.682038266895857*^9, 3.682038464189349*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "IndentedPrint", "]"}]], "Input",
+ CellChangeTimes->{{3.682036235609276*^9, 3.682036239477295*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"IndentedPrint", "[", " ", 
+   RowBox[{"spc_String", ",", "x_List"}], "]"}], ":=", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"IndentedPrint", "[", 
+     RowBox[{"spc", ",", 
+      RowBox[{"First", "[", "x", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"IndentedPrint", "[", 
+        RowBox[{
+         RowBox[{"spc", "<>", "\"\<    \>\""}], ",", "#"}], "]"}], "&"}], ",", 
+      RowBox[{"Rest", "[", "x", "]"}]}], "]"}], ";"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.682031983424526*^9, 3.682032005456113*^9}, {
+   3.6820348013565207`*^9, 3.682034883963662*^9}, {3.68203493735546*^9, 
+   3.682034946235491*^9}, {3.682035016855504*^9, 3.682035018233964*^9}, {
+   3.682035321005994*^9, 3.682035354837657*^9}, {3.682035418437059*^9, 
+   3.682035423076614*^9}, {3.682035733376802*^9, 3.682035764576357*^9}, 
+   3.6820359877576323`*^9, {3.682036019645132*^9, 3.6820360981239567`*^9}, {
+   3.682036137579667*^9, 3.682036149195533*^9}, {3.682037924860798*^9, 
+   3.682037974019992*^9}, 3.682038030339095*^9, {3.682038175601612*^9, 
+   3.6820381845450687`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"IndentedPrint", "[", 
+   RowBox[{"spc_String", ",", "x_"}], "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"spc", ",", "x"}], "]"}], ";"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.682031983424526*^9, 3.682032005456113*^9}, {
+   3.682034905356926*^9, 3.6820349154032507`*^9}, 3.6820349757064657`*^9, {
+   3.682035969134014*^9, 3.682035973165625*^9}, {3.682036261617578*^9, 
+   3.682036267833868*^9}, {3.682037986181168*^9, 3.6820380268367977`*^9}, 
+   3.682038160225666*^9, 3.682038196855467*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"IndentedPrint", "[", 
+  RowBox[{"\"\<xxx\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<.\>\"", ",", "1", ",", "a", ",", 
+       RowBox[{"{", 
+        RowBox[{"b", ",", 
+         RowBox[{"{", 
+          RowBox[{"b1", ",", "b12", ",", "b13"}], "}"}], ",", "b2"}], "}"}], 
+       ",", "c"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", 
+       RowBox[{"2", "a"}], ",", 
+       RowBox[{"2", "b"}]}], "}"}], ",", "3"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.682035838863378*^9, 3.682035841535446*^9}, {
+   3.6820363327770863`*^9, 3.6820363338417*^9}, {3.682037395355959*^9, 
+   3.682037425291156*^9}, {3.682037466922942*^9, 3.682037504810096*^9}, 
+   3.682037573722176*^9, {3.6820376301049757`*^9, 3.682037631432535*^9}, {
+   3.682038214028038*^9, 3.682038219280856*^9}, {3.682038486830181*^9, 
+   3.682038504173115*^9}, {3.68203859350133*^9, 3.682038615499638*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx\"\>", "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["xxx", "."],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.6820386181775084`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx    \"\>", "\[InvisibleSpace]", "1"}],
+  SequenceForm["xxx    ", 1],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.6820386181782007`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx    \"\>", "\[InvisibleSpace]", "a"}],
+  SequenceForm["xxx    ", $CellContext`a],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.682038618178834*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx    \"\>", "\[InvisibleSpace]", "b"}],
+  SequenceForm["xxx    ", $CellContext`b],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.682038618179446*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx        \"\>", "\[InvisibleSpace]", "b1"}],
+  SequenceForm["xxx        ", $CellContext`b1],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.682038618180008*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx            \"\>", "\[InvisibleSpace]", "b12"}],
+  SequenceForm["xxx            ", $CellContext`b12],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.6820386181805687`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx            \"\>", "\[InvisibleSpace]", "b13"}],
+  SequenceForm["xxx            ", $CellContext`b13],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.68203861818125*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx        \"\>", "\[InvisibleSpace]", "b2"}],
+  SequenceForm["xxx        ", $CellContext`b2],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.6820386181818447`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx    \"\>", "\[InvisibleSpace]", "c"}],
+  SequenceForm["xxx    ", $CellContext`c],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.682038618182476*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx    \"\>", "\[InvisibleSpace]", "2"}],
+  SequenceForm["xxx    ", 2],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.6820386181830997`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx        \"\>", "\[InvisibleSpace]", 
+   RowBox[{"2", " ", "a"}]}],
+  SequenceForm["xxx        ", 2 $CellContext`a],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.6820386181837597`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx        \"\>", "\[InvisibleSpace]", 
+   RowBox[{"2", " ", "b"}]}],
+  SequenceForm["xxx        ", 2 $CellContext`b],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.682038618184423*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xxx    \"\>", "\[InvisibleSpace]", "3"}],
+  SequenceForm["xxx    ", 3],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.68203821987462*^9, {3.682038488256506*^9, 3.682038505136936*^9}, 
+   3.682038618185061*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Messing about", "Section",
+ CellChangeTimes->{{3.6820262862166853`*^9, 3.682026289320813*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ReadList", "[", 
+  RowBox[{
+   RowBox[{"StringToStream", "[", "\"\<abcd\>\"", "]"}], ",", "Character"}], 
+  "]"}]], "Input",
+ CellID->889116480],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"a\"\>", ",", "\<\"b\"\>", ",", "\<\"c\"\>", ",", "\<\"d\"\>"}],
+   "}"}]], "Output",
+ CellChangeTimes->{3.682023751722557*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RunProcess", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\"\<tree\>\"", ",", " ", "\"\<-S\>\""}], "}"}], ",", 
+    "\"\<StandardOutput\>\""}], "]"}], "//", 
+  RowBox[{
+   RowBox[{"ReadList", "[", 
+    RowBox[{
+     RowBox[{"StringToStream", "[", "#", "]"}], ",", "Character"}], "]"}], 
+   "&"}]}]], "Input",
+ CellChangeTimes->{{3.682022218672079*^9, 3.6820222390519342`*^9}, {
+   3.682022359162825*^9, 3.68202236157852*^9}, 3.6820224536255713`*^9, {
+   3.6820225674962053`*^9, 3.682022585879635*^9}, {3.6820226378155212`*^9, 
+   3.6820226385115213`*^9}, {3.682022757829863*^9, 3.682022761733676*^9}, {
+   3.682023771257375*^9, 3.68202378387252*^9}, {3.682024800556038*^9, 
+   3.682024822338008*^9}, {3.682024903434963*^9, 3.682024903914834*^9}, {
+   3.682025053609006*^9, 3.6820250540407763`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\".\"\>", ",", "\<\"\\n\"\>", ",", "\<\"\[CapitalATilde]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"A\"\>", ",", "\<\"p\"\>", ",", "\<\"p\"\>", 
+   ",", "\<\"l\"\>", ",", "\<\"i\"\>", ",", "\<\"c\"\>", ",", "\<\"a\"\>", 
+   ",", "\<\"t\"\>", ",", "\<\"i\"\>", ",", "\<\"o\"\>", ",", "\<\"n\"\>", 
+   ",", "\<\"s\"\>", ",", "\<\"\\n\"\>", ",", "\<\"\[CapitalATilde]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"A\"\>", ",", "\<\"u\"\>", ",", "\<\"t\"\>", 
+   ",", "\<\"o\"\>", ",", "\<\"l\"\>", ",", "\<\"o\"\>", ",", "\<\"a\"\>", 
+   ",", "\<\"d\"\>", ",", "\<\"\\n\"\>", ",", "\<\"\[CapitalATilde]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"F\"\>", ",", "\<\"r\"\>", ",", "\<\"o\"\>", 
+   ",", "\<\"n\"\>", ",", "\<\"t\"\>", ",", "\<\"E\"\>", ",", "\<\"n\"\>", 
+   ",", "\<\"d\"\>", ",", "\<\"\\n\"\>", ",", "\<\"\[CapitalATilde]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"I\"\>", ",", "\<\"n\"\>", ",", "\<\"s\"\>", 
+   ",", "\<\"t\"\>", ",", "\<\"a\"\>", ",", "\<\"l\"\>", ",", "\<\"l\"\>", 
+   ",", "\<\"e\"\>", ",", "\<\"r\"\>", ",", "\<\"\\n\"\>", 
+   ",", "\<\"\[CapitalATilde]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\" \"\>", ",", "\<\"K\"\>", 
+   ",", "\<\"e\"\>", ",", "\<\"r\"\>", ",", "\<\"n\"\>", ",", "\<\"e\"\>", 
+   ",", "\<\"l\"\>", ",", "\<\"\\n\"\>", ",", "\<\"\.b3\"\>", 
+   ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\" \"\>", 
+   ",", "\<\"\[CapitalAGrave]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\" \"\>", ",", "\<\"i\"\>", 
+   ",", "\<\"n\"\>", ",", "\<\"i\"\>", ",", "\<\"t\"\>", ",", "\<\".\"\>", 
+   ",", "\<\"m\"\>", ",", "\<\"\\n\"\>", ",", "\<\"\[CapitalATilde]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"L\"\>", ",", "\<\"i\"\>", ",", "\<\"c\"\>", 
+   ",", "\<\"e\"\>", ",", "\<\"n\"\>", ",", "\<\"s\"\>", ",", "\<\"i\"\>", 
+   ",", "\<\"n\"\>", ",", "\<\"g\"\>", ",", "\<\"\\n\"\>", 
+   ",", "\<\"\[CapitalAGrave]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\" \"\>", ",", "\<\"S\"\>", 
+   ",", "\<\"y\"\>", ",", "\<\"s\"\>", ",", "\<\"t\"\>", ",", "\<\"e\"\>", 
+   ",", "\<\"m\"\>", ",", "\<\"F\"\>", ",", "\<\"i\"\>", ",", "\<\"l\"\>", 
+   ",", "\<\"e\"\>", ",", "\<\"s\"\>", ",", "\<\"\\n\"\>", ",", "\<\" \"\>", 
+   ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\" \"\>", 
+   ",", "\<\"\[CapitalATilde]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\" \"\>", ",", "\<\"C\"\>", 
+   ",", "\<\"h\"\>", ",", "\<\"a\"\>", ",", "\<\"r\"\>", ",", "\<\"a\"\>", 
+   ",", "\<\"c\"\>", ",", "\<\"t\"\>", ",", "\<\"e\"\>", ",", "\<\"r\"\>", 
+   ",", "\<\"E\"\>", ",", "\<\"n\"\>", ",", "\<\"c\"\>", ",", "\<\"o\"\>", 
+   ",", "\<\"d\"\>", ",", "\<\"i\"\>", ",", "\<\"n\"\>", ",", "\<\"g\"\>", 
+   ",", "\<\"s\"\>", ",", "\<\"\\n\"\>", ",", "\<\" \"\>", ",", "\<\" \"\>", 
+   ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\"\[CapitalATilde]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"F\"\>", ",", "\<\"r\"\>", ",", "\<\"o\"\>", 
+   ",", "\<\"n\"\>", ",", "\<\"t\"\>", ",", "\<\"E\"\>", ",", "\<\"n\"\>", 
+   ",", "\<\"d\"\>", ",", "\<\"\\n\"\>", ",", "\<\" \"\>", ",", "\<\" \"\>", 
+   ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\"\.b3\"\>", ",", "\<\" \"\>", 
+   ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\"\[CapitalATilde]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"P\"\>", ",", "\<\"a\"\>", ",", "\<\"l\"\>", 
+   ",", "\<\"e\"\>", ",", "\<\"t\"\>", ",", "\<\"t\"\>", ",", "\<\"e\"\>", 
+   ",", "\<\"s\"\>", ",", "\<\"\\n\"\>", ",", "\<\" \"\>", ",", "\<\" \"\>", 
+   ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\"\.b3\"\>", ",", "\<\" \"\>", 
+   ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\"\[CapitalAGrave]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"S\"\>", ",", "\<\"t\"\>", ",", "\<\"y\"\>", 
+   ",", "\<\"l\"\>", ",", "\<\"e\"\>", ",", "\<\"S\"\>", ",", "\<\"h\"\>", 
+   ",", "\<\"e\"\>", ",", "\<\"e\"\>", ",", "\<\"t\"\>", ",", "\<\"s\"\>", 
+   ",", "\<\"\\n\"\>", ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\" \"\>", 
+   ",", "\<\" \"\>", ",", "\<\"\[CapitalATilde]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"K\"\>", ",", "\<\"e\"\>", ",", "\<\"r\"\>", 
+   ",", "\<\"n\"\>", ",", "\<\"e\"\>", ",", "\<\"l\"\>", ",", "\<\"\\n\"\>", 
+   ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\" \"\>", ",", "\<\" \"\>", 
+   ",", "\<\"\[CapitalAGrave]\"\>", ",", "\<\"\[CapitalADoubleDot]\"\>", 
+   ",", "\<\"\[CapitalADoubleDot]\"\>", ",", "\<\" \"\>", ",", "\<\"S\"\>", 
+   ",", "\<\"p\"\>", ",", "\<\"e\"\>", ",", "\<\"l\"\>", ",", "\<\"l\"\>", 
+   ",", "\<\"i\"\>", ",", "\<\"n\"\>", ",", "\<\"g\"\>", ",", "\<\"D\"\>", 
+   ",", "\<\"i\"\>", ",", "\<\"c\"\>", ",", "\<\"t\"\>", ",", "\<\"i\"\>", 
+   ",", "\<\"o\"\>", ",", "\<\"n\"\>", ",", "\<\"a\"\>", ",", "\<\"r\"\>", 
+   ",", "\<\"i\"\>", ",", "\<\"e\"\>", ",", "\<\"s\"\>", ",", "\<\"\\n\"\>", 
+   ",", "\<\"\\n\"\>", ",", "\<\"1\"\>", ",", "\<\"3\"\>", ",", "\<\" \"\>", 
+   ",", "\<\"d\"\>", ",", "\<\"i\"\>", ",", "\<\"r\"\>", ",", "\<\"e\"\>", 
+   ",", "\<\"c\"\>", ",", "\<\"t\"\>", ",", "\<\"o\"\>", ",", "\<\"r\"\>", 
+   ",", "\<\"i\"\>", ",", "\<\"e\"\>", ",", "\<\"s\"\>", ",", "\<\",\"\>", 
+   ",", "\<\" \"\>", ",", "\<\"1\"\>", ",", "\<\" \"\>", ",", "\<\"f\"\>", 
+   ",", "\<\"i\"\>", ",", "\<\"l\"\>", ",", "\<\"e\"\>", ",", "\<\"\\n\"\>"}],
+   "}"}]], "Output",
+ CellChangeTimes->{
+  3.6820225865602407`*^9, 3.68202264060017*^9, 3.6820227632068653`*^9, 
+   3.682023785451338*^9, {3.682024803146358*^9, 3.682024823140184*^9}, 
+   3.682024905386857*^9, 3.682025054726225*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RunProcess", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\"\<tree\>\"", ",", "\"\<-S\>\""}], "}"}], ",", 
+   "\"\<StandardOutput\>\""}], "]"}]], "Input"],
+
+Cell[BoxData["\<\".\\n\[CapitalATilde]\[CapitalADoubleDot]\[CapitalADoubleDot]\
+ Applications\\n\[CapitalATilde]\[CapitalADoubleDot]\[CapitalADoubleDot] \
+Autoload\\n\[CapitalATilde]\[CapitalADoubleDot]\[CapitalADoubleDot] \
+FrontEnd\\n\[CapitalATilde]\[CapitalADoubleDot]\[CapitalADoubleDot] Installer\
+\\n\[CapitalATilde]\[CapitalADoubleDot]\[CapitalADoubleDot] Kernel\\n\.b3   \
+\[CapitalAGrave]\[CapitalADoubleDot]\[CapitalADoubleDot] init.m\\n\
+\[CapitalATilde]\[CapitalADoubleDot]\[CapitalADoubleDot] Licensing\\n\
+\[CapitalAGrave]\[CapitalADoubleDot]\[CapitalADoubleDot] SystemFiles\\n    \
+\[CapitalATilde]\[CapitalADoubleDot]\[CapitalADoubleDot] \
+CharacterEncodings\\n    \[CapitalATilde]\[CapitalADoubleDot]\
+\[CapitalADoubleDot] FrontEnd\\n    \.b3   \[CapitalATilde]\
+\[CapitalADoubleDot]\[CapitalADoubleDot] Palettes\\n    \.b3   \
+\[CapitalAGrave]\[CapitalADoubleDot]\[CapitalADoubleDot] StyleSheets\\n    \
+\[CapitalATilde]\[CapitalADoubleDot]\[CapitalADoubleDot] Kernel\\n    \
+\[CapitalAGrave]\[CapitalADoubleDot]\[CapitalADoubleDot] SpellingDictionaries\
+\\n\\n13 directories, 1 file\\n\"\>"], "Output",
+ CellChangeTimes->{3.6820252962942333`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"subs", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<\[RightTee]\>\""}], 
+     ",", 
+     RowBox[{
+     "\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", "\"\<\[LongDash]\>\""}], ",", 
+     
+     RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{
+     "\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<\[LeftFloor]\>\""}]}], 
+    "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.682022375511331*^9, 3.682022401129909*^9}, 
+   3.682022509432665*^9, {3.6820233898934717`*^9, 3.682023402445582*^9}, {
+   3.6820234846208153`*^9, 3.682023504556476*^9}, {3.682025307145092*^9, 
+   3.6820254413480473`*^9}, {3.682026636175447*^9, 3.682026638262348*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"subs", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{
+     "\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", "\"\<\[LongDash]\>\""}], ",", 
+     
+     RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{
+     "\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<\[LeftFloor]\>\""}]}], 
+    "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6820268410739717`*^9, 3.682026842481927*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"subs", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", "\"\<_\>\""}], ",", 
+     RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{
+     "\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<\[LeftFloor]\>\""}]}], 
+    "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6820268410739717`*^9, 3.682026842481927*^9}, {
+  3.682027122878503*^9, 3.682027128894381*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"subs", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<\!\(\*
+StyleBox[ButtonBox[\"\[VerticalEllipsis]\",
+BaseStyle->\"Link\",
+ButtonData->\"paclet:ref/character/VerticalEllipsis\"], \"GuideCharacterImage\
+\"]\)\>\""}], ",", 
+     RowBox[{
+     "\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", 
+      "\"\<\[HorizontalLine]\[HorizontalLine]\[HorizontalLine]\
+\[HorizontalLine]\[HorizontalLine]\>\""}], ",", 
+     RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<\!\(\*
+StyleBox[ButtonBox[\"\[VerticalEllipsis]\",
+BaseStyle->\"Link\",
+ButtonData->\"paclet:ref/character/VerticalEllipsis\"], \"GuideCharacterImage\
+\"]\)\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<\!\(\*
+StyleBox[ButtonBox[\"\[VerticalEllipsis]\",
+BaseStyle->\"Link\",
+ButtonData->\"paclet:ref/character/VerticalEllipsis\"], \"GuideCharacterImage\
+\"]\)\>\""}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6820268410739717`*^9, 3.682026842481927*^9}, {
+  3.682027122878503*^9, 3.682027128894381*^9}, {3.682027388538933*^9, 
+  3.6820274238412733`*^9}, {3.682027456394368*^9, 3.68202754564456*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"subs", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{
+     "\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", 
+      "\"\<\[HorizontalLine]\[HorizontalLine]\[HorizontalLine]\
+\[HorizontalLine]\[HorizontalLine]\>\""}], ",", 
+     RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<\!\(\*
+StyleBox[ButtonBox[\"\[VerticalEllipsis]\",
+BaseStyle->\"Link\",
+ButtonData->\"paclet:ref/character/VerticalEllipsis\"], \"GuideCharacterImage\
+\"]\)\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<|\>\""}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6820268410739717`*^9, 3.682026842481927*^9}, {
+  3.682027122878503*^9, 3.682027128894381*^9}, {3.682027388538933*^9, 
+  3.6820274238412733`*^9}, {3.682027456394368*^9, 3.6820277226148243`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"subs", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{
+     "\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", 
+      "\"\<\[HorizontalLine]\[HorizontalLine]\[HorizontalLine]\
+\[HorizontalLine]\[HorizontalLine]\>\""}], ",", 
+     RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<\!\(\*
+StyleBox[ButtonBox[\"\[VerticalEllipsis]\",
+BaseStyle->\"Link\",
+ButtonData->\"paclet:ref/character/VerticalEllipsis\"], \"GuideCharacterImage\
+\"]\)\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<|\>\""}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6820268410739717`*^9, 3.682026842481927*^9}, {
+   3.682027122878503*^9, 3.682027128894381*^9}, {3.682027388538933*^9, 
+   3.6820274238412733`*^9}, {3.682027456394368*^9, 3.6820277226148243`*^9}, {
+   3.682027795014488*^9, 3.68202780024583*^9}, {3.682027852085574*^9, 
+   3.682027895012602*^9}, 3.6820279441804943`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"subs", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", "\"\<  \>\""}], ",", 
+     RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<|\>\""}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6820268410739717`*^9, 3.682026842481927*^9}, {
+   3.682027122878503*^9, 3.682027128894381*^9}, {3.682027388538933*^9, 
+   3.6820274238412733`*^9}, {3.682027456394368*^9, 3.6820277226148243`*^9}, {
+   3.682027795014488*^9, 3.68202780024583*^9}, {3.682027852085574*^9, 
+   3.682027895012602*^9}, 3.6820279441804943`*^9, {3.6820280998740807`*^9, 
+   3.6820281142734947`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", "$BaseDirectory", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"s", "=", 
+  RowBox[{"StringReplace", "[", 
+   RowBox[{
+    RowBox[{"RunProcess", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<tree\>\"", ",", "\"\<-S\>\""}], "}"}], ",", 
+      "\"\<StandardOutput\>\""}], "]"}], ",", "subs"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.682022483264558*^9, 3.682022486833027*^9}, {
+  3.6820256558251333`*^9, 3.682025669744965*^9}, {3.682026668884894*^9, 
+  3.6820266720365562`*^9}, {3.682027920420285*^9, 3.682027928036415*^9}, {
+  3.682028168385339*^9, 3.682028169617167*^9}}],
+
+Cell[BoxData["\<\"/usr/share/Mathematica\"\>"], "Output",
+ CellChangeTimes->{
+  3.68202567111441*^9, 3.6820257300284147`*^9, 3.6820266734661417`*^9, 
+   3.682026847065906*^9, 3.68202713246973*^9, 3.6820274268635387`*^9, 
+   3.6820274814916363`*^9, {3.6820275324165697`*^9, 3.682027549056755*^9}, {
+   3.682027679484941*^9, 3.682027725692974*^9}, 3.682027803194779*^9, {
+   3.68202787737092*^9, 3.682027898024815*^9}, 3.682027948139097*^9, 
+   3.682028121639982*^9, 3.682028171470956*^9, {3.682028608071228*^9, 
+   3.682028629071197*^9}, 3.682028688865144*^9, 3.682028742447495*^9, 
+   3.682028886320548*^9, 3.682028996750496*^9, 3.682029059003682*^9}],
+
+Cell[BoxData["\<\".\\n|     Applications\\n|     Autoload\\n|     \
+FrontEnd\\n|     Installer\\n|     Kernel\\n|   |     init.m\\n|     \
+Licensing\\n|     SystemFiles\\n    |     CharacterEncodings\\n    |     \
+FrontEnd\\n    |   |     Palettes\\n    |   |     StyleSheets\\n    |     \
+Kernel\\n    |     SpellingDictionaries\\n\\n13 directories, 1 file\\n\"\>"], \
+"Output",
+ CellChangeTimes->{
+  3.68202567111441*^9, 3.6820257300284147`*^9, 3.6820266734661417`*^9, 
+   3.682026847065906*^9, 3.68202713246973*^9, 3.6820274268635387`*^9, 
+   3.6820274814916363`*^9, {3.6820275324165697`*^9, 3.682027549056755*^9}, {
+   3.682027679484941*^9, 3.682027725692974*^9}, 3.682027803194779*^9, {
+   3.68202787737092*^9, 3.682027898024815*^9}, 3.682027948139097*^9, 
+   3.682028121639982*^9, 3.682028171470956*^9, {3.682028608071228*^9, 
+   3.682028629071197*^9}, 3.682028688865144*^9, 3.682028742447495*^9, 
+   3.682028886320548*^9, 3.682028996750496*^9, 3.682029059004437*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringReplace", "[", 
+  RowBox[{"%", ",", 
+   RowBox[{"{", 
+    RowBox[{"\"\<|  \>\"", "\[Rule]", "\"\<  |\>\""}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.682028461133067*^9, 3.682028506188752*^9}, {
+   3.6820285989232483`*^9, 3.6820286249709587`*^9}, 3.682028684906283*^9, {
+   3.682028773545203*^9, 3.6820287915929327`*^9}, {3.6820288580399227`*^9, 
+   3.682028880663809*^9}, {3.6820289806783953`*^9, 3.682028991750346*^9}}],
+
+Cell[BoxData["\<\".\\n  |   Applications\\n  |   Autoload\\n  |   FrontEnd\\n \
+ |   Installer\\n  |   Kernel\\n  |   |   init.m\\n  |   Licensing\\n  |   \
+SystemFiles\\n      |   CharacterEncodings\\n      |   FrontEnd\\n      |   | \
+  Palettes\\n      |   |   StyleSheets\\n      |   Kernel\\n      |   \
+SpellingDictionaries\\n\\n13 directories, 1 file\\n\"\>"], "Output",
+ CellChangeTimes->{3.6820290011057987`*^9, 3.6820290607617188`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringReplace", "[", 
+  RowBox[{"%", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\\n  \>\"", "\[Rule]", "\"\<\\n\>\""}], ",", 
+     RowBox[{"\"\<\\n|  \>\"", "\[Rule]", "\"\<\\n|\>\""}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.682028461133067*^9, 3.682028506188752*^9}, {
+   3.6820285989232483`*^9, 3.6820286249709587`*^9}, 3.682028684906283*^9, {
+   3.6820287470013657`*^9, 3.6820287586812773`*^9}, {3.682029007526267*^9, 
+   3.6820290135581713`*^9}, {3.682029051653586*^9, 3.682029091876999*^9}}],
+
+Cell[BoxData["\<\".\\n|   Applications\\n|   Autoload\\n|   FrontEnd\\n|   \
+Installer\\n|   Kernel\\n|   |   init.m\\n|   Licensing\\n|   SystemFiles\\n  \
+  |   CharacterEncodings\\n    |   FrontEnd\\n    |   |   Palettes\\n    |   \
+|   StyleSheets\\n    |   Kernel\\n    |   SpellingDictionaries\\n\\n13 \
+directories, 1 file\\n\"\>"], "Output",
+ CellChangeTimes->{3.682028759932067*^9, 3.682028887837761*^9, 
+  3.6820290153057957`*^9, 3.682029095676815*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"subs", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", "\"\<  \>\""}], ",", 
+     RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+     RowBox[{"\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<|\>\""}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6820268410739717`*^9, 3.682026842481927*^9}, {
+   3.682027122878503*^9, 3.682027128894381*^9}, {3.682027388538933*^9, 
+   3.6820274238412733`*^9}, {3.682027456394368*^9, 3.6820277226148243`*^9}, {
+   3.682027795014488*^9, 3.68202780024583*^9}, {3.682027852085574*^9, 
+   3.682027895012602*^9}, 3.6820279441804943`*^9, {3.6820280998740807`*^9, 
+   3.6820281142734947`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", "$BaseDirectory", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"s", "=", 
+  RowBox[{"StringReplace", "[", 
+   RowBox[{
+    RowBox[{"RunProcess", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<tree\>\"", ",", "\"\<-S\>\""}], "}"}], ",", 
+      "\"\<StandardOutput\>\""}], "]"}], ",", "subs"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.682022483264558*^9, 3.682022486833027*^9}, {
+  3.6820256558251333`*^9, 3.682025669744965*^9}, {3.682026668884894*^9, 
+  3.6820266720365562`*^9}, {3.682027920420285*^9, 3.682027928036415*^9}, {
+  3.682028168385339*^9, 3.682028169617167*^9}, {3.682030434260014*^9, 
+  3.682030445590767*^9}}],
+
+Cell[BoxData["\<\"/usr/share/Mathematica\"\>"], "Output",
+ CellChangeTimes->{{3.682030435952281*^9, 3.682030446296418*^9}}],
+
+Cell[BoxData["\<\".\\n|     Applications\\n|     Autoload\\n|     \
+FrontEnd\\n|     Installer\\n|     Kernel\\n|   |     init.m\\n|     \
+Licensing\\n|     SystemFiles\\n    |     CharacterEncodings\\n    |     \
+FrontEnd\\n    |   |     Palettes\\n    |   |     StyleSheets\\n    |     \
+Kernel\\n    |     SpellingDictionaries\\n\\n13 directories, 1 file\\n\"\>"], \
+"Output",
+ CellChangeTimes->{{3.682030435952281*^9, 3.6820304462974567`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tree", "[", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"s1", ",", "s2", ",", "s3", ",", " ", "subs"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"subs", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+        RowBox[{"\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", "\"\<  \>\""}], 
+        ",", 
+        RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+        RowBox[{"\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<|\>\""}]}], 
+       "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"s1", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"RunProcess", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<tree\>\"", ",", "\"\<-Sd\>\""}], "}"}], ",", 
+          "\"\<StandardOutput\>\""}], "]"}], ",", "subs"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"s2", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{"s1", ",", 
+        RowBox[{"{", 
+         RowBox[{"\"\<|  \>\"", "\[Rule]", "\"\<  |\>\""}], "}"}]}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"s3", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{"s2", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<\\n  \>\"", "\[Rule]", "\"\<\\n\>\""}], ",", 
+          RowBox[{"\"\<\\n|  \>\"", "\[Rule]", "\"\<\\n|\>\""}]}], "}"}]}], 
+       "]"}]}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.68202926167128*^9, 3.6820293912495403`*^9}, 
+   3.682030370853302*^9, 3.682030451316146*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tree", "[", "]"}]], "Input",
+ CellChangeTimes->{3.682030375092723*^9}],
+
+Cell[BoxData["\<\".\\n|   Applications\\n|   Autoload\\n|   FrontEnd\\n|   \
+Installer\\n|   Kernel\\n|   Licensing\\n|   SystemFiles\\n    |   \
+CharacterEncodings\\n    |   FrontEnd\\n    |   |   Palettes\\n    |   |   \
+StyleSheets\\n    |   Kernel\\n    |   SpellingDictionaries\\n\\n13 \
+directories\\n\"\>"], "Output",
+ CellChangeTimes->{
+  3.682029404094528*^9, {3.682029491514892*^9, 3.682029497802823*^9}, {
+   3.682030362966137*^9, 3.682030375746526*^9}, 3.682030454530497*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["\[HorizontalLine]",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/character/HorizontalLine"], "GuideCharacterImage"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ Cell["\\[HorizontalLine]", "InlineCharacterName",
+  ShowSpecialCharacters->False]
+}], "GuideText",
+ CellID->218174460],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["\[LongDash]",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/character/LongDash"], "GuideCharacterImage"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ Cell["\\[LongDash]", "InlineCharacterName",
+  ShowSpecialCharacters->False]
+}], "GuideText",
+ CellID->56594643],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["\[VerticalSeparator]",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/character/VerticalSeparator"], 
+  "GuideCharacterImage"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ Cell["\\[VerticalSeparator]", "InlineCharacterName",
+  ShowSpecialCharacters->False]
+}], "GuideText",
+ CellID->411901512],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["\[VerticalLine]",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/character/VerticalLine"], "GuideCharacterImage"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ Cell["\\[VerticalLine]", "InlineCharacterName",
+  ShowSpecialCharacters->False]
+}], "GuideText",
+ CellID->124964117],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["\[VerticalEllipsis]",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/character/VerticalEllipsis"], "GuideCharacterImage"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ Cell["\\[VerticalEllipsis]", "InlineCharacterName",
+  ShowSpecialCharacters->False]
+}], "GuideText",
+ CellID->35426494],
+
+Cell[TextData[{
+ StyleBox[ButtonBox["\[VerticalEllipsis]",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/character/VerticalEllipsis"], "GuideCharacterImage"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ Cell["\\[Ellipsis]", "InlineCharacterName",
+  ShowSpecialCharacters->False],
+ "...."
+}], "GuideText",
+ CellChangeTimes->{{3.6820273542513933`*^9, 3.682027376027062*^9}},
+ CellID->166401981]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Code", "Section",
+ CellChangeTimes->{{3.6820262862166853`*^9, 3.682026311448408*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DirectoryTree", "[", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"s1", ",", "s2", ",", "s3", ",", " ", "subs"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"subs", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+        RowBox[{"\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", "\"\<  \>\""}], 
+        ",", 
+        RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+        RowBox[{"\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<|\>\""}]}], 
+       "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"s1", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"RunProcess", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<tree\>\"", ",", "\"\<-Sd\>\""}], "}"}], ",", 
+          "\"\<StandardOutput\>\""}], "]"}], ",", "subs"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"s2", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{"s1", ",", 
+        RowBox[{"{", 
+         RowBox[{"\"\<|  \>\"", "\[Rule]", "\"\<  |\>\""}], "}"}]}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"s3", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{"s2", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<\\n  \>\"", "\[Rule]", "\"\<\\n\>\""}], ",", 
+          RowBox[{"\"\<\\n|  \>\"", "\[Rule]", "\"\<\\n|\>\""}]}], "}"}]}], 
+       "]"}]}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.68202926167128*^9, 3.6820293912495403`*^9}, 
+   3.682030370853302*^9, 3.682030451316146*^9, {3.68203051135476*^9, 
+   3.6820305137480507`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FileTree", "[", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"s1", ",", "s2", ",", "s3", ",", " ", "subs"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"subs", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<\[CapitalATilde]\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+        RowBox[{"\"\<\[CapitalADoubleDot]\>\"", "\[Rule]", "\"\<  \>\""}], 
+        ",", 
+        RowBox[{"\"\<\.b3\>\"", "\[Rule]", "\"\<|\>\""}], ",", 
+        RowBox[{"\"\<\[CapitalAGrave]\>\"", "\[Rule]", "\"\<|\>\""}]}], 
+       "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"s1", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{
+        RowBox[{"RunProcess", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<tree\>\"", ",", "\"\<-S\>\""}], "}"}], ",", 
+          "\"\<StandardOutput\>\""}], "]"}], ",", "subs"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"s2", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{"s1", ",", 
+        RowBox[{"{", 
+         RowBox[{"\"\<|  \>\"", "\[Rule]", "\"\<  |\>\""}], "}"}]}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"s3", "=", 
+      RowBox[{"StringReplace", "[", 
+       RowBox[{"s2", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<\\n  \>\"", "\[Rule]", "\"\<\\n\>\""}], ",", 
+          RowBox[{"\"\<\\n|  \>\"", "\[Rule]", "\"\<\\n|\>\""}]}], "}"}]}], 
+       "]"}]}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.68202926167128*^9, 3.6820293912495403`*^9}, 
+   3.682030370853302*^9, 3.682030451316146*^9, {3.68203051135476*^9, 
+   3.682030528467455*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", "$BaseDirectory", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DirectoryTree", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.682026502998474*^9, 3.682026504730905*^9}, {
+   3.682030564688038*^9, 3.6820305665144777`*^9}, 3.68203070211272*^9}],
+
+Cell[BoxData["\<\"/usr/share/Mathematica\"\>"], "Output",
+ CellChangeTimes->{3.6820307033759604`*^9}],
+
+Cell[BoxData["\<\".\\n|   Applications\\n|   Autoload\\n|   FrontEnd\\n|   \
+Installer\\n|   Kernel\\n|   Licensing\\n|   SystemFiles\\n    |   \
+CharacterEncodings\\n    |   FrontEnd\\n    |   |   Palettes\\n    |   |   \
+StyleSheets\\n    |   Kernel\\n    |   SpellingDictionaries\\n\\n13 \
+directories\\n\"\>"], "Output",
+ CellChangeTimes->{3.682030703376631*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", "$UserBaseDirectory", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DirectoryTree", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.682026502998474*^9, 3.682026504730905*^9}, {
+  3.682030564688038*^9, 3.6820305665144777`*^9}}],
+
+Cell[BoxData["\<\"/home/andrewn/.Mathematica\"\>"], "Output",
+ CellChangeTimes->{
+  3.682025854035561*^9, {3.682026482716024*^9, 3.6820265067651577`*^9}, {
+   3.6820305548996687`*^9, 3.6820305674697523`*^9}}],
+
+Cell[BoxData["\<\".\\n|   ApplicationData\\n|   |   CloudObject\\n|   |   |   \
+Authentication\\n|   |   Parallel\\n|   |   |   Preferences\\n|   |   \
+SendMail\\n|       |   Preferences\\n|   Applications\\n|   |   \
+ApplicationMaker\\n|   |   |   Documentation\\n|   |   |   |   English\\n|   \
+|   |       |   Guides\\n|   |   |       |   Index\\n|   |   |       |   \
+ReferencePages\\n|   |   |       |   |   Symbols\\n|   |   |       |   \
+Tutorials\\n|   |   |   FrontEnd\\n|   |   |   |   Stylesheets\\n|   |   |   \
+Kernel\\n|   |   Atlas\\n|   |   |   docs\\n|   |   |   Documentation\\n|   | \
+  |   |   English\\n|   |   |       |   Guides\\n|   |   |       |   \
+Index\\n|   |   |       |   ReferencePages\\n|   |   |       |   |   \
+Symbols\\n|   |   |       |   SpellIndex\\n|   |   |       |   Tutorials\\n|  \
+ |   |   FrontEnd\\n|   |   |   |   Palettes\\n|   |   |   |   \
+StyleSheets\\n|   |   |   GUI\\n|   |   |   |   images\\n|   |   |   |   \
+tools\\n|   |   |   Kernel\\n|   |   |   License\\n|   |   TeXit-0.1\\n|   |  \
+ |   Kernel\\n|   |   TeXit0x1\\n|   |   |   Kernel\\n|   |   tpTensor\\n|   \
+|   |   Licensing\\n|   |   tpTensor0x5\\n|       |   Documentation\\n|       \
+|   |   English\\n|       |       |   Guides\\n|       |       |   \
+ReferencePages\\n|       |       |   |   Symbols\\n|       |       |   \
+Tutorials\\n|       |   Kernel\\n|   Autoload\\n|   |   PacletManager\\n|     \
+  |   Configuration\\n|           |   FrontEnd\\n|   DatabaseResources\\n|   \
+FrontEnd\\n|   |   10.0_Caches\\n|   |   |   Linux-x86-64\\n|   |       |   \
+SystemFiles\\n|   |           |   CharacterEncodings\\n|   |           |   \
+FrontEnd\\n|   |               |   TextResources\\n|   |   10.1_Caches\\n|   \
+|   |   Linux-x86-64\\n|   |       |   SystemFiles\\n|   |           |   \
+CharacterEncodings\\n|   |           |   FrontEnd\\n|   |               |   \
+TextResources\\n|   |   10.3_Caches\\n|   |   |   Linux-x86-64\\n|   |       \
+|   SystemFiles\\n|   |           |   CharacterEncodings\\n|   |           |  \
+ FrontEnd\\n|   |               |   TextResources\\n|   |   11.0_Caches\\n|   \
+|   |   Linux-x86-64\\n|   |       |   SystemFiles\\n|   |           |   \
+CharacterEncodings\\n|   |           |   FrontEnd\\n|   |               |   \
+TextResources\\n|   |   7.0_Caches\\n|   |   |   Linux-x86-64\\n|   |       | \
+  SystemFiles\\n|   |           |   CharacterEncodings\\n|   |           |   \
+FrontEnd\\n|   |               |   TextResources\\n|   |                   |  \
+ X\\n|   |   8.0_Caches\\n|       |   Linux-x86-64\\n|           |   \
+SystemFiles\\n|               |   CharacterEncodings\\n|               |   \
+FrontEnd\\n|                   |   TextResources\\n|                       |  \
+ X\\n|   Kernel\\n|   Knowledgebase\\n|   Licensing\\n|   Logs\\n|   |   \
+WolframLink\\n|   Paclets\\n|   |   Configuration\\n|   |   Repository\\n|   \
+|   |   CityData_Index-8.0.24\\n|   |   |   |   Data\\n|   |   |   \
+CityData_Part01-8.0.24\\n|   |   |   |   Data\\n|   |   |   \
+CityData_Part05-8.0.24\\n|   |   |   |   Data\\n|   |   |   Dataset-1.1.2\\n| \
+  |   |   |   Kernel\\n|   |   |       |   32Bit\\n|   |   |       |   \
+64Bit\\n|   |   |   ExampleData_TestImage-9.0.0.4\\n|   |   |   |   Data\\n|  \
+ |   |   ExampleData_TestImage_Clock-9.0.0.4\\n|   |   |   |   Data\\n|   |   \
+|   ExampleData_TestImage_House-9.0.0.4\\n|   |   |   |   Data\\n|   |   |   \
+HTTPClient-10.1.33\\n|   |   |   |   Kernel\\n|   |   |   |   \
+LibraryResources\\n|   |   |   |   |   Linux\\n|   |   |   |   |   \
+Linux-x86-64\\n|   |   |   |   |   MacOSX-x86-64\\n|   |   |   |   |   \
+Windows\\n|   |   |   |   |   Windows-x86-64\\n|   |   |   |   Source\\n|   | \
+  |   |   |   C\\n|   |   |   |   SSL\\n|   |   |   \
+InterpreterDocs-10.1.117.1\\n|   |   |   |   Documentation\\n|   |   |       \
+|   English\\n|   |   |           |   Guides\\n|   |   |           |   \
+Index\\n|   |   |           |   ReferencePages\\n|   |   |           |   |   \
+Interpreters\\n|   |   |           |   |   Symbols\\n|   |   |           |   \
+SpellIndex\\n|   |   |   Streaming-1.0.533\\n|   |   |   |   Kernel\\n|   |   \
+|       |   32Bit\\n|   |   |       |   64Bit\\n|   |   |   \
+StringPatternFix-1.0\\n|   |   |   |   Kernel\\n|   |   |   \
+SystemDocsUpdate1-10.0.0.1\\n|   |   |   |   Documentation\\n|   |   |       \
+|   English\\n|   |   |           |   Guides\\n|   |   |           |   \
+ReferencePages\\n|   |   |           |   |   Symbols\\n|   |   |           |  \
+ Tutorials\\n|   |   |   SystemDocsUpdate1-10.1.0-10.1.0.0\\n|   |   |   |   \
+Documentation\\n|   |   |       |   English\\n|   |   |           |   \
+ReferencePages\\n|   |   |               |   Symbols\\n|   |   |   \
+SystemDocsUpdate1-10.3.0\\n|   |   |   |   Documentation\\n|   |   |       |  \
+ English\\n|   |   |           |   SpellIndex\\n|   |   |   \
+SystemUpdateAvailable-1.0\\n|   |   |   WelcomeScreenNews-8.15\\n|   |   |   \
+WelcomeScreenNews-8.16.1\\n|   |   |   WelcomeScreenNews-8.17.1\\n|   |   |   \
+WelcomeScreenNews-8.27\\n|   |   |   WelcomeScreenSlides-8.11\\n|   |   |   \
+WelcomeScreenSlides-8.13.2\\n|   |   |   WolframAlphaClient-1.2.3\\n|   |   | \
+  |   FrontEnd\\n|   |   |   |   |   TextResources\\n|   |   |   |   \
+Kernel\\n|   |   |   WolframAlphaClient-2.2.2015060408\\n|   |   |   |   \
+FrontEnd\\n|   |   |   |   |   TextResources\\n|   |   |   |   Kernel\\n|   | \
+  |   WolframAutoUpdate-8.0.0\\n|   |   Temporary\\n|   SystemFiles\\n    |   \
+CharacterEncodings\\n    |   FrontEnd\\n    |   |   Palettes\\n    |   |   \
+StyleSheets\\n    |   |   SystemResources\\n    |       |   \
+FunctionalFrequency\\n    |   Java\\n    |   Kernel\\n    |   \
+SpellingDictionaries\\n\\n188 directories\\n\"\>"], "Output",
+ CellChangeTimes->{
+  3.682025854035561*^9, {3.682026482716024*^9, 3.6820265067651577`*^9}, {
+   3.6820305548996687`*^9, 3.682030567471924*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", "$UserBaseDirectory", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FileNames", "[", "]"}], 
+  RowBox[{"SetDirectory", "[", "$UserBaseDirectory", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.682022018961115*^9, 3.6820221298692636`*^9}, 
+   3.68202220502835*^9, {3.682026347800125*^9, 3.6820263554473877`*^9}, 
+   3.682029445536701*^9, {3.682029570494845*^9, 3.682029580687092*^9}}],
+
+Cell[BoxData["\<\"/home/andrewn/.Mathematica\"\>"], "Output",
+ CellChangeTimes->{
+  3.682029448386639*^9, {3.682029562991712*^9, 3.682029573321274*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"ApplicationData\"\>", 
+    " ", "\<\"/home/andrewn/.Mathematica\"\>"}], ",", 
+   RowBox[{"\<\"Applications\"\>", 
+    " ", "\<\"/home/andrewn/.Mathematica\"\>"}], ",", 
+   RowBox[{"\<\"Autoload\"\>", " ", "\<\"/home/andrewn/.Mathematica\"\>"}], 
+   ",", 
+   RowBox[{"\<\"DatabaseResources\"\>", 
+    " ", "\<\"/home/andrewn/.Mathematica\"\>"}], ",", 
+   RowBox[{"\<\"FrontEnd\"\>", " ", "\<\"/home/andrewn/.Mathematica\"\>"}], 
+   ",", 
+   RowBox[{"\<\"/home/andrewn/.Mathematica\"\>", " ", "\<\"Kernel\"\>"}], ",", 
+   RowBox[{"\<\"/home/andrewn/.Mathematica\"\>", 
+    " ", "\<\"Knowledgebase\"\>"}], ",", 
+   RowBox[{"\<\"/home/andrewn/.Mathematica\"\>", " ", "\<\"Licensing\"\>"}], 
+   ",", 
+   RowBox[{"\<\"/home/andrewn/.Mathematica\"\>", " ", "\<\"Logs\"\>"}], ",", 
+   RowBox[{"\<\"/home/andrewn/.Mathematica\"\>", " ", "\<\"Paclets\"\>"}], 
+   ",", 
+   RowBox[{"\<\"/home/andrewn/.Mathematica\"\>", " ", "\<\"SystemFiles\"\>"}],
+    ",", 
+   RowBox[{"\<\"/home/andrewn/.Mathematica\"\>", 
+    " ", "\<\"term.history\"\>"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.682029448386639*^9, {3.682029562991712*^9, 3.682029573329824*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"tree", "[", "]"}]], "Input"],
+
+Cell[BoxData["\<\".\\n|     ApplicationData\\n|   |     CloudObject\\n|   |   \
+|     Authentication\\n|   |     Parallel\\n|   |   |     Preferences\\n|   | \
+      |     Preferences.m\\n|   |     SendMail\\n|       |     \
+Preferences\\n|           |     MailSettings.m\\n|     Applications\\n|   |   \
+  ApplicationMaker\\n|   |   |     ApplicationMaker.m\\n|   |   |     \
+ApplicationMaker.nb\\n|   |   |     Documentation\\n|   |   |   |     English\
+\\n|   |   |       |     Guides\\n|   |   |       |   |     \
+___ApplicationMaker.nb\\n|   |   |       |   |     ApplicationMaker.nb\\n|   \
+|   |       |     Index\\n|   |   |       |   |     _0.cfs\\n|   |   |       \
+|   |     _0.cfx\\n|   |   |       |   |     segments_2\\n|   |   |       |   \
+|     segments.gen\\n|   |   |       |     ReferencePages\\n|   |   |       | \
+  |     Symbols\\n|   |   |       |       |     ___BuildApplication.nb\\n|   \
+|   |       |       |     BuildApplication.nb\\n|   |   |       |       |     \
+___CreateReferencePages.nb\\n|   |   |       |       |     \
+CreateReferencePages.nb\\n|   |   |       |       |     \
+___DeployApplication.nb\\n|   |   |       |       |     \
+DeployApplication.nb\\n|   |   |       |       |     ___EditNotebookOption.nb\
+\\n|   |   |       |       |     EditNotebookOption.nb\\n|   |   |       |    \
+   |     ___EditOption.nb\\n|   |   |       |       |     EditOption.nb\\n|   \
+|   |       |       |     ___NewApplication.nb\\n|   |   |       |       |    \
+ NewApplication.nb\\n|   |   |       |       |     ___NewGuide.nb\\n|   |   | \
+      |       |     NewGuide.nb\\n|   |   |       |       |     \
+___NewPackage.nb\\n|   |   |       |       |     NewPackage.nb\\n|   |   |    \
+   |       |     ___NewTutorial.nb\\n|   |   |       |       |     \
+NewTutorial.nb\\n|   |   |       |       |     ___UpdateInit.nb\\n|   |   |   \
+    |       |     UpdateInit.nb\\n|   |   |       |       |     \
+___ViewNotebookOption.nb\\n|   |   |       |       |     \
+ViewNotebookOption.nb\\n|   |   |       |       |     ___ViewOption.nb\\n|   \
+|   |       |       |     ViewOption.nb\\n|   |   |       |     Tutorials\\n| \
+  |   |           |     ___HowToBuildADocumentedPackage.nb\\n|   |   |        \
+   |     HowToBuildADocumentedPackage.nb\\n|   |   |     DocumentationMaker.m\
+\\n|   |   |     DocumentationMaker.nb\\n|   |   |     FrontEnd\\n|   |   |   \
+|     Stylesheets\\n|   |   |       |     UserReference7.nb\\n|   |   |       \
+|     UserReference8.nb\\n|   |   |     Kernel\\n|   |   |   |     init.m\\n| \
+  |   |     PackageMaker.m\\n|   |   |     PackageMaker.nb\\n|   |   |     \
+PacletInfo.m\\n|   |     ApplicationMaker.m\\n|   |     Atlas\\n|   |   |     \
+Atlas.m\\n|   |   |     DifferentialGeometry.m\\n|   |   |     docs\\n|   |   \
+|   |     license.htm\\n|   |   |     Documentation\\n|   |   |   |     \
+English\\n|   |   |       |     Guides\\n|   |   |       |   |     \
+Atlas.nb\\n|   |   |       |   |     AtlasPalette.nb\\n|   |   |       |   |  \
+   AtlasWizard.nb\\n|   |   |       |   |     DigiArea.nb\\n|   |   |       | \
+  |     Examples.nb\\n|   |   |       |   |     References.nb\\n|   |   |     \
+  |   |     Visualization.nb\\n|   |   |       |     Index\\n|   |   |       \
+|   |     _0.cfs\\n|   |   |       |   |     _0.cfx\\n|   |   |       |   |   \
+  segments_2\\n|   |   |       |   |     segments.gen\\n|   |   |       |     \
+ReferencePages\\n|   |   |       |   |     Symbols\\n|   |   |       |       \
+|     CircleTimes.nb\\n|   |   |       |       |     ClearAtlas.nb\\n|   |   \
+|       |       |     Codiff.nb\\n|   |   |       |       |     \
+Coframe.nb\\n|   |   |       |       |     Connection.nb\\n|   |   |       |  \
+     |     Constants.nb\\n|   |   |       |       |     Constraints.nb\\n|   \
+|   |       |       |     cov.nb\\n|   |   |       |       |     Curvature.nb\
+\\n|   |   |       |       |     CurveBasis.nb\\n|   |   |       |       |    \
+ CurveCurvatures.nb\\n|   |   |       |       |     Delta.nb\\n|   |   |      \
+ |       |     div.nb\\n|   |   |       |       |     d.nb\\n|   |   |       \
+|       |     Domain.nb\\n|   |   |       |       |     Dual.nb\\n|   |   |   \
+    |       |     Forms.nb\\n|   |   |       |       |     Frame.nb\\n|   |   \
+|       |       |     Functions.nb\\n|   |   |       |       |     \
+grad.nb\\n|   |   |       |       |     Hodge.nb\\n|   |   |       |       |  \
+   HorizontalProjector.nb\\n|   |   |       |       |     \
+IntegrabilityObstruction.nb\\n|   |   |       |       |     InvariantA.nb\\n| \
+  |   |       |       |     Invariants.nb\\n|   |   |       |       |     \
+InvariantT.nb\\n|   |   |       |       |     iota.nb\\n|   |   |       |     \
+  |     Kind.nb\\n|   |   |       |       |     Laplacian.nb\\n|   |   |      \
+ |       |     L.nb\\n|   |   |       |       |     Mapping.nb\\n|   |   |    \
+   |       |     MeanCurvature.nb\\n|   |   |       |       |     \
+Metric.nb\\n|   |   |       |       |     Nat.nb\\n|   |   |       |       |  \
+   NormalProjector.nb\\n|   |   |       |       |     Projectors.nb\\n|   |   \
+|       |       |     Pullback.nb\\n|   |   |       |       |     \
+Pushforward.nb\\n|   |   |       |       |     Ricci.nb\\n|   |   |       |   \
+    |     RicciScalar.nb\\n|   |   |       |       |     \
+RiemannianObstruction.nb\\n|   |   |       |       |     Riemann.nb\\n|   |   \
+|       |       |     SecondForm.nb\\n|   |   |       |       |     \
+TangentProjector.nb\\n|   |   |       |       |     Tensors.nb\\n|   |   |    \
+   |       |     ToBasis.nb\\n|   |   |       |       |     Torsion.nb\\n|   \
+|   |       |       |     TypeQ.nb\\n|   |   |       |       |     Vectors.nb\
+\\n|   |   |       |       |     VerticalProjector.nb\\n|   |   |       |     \
+  |     VisualConstants.nb\\n|   |   |       |       |     \
+VisualDimensions.nb\\n|   |   |       |       |     Visualize.nb\\n|   |   |  \
+     |       |     VisualManipulate.nb\\n|   |   |       |       |     \
+VisualPlot.nb\\n|   |   |       |       |     VisualProjectors.nb\\n|   |   | \
+      |       |     VisualShow.nb\\n|   |   |       |       |     \
+Wedge.nb\\n|   |   |       |       |     Who.nb\\n|   |   |       |     \
+SpellIndex\\n|   |   |       |   |     _0.cfx\\n|   |   |       |   |     \
+_a.cfs\\n|   |   |       |   |     segments_2\\n|   |   |       |   |     \
+segments.gen\\n|   |   |       |     Tutorials\\n|   |   |           |     \
+2DWizard.nb\\n|   |   |           |     3DWizard.nb\\n|   |   |           |   \
+  Abstract2Cartesian.nb\\n|   |   |           |     Abstract2Polar.nb\\n|   | \
+  |           |     Abstract.nb\\n|   |   |           |     Atlas2Logo.nb\\n| \
+  |   |           |     BipolarCylindrical.nb\\n|   |   |           |     \
+ConnectionTorsion.nb\\n|   |   |           |     CoordChange.nb\\n|   |   |   \
+        |     CoordinateSystemsVisualization.nb\\n|   |   |           |     \
+CurvesVisualization.nb\\n|   |   |           |     Dimension.nb\\n|   |   |   \
+        |     Dust.nb\\n|   |   |           |     Epicycloid.nb\\n|   |   |   \
+        |     Fibration.nb\\n|   |   |           |     Indexing.nb\\n|   |   \
+|           |     Kerr.nb\\n|   |   |           |     LibraryPalette.nb\\n|   \
+|   |           |     Minimal.nb\\n|   |   |           |     Parabolic.nb\\n| \
+  |   |           |     PlaneCurve.nb\\n|   |   |           |     \
+PlaneCurveWizard.nb\\n|   |   |           |     Revolutionary.nb\\n|   |   |  \
+         |     RicciFlat.nb\\n|   |   |           |     \
+SchwarzschildBlackHole.nb\\n|   |   |           |     Simple.nb\\n|   |   |   \
+        |     Simplification.nb\\n|   |   |           |     \
+SpaceCurveWizard.nb\\n|   |   |           |     Sphere3.nb\\n|   |   |        \
+   |     Spiral.nb\\n|   |   |           |     Surfaces.nb\\n|   |   |        \
+   |     SurfacesVisualization.nb\\n|   |   |           |     \
+SurfaceWizard.nb\\n|   |   |           |     TorusCurve.nb\\n|   |   |        \
+   |     TypesettingPalette.nb\\n|   |   |           |     Types.nb\\n|   |   \
+|           |     VisualizeWithManipulate.nb\\n|   |   |     FrontEnd\\n|   | \
+  |   |     Palettes\\n|   |   |   |   |     AtlasPalette.nb\\n|   |   |   |  \
+   StyleSheets\\n|   |   |       |     Atlas2Stylesheet.nb\\n|   |   |     \
+GettingStarted.html\\n|   |   |     GUI\\n|   |   |   |     Atlas2D3DWizard.m\
+\\n|   |   |   |     Atlas2D3DWizardScriptCode.m\\n|   |   |   |     \
+images\\n|   |   |   |   |     atlas.jpg\\n|   |   |   |   |     logo.jpg\\n| \
+  |   |   |     tools\\n|   |   |       |     20.nb\\n|   |   |       |     \
+21.nb\\n|   |   |       |     30.nb\\n|   |   |       |     31.nb\\n|   |   | \
+      |     32.nb\\n|   |   |     Interpreter.m\\n|   |   |     Kernel\\n|   \
+|   |   |     init.m\\n|   |   |     License\\n|   |   |   |     \
+license-id\\n|   |   |     License.m\\n|   |   |     Morph.m\\n|   |   |     \
+PacletInfo.m\\n|   |   |     ServiceGUI.m\\n|   |   |     Service.m\\n|   |   \
+|     Visualizer.m\\n|   |     DirectoryTree.nb\\n|   |     \
+HowToForApplications.nb\\n|   |     TeXit-0.1\\n|   |   |     Kernel\\n|   |  \
+ |   |     init.m\\n|   |   |     TeXitjunk.m\\n|   |   |     \
+TeXitjunk.nb\\n|   |     TeXit0x1\\n|   |   |     Kernel\\n|   |   |   |     \
+init.m\\n|   |   |   |     init.m~\\n|   |   |     TeXit0x1.m\\n|   |   |     \
+TeXit0x1.nb\\n|   |     tpTensor\\n|   |   |     Licensing\\n|   |       |    \
+ #dynamic-5.0#\\n|   |       |     dynamic-5.0\\n|   |       |     \
+dynamic-5.01\\n|   |       |     dynamic-5.03\\n|   |       |     \
+InstallationID\\n|   |       |     InstallationID~\\n|   |       |     #juun#\
+\\n|   |       |     licenses-in-use-for-5.0\\n|   |       |     \
+number-of-licenses-for-5.0\\n|   |       |     static-5.0\\n|   |     \
+tpTensor0x5\\n|       |     Documentation\\n|       |   |     English\\n|     \
+  |       |     Guides\\n|       |       |     ReferencePages\\n|       |     \
+  |   |     Symbols\\n|       |       |     Tutorials\\n|       |     \
+Kernel\\n|           |     Init.m\\n|     Autoload\\n|   |     \
+PacletManager\\n|       |     Configuration\\n|           |     FrontEnd\\n|  \
+             |     init_10.0.0.0.m\\n|               |     \
+init_10.1.0.0.m\\n|               |     init_10.3.0.0.m\\n|               |   \
+  init_11.0.0.0.m\\n|               |     init_8.0.0.0.m\\n|     \
+DatabaseResources\\n|   |     ahndata.db\\n|   |     ahndata.m\\n|     \
+FrontEnd\\n|   |     10.0_Caches\\n|   |   |     Linux-x86-64\\n|   |       | \
+    FileMenuCache.pbf\\n|   |       |     ResourceMap.pbf\\n|   |       |     \
+SystemFiles\\n|   |           |     CharacterEncodings\\n|   |           |   \
+|     ISO8859-1.pbf\\n|   |           |   |     UTF-8.pbf\\n|   |           | \
+  |     WindowsANSI.pbf\\n|   |           |     FrontEnd\\n|   |              \
+ |     TextResources\\n|   |                   |     HelpBrowserSetup.pbf\\n| \
+  |                   |     UnicodeCharacters.pbf\\n|   |     10.1_Caches\\n| \
+  |   |     Linux-x86-64\\n|   |       |     FileMenuCache.pbf\\n|   |       \
+|     ResourceMap.pbf\\n|   |       |     SystemFiles\\n|   |           |     \
+CharacterEncodings\\n|   |           |   |     ISO8859-1.pbf\\n|   |          \
+ |   |     UTF-8.pbf\\n|   |           |   |     WindowsANSI.pbf\\n|   |      \
+     |   |     WindowsCyrillic.pbf\\n|   |           |     FrontEnd\\n|   |   \
+            |     TextResources\\n|   |                   |     \
+UnicodeCharacters.pbf\\n|   |     10.3_Caches\\n|   |   |     \
+Linux-x86-64\\n|   |       |     FileMenuCache.pbf\\n|   |       |     \
+ResourceMap.pbf\\n|   |       |     SystemFiles\\n|   |           |     \
+CharacterEncodings\\n|   |           |   |     UTF-8.pbf\\n|   |           |  \
+ |     WindowsCyrillic.pbf\\n|   |           |     FrontEnd\\n|   |           \
+    |     TextResources\\n|   |                   |     UnicodeCharacters.pbf\
+\\n|   |     11.0_Caches\\n|   |   |     Linux-x86-64\\n|   |       |     \
+FileMenuCache.pbf\\n|   |       |     ResourceMap.pbf\\n|   |       |     \
+SystemFiles\\n|   |           |     CharacterEncodings\\n|   |           |   \
+|     ISO8859-1.pbf\\n|   |           |   |     UTF-8.pbf\\n|   |           | \
+    FrontEnd\\n|   |               |     TextResources\\n|   |                \
+   |     UnicodeCharacters.pbf\\n|   |     7.0_Caches\\n|   |   |     \
+Linux-x86-64\\n|   |       |     ResourceMap.pbf\\n|   |       |     \
+SystemFiles\\n|   |           |     CharacterEncodings\\n|   |           |   \
+|     ISO8859-1.pbf\\n|   |           |   |     Mathematica1.pbf\\n|   |      \
+     |   |     Mathematica2.pbf\\n|   |           |   |     \
+Mathematica3.pbf\\n|   |           |   |     Mathematica4.pbf\\n|   |         \
+  |   |     Mathematica5.pbf\\n|   |           |   |     UTF-8.pbf\\n|   |    \
+       |   |     WindowsANSI.pbf\\n|   |           |     FrontEnd\\n|   |     \
+          |     TextResources\\n|   |                   |     \
+DefaultTemplate.ml\\n|   |                   |     \
+TokenTranslationDictionary.ml\\n|   |                   |     \
+UnicodeCharacters.pbf\\n|   |                   |     \
+UnicodeFontMapping.pbf\\n|   |                   |     X\\n|   |              \
+         |     KeyEventTranslations.ml\\n|   |     8.0_Caches\\n|   |   |     \
+Linux-x86-64\\n|   |       |     ResourceMap.pbf\\n|   |       |     \
+SystemFiles\\n|   |           |     CharacterEncodings\\n|   |           |   \
+|     ISO8859-1.pbf\\n|   |           |   |     Klingon.pbf\\n|   |           \
+|   |     Mathematica1.pbf\\n|   |           |   |     Mathematica2.pbf\\n|   \
+|           |   |     Mathematica3.pbf\\n|   |           |   |     \
+Mathematica4.pbf\\n|   |           |   |     Mathematica5.pbf\\n|   |         \
+  |   |     Mathematica6.pbf\\n|   |           |   |     Mathematica7.pbf\\n| \
+  |           |   |     UTF-8.pbf\\n|   |           |   |     WindowsANSI.pbf\
+\\n|   |           |   |     ZapfDingbats.pbf\\n|   |           |     \
+FrontEnd\\n|   |               |     TextResources\\n|   |                   \
+|     DefaultTemplate.ml\\n|   |                   |     \
+TokenTranslationDictionary.ml\\n|   |                   |     \
+UnicodeCharacters.pbf\\n|   |                   |     \
+UnicodeFontMapping.pbf\\n|   |                   |     X\\n|   |              \
+         |     KeyEventTranslations.ml\\n|   |                       |     \
+SystemMenuSetup.ml\\n|   |                       |     \
+UnicodeLanguageFontMapping.pbf\\n|   |     init.m\\n|   |     init.m~\\n|   | \
+    init.m-bak\\n|     Kernel\\n|   |     init.m\\n|   |     init.m~\\n|     \
+Knowledgebase\\n|   |     cacheversion\\n|   |     readme.txt\\n|     \
+Licensing\\n|   |     license_terms.pdf\\n|   |     mathpass\\n|   |     \
+mathpass0\\n|   |     mathpass-10.3\\n|   |     \
+mathpass-official-home-edition\\n|   |     mathpass-old\\n|   |     \
+mathpass-weird\\n|   |     mathpass-working\\n|   |     ReadMe\\n|     \
+Logs\\n|   |     WolframLink\\n|     Paclets\\n|   |     Configuration\\n|   \
+|   |     DeclareLoad_7.0.0.m\\n|   |   |     DeclareLoad_8.0.0.0.m\\n|   |   \
+|     FunctionInformation_8.0.0.0.m\\n|   |   |     managerData_10.0.0.0.pmd2\
+\\n|   |   |     managerData_10.1.0.0.pmd2\\n|   |   |     \
+managerData_10.3.0.0.pmd2\\n|   |   |     managerData_11.0.0.0.pmd2\\n|   |   \
+|     managerData_7.0.0.pmd\\n|   |   |     managerData_8.0.0.0.pmd\\n|   |   \
+|     pacletData_10.0.0.0_6983568343873206559.pmd2\\n|   |   |     \
+pacletData_10.1.0.0_1032499833734824815.pmd2\\n|   |   |     \
+pacletData_10.3.0.0_6152727277225932646.pmd2\\n|   |   |     \
+pacletData_11.0.0.0_6434773670878877936.pmd2\\n|   |   |     \
+pacletData_7.0.0_994494019.pmd\\n|   |   |     \
+pacletData_8.0.0.0_994493058.pmd\\n|   |   |     pacletSiteData_10.pmd2\\n|   \
+|   |     pacletSiteData_11.pmd2\\n|   |   |     pacletSiteData_7.0.0.pmd\\n| \
+  |   |     pacletSiteData_8.0.0.0.0.pmd\\n|   |   |     \
+PreLoad_8.0.0.0.m\\n|   |     Repository\\n|   |   |     \
+CityData_Index-8.0.24\\n|   |   |   |     Data\\n|   |   |   |   |     \
+Entities.wdx\\n|   |   |   |   |     Functions.wdx\\n|   |   |   |   |     \
+Groups.wdx\\n|   |   |   |   |     Index.wdx\\n|   |   |   |   |     \
+Names.wdx\\n|   |   |   |   |     PrivateGroups.wdx\\n|   |   |   |   |     \
+Properties.wdx\\n|   |   |   |     PacletInfo.m\\n|   |   |     \
+CityData_Part01-8.0.24\\n|   |   |   |     Data\\n|   |   |   |   |     \
+Part01.wdx\\n|   |   |   |     PacletInfo.m\\n|   |   |     \
+CityData_Part05-8.0.24\\n|   |   |   |     Data\\n|   |   |   |   |     \
+Part05.wdx\\n|   |   |   |     PacletInfo.m\\n|   |   |     Dataset-1.1.2\\n| \
+  |   |   |     DatasetLoader.m\\n|   |   |   |     DatasetMain.m\\n|   |   | \
+  |     Kernel\\n|   |   |   |   |     32Bit\\n|   |   |   |   |   |     \
+Dataset.mx\\n|   |   |   |   |     64Bit\\n|   |   |   |       |     \
+Dataset.mx\\n|   |   |   |     PacletInfo.m\\n|   |   |     \
+ExampleData_TestImage-9.0.0.4\\n|   |   |   |     Data\\n|   |   |   |   |    \
+ TestImage.wdx\\n|   |   |   |     PacletInfo.m\\n|   |   |     \
+ExampleData_TestImage_Clock-9.0.0.4\\n|   |   |   |     Data\\n|   |   |   |  \
+ |     Clock.png\\n|   |   |   |     PacletInfo.m\\n|   |   |     \
+ExampleData_TestImage_House-9.0.0.4\\n|   |   |   |     Data\\n|   |   |   |  \
+ |     House.png\\n|   |   |   |     PacletInfo.m\\n|   |   |     \
+HTTPClient-10.1.33\\n|   |   |   |     CURLInfo.m\\n|   |   |   |     \
+CURLLink.m\\n|   |   |   |     HTTPClient.m\\n|   |   |   |     Kernel\\n|   \
+|   |   |   |     init.m\\n|   |   |   |     LibraryResources\\n|   |   |   | \
+  |     Linux\\n|   |   |   |   |   |     libcrypto.so\\n|   |   |   |   |   \
+|     libcurlLink.so\\n|   |   |   |   |   |     libcurl.so\\n|   |   |   |   \
+|   |     libOAuth.so\\n|   |   |   |   |   |     libssh2.so\\n|   |   |   |  \
+ |   |     libssl.so\\n|   |   |   |   |     Linux-x86-64\\n|   |   |   |   | \
+  |     libcrypto.so\\n|   |   |   |   |   |     libcurlLink.so\\n|   |   |   \
+|   |   |     libcurl.so\\n|   |   |   |   |   |     libOAuth.so\\n|   |   |  \
+ |   |   |     libssh2.so\\n|   |   |   |   |   |     libssl.so\\n|   |   |   \
+|   |     MacOSX-x86-64\\n|   |   |   |   |   |     libcrypto.dylib\\n|   |   \
+|   |   |   |     libcurl.dylib\\n|   |   |   |   |   |     libcurlLink.dylib\
+\\n|   |   |   |   |   |     libssh2.dylib\\n|   |   |   |   |   |     \
+libssl.dylib\\n|   |   |   |   |     Windows\\n|   |   |   |   |   |     \
+libcurl.dll\\n|   |   |   |   |   |     libcurlLink.dll\\n|   |   |   |   |   \
+|     libeay32.dll\\n|   |   |   |   |   |     libssh2.dll\\n|   |   |   |   \
+|   |     ssleay32.dll\\n|   |   |   |   |     Windows-x86-64\\n|   |   |   | \
+      |     libcurl.dll\\n|   |   |   |       |     libcurlLink.dll\\n|   |   \
+|   |       |     libeay32.dll\\n|   |   |   |       |     libssh2.dll\\n|   \
+|   |   |       |     ssleay32.dll\\n|   |   |   |     OAuth.m\\n|   |   |   \
+|     PacletInfo.m\\n|   |   |   |     Source\\n|   |   |   |   |     C\\n|   \
+|   |   |     SSL\\n|   |   |       |     cacert.pem\\n|   |   |     \
+InterpreterDocs-10.1.117.1\\n|   |   |   |     Documentation\\n|   |   |   |  \
+ |     English\\n|   |   |   |       |     Guides\\n|   |   |   |       |   | \
+    InterpretingEntities.nb\\n|   |   |   |       |   |     \
+InterpretingStrings.nb\\n|   |   |   |       |     Index\\n|   |   |   |      \
+ |   |     _0.cfs\\n|   |   |   |       |   |     segments_3\\n|   |   |   |  \
+     |   |     segments.gen\\n|   |   |   |       |     ReferencePages\\n|   \
+|   |   |       |   |     Interpreters\\n|   |   |   |       |   |   |     \
+AdministrativeDivisionClass.nb\\n|   |   |   |       |   |   |     \
+AdministrativeDivision.nb\\n|   |   |   |       |   |   |     Age.nb\\n|   |  \
+ |   |       |   |   |     AircraftClass.nb\\n|   |   |   |       |   |   |   \
+  Aircraft.nb\\n|   |   |   |       |   |   |     Airline.nb\\n|   |   |   |  \
+     |   |   |     Airport.nb\\n|   |   |   |       |   |   |     \
+Amphibian.nb\\n|   |   |   |       |   |   |     AmusementPark.nb\\n|   |   | \
+  |       |   |   |     AmusementParkRide.nb\\n|   |   |   |       |   |   |  \
+   Animal.nb\\n|   |   |   |       |   |   |     Arachnid.nb\\n|   |   |   |  \
+     |   |   |     Artwork.nb\\n|   |   |   |       |   |   |     \
+AstronomicalObjectClass.nb\\n|   |   |   |       |   |   |     \
+AstronomicalObject.nb\\n|   |   |   |       |   |   |     \
+AstronomicalObservatory.nb\\n|   |   |   |       |   |   |     \
+AstronomicalRadioSource.nb\\n|   |   |   |       |   |   |     \
+AtmosphericLayer.nb\\n|   |   |   |       |   |   |     Barcode.nb\\n|   |   \
+|   |       |   |   |     Beach.nb\\n|   |   |   |       |   |   |     \
+Bird.nb\\n|   |   |   |       |   |   |     BoardGame.nb\\n|   |   |   |      \
+ |   |   |     BookClass.nb\\n|   |   |   |       |   |   |     Book.nb\\n|   \
+|   |   |       |   |   |     Boolean.nb\\n|   |   |   |       |   |   |     \
+Bridge.nb\\n|   |   |   |       |   |   |     BroadcastStation.nb\\n|   |   | \
+  |       |   |   |     Building.nb\\n|   |   |   |       |   |   |     \
+CachedFile.nb\\n|   |   |   |       |   |   |     Canal.nb\\n|   |   |   |    \
+   |   |   |     Castle.nb\\n|   |   |   |       |   |   |     \
+CatBreed.nb\\n|   |   |   |       |   |   |     Cave.nb\\n|   |   |   |       \
+|   |   |     Cemetery.nb\\n|   |   |   |       |   |   |     \
+Character.nb\\n|   |   |   |       |   |   |     ChemicalClass.nb\\n|   |   | \
+  |       |   |   |     Chemical.nb\\n|   |   |   |       |   |   |     \
+City.nb\\n|   |   |   |       |   |   |     Cloud.nb\\n|   |   |   |       |  \
+ |   |     Color.nb\\n|   |   |   |       |   |   |     Comet.nb\\n|   |   |  \
+ |       |   |   |     Company.nb\\n|   |   |   |       |   |   |     \
+ComplexNumber.nb\\n|   |   |   |       |   |   |     \
+ComputedAdministrativeDivision.nb\\n|   |   |   |       |   |   |     \
+ComputedAge.nb\\n|   |   |   |       |   |   |     ComputedAircraft.nb\\n|   \
+|   |   |       |   |   |     ComputedAirline.nb\\n|   |   |   |       |   |  \
+ |     ComputedAirport.nb\\n|   |   |   |       |   |   |     \
+ComputedAmphibian.nb\\n|   |   |   |       |   |   |     \
+ComputedAmusementPark.nb\\n|   |   |   |       |   |   |     \
+ComputedAmusementParkRide.nb\\n|   |   |   |       |   |   |     \
+ComputedAnimal.nb\\n|   |   |   |       |   |   |     ComputedArachnid.nb\\n| \
+  |   |   |       |   |   |     ComputedArtwork.nb\\n|   |   |   |       |   \
+|   |     ComputedAstronomicalObject.nb\\n|   |   |   |       |   |   |     \
+ComputedAstronomicalObservatory.nb\\n|   |   |   |       |   |   |     \
+ComputedAstronomicalRadioSource.nb\\n|   |   |   |       |   |   |     \
+ComputedAtmosphericLayer.nb\\n|   |   |   |       |   |   |     \
+ComputedBeach.nb\\n|   |   |   |       |   |   |     ComputedBird.nb\\n|   |  \
+ |   |       |   |   |     ComputedBoardGame.nb\\n|   |   |   |       |   |   \
+|     ComputedBook.nb\\n|   |   |   |       |   |   |     \
+ComputedBridge.nb\\n|   |   |   |       |   |   |     \
+ComputedBroadcastStation.nb\\n|   |   |   |       |   |   |     \
+ComputedBuilding.nb\\n|   |   |   |       |   |   |     ComputedCanal.nb\\n|  \
+ |   |   |       |   |   |     ComputedCastle.nb\\n|   |   |   |       |   |  \
+ |     ComputedCatBreed.nb\\n|   |   |   |       |   |   |     \
+ComputedCave.nb\\n|   |   |   |       |   |   |     ComputedCemetery.nb\\n|   \
+|   |   |       |   |   |     ComputedCharacter.nb\\n|   |   |   |       |   \
+|   |     ComputedChemical.nb\\n|   |   |   |       |   |   |     \
+ComputedCity.nb\\n|   |   |   |       |   |   |     ComputedCloud.nb\\n|   |  \
+ |   |       |   |   |     ComputedColor.nb\\n|   |   |   |       |   |   |   \
+  ComputedComet.nb\\n|   |   |   |       |   |   |     ComputedCompany.nb\\n| \
+  |   |   |       |   |   |     ComputedComplexNumber.nb\\n|   |   |   |      \
+ |   |   |     ComputedConstellation.nb\\n|   |   |   |       |   |   |     \
+ComputedCountry.nb\\n|   |   |   |       |   |   |     \
+ComputedCrystalFamily.nb\\n|   |   |   |       |   |   |     \
+ComputedCrystallographicSpaceGroup.nb\\n|   |   |   |       |   |   |     \
+ComputedCrystalSystem.nb\\n|   |   |   |       |   |   |     \
+ComputedCurrencyAmount.nb\\n|   |   |   |       |   |   |     \
+ComputedCurrencyDenomination.nb\\n|   |   |   |       |   |   |     \
+ComputedDam.nb\\n|   |   |   |       |   |   |     ComputedDate.nb\\n|   |   \
+|   |       |   |   |     ComputedDateTime.nb\\n|   |   |   |       |   |   | \
+    ComputedDeepSpaceProbe.nb\\n|   |   |   |       |   |   |     \
+ComputedDesert.nb\\n|   |   |   |       |   |   |     ComputedDigimon.nb\\n|  \
+ |   |   |       |   |   |     ComputedDinosaur.nb\\n|   |   |   |       |   \
+|   |     ComputedDisease.nb\\n|   |   |   |       |   |   |     \
+ComputedDisplayFormat.nb\\n|   |   |   |       |   |   |     \
+ComputedDistrictCourt.nb\\n|   |   |   |       |   |   |     \
+ComputedDogBreed.nb\\n|   |   |   |       |   |   |     ComputedDrug.nb\\n|   \
+|   |   |       |   |   |     ComputedEarthImpact.nb\\n|   |   |   |       |  \
+ |   |     ComputedElement.nb\\n|   |   |   |       |   |   |     \
+ComputedExoplanet.nb\\n|   |   |   |       |   |   |     \
+ComputedFamousChemistryProblem.nb\\n|   |   |   |       |   |   |     \
+ComputedFamousGem.nb\\n|   |   |   |       |   |   |     \
+ComputedFamousMathGame.nb\\n|   |   |   |       |   |   |     \
+ComputedFamousMathProblem.nb\\n|   |   |   |       |   |   |     \
+ComputedFamousPhysicsProblem.nb\\n|   |   |   |       |   |   |     \
+ComputedFictionalCharacter.nb\\n|   |   |   |       |   |   |     \
+ComputedFileFormat.nb\\n|   |   |   |       |   |   |     \
+ComputedFinancialIndex.nb\\n|   |   |   |       |   |   |     \
+ComputedFinancial.nb\\n|   |   |   |       |   |   |     \
+ComputedFiniteGroup.nb\\n|   |   |   |       |   |   |     \
+ComputedFish.nb\\n|   |   |   |       |   |   |     ComputedForest.nb\\n|   | \
+  |   |       |   |   |     ComputedFrequencyAllocation.nb\\n|   |   |   |    \
+   |   |   |     ComputedGalaxy.nb\\n|   |   |   |       |   |   |     \
+ComputedGene.nb\\n|   |   |   |       |   |   |     \
+ComputedGeologicalLayer.nb\\n|   |   |   |       |   |   |     \
+ComputedGeologicalPeriod.nb\\n|   |   |   |       |   |   |     \
+ComputedGivenName.nb\\n|   |   |   |       |   |   |     \
+ComputedGlacier.nb\\n|   |   |   |       |   |   |     ComputedGraph.nb\\n|   \
+|   |   |       |   |   |     ComputedHistoricalCountry.nb\\n|   |   |   |    \
+   |   |   |     ComputedHistoricalEvent.nb\\n|   |   |   |       |   |   |   \
+  ComputedHistoricalPeriod.nb\\n|   |   |   |       |   |   |     \
+ComputedHistoricalSite.nb\\n|   |   |   |       |   |   |     \
+ComputedInsect.nb\\n|   |   |   |       |   |   |     ComputedInteger.nb\\n|  \
+ |   |   |       |   |   |     ComputedIntegerSequence.nb\\n|   |   |   |     \
+  |   |   |     ComputedInternetDomain.nb\\n|   |   |   |       |   |   |     \
+ComputedIsland.nb\\n|   |   |   |       |   |   |     ComputedIsotope.nb\\n|  \
+ |   |   |       |   |   |     ComputedKnot.nb\\n|   |   |   |       |   |   \
+|     ComputedLake.nb\\n|   |   |   |       |   |   |     \
+ComputedLamina.nb\\n|   |   |   |       |   |   |     ComputedLanguage.nb\\n| \
+  |   |   |       |   |   |     ComputedLattice.nb\\n|   |   |   |       |   \
+|   |     ComputedLatticeSystem.nb\\n|   |   |   |       |   |   |     \
+ComputedLibraryBranch.nb\\n|   |   |   |       |   |   |     \
+ComputedLibrarySystem.nb\\n|   |   |   |       |   |   |     \
+ComputedLocation.nb\\n|   |   |   |       |   |   |     ComputedMammal.nb\\n| \
+  |   |   |       |   |   |     ComputedMannedSpaceMission.nb\\n|   |   |   | \
+      |   |   |     ComputedMathWorld.nb\\n|   |   |   |       |   |   |     \
+ComputedMeasurementDevice.nb\\n|   |   |   |       |   |   |     \
+ComputedMedicalTest.nb\\n|   |   |   |       |   |   |     \
+ComputedMeteorShower.nb\\n|   |   |   |       |   |   |     \
+ComputedMetropolitanArea.nb\\n|   |   |   |       |   |   |     \
+ComputedMine.nb\\n|   |   |   |       |   |   |     ComputedMineral.nb\\n|   \
+|   |   |       |   |   |     ComputedMinorPlanet.nb\\n|   |   |   |       |  \
+ |   |     ComputedMountain.nb\\n|   |   |   |       |   |   |     \
+ComputedMovie.nb\\n|   |   |   |       |   |   |     ComputedMuseum.nb\\n|   \
+|   |   |       |   |   |     ComputedMusicAct.nb\\n|   |   |   |       |   | \
+  |     ComputedMusicAlbum.nb\\n|   |   |   |       |   |   |     \
+ComputedMusicalInstrument.nb\\n|   |   |   |       |   |   |     \
+ComputedMusicWork.nb\\n|   |   |   |       |   |   |     ComputedMythology.nb\
+\\n|   |   |   |       |   |   |     ComputedNebula.nb\\n|   |   |   |       \
+|   |   |     ComputedNeighborhood.nb\\n|   |   |   |       |   |   |     \
+ComputedNotableComputer.nb\\n|   |   |   |       |   |   |     \
+ComputedNuclearExplosion.nb\\n|   |   |   |       |   |   |     \
+ComputedNuclearReactor.nb\\n|   |   |   |       |   |   |     \
+ComputedNuclearTestSite.nb\\n|   |   |   |       |   |   |     \
+ComputedNumber.nb\\n|   |   |   |       |   |   |     ComputedOcean.nb\\n|   \
+|   |   |       |   |   |     ComputedOilField.nb\\n|   |   |   |       |   | \
+  |     ComputedPark.nb\\n|   |   |   |       |   |   |     \
+ComputedParticleAccelerator.nb\\n|   |   |   |       |   |   |     \
+ComputedParticle.nb\\n|   |   |   |       |   |   |     \
+ComputedPercent.nb\\n|   |   |   |       |   |   |     \
+ComputedPeriodical.nb\\n|   |   |   |       |   |   |     \
+ComputedPerson.nb\\n|   |   |   |       |   |   |     \
+ComputedPhysicalSystem.nb\\n|   |   |   |       |   |   |     \
+ComputedPlaneCurve.nb\\n|   |   |   |       |   |   |     \
+ComputedPlanetaryMoon.nb\\n|   |   |   |       |   |   |     \
+ComputedPlanet.nb\\n|   |   |   |       |   |   |     ComputedPlant.nb\\n|   \
+|   |   |       |   |   |     ComputedPokemon.nb\\n|   |   |   |       |   |  \
+ |     ComputedPolyhedron.nb\\n|   |   |   |       |   |   |     \
+ComputedPopularCurve.nb\\n|   |   |   |       |   |   |     \
+ComputedPrivateSchool.nb\\n|   |   |   |       |   |   |     \
+ComputedProtein.nb\\n|   |   |   |       |   |   |     \
+ComputedPublicSchool.nb\\n|   |   |   |       |   |   |     ComputedPulsar.nb\
+\\n|   |   |   |       |   |   |     ComputedQuantity.nb\\n|   |   |   |      \
+ |   |   |     ComputedReal.nb\\n|   |   |   |       |   |   |     \
+ComputedReef.nb\\n|   |   |   |       |   |   |     ComputedReligion.nb\\n|   \
+|   |   |       |   |   |     ComputedReptile.nb\\n|   |   |   |       |   |  \
+ |     ComputedReserveLand.nb\\n|   |   |   |       |   |   |     \
+ComputedRiver.nb\\n|   |   |   |       |   |   |     ComputedRocket.nb\\n|   \
+|   |   |       |   |   |     ComputedSatellite.nb\\n|   |   |   |       |   \
+|   |     ComputedSchoolDistrict.nb\\n|   |   |   |       |   |   |     \
+ComputedSchool.nb\\n|   |   |   |       |   |   |     ComputedShip.nb\\n|   | \
+  |   |       |   |   |     ComputedShipwreck.nb\\n|   |   |   |       |   |  \
+ |     ComputedSNP.nb\\n|   |   |   |       |   |   |     \
+ComputedSolarSystemFeature.nb\\n|   |   |   |       |   |   |     \
+ComputedSolid.nb\\n|   |   |   |       |   |   |     \
+ComputedSpaceCurve.nb\\n|   |   |   |       |   |   |     \
+ComputedSpecies.nb\\n|   |   |   |       |   |   |     ComputedSportObject.nb\
+\\n|   |   |   |       |   |   |     ComputedStadium.nb\\n|   |   |   |       \
+|   |   |     ComputedStarCluster.nb\\n|   |   |   |       |   |   |     \
+ComputedStar.nb\\n|   |   |   |       |   |   |     ComputedSupernova.nb\\n|  \
+ |   |   |       |   |   |     ComputedSurface.nb\\n|   |   |   |       |   | \
+  |     ComputedSurname.nb\\n|   |   |   |       |   |   |     \
+ComputedTickerSymbol.nb\\n|   |   |   |       |   |   |     \
+ComputedTime.nb\\n|   |   |   |       |   |   |     ComputedTimeZone.nb\\n|   \
+|   |   |       |   |   |     ComputedTropicalStorm.nb\\n|   |   |   |       \
+|   |   |     ComputedTunnel.nb\\n|   |   |   |       |   |   |     \
+ComputedUnderseaFeature.nb\\n|   |   |   |       |   |   |     \
+ComputedUniversity.nb\\n|   |   |   |       |   |   |     \
+ComputedUSCongressionalDistrict.nb\\n|   |   |   |       |   |   |     \
+ComputedUSCounty.nb\\n|   |   |   |       |   |   |     \
+ComputedUSState.nb\\n|   |   |   |       |   |   |     ComputedVolcano.nb\\n| \
+  |   |   |       |   |   |     ComputedWaterfall.nb\\n|   |   |   |       |  \
+ |   |     ComputedWeatherStation.nb\\n|   |   |   |       |   |   |     \
+ComputedWord.nb\\n|   |   |   |       |   |   |     ComputedZIPCode.nb\\n|   \
+|   |   |       |   |   |     Constellation.nb\\n|   |   |   |       |   |   \
+|     CountryClass.nb\\n|   |   |   |       |   |   |     Country.nb\\n|   |  \
+ |   |       |   |   |     CrystalFamily.nb\\n|   |   |   |       |   |   |   \
+  CrystallographicSpaceGroup.nb\\n|   |   |   |       |   |   |     \
+CrystalSystem.nb\\n|   |   |   |       |   |   |     CurrencyAmount.nb\\n|   \
+|   |   |       |   |   |     CurrencyDenominationClass.nb\\n|   |   |   |    \
+   |   |   |     CurrencyDenomination.nb\\n|   |   |   |       |   |   |     \
+CurrencyName.nb\\n|   |   |   |       |   |   |     Dam.nb\\n|   |   |   |    \
+   |   |   |     Date.nb\\n|   |   |   |       |   |   |     DateTime.nb\\n|  \
+ |   |   |       |   |   |     DeepSpaceProbeClass.nb\\n|   |   |   |       | \
+  |   |     DeepSpaceProbe.nb\\n|   |   |   |       |   |   |     \
+Desert.nb\\n|   |   |   |       |   |   |     DigimonClass.nb\\n|   |   |   | \
+      |   |   |     Digimon.nb\\n|   |   |   |       |   |   |     \
+Dinosaur.nb\\n|   |   |   |       |   |   |     Disease.nb\\n|   |   |   |    \
+   |   |   |     DisplayFormat.nb\\n|   |   |   |       |   |   |     \
+DistrictCourtClass.nb\\n|   |   |   |       |   |   |     \
+DistrictCourt.nb\\n|   |   |   |       |   |   |     DogBreed.nb\\n|   |   |  \
+ |       |   |   |     Drug.nb\\n|   |   |   |       |   |   |     \
+EarthImpact.nb\\n|   |   |   |       |   |   |     ElementClass.nb\\n|   |   \
+|   |       |   |   |     Element.nb\\n|   |   |   |       |   |   |     \
+EmailAddress.nb\\n|   |   |   |       |   |   |     Entity.nb\\n|   |   |   | \
+      |   |   |     Exoplanet.nb\\n|   |   |   |       |   |   |     \
+Expression.nb\\n|   |   |   |       |   |   |     \
+FamousChemistryProblem.nb\\n|   |   |   |       |   |   |     \
+FamousGem.nb\\n|   |   |   |       |   |   |     FamousMathGame.nb\\n|   |   \
+|   |       |   |   |     FamousMathProblem.nb\\n|   |   |   |       |   |   \
+|     FamousPhysicsProblem.nb\\n|   |   |   |       |   |   |     \
+FictionalCharacter.nb\\n|   |   |   |       |   |   |     FileFormat.nb\\n|   \
+|   |   |       |   |   |     FileName.nb\\n|   |   |   |       |   |   |     \
+FinancialClass.nb\\n|   |   |   |       |   |   |     \
+FinancialIndexClass.nb\\n|   |   |   |       |   |   |     \
+FinancialIndex.nb\\n|   |   |   |       |   |   |     Financial.nb\\n|   |   \
+|   |       |   |   |     FiniteGroup.nb\\n|   |   |   |       |   |   |     \
+Fish.nb\\n|   |   |   |       |   |   |     Forest.nb\\n|   |   |   |       | \
+  |   |     FrequencyAllocation.nb\\n|   |   |   |       |   |   |     \
+GalaxyClass.nb\\n|   |   |   |       |   |   |     Galaxy.nb\\n|   |   |   |  \
+     |   |   |     GeneClass.nb\\n|   |   |   |       |   |   |     \
+Gene.nb\\n|   |   |   |       |   |   |     GeoCoordinates.nb\\n|   |   |   | \
+      |   |   |     GeologicalLayer.nb\\n|   |   |   |       |   |   |     \
+GeologicalPeriod.nb\\n|   |   |   |       |   |   |     GeoModel.nb\\n|   |   \
+|   |       |   |   |     GeoProjection.nb\\n|   |   |   |       |   |   |    \
+ GivenName.nb\\n|   |   |   |       |   |   |     Glacier.nb\\n|   |   |   |  \
+     |   |   |     GraphClass.nb\\n|   |   |   |       |   |   |     \
+Graphics.nb\\n|   |   |   |       |   |   |     Graph.nb\\n|   |   |   |      \
+ |   |   |     HeldExpression.nb\\n|   |   |   |       |   |   |     \
+HeldMathExpression.nb\\n|   |   |   |       |   |   |     \
+HeldMathFormula.nb\\n|   |   |   |       |   |   |     \
+HeldSemanticExpression.nb\\n|   |   |   |       |   |   |     \
+HexInteger.nb\\n|   |   |   |       |   |   |     HistoricalCountry.nb\\n|   \
+|   |   |       |   |   |     HistoricalEvent.nb\\n|   |   |   |       |   |  \
+ |     HistoricalPeriod.nb\\n|   |   |   |       |   |   |     \
+HistoricalSite.nb\\n|   |   |   |       |   |   |     Image.nb\\n|   |   |   \
+|       |   |   |     InactiveExpression.nb\\n|   |   |   |       |   |   |   \
+  InactiveMathExpression.nb\\n|   |   |   |       |   |   |     \
+InactiveMathFormula.nb\\n|   |   |   |       |   |   |     \
+InactiveSemanticExpression.nb\\n|   |   |   |       |   |   |     \
+Insect.nb\\n|   |   |   |       |   |   |     Integer.nb\\n|   |   |   |      \
+ |   |   |     IntegerSequence.nb\\n|   |   |   |       |   |   |     \
+InternetDomain.nb\\n|   |   |   |       |   |   |     IPAddress.nb\\n|   |   \
+|   |       |   |   |     IslandClass.nb\\n|   |   |   |       |   |   |     \
+Island.nb\\n|   |   |   |       |   |   |     IsotopeClass.nb\\n|   |   |   | \
+      |   |   |     Isotope.nb\\n|   |   |   |       |   |   |     \
+Knot.nb\\n|   |   |   |       |   |   |     Lake.nb\\n|   |   |   |       |   \
+|   |     Lamina.nb\\n|   |   |   |       |   |   |     LanguageClass.nb\\n|  \
+ |   |   |       |   |   |     Language.nb\\n|   |   |   |       |   |   |    \
+ Lattice.nb\\n|   |   |   |       |   |   |     LatticeSystem.nb\\n|   |   |  \
+ |       |   |   |     LibraryBranch.nb\\n|   |   |   |       |   |   |     \
+LibrarySystem.nb\\n|   |   |   |       |   |   |     Location.nb\\n|   |   |  \
+ |       |   |   |     Mammal.nb\\n|   |   |   |       |   |   |     \
+MannedSpaceMission.nb\\n|   |   |   |       |   |   |     \
+MathExpression.nb\\n|   |   |   |       |   |   |     MathFormula.nb\\n|   |  \
+ |   |       |   |   |     MathWorldClass.nb\\n|   |   |   |       |   |   |  \
+   MathWorld.nb\\n|   |   |   |       |   |   |     MeasurementDevice.nb\\n|  \
+ |   |   |       |   |   |     MedicalTest.nb\\n|   |   |   |       |   |   | \
+    MeteorShower.nb\\n|   |   |   |       |   |   |     \
+MetropolitanArea.nb\\n|   |   |   |       |   |   |     Mine.nb\\n|   |   |   \
+|       |   |   |     Mineral.nb\\n|   |   |   |       |   |   |     \
+MinorPlanet.nb\\n|   |   |   |       |   |   |     MountainClass.nb\\n|   |   \
+|   |       |   |   |     Mountain.nb\\n|   |   |   |       |   |   |     \
+MovieClass.nb\\n|   |   |   |       |   |   |     Movie.nb\\n|   |   |   |    \
+   |   |   |     Museum.nb\\n|   |   |   |       |   |   |     \
+MusicAct.nb\\n|   |   |   |       |   |   |     MusicAlbum.nb\\n|   |   |   | \
+      |   |   |     MusicalInstrument.nb\\n|   |   |   |       |   |   |     \
+MusicWork.nb\\n|   |   |   |       |   |   |     Mythology.nb\\n|   |   |   | \
+      |   |   |     Nebula.nb\\n|   |   |   |       |   |   |     \
+Neighborhood.nb\\n|   |   |   |       |   |   |     NotableComputer.nb\\n|   \
+|   |   |       |   |   |     NuclearExplosion.nb\\n|   |   |   |       |   | \
+  |     NuclearReactorClass.nb\\n|   |   |   |       |   |   |     \
+NuclearReactor.nb\\n|   |   |   |       |   |   |     NuclearTestSite.nb\\n|  \
+ |   |   |       |   |   |     Number.nb\\n|   |   |   |       |   |   |     \
+Ocean.nb\\n|   |   |   |       |   |   |     OilField.nb\\n|   |   |   |      \
+ |   |   |     Park.nb\\n|   |   |   |       |   |   |     \
+ParticleAccelerator.nb\\n|   |   |   |       |   |   |     \
+ParticleClass.nb\\n|   |   |   |       |   |   |     Particle.nb\\n|   |   |  \
+ |       |   |   |     Percent.nb\\n|   |   |   |       |   |   |     \
+Periodical.nb\\n|   |   |   |       |   |   |     Person.nb\\n|   |   |   |   \
+    |   |   |     PhoneNumber.nb\\n|   |   |   |       |   |   |     \
+PhysicalQuantity.nb\\n|   |   |   |       |   |   |     PhysicalSystem.nb\\n| \
+  |   |   |       |   |   |     PlaneCurve.nb\\n|   |   |   |       |   |   | \
+    PlanetaryMoon.nb\\n|   |   |   |       |   |   |     Planet.nb\\n|   |   \
+|   |       |   |   |     Plant.nb\\n|   |   |   |       |   |   |     \
+PokemonClass.nb\\n|   |   |   |       |   |   |     Pokemon.nb\\n|   |   |   \
+|       |   |   |     PolyhedronClass.nb\\n|   |   |   |       |   |   |     \
+Polyhedron.nb\\n|   |   |   |       |   |   |     PopularCurve.nb\\n|   |   | \
+  |       |   |   |     PrivateSchool.nb\\n|   |   |   |       |   |   |     \
+Protein.nb\\n|   |   |   |       |   |   |     PublicSchool.nb\\n|   |   |   \
+|       |   |   |     Pulsar.nb\\n|   |   |   |       |   |   |     \
+Quantity.nb\\n|   |   |   |       |   |   |     Real.nb\\n|   |   |   |       \
+|   |   |     Reef.nb\\n|   |   |   |       |   |   |     Religion.nb\\n|   | \
+  |   |       |   |   |     Reptile.nb\\n|   |   |   |       |   |   |     \
+ReserveLand.nb\\n|   |   |   |       |   |   |     River.nb\\n|   |   |   |   \
+    |   |   |     Rocket.nb\\n|   |   |   |       |   |   |     \
+RomanNumeral.nb\\n|   |   |   |       |   |   |     Satellite.nb\\n|   |   |  \
+ |       |   |   |     SchoolDistrict.nb\\n|   |   |   |       |   |   |     \
+School.nb\\n|   |   |   |       |   |   |     SemanticComplexNumber.nb\\n|   \
+|   |   |       |   |   |     SemanticExpression.nb\\n|   |   |   |       |   \
+|   |     SemanticInteger.nb\\n|   |   |   |       |   |   |     \
+SemanticNumber.nb\\n|   |   |   |       |   |   |     SemanticReal.nb\\n|   | \
+  |   |       |   |   |     SemanticURL.nb\\n|   |   |   |       |   |   |    \
+ Ship.nb\\n|   |   |   |       |   |   |     Shipwreck.nb\\n|   |   |   |     \
+  |   |   |     SNP.nb\\n|   |   |   |       |   |   |     \
+SolarSystemFeatureClass.nb\\n|   |   |   |       |   |   |     \
+SolarSystemFeature.nb\\n|   |   |   |       |   |   |     Solid.nb\\n|   |   \
+|   |       |   |   |     Sound.nb\\n|   |   |   |       |   |   |     \
+SpaceCurve.nb\\n|   |   |   |       |   |   |     Species.nb\\n|   |   |   |  \
+     |   |   |     SportObjectClass.nb\\n|   |   |   |       |   |   |     \
+SportObject.nb\\n|   |   |   |       |   |   |     Stadium.nb\\n|   |   |   | \
+      |   |   |     StarClass.nb\\n|   |   |   |       |   |   |     \
+StarCluster.nb\\n|   |   |   |       |   |   |     Star.nb\\n|   |   |   |    \
+   |   |   |     StreetAddress.nb\\n|   |   |   |       |   |   |     \
+String.nb\\n|   |   |   |       |   |   |     StructuredColor.nb\\n|   |   |  \
+ |       |   |   |     StructuredDate.nb\\n|   |   |   |       |   |   |     \
+StructuredDateTime.nb\\n|   |   |   |       |   |   |     \
+StructuredGeoCoordinates.nb\\n|   |   |   |       |   |   |     \
+StructuredQuantity.nb\\n|   |   |   |       |   |   |     \
+StructuredTime.nb\\n|   |   |   |       |   |   |     Supernova.nb\\n|   |   \
+|   |       |   |   |     Surface.nb\\n|   |   |   |       |   |   |     \
+Surname.nb\\n|   |   |   |       |   |   |     TextArea.nb\\n|   |   |   |    \
+   |   |   |     TextLine.nb\\n|   |   |   |       |   |   |     \
+TickerSymbolClass.nb\\n|   |   |   |       |   |   |     TickerSymbol.nb\\n|  \
+ |   |   |       |   |   |     Time.nb\\n|   |   |   |       |   |   |     \
+TimeZone.nb\\n|   |   |   |       |   |   |     TropicalStorm.nb\\n|   |   |  \
+ |       |   |   |     Tunnel.nb\\n|   |   |   |       |   |   |     \
+UnderseaFeature.nb\\n|   |   |   |       |   |   |     UniversityClass.nb\\n| \
+  |   |   |       |   |   |     University.nb\\n|   |   |   |       |   |   | \
+    UnixTime.nb\\n|   |   |   |       |   |   |     UploadedFile.nb\\n|   |   \
+|   |       |   |   |     URL.nb\\n|   |   |   |       |   |   |     \
+URLQueryString.nb\\n|   |   |   |       |   |   |     URLString.nb\\n|   |   \
+|   |       |   |   |     USCongressionalDistrict.nb\\n|   |   |   |       |  \
+ |   |     USCountyClass.nb\\n|   |   |   |       |   |   |     \
+USCounty.nb\\n|   |   |   |       |   |   |     USStateClass.nb\\n|   |   |   \
+|       |   |   |     USState.nb\\n|   |   |   |       |   |   |     \
+Volcano.nb\\n|   |   |   |       |   |   |     Waterfall.nb\\n|   |   |   |   \
+    |   |   |     WeatherStation.nb\\n|   |   |   |       |   |   |     \
+Word.nb\\n|   |   |   |       |   |   |     ZIPCode.nb\\n|   |   |   |       \
+|   |     Symbols\\n|   |   |   |       |       |     \
+$InterpreterTypes.nb\\n|   |   |   |       |     SpellIndex\\n|   |   |   |   \
+        |     segments_1p\\n|   |   |   |           |     segments.gen\\n|   \
+|   |   |           |     _t.cfs\\n|   |   |   |     PacletInfo.m\\n|   |   | \
+    Streaming-1.0.533\\n|   |   |   |     Kernel\\n|   |   |   |   |     \
+32Bit\\n|   |   |   |   |   |     Streaming.mx\\n|   |   |   |   |     \
+64Bit\\n|   |   |   |       |     Streaming.mx\\n|   |   |   |     \
+PacletInfo.m\\n|   |   |   |     StreamingLoader.m\\n|   |   |   |     \
+StreamingMain.m\\n|   |   |     StringPatternFix-1.0\\n|   |   |   |     \
+Kernel\\n|   |   |   |   |     StringPatternFix.m\\n|   |   |   |     \
+PacletInfo.m\\n|   |   |     SystemDocsUpdate1-10.0.0.1\\n|   |   |   |     \
+Documentation\\n|   |   |   |   |     English\\n|   |   |   |       |     \
+Guides\\n|   |   |   |       |   |     EngineeringData.nb\\n|   |   |   |     \
+  |   |     Finance.nb\\n|   |   |   |       |   |     \
+FunctionalProgramming.nb\\n|   |   |   |       |   |     \
+InterpretingStrings.nb\\n|   |   |   |       |   |     \
+KnowledgeRepresentationAndAccess.nb\\n|   |   |   |       |   |     \
+LifeSciencesAndMedicineDataAndComputation.nb\\n|   |   |   |       |   |     \
+MathematicalFunctions.nb\\n|   |   |   |       |   |     MeshRegions.nb\\n|   \
+|   |   |       |   |     NewIn100SymbolicAndNumericComputation.nb\\n|   |   \
+|   |       |   |     NewIn100VisualizationAndGraphics.nb\\n|   |   |   |     \
+  |   |     NumberTheory.nb\\n|   |   |   |       |   |     \
+ParallelComputing.nb\\n|   |   |   |       |   |     PeopleAndHistory.nb\\n|  \
+ |   |   |       |   |     PhysicsAndChemistryDataAndComputation.nb\\n|   |   \
+|   |       |   |     PlaneGeometry.nb\\n|   |   |   |       |   |     \
+RandomNumberGeneration.nb\\n|   |   |   |       |   |     \
+SolidGeometry.nb\\n|   |   |   |       |   |     \
+SymbolicExecutionHistory.nb\\n|   |   |   |       |   |     \
+SystemsModeling.nb\\n|   |   |   |       |   |     Units.nb\\n|   |   |   |   \
+    |   |     UsingTheWolframDataDrop.nb\\n|   |   |   |       |   |     \
+WeatherData.nb\\n|   |   |   |       |     ReferencePages\\n|   |   |   |     \
+  |   |     Symbols\\n|   |   |   |       |       |     $BaseDirectory.nb\\n| \
+  |   |   |       |       |     $BatchInput.nb\\n|   |   |   |       |       \
+|     Cases.nb\\n|   |   |   |       |       |     $CommandLine.nb\\n|   |   \
+|   |       |       |     $CreationDate.nb\\n|   |   |   |       |       |    \
+ $CurrentLink.nb\\n|   |   |   |       |       |     DSolve.nb\\n|   |   |   \
+|       |       |     $Epilog.nb\\n|   |   |   |       |       |     \
+$ExportFormats.nb\\n|   |   |   |       |       |     FindFit.nb\\n|   |   |  \
+ |       |       |     FirstCase.nb\\n|   |   |   |       |       |     \
+$HistoryLength.nb\\n|   |   |   |       |       |     $IgnoreEOF.nb\\n|   |   \
+|   |       |       |     $ImportFormats.nb\\n|   |   |   |       |       |   \
+  $InitialDirectory.nb\\n|   |   |   |       |       |     \
+$InputFileName.nb\\n|   |   |   |       |       |     $Input.nb\\n|   |   |   \
+|       |       |     $InstallationDirectory.nb\\n|   |   |   |       |       \
+|     InverseRadon.nb\\n|   |   |   |       |       |     LayeredGraphPlot.nb\
+\\n|   |   |   |       |       |     $LicenseExpirationDate.nb\\n|   |   |   \
+|       |       |     $LicenseID.nb\\n|   |   |   |       |       |     \
+$LicenseServer.nb\\n|   |   |   |       |       |     $Linked.nb\\n|   |   |  \
+ |       |       |     $MachineAddresses.nb\\n|   |   |   |       |       |   \
+  $MachineDomains.nb\\n|   |   |   |       |       |     $MachineID.nb\\n|   \
+|   |   |       |       |     $MachineName.nb\\n|   |   |   |       |       | \
+    $MachineType.nb\\n|   |   |   |       |       |     Manipulate.nb\\n|   | \
+  |   |       |       |     $NewSymbol.nb\\n|   |   |   |       |       |     \
+$Notebooks.nb\\n|   |   |   |       |       |     $OperatingSystem.nb\\n|   | \
+  |   |       |       |     $Output.nb\\n|   |   |   |       |       |     \
+$OutputSizeLimit.nb\\n|   |   |   |       |       |     $Packages.nb\\n|   |  \
+ |   |       |       |     $ParentLink.nb\\n|   |   |   |       |       |     \
+$ParentProcessID.nb\\n|   |   |   |       |       |     $PreRead.nb\\n|   |   \
+|   |       |       |     $ProcessID.nb\\n|   |   |   |       |       |     \
+$ProcessorCount.nb\\n|   |   |   |       |       |     $ProcessorType.nb\\n|  \
+ |   |   |       |       |     RandomChoice.nb\\n|   |   |   |       |       \
+|     $RecursionLimit.nb\\n|   |   |   |       |       |     \
+$ReleaseNumber.nb\\n|   |   |   |       |       |     \
+ReliabilityDistribution.nb\\n|   |   |   |       |       |     \
+$ScriptCommandLine.nb\\n|   |   |   |       |       |     $SessionID.nb\\n|   \
+|   |   |       |       |     $SystemCharacterEncoding.nb\\n|   |   |   |     \
+  |       |     $SystemID.nb\\n|   |   |   |       |       |     \
+$System.nb\\n|   |   |   |       |       |     $SystemWordLength.nb\\n|   |   \
+|   |       |       |     TemplateIf.nb\\n|   |   |   |       |       |     \
+$Urgent.nb\\n|   |   |   |       |       |     $UserBaseDirectory.nb\\n|   |  \
+ |   |       |       |     $UserName.nb\\n|   |   |   |       |       |     \
+$Version.nb\\n|   |   |   |       |       |     $VersionNumber.nb\\n|   |   | \
+  |       |     Tutorials\\n|   |   |   |           |     \
+DevelopingDeviceDrivers.nb\\n|   |   |   |     PacletInfo.m\\n|   |   |     \
+SystemDocsUpdate1-10.1.0-10.1.0.0\\n|   |   |   |     Documentation\\n|   |   \
+|   |   |     English\\n|   |   |   |       |     ReferencePages\\n|   |   |  \
+ |           |     Symbols\\n|   |   |   |               |     \
+AnswerObject.nb\\n|   |   |   |               |     AssessmentAction.nb\\n|   \
+|   |   |               |     AssessmentFunction.nb\\n|   |   |   |           \
+    |     BandpassFilter.nb\\n|   |   |   |               |     \
+BandstopFilter.nb\\n|   |   |   |               |     Circumsphere.nb\\n|   | \
+  |   |               |     DifferentiatorFilter.nb\\n|   |   |   |           \
+    |     HighpassFilter.nb\\n|   |   |   |               |     \
+HilbertFilter.nb\\n|   |   |   |               |     \
+LeastSquaresFilterKernel.nb\\n|   |   |   |               |     \
+LowpassFilter.nb\\n|   |   |   |               |     QuestionObject.nb\\n|   \
+|   |   |               |     QuestionSequence.nb\\n|   |   |   |     \
+PacletInfo.m\\n|   |   |     SystemDocsUpdate1-10.3.0\\n|   |   |   |     \
+Documentation\\n|   |   |   |   |     English\\n|   |   |   |       |     \
+SpellIndex\\n|   |   |   |           |     readme.txt\\n|   |   |   |     \
+PacletInfo.m\\n|   |   |     SystemUpdateAvailable-1.0\\n|   |   |   |     \
+PacletInfo.m\\n|   |   |   |     SystemUpdateAvailable.m\\n|   |   |   |     \
+SystemUpdateAvailable.nb\\n|   |   |     WelcomeScreenNews-8.15\\n|   |   |   \
+|     PacletInfo.m\\n|   |   |   |     WelcomeScreenNews-ja.nb\\n|   |   |   \
+|     WelcomeScreenNews.nb\\n|   |   |   |     WelcomeScreenNews-zh.nb\\n|   \
+|   |     WelcomeScreenNews-8.16.1\\n|   |   |   |     PacletInfo.m\\n|   |   \
+|   |     WelcomeScreenNews-ja.nb\\n|   |   |   |     \
+WelcomeScreenNews.nb\\n|   |   |   |     WelcomeScreenNews-zh.nb\\n|   |   |  \
+   WelcomeScreenNews-8.17.1\\n|   |   |   |     PacletInfo.m\\n|   |   |   |  \
+   WelcomeScreenNews-ja.nb\\n|   |   |   |     WelcomeScreenNews.nb\\n|   |   \
+|   |     WelcomeScreenNews-zh.nb\\n|   |   |     WelcomeScreenNews-8.27\\n|  \
+ |   |   |     PacletInfo.m\\n|   |   |   |     WelcomeScreenNews-ja.nb\\n|   \
+|   |   |     WelcomeScreenNews.nb\\n|   |   |   |     \
+WelcomeScreenNews-zh.nb\\n|   |   |     WelcomeScreenSlides-8.11\\n|   |   |  \
+ |     PacletInfo.m\\n|   |   |   |     WelcomeScreenSlides-ja.nb\\n|   |   | \
+  |     WelcomeScreenSlides.nb\\n|   |   |   |     \
+WelcomeScreenSlides-zh.nb\\n|   |   |     WelcomeScreenSlides-8.13.2\\n|   |  \
+ |   |     PacletInfo.m\\n|   |   |   |     WelcomeScreenSlides-ja.nb\\n|   | \
+  |   |     WelcomeScreenSlides.nb\\n|   |   |   |     \
+WelcomeScreenSlides-zh.nb\\n|   |   |     WolframAlphaClient-1.2.3\\n|   |   \
+|   |     FrontEnd\\n|   |   |   |   |     TextResources\\n|   |   |   |      \
+ |     WolframAlphaResources.tr\\n|   |   |   |       |     \
+WolframAlphaStrings.tr\\n|   |   |   |     Kernel\\n|   |   |   |   |     \
+WolframAlphaClient.m\\n|   |   |   |     PacletInfo.m\\n|   |   |     \
+WolframAlphaClient-2.2.2015060408\\n|   |   |   |     FrontEnd\\n|   |   |   \
+|   |     TextResources\\n|   |   |   |       |     \
+WolframAlphaResources.tr\\n|   |   |   |       |     \
+WolframAlphaStrings.tr\\n|   |   |   |     Kernel\\n|   |   |   |   |     \
+WolframAlphaClient.m\\n|   |   |   |     PacletInfo.m\\n|   |   |     \
+WolframAutoUpdate-8.0.0\\n|   |       |     PacletInfo.m\\n|   |       |     \
+update.txt\\n|   |     Temporary\\n|       |     ps9305.mz\\n|       |     \
+SearchResults_%60_170711.nb\\n|       |     SearchResults_%7C_688630.nb\\n|   \
+    |     SearchResults_Character%20list_296251.nb\\n|       |     \
+SearchResults_Character%20listing_298853.nb\\n|       |     \
+SearchResults_Characterlisting_294878.nb\\n|       |     \
+SearchResults_context_171376.nb\\n|       |     \
+SearchResults_directory%20tree_617787.nb\\n|       |     \
+SearchResults_%E2%94%9C_4617588.nb\\n|       |     \
+SearchResults_%E2%94%9C_4618343.nb\\n|       |     SearchResults_El_746048.nb\
+\\n|       |     SearchResults_LongDash_671366.nb\\n|       |     \
+SearchResults_StringExplode_279509.nb\\n|       |     \
+SearchResults_stringextract_280014.nb\\n|       |     \
+SearchResults_tree_613275.nb\\n|     SystemFiles\\n|   |     \
+CharacterEncodings\\n|   |     FrontEnd\\n|   |   |     Palettes\\n|   |   |  \
+   StyleSheets\\n|   |   |   |     copy_of_default.nb\\n|   |   |   |     \
+math10a.nb\\n|   |   |   |     math10b.nb\\n|   |   |   |     math10c.nb\\n|  \
+ |   |   |     my-slide-style.nb\\n|   |   |   |     mystyle10.nb\\n|   |   | \
+  |     mystyle.nb\\n|   |   |   |     style2014.nb\\n|   |   |     \
+SystemResources\\n|   |       |     FunctionalFrequency\\n|   |           |   \
+  CodeAssistHistory10.0.m\\n|   |           |     CodeAssistHistory11.0.m\\n| \
+  |     Java\\n|   |   |     cacerts\\n|   |     Kernel\\n|   |     \
+SpellingDictionaries\\n|     term.history\\n\\n188 directories, 982 \
+files\\n\"\>"], "Output",
+ CellChangeTimes->{
+  3.682029448386639*^9, {3.682029562991712*^9, 3.682029588418342*^9}}]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.682021248794299*^9}],
+
+Cell[BoxData[
+ RowBox[{"directory", " ", "tree"}]], "Input",
+ CellChangeTimes->{{3.682026030875209*^9, 3.6820260313967648`*^9}, {
+  3.6820260721077547`*^9, 3.682026074731626*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<TeXit0x1`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6820198988346233`*^9, 3.682019914455755*^9}, {
+  3.682020103910015*^9, 3.682020103989448*^9}}],
+
+Cell[BoxData["\<\"/home/andrewn/.Mathematica/Applications/TeXit0x1/Kernel/\
+init.m\"\>"], "Output",
+ CellChangeTimes->{3.6820199161311207`*^9, 3.6820201047902308`*^9, 
+  3.682020529508711*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<TeXit-0.1`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6820198988346233`*^9, 3.682019914455755*^9}, {
+  3.682020103910015*^9, 3.682020122885211*^9}}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.682020125634076*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<TeXit`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6820198988346233`*^9, 3.682019914455755*^9}, {
+   3.682020103910015*^9, 3.682020122885211*^9}, 3.6820203560027657`*^9}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.682020356751313*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<TeXitjunk`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6820198988346233`*^9, 3.682019914455755*^9}, {
+  3.682020103910015*^9, 3.682020122885211*^9}, {3.6820203560027657`*^9, 
+  3.682020365634439*^9}}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.682020366655305*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<Atlas`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.682019932503586*^9, 3.682019934615443*^9}}],
+
+Cell[BoxData["\<\"/home/andrewn/.Mathematica/Applications/Atlas/Kernel/init.m\
+\"\>"], "Output",
+ CellChangeTimes->{3.682019935563507*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<ApplicationMaker`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.682019932503586*^9, 3.682019934615443*^9}, {
+  3.682020036102103*^9, 3.682020043183146*^9}}],
+
+Cell[BoxData["\<\"/home/andrewn/.Mathematica/Applications/ApplicationMaker/\
+ApplicationMaker.m\"\>"], "Output",
+ CellChangeTimes->{3.682020044656418*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<ApplicationMaker`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.682019932503586*^9, 3.682019934615443*^9}, {
+  3.682020036102103*^9, 3.682020043183146*^9}}],
+
+Cell[BoxData["\<\"/home/andrewn/.Mathematica/Applications/ApplicationMaker.m\"\
+\>"], "Output",
+ CellChangeTimes->{3.682020600701799*^9, 3.6820211780190496`*^9, 
+  3.682021459467153*^9, 3.6820214943572083`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1464, 911},
+WindowMargins->{{Automatic, 529}, {Automatic, 218}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 113, 1, 116, "Title"],
+Cell[696, 25, 265, 5, 38, "Text"],
+Cell[964, 32, 224, 4, 38, "Text"],
+Cell[1191, 38, 136, 2, 38, "Input"],
+Cell[1330, 42, 1179, 24, 89, "Input"],
+Cell[2512, 68, 566, 12, 38, "Input"],
+Cell[CellGroupData[{
+Cell[3103, 84, 941, 21, 38, "Input"],
+Cell[CellGroupData[{
+Cell[4069, 109, 270, 7, 28, "Print"],
+Cell[4342, 118, 268, 7, 28, "Print"],
+Cell[4613, 127, 279, 7, 28, "Print"],
+Cell[4895, 136, 279, 7, 28, "Print"],
+Cell[5177, 145, 289, 7, 28, "Print"],
+Cell[5469, 154, 301, 7, 28, "Print"],
+Cell[5773, 163, 298, 7, 28, "Print"],
+Cell[6074, 172, 291, 7, 28, "Print"],
+Cell[6368, 181, 279, 7, 28, "Print"],
+Cell[6650, 190, 268, 7, 28, "Print"],
+Cell[6921, 199, 315, 8, 28, "Print"],
+Cell[7239, 209, 313, 8, 28, "Print"],
+Cell[7555, 219, 266, 7, 28, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7870, 232, 100, 1, 81, "Section"],
+Cell[CellGroupData[{
+Cell[7995, 237, 168, 5, 38, "Input",
+ CellID->889116480],
+Cell[8166, 244, 170, 4, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8373, 253, 838, 18, 38, "Input"],
+Cell[9214, 273, 6265, 86, 464, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15516, 364, 180, 5, 38, "Input"],
+Cell[15699, 371, 1166, 16, 464, "Output"]
+}, Open  ]],
+Cell[16880, 390, 733, 17, 38, "Input"],
+Cell[17616, 409, 495, 13, 38, "Input"],
+Cell[18114, 424, 522, 12, 38, "Input"],
+Cell[18639, 438, 1160, 26, 38, "Input"],
+Cell[19802, 466, 856, 19, 38, "Input"],
+Cell[20661, 487, 981, 21, 38, "Input"],
+Cell[21645, 510, 782, 15, 38, "Input"],
+Cell[CellGroupData[{
+Cell[22452, 529, 631, 14, 64, "Input"],
+Cell[23086, 545, 651, 9, 38, "Output"],
+Cell[23740, 556, 973, 14, 464, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24750, 575, 461, 9, 38, "Input"],
+Cell[25214, 586, 445, 5, 464, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25696, 596, 545, 11, 38, "Input"],
+Cell[26244, 609, 462, 6, 464, "Output"]
+}, Open  ]],
+Cell[26721, 618, 782, 15, 38, "Input"],
+Cell[CellGroupData[{
+Cell[27528, 637, 680, 15, 64, "Input"],
+Cell[28211, 654, 123, 1, 38, "Output"],
+Cell[28337, 657, 447, 6, 464, "Output"]
+}, Open  ]],
+Cell[28799, 666, 1648, 42, 164, "Input"],
+Cell[CellGroupData[{
+Cell[30472, 712, 94, 2, 38, "Input"],
+Cell[30569, 716, 487, 7, 439, "Output"]
+}, Open  ]],
+Cell[31071, 726, 328, 10, 29, "GuideText",
+ CellID->218174460],
+Cell[31402, 738, 309, 10, 29, "GuideText",
+ CellID->56594643],
+Cell[31714, 750, 340, 11, 29, "GuideText",
+ CellID->411901512],
+Cell[32057, 763, 322, 10, 29, "GuideText",
+ CellID->124964117],
+Cell[32382, 775, 333, 10, 29, "GuideText",
+ CellID->35426494],
+Cell[32718, 787, 403, 12, 29, "GuideText",
+ CellID->166401981]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[33158, 804, 91, 1, 63, "Section"],
+Cell[33252, 807, 1735, 44, 184, "Input",
+ InitializationCell->True],
+Cell[34990, 853, 1727, 44, 184, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[36742, 901, 284, 5, 64, "Input"],
+Cell[37029, 908, 101, 1, 38, "Output"],
+Cell[37133, 911, 366, 5, 439, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37536, 921, 266, 5, 64, "Input"],
+Cell[37805, 928, 208, 3, 38, "Output"],
+Cell[38016, 933, 5909, 79, 4814, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43962, 1017, 432, 8, 64, "Input"],
+Cell[44397, 1027, 152, 2, 38, "Output"],
+Cell[44552, 1031, 1199, 26, 139, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45788, 1062, 52, 1, 38, "Input"],
+Cell[45843, 1065, 54758, 742, 29364, "Output"]
+}, Open  ]],
+Cell[100616, 1810, 87, 1, 64, "Input"],
+Cell[100706, 1813, 179, 3, 38, "Input"],
+Cell[CellGroupData[{
+Cell[100910, 1820, 194, 3, 38, "Input"],
+Cell[101107, 1825, 192, 3, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[101336, 1833, 195, 3, 38, "Input"],
+Cell[101534, 1838, 76, 1, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[101647, 1844, 216, 3, 38, "Input"],
+Cell[101866, 1849, 76, 1, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[101979, 1855, 246, 4, 38, "Input"],
+Cell[102228, 1861, 76, 1, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[102341, 1867, 140, 2, 38, "Input"],
+Cell[102484, 1871, 138, 2, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[102659, 1878, 200, 3, 38, "Input"],
+Cell[102862, 1883, 154, 2, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[103053, 1890, 200, 3, 38, "Input"],
+Cell[103256, 1895, 210, 3, 38, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

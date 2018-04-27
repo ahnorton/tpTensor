@@ -1,0 +1,49 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1038,         41]
+NotebookOptionsPosition[       763,         27]
+NotebookOutlinePosition[      1108,         42]
+CellTagsIndexPosition[      1065,         39]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<tpTensor`\>\"", "]"}]], "Input"],
+
+Cell[BoxData[{
+ RowBox[{"DeleteLockFile", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"StartBackup", "[", "]"}]}], "Input"]
+},
+WindowSize->{1058, 1092},
+WindowMargins->{{Automatic, 139}, {92, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"TeXitStyle.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 74, 1, 34, "Input"],
+Cell[635, 23, 124, 2, 59, "Input"]
+}
+]
+*)
+

@@ -1,0 +1,6 @@
+#! /bin/bash 
+
+# -f to ignore non-existent files,
+
+rm -f ./*_bak/Locked
+

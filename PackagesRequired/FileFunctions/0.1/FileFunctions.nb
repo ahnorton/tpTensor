@@ -1,0 +1,154 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6052,        146]
+NotebookOptionsPosition[      5551,        125]
+NotebookOutlinePosition[      5917,        141]
+CellTagsIndexPosition[      5874,        138]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+
+This returns an exact string copy of a text file,\
+\>", "Text",
+ CellChangeTimes->{{3.680758037777583*^9, 3.680758066433135*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"BeginPackage", "[", "\"\<FileFunctions`\>\"", "]"}], ";"}], "\n", 
+ RowBox[{"EndPackage", "[", "]"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.654857470351177*^9, 3.6548575010643787`*^9}, {
+  3.654884870254821*^9, 3.654884874030057*^9}, {3.654908419607689*^9, 
+  3.654908420118203*^9}, {3.674148942667107*^9, 3.674148948668083*^9}, {
+  3.680761992624444*^9, 3.680761995728388*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"ReadFile", "[", "f_String", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"char", ",", "stream", ",", "string"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"string", "=", "\"\<\>\""}], ";", "\[IndentingNewLine]", 
+      RowBox[{"stream", "=", 
+       RowBox[{"OpenRead", "[", "f", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"char", "=", 
+       RowBox[{"Read", "[", 
+        RowBox[{"stream", ",", "Character"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"While", "[", 
+       RowBox[{
+        RowBox[{"!", 
+         RowBox[{"char", "===", "EndOfFile"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"string", "=", 
+          RowBox[{"string", "<>", "char"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"char", "=", 
+          RowBox[{"Read", "[", 
+           RowBox[{"stream", ",", "Character"}], "]"}]}]}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Close", "[", "stream", "]"}], ";", "\[IndentingNewLine]", 
+      "string"}]}], "]"}]}], "\[IndentingNewLine]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6807496010651703`*^9, 3.680749757556189*^9}, {
+   3.680749825044178*^9, 3.680749864082902*^9}, {3.6807499437943583`*^9, 
+   3.680749977073897*^9}, {3.68075002840104*^9, 3.680750032160925*^9}, {
+   3.680750126992031*^9, 3.680750133013956*^9}, {3.6807501861431828`*^9, 
+   3.680750193423175*^9}, {3.680751052524432*^9, 3.680751054826325*^9}, {
+   3.680751091572654*^9, 3.6807512444986143`*^9}, {3.680751286530243*^9, 
+   3.6807514974877234`*^9}, {3.680751546735229*^9, 3.680751571966856*^9}, {
+   3.6807516059352493`*^9, 3.680751612926414*^9}, {3.680752450612315*^9, 
+   3.6807524782047977`*^9}, {3.680753045117775*^9, 3.6807530787365427`*^9}, {
+   3.680753482760766*^9, 3.680753570887576*^9}, {3.680753751765818*^9, 
+   3.680753757365535*^9}, {3.680754026338591*^9, 3.68075402723442*^9}, {
+   3.680754249311695*^9, 3.6807542818721952`*^9}, {3.680755032486507*^9, 
+   3.680755039494433*^9}, {3.680755148028387*^9, 3.680755158004878*^9}, {
+   3.68075522035612*^9, 3.680755355666486*^9}, {3.6807556816307096`*^9, 
+   3.680755692316972*^9}, {3.6807558563965483`*^9, 3.680755856548769*^9}, {
+   3.680755906000533*^9, 3.680755945851349*^9}, {3.6807560207465343`*^9, 
+   3.680756046474448*^9}, {3.6807561267931633`*^9, 3.6807561721205072`*^9}, {
+   3.6807576103272457`*^9, 3.680757721501442*^9}, {3.680757942739246*^9, 
+   3.680757957394796*^9}, 3.680760249111114*^9}],
+
+Cell[TextData[{
+ "\nThe closest thing that ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " provides is  ReadString[ ]  but that is inconsistent because it returns \
+EndOfFile on an empty file rather than  \[OpenCurlyDoubleQuote]\
+\[CloseCurlyDoubleQuote],   "
+}], "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.680758099280676*^9, 3.680758104896747*^9}, {
+  3.680758172176043*^9, 3.680758172903688*^9}, {3.6807584026016903`*^9, 
+  3.680758465164463*^9}, {3.680758500028193*^9, 3.680758532652869*^9}, {
+  3.680758710185408*^9, 3.68075873984914*^9}, {3.680758870488401*^9, 
+  3.6807588710166817`*^9}, {3.680759203827675*^9, 3.680759220355363*^9}, {
+  3.680760195864361*^9, 3.680760200391608*^9}, {3.6807602419920464`*^9, 
+  3.680760244054948*^9}, {3.680760781903921*^9, 3.680760784703958*^9}}],
+
+Cell["\<\
+However, the main problem with  ReadString[ ]   is that it leaks memory!  See \
+notebook:   MemoryLeak.nb  for details.\
+\>", "Text",
+ CellChangeTimes->{{3.680758099280676*^9, 3.680758104896747*^9}, {
+  3.680758172176043*^9, 3.680758172903688*^9}, {3.6807584026016903`*^9, 
+  3.680758465164463*^9}, {3.680758500028193*^9, 3.680758532652869*^9}, {
+  3.680758710185408*^9, 3.68075873984914*^9}, {3.680758870488401*^9, 
+  3.680758878615306*^9}, {3.6816829188320093`*^9, 3.6816829760479116`*^9}}],
+
+Cell["\<\
+This memory problem is also inherited by  RunProcess[ ].   I suppose it uses \
+a temp file to return results ?  
+Problem was that my short window titles package was memory leaking.
+Workaround:  Instead of   RunProcess[ ]   use  Run[  ],  with output to file, \
+then use   ReadFile[ ].\
+\>", "Text",
+ CellChangeTimes->{{3.680759253635188*^9, 3.680759288587029*^9}, {
+  3.680759331169961*^9, 3.680759472864642*^9}, {3.680759611758862*^9, 
+  3.680759625598343*^9}, {3.68168299803084*^9, 3.681683005726639*^9}}]
+},
+WindowSize->{1686, 1126},
+WindowMargins->{{Automatic, 4}, {Automatic, 76}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 140, 4, 62, "Text"],
+Cell[701, 26, 436, 8, 84, "Input",
+ InitializationCell->True],
+Cell[1140, 36, 2568, 49, 284, "Input",
+ InitializationCell->True],
+Cell[3711, 87, 811, 15, 75, "Text"],
+Cell[4525, 104, 502, 8, 38, "Text"],
+Cell[5030, 114, 517, 9, 88, "Text"]
+}
+]
+*)
+

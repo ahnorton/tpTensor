@@ -1,0 +1,1 @@
+Get[FileNameJoin[{"FastIntegrate", "1.0", "FastIntegrate.m"}]]

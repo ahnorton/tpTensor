@@ -1,0 +1,308 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     10616,        299]
+NotebookOptionsPosition[      8936,        240]
+NotebookOutlinePosition[      9740,        269]
+CellTagsIndexPosition[      9616,        263]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"BeginPackage", "[", "\"\<FastIntegrate`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480179072703088*^9, 3.480179102022423*^9}}],
+
+Cell["\<\
+Documentation appears before   Begin[\"`Private`\"]   so that the function \
+names are available in the package context...\
+\>", "Text",
+ CellChangeTimes->{{3.484553008585826*^9, 3.484553105140722*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FastIntegrate", "::", "usage"}], "=", "\"\<\!\(\*
+StyleBox[\"Mathematica\",
+FontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\"'\",
+FontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\"s\",
+FontSlant->\"Italic\"]\)  Integrate[ ]  tries to do whole expressions at a \
+time instead of term by term.\n\nFastIntegrate[ ]  can be a 100 times faster.\
+\nIt will also allow \!\(\*
+StyleBox[\"Mathematica\",
+FontSlant->\"Italic\"]\) to do integrals which it otherwise gives up and \
+fails on.\n\nUsage is the same as for Integrate[ ] , therefore see:  ? \
+Integrate\n\n--- The integrand f can be a normal or series object  (catered \
+for by the variable 'err' in the code)  \n--- The integration can be definite \
+or indefinite.\n--- In the case of indefinate integration, the series \
+variable can also be a/the integration variable. \n--- The option Assumptions \
+can be used.\>\""}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480179183636915*^9, 3.480179332565821*^9}, {
+  3.480179383580437*^9, 3.480179390326572*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "FastIntegrate"}]], "Input",
+ CellChangeTimes->{{3.480179339813388*^9, 3.480179342622593*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"\!\(\*\\nStyleBox[\\\"Mathematica\\\",\\nFontSlant->\\\"Italic\
+\\\"]\)\!\(\*\\nStyleBox[\\\"'\\\",\\nFontSlant->\\\"Italic\\\"]\)\!\(\*\\\
+nStyleBox[\\\"s\\\",\\nFontSlant->\\\"Italic\\\"]\)  Integrate[ ]  tries to \
+do whole expressions at a time instead of term by term.\\n\\nFastIntegrate[ ] \
+ can be a 100 times faster.\\nIt will also allow \
+\!\(\*\\nStyleBox[\\\"Mathematica\\\",\\nFontSlant->\\\"Italic\\\"]\) to do \
+integrals which it otherwise gives up and fails on.\\n\\nUsage is the same as \
+for Integrate[ ] , therefore see:  ? Integrate\\n\\n--- The integrand f can \
+be a normal or series object  (catered for by the variable 'err' in the code) \
+ \\n--- The integration can be definite or indefinite.\\n--- In the case of \
+indefinate integration, the series variable can also be a/the integration \
+variable. \\n--- The option Assumptions can be used.\"\>", "MSG"]], "Print", \
+"PrintUsage",
+ CellChangeTimes->{3.480179406948705*^9},
+ CellTags->"Info3480186606-5243939"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FastIntegrate1", "::", "usage"}], "=", 
+   "\"\<FastIntegrate1[ ]  is a minor variation on FastIntegrate[ ]. \n\nThe \
+code for  FastIntegrate1[ ]  uses  Expand[ ]  rather than  ExpandAll[ ].  \n\
+The two functions are otherwise identical. It is provided for testing --- I'm \
+not sure yet which is faster. \n\nSee:  ? FastIntegrate\>\""}], 
+  ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480179183636915*^9, 3.480179332565821*^9}, {
+  3.480179383580437*^9, 3.480179390326572*^9}, {3.484476505993582*^9, 
+  3.484476800863808*^9}, {3.484477027111466*^9, 3.484477033765435*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "FastIntegrate1"}]], "Input",
+ CellChangeTimes->{3.484552981922314*^9}],
+
+Cell[BoxData[
+ StyleBox["\<\"FastIntegrate1[ ]  is a minor variation on FastIntegrate[ ]. \
+\\n\\nThe code for  FastIntegrate1[ ]  uses  Expand[ ]  rather than  \
+ExpandAll[ ].  \\nThe two functions are otherwise identical. It is provided \
+for testing --- I'm not sure yet which is faster. \\n\\nSee:  ? FastIntegrate\
+\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.484552990139516*^9},
+ CellTags->"Info3484560189-4209488"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480689435565924*^9, 3.480689461102011*^9}, {
+  3.48069030172842*^9, 3.480690304125068*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Standard code  --  FastIntegrate", "Subsection",
+ CellChangeTimes->{{3.484476861404509*^9, 3.484476882927904*^9}, {
+  3.5274834217633047`*^9, 3.527483435637373*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "FastIntegrate", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FastIntegrate", "[", "f_", "]"}], ":=", 
+   RowBox[{
+   "Print", "[", 
+    "\"\<FastIntegrate[ ] requires 2 or more arguments. See:  ? FastIntegrate\
+\>\"", "]"}]}], " "}], "\n", 
+ RowBox[{
+  RowBox[{"FastIntegrate", "[", 
+   RowBox[{"f_", ",", "args__"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"f1", ",", "flist", ",", "err"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"err", "=", 
+      RowBox[{"Integrate", "[", 
+       RowBox[{
+        RowBox[{"f", "-", "f"}], ",", "args"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"f1", "=", 
+      RowBox[{"ExpandAll", "[", 
+       RowBox[{"Normal", "[", "f", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"flist", "=", "f1"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"flist", "[", 
+         RowBox[{"[", "0", "]"}], "]"}], "=!=", "Plus"}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{"Integrate", "[", 
+         RowBox[{"f", ",", "args"}], "]"}], "]"}]}], "]"}], ";", 
+     RowBox[{
+      RowBox[{"flist", "[", 
+       RowBox[{"[", "0", "]"}], "]"}], "=", "List"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Total", "[", 
+       RowBox[{"Integrate", "[", 
+        RowBox[{"flist", ",", "args"}], "]"}], "]"}], "+", "err"}]}]}], 
+   "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.476964838951204*^9, 3.484470975330166*^9, {3.484471282209186*^9, 
+   3.484471389805109*^9}, {3.484471428813378*^9, 3.484471463691678*^9}, {
+   3.484471560379074*^9, 3.484471562146384*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Alternative code  --  FastIntegrate1", "Subsection",
+ CellChangeTimes->{{3.484476861404509*^9, 3.484476882927904*^9}, {
+  3.527483441298998*^9, 3.527483449762844*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "FastIntegrate1", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FastIntegrate1", "[", "f_", "]"}], ":=", 
+   RowBox[{
+   "Print", "[", 
+    "\"\<FastIntegrate1[ ] requires 2 or more arguments. See:  ? \
+FastIntegrate\>\"", "]"}]}], " "}], "\n", 
+ RowBox[{
+  RowBox[{"FastIntegrate1", "[", 
+   RowBox[{"f_", ",", "args__"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"f1", ",", "flist", ",", "err"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"err", "=", 
+      RowBox[{"Integrate", "[", 
+       RowBox[{
+        RowBox[{"f", "-", "f"}], ",", "args"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"f1", "=", 
+      RowBox[{"Expand", "[", 
+       RowBox[{"Normal", "[", "f", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"flist", "=", "f1"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"flist", "[", 
+         RowBox[{"[", "0", "]"}], "]"}], "=!=", "Plus"}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{"Integrate", "[", 
+         RowBox[{"f", ",", "args"}], "]"}], "]"}]}], "]"}], ";", 
+     RowBox[{
+      RowBox[{"flist", "[", 
+       RowBox[{"[", "0", "]"}], "]"}], "=", "List"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Total", "[", 
+       RowBox[{"Integrate", "[", 
+        RowBox[{"flist", ",", "args"}], "]"}], "]"}], "+", "err"}]}]}], 
+   "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.476964838951204*^9, 3.484470975330166*^9, {3.484471282209186*^9, 
+   3.484471389805109*^9}, {3.484471428813378*^9, 3.484471463691678*^9}, {
+   3.484471560379074*^9, 3.484471562146384*^9}, 3.484476477367674*^9, {
+   3.484476836159256*^9, 3.48447684471983*^9}, 3.484477005055517*^9}],
+
+Cell[BoxData[
+ RowBox[{"End", "[", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480689467100607*^9, 3.480689467227861*^9}}],
+
+Cell[BoxData[
+ RowBox[{"EndPackage", "[", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480179104948323*^9, 3.48017911018018*^9}}]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1136, 750},
+WindowMargins->{{644, Automatic}, {Automatic, 174}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+Magnification:>1.25 Inherited,
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (October 9, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3480186606-5243939"->{
+  Cell[2156, 61, 1019, 15, 272, "Print",
+   CellTags->"Info3480186606-5243939"]},
+ "Info3484560189-4209488"->{
+  Cell[3961, 99, 437, 7, 161, "Print",
+   CellTags->"Info3484560189-4209488"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3480186606-5243939", 9402, 254},
+ {"Info3484560189-4209488", 9513, 257}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 179, 3, 38, "Input",
+ InitializationCell->True],
+Cell[727, 25, 212, 4, 38, "Text"],
+Cell[942, 31, 1064, 22, 414, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[2031, 57, 122, 2, 38, "Input"],
+Cell[2156, 61, 1019, 15, 272, "Print",
+ CellTags->"Info3480186606-5243939"]
+}, Open  ]],
+Cell[3190, 79, 644, 12, 189, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[3859, 95, 99, 2, 38, "Input"],
+Cell[3961, 99, 437, 7, 161, "Print",
+ CellTags->"Info3484560189-4209488"]
+}, Open  ]],
+Cell[4413, 109, 215, 4, 38, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[4653, 117, 171, 2, 58, "Subsection"],
+Cell[4827, 121, 1743, 48, 239, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6607, 174, 173, 2, 58, "Subsection"],
+Cell[6783, 178, 1837, 49, 239, "Input",
+ InitializationCell->True],
+Cell[8623, 229, 144, 3, 38, "Input",
+ InitializationCell->True],
+Cell[8770, 234, 150, 3, 38, "Input",
+ InitializationCell->True]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

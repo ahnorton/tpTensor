@@ -1,0 +1,937 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     42157,        928]
+NotebookOptionsPosition[     38667,        834]
+NotebookOutlinePosition[     39216,        855]
+CellTagsIndexPosition[     39112,        850]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Short window titles", "Title",
+ CellChangeTimes->{{3.655164341416975*^9, 3.6551643552248697`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"BeginPackage", "[", "\"\<ShortWindowTitles`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.655247115372888*^9, 3.6552471194670877`*^9}, {
+   3.655247151610424*^9, 3.655247167137266*^9}, 3.6552472483362923`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "ShortWindowTitlesUsage", "=", 
+   "\"\<\nStartShortWindowTitles[ ]   will remove the text  \\\"Wolfram \
+Mathematica...\\\"  from window titles (if it exists), replacing\nthese \
+titles with shortened versions, typically a  .nb  file name.  This is to \
+clean up certain Linux desktop environments.\n\nThe KDE desktop insists on \
+appending application names to window titles. These names also appear in the \
+\nwindow pager and taskbar entries, and are just background noise. There may \
+be nicer ways to set window titles \non other desktops, but on KDE this can \
+be difficult.\n\nA task running each 0.5 sec reads the titles of all windows \
+on the desktop and modifies the titles of any \nMathematica windows as \
+required. This is an ongoing task because whenever an un-modified notebook is \
+\nedited the original long title is re-displayed with  \\\"*\\\"  appended to \
+the file name to indicate modification.\nThus, window titles needs to be \
+re-set frequently.\n\nThis program will only run on Linux. It has only been \
+tested on Debian running the KDE desktop,\nbut it should work for any \
+EWMH/NetWM compatible X Window Manager. See: man wmctrl\n \nThis program \
+requires that the Linux package \\\"wmctrl\\\" be installed. \n\n\
+StartShortWindowTitles[ ]  is run automatically after  Needs[ \
+\\\"ShortWindowTitles`\\\" ] ,  so is only required\nfor re-start the task.\n\
+\nStopShortWindowTitles[ ]  will remove the task started by  \
+StartShortWindowTitles[ ] .\>\""}], " ", ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ShortWindowTitles", "::", "usage"}], " ", "=", " ", 
+   "ShortWindowTitlesUsage"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"StartShortWindowTitles", "::", "usage"}], " ", "=", " ", 
+   "ShortWindowTitlesUsage"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"StopShortWindowTitles", "::", "usage"}], " ", "=", " ", 
+   "ShortWindowTitlesUsage"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.655247218374362*^9, 3.655247990855082*^9}, {
+   3.6552480266311827`*^9, 3.655248263340434*^9}, {3.655248338067937*^9, 
+   3.655248380466865*^9}, {3.655248410612525*^9, 3.655248797261821*^9}, {
+   3.655248870381055*^9, 3.655248932860516*^9}, 3.655248977979506*^9, {
+   3.6552491038830023`*^9, 3.6552492323444967`*^9}, {3.655249262824233*^9, 
+   3.6552493180551*^9}, {3.655249352586225*^9, 3.6552494031742287`*^9}, {
+   3.655249521108869*^9, 3.655249718610224*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ShortWindowTitles"}]], "Input",
+ CellChangeTimes->{3.655248279923497*^9}],
+
+Cell[BoxData[
+ StyleBox["\<\"\\nStartShortWindowTitles[ ]   will remove the text  \
+\\\"Wolfram Mathematica...\\\"  from window titles (if it exists), \
+replacing\\nthese titles with shortened versions, typically a  .nb  file \
+name.  This is to clean up certain Linux desktop environments.\\n\\nThe KDE \
+desktop insists on appending application names to window titles. These names \
+also appear in the \\nwindow pager and taskbar entries, and are just \
+background noise. There may be nicer ways to set window titles \\non other \
+desktops, but on KDE this can be difficult.\\n\\nA task running each 0.5 sec \
+reads the titles of all windows on the desktop and modifies the titles of any \
+\\nMathematica windows as required. This is an ongoing task because whenever \
+an un-modified notebook is \\nedited the original long title is re-displayed \
+with  \\\"*\\\"  appended to the file name to indicate modification.\\nThus, \
+window titles needs to be re-set frequently.\\n\\nThis program will only run \
+on Linux. It has only been tested on Debian running the KDE desktop,\\nbut it \
+should work for any EWMH/NetWM compatible X Window Manager. See: man \
+wmctrl\\n \\nThis program requires that the Linux package \\\"wmctrl\\\" be \
+installed. \\n\\nStopShortWindowTitles[]  will remove the task started by  \
+StartShortWindowTitles[].\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6552494069490013`*^9},
+ CellTags->"Info-da570af2-c1e7-48c7-b71d-7ec13d3b92b5"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.613087912015175*^9, 3.613087914330413*^9}, 
+   3.613090431012343*^9, {3.654996221531559*^9, 3.654996241611973*^9}, 
+   3.655004854644075*^9, {3.6550146374208193`*^9, 3.655014639932907*^9}, 
+   3.655182245344973*^9, 3.655249789681046*^9}],
+
+Cell["\<\
+This version leaks memory via  RunProcess  (which I think must use \
+ReadString, which leaks),\
+\>", "Text",
+ CellChangeTimes->{{3.680761728755669*^9, 3.680761792498806*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ShortTitleTask", ":=", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"s0", "=", 
+     RowBox[{"RunProcess", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\</usr/bin/wmctrl\>\"", ",", " ", "\"\<-l\>\""}], "}"}], 
+       ",", "\"\<StandardOutput\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s1", "=", 
+     RowBox[{"StringSplit", "[", 
+      RowBox[{"s0", ",", "\"\<\\n\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s2", "=", 
+     RowBox[{"StringCases", "[", 
+      RowBox[{"s1", ",", 
+       RowBox[{
+        RowBox[{"x__", "~~", "\"\< - Wolfram Mathematica\>\"", "~~", "___"}], 
+        "\[Rule]", "x"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s3", " ", "=", " ", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{"DeleteCases", "[", 
+       RowBox[{"s2", ",", 
+        RowBox[{"{", "}"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s4", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringSplit", "[", "#", "]"}], "&"}], ",", "s3"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"s5", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Drop", "[", 
+         RowBox[{"#", ",", "3"}], "]"}], "&"}], ",", "s4"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"s6", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"#", ",", "\"\< \>\""}], "]"}], "&"}], ",", "s5", ",", 
+       RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s7", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{"StringJoin", ",", "s6"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    
+    RowBox[{"s8", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"!", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"StringContainsQ", "[", 
+              RowBox[{"#", ",", "\"\<.nb\>\""}], "]"}], "||", 
+             RowBox[{"StringContainsQ", "[", 
+              RowBox[{"#", ",", "\"\<Untitled-\>\""}], "]"}], "||", 
+             RowBox[{"#", "===", "\"\<Messages \>\""}]}], ")"}]}], ",", " ", 
+          RowBox[{"\"\<Ref - \>\"", "<>", "#"}], ",", "#"}], "]"}], "&"}], 
+       " ", ",", "s7"}], "]"}]}], " ", ";", "\[IndentingNewLine]", 
+    RowBox[{"w", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{"First", ",", "s4"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Run", "[", 
+       RowBox[{"\"\</usr/bin/wmctrl -F -i -r \>\"", "<>", 
+        RowBox[{"w", "[", 
+         RowBox[{"[", "j", "]"}], "]"}], "<>", "\"\< -T '\>\"", "<>", 
+        RowBox[{"s8", "[", 
+         RowBox[{"[", "j", "]"}], "]"}], "<>", "\"\<'\>\""}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", 
+        RowBox[{"Length", "[", "w", "]"}]}], "}"}]}], "]"}], ";"}], 
+   ")"}]}]], "Input",
+ CellChangeTimes->{{3.6551620505660543`*^9, 3.655162150309044*^9}, {
+  3.655162269368659*^9, 3.655162301431819*^9}, {3.655162512054203*^9, 
+  3.6551625230758944`*^9}, {3.655162596415468*^9, 3.6551626432182198`*^9}, {
+  3.655162673550589*^9, 3.655162699381392*^9}, {3.655162909307796*^9, 
+  3.6551629102707233`*^9}, {3.65516309165704*^9, 3.655163167512293*^9}, {
+  3.65516352094783*^9, 3.6551635215876303`*^9}, {3.655163742596451*^9, 
+  3.655163759971326*^9}, {3.655163876655509*^9, 3.6551638791674433`*^9}, {
+  3.655164671509657*^9, 3.655164683317498*^9}, {3.655164786596114*^9, 
+  3.655164846243507*^9}, {3.655165614233747*^9, 3.655165637353462*^9}, {
+  3.655180930086652*^9, 3.655180938229155*^9}, {3.655181171106176*^9, 
+  3.6551811770101624`*^9}, {3.655181230952116*^9, 3.655181257713282*^9}}],
+
+Cell["\<\
+The fixed version uses Run[ ]  and a temp file to get back results using  \
+ReadFile[ ],\
+\>", "Text",
+ CellChangeTimes->{{3.680761728755669*^9, 3.680761792498806*^9}, {
+  3.680762300316139*^9, 3.680762322795906*^9}, {3.680762509801559*^9, 
+  3.680762522105497*^9}, {3.680762588232491*^9, 3.68076259210432*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ReadFile", "[", "f_String", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"char", ",", "stream", ",", "string"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"string", "=", "\"\<\>\""}], ";", "\[IndentingNewLine]", 
+     RowBox[{"stream", "=", 
+      RowBox[{"OpenRead", "[", "f", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"char", "=", 
+      RowBox[{"Read", "[", 
+       RowBox[{"stream", ",", "Character"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"char", "===", "EndOfFile"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"string", "=", 
+         RowBox[{"string", "<>", "char"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"char", "=", 
+         RowBox[{"Read", "[", 
+          RowBox[{"stream", ",", "Character"}], "]"}]}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Close", "[", "stream", "]"}], ";", "\[IndentingNewLine]", 
+     "string"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6807496010651703`*^9, 3.680749757556189*^9}, {
+   3.680749825044178*^9, 3.680749864082902*^9}, {3.6807499437943583`*^9, 
+   3.680749977073897*^9}, {3.68075002840104*^9, 3.680750032160925*^9}, {
+   3.680750126992031*^9, 3.680750133013956*^9}, {3.6807501861431828`*^9, 
+   3.680750193423175*^9}, {3.680751052524432*^9, 3.680751054826325*^9}, {
+   3.680751091572654*^9, 3.6807512444986143`*^9}, {3.680751286530243*^9, 
+   3.6807514974877234`*^9}, {3.680751546735229*^9, 3.680751571966856*^9}, {
+   3.6807516059352493`*^9, 3.680751612926414*^9}, {3.680752450612315*^9, 
+   3.6807524782047977`*^9}, {3.680753045117775*^9, 3.6807530787365427`*^9}, {
+   3.680753482760766*^9, 3.680753570887576*^9}, {3.680753751765818*^9, 
+   3.680753757365535*^9}, {3.680754026338591*^9, 3.68075402723442*^9}, {
+   3.680754249311695*^9, 3.6807542818721952`*^9}, {3.680755032486507*^9, 
+   3.680755039494433*^9}, {3.680755148028387*^9, 3.680755158004878*^9}, {
+   3.68075522035612*^9, 3.680755355666486*^9}, {3.6807556816307096`*^9, 
+   3.680755692316972*^9}, {3.6807558563965483`*^9, 3.680755856548769*^9}, {
+   3.680755906000533*^9, 3.680755945851349*^9}, {3.6807560207465343`*^9, 
+   3.680756046474448*^9}, {3.6807561267931633`*^9, 3.6807561721205072`*^9}, {
+   3.6807576103272457`*^9, 3.680757721501442*^9}, {3.680757942739246*^9, 
+   3.680757957394796*^9}, 3.680760249111114*^9, 3.6807624910020523`*^9}],
+
+Cell[BoxData[
+ RowBox[{"ShortTitleTask", ":=", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Run", "[", "\"\</usr/bin/wmctrl -l > /tmp/WindowTitleInfo.tmp\>\"", 
+     "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s0", "=", 
+     RowBox[{"ReadFile", "[", "\"\</tmp/WindowTitleInfo.tmp\>\"", "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"s1", "=", 
+     RowBox[{"StringSplit", "[", 
+      RowBox[{"s0", ",", "\"\<\\n\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s2", "=", 
+     RowBox[{"StringCases", "[", 
+      RowBox[{"s1", ",", 
+       RowBox[{
+        RowBox[{"x__", "~~", "\"\< - Wolfram Mathematica\>\"", "~~", "___"}], 
+        "\[RuleDelayed]", "x"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s3", " ", "=", " ", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{"DeleteCases", "[", 
+       RowBox[{"s2", ",", 
+        RowBox[{"{", "}"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s4", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringSplit", "[", "#", "]"}], "&"}], ",", "s3"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"s5", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Drop", "[", 
+         RowBox[{"#", ",", "3"}], "]"}], "&"}], ",", "s4"}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"s6", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"#", ",", "\"\< \>\""}], "]"}], "&"}], ",", "s5", ",", 
+       RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"s7", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{"StringJoin", ",", "s6"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    
+    RowBox[{"s8", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"!", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"StringContainsQ", "[", 
+              RowBox[{"#", ",", "\"\<.nb\>\""}], "]"}], "||", 
+             RowBox[{"StringContainsQ", "[", 
+              RowBox[{"#", ",", "\"\<Untitled-\>\""}], "]"}], "||", 
+             RowBox[{"#", "===", "\"\<Messages \>\""}]}], ")"}]}], ",", " ", 
+          RowBox[{"\"\<Ref - \>\"", "<>", "#"}], ",", "#"}], "]"}], "&"}], 
+       " ", ",", "s7"}], "]"}]}], " ", ";", "\[IndentingNewLine]", 
+    RowBox[{"w", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{"First", ",", "s4"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Run", "[", 
+       RowBox[{"\"\</usr/bin/wmctrl -F -i -r \>\"", "<>", 
+        RowBox[{"w", "[", 
+         RowBox[{"[", "j", "]"}], "]"}], "<>", "\"\< -T '\>\"", "<>", 
+        RowBox[{"s8", "[", 
+         RowBox[{"[", "j", "]"}], "]"}], "<>", "\"\<'\>\""}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", 
+        RowBox[{"Length", "[", "w", "]"}]}], "}"}]}], "]"}], ";"}], 
+   ")"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6551620505660543`*^9, 3.655162150309044*^9}, {
+   3.655162269368659*^9, 3.655162301431819*^9}, {3.655162512054203*^9, 
+   3.6551625230758944`*^9}, {3.655162596415468*^9, 3.6551626432182198`*^9}, {
+   3.655162673550589*^9, 3.655162699381392*^9}, {3.655162909307796*^9, 
+   3.6551629102707233`*^9}, {3.65516309165704*^9, 3.655163167512293*^9}, {
+   3.65516352094783*^9, 3.6551635215876303`*^9}, {3.655163742596451*^9, 
+   3.655163759971326*^9}, {3.655163876655509*^9, 3.6551638791674433`*^9}, {
+   3.655164671509657*^9, 3.655164683317498*^9}, {3.655164786596114*^9, 
+   3.655164846243507*^9}, {3.655165614233747*^9, 3.655165637353462*^9}, {
+   3.655180930086652*^9, 3.655180938229155*^9}, {3.655181171106176*^9, 
+   3.6551811770101624`*^9}, {3.655181230952116*^9, 3.655181257713282*^9}, {
+   3.6807469565344687`*^9, 3.680746988629924*^9}, {3.6807474428804817`*^9, 
+   3.680747445248423*^9}, {3.680747720778413*^9, 3.680747728172927*^9}, {
+   3.680747869483335*^9, 3.680747870635481*^9}, {3.6807479172270203`*^9, 
+   3.680747925882875*^9}, {3.68074796005857*^9, 3.68074796277859*^9}, {
+   3.680760502932137*^9, 3.680760503684094*^9}, {3.680761244202721*^9, 
+   3.68076129388901*^9}, 3.680761650341333*^9, {3.680763534572833*^9, 
+   3.6807635497553453`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"StartShortWindowTitles", "[", "]"}], ":=", 
+    RowBox[{"RunScheduledTask", "[", 
+     RowBox[{"ShortTitleTask", ",", "0.5"}], "]"}]}], ";"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"StopShortWindowTitles", "[", "]"}], ":=", 
+    RowBox[{"Quiet", "[", 
+     RowBox[{"RemoveScheduledTask", "[", "RunShortTitleTask", "]"}], "]"}]}], 
+   ";"}], "   "}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.613081309014983*^9, 3.6130813516467648`*^9}, {
+   3.613081670672722*^9, 3.613081727080574*^9}, {3.613081892009708*^9, 
+   3.61308191891063*^9}, {3.613082177147334*^9, 3.613082187435192*^9}, {
+   3.613082246907909*^9, 3.613082248917954*^9}, {3.613082933293125*^9, 
+   3.61308312380289*^9}, 3.613083165082822*^9, {3.613083244236515*^9, 
+   3.613083273579834*^9}, {3.6130833120912857`*^9, 3.613083354453597*^9}, {
+   3.6130834420054073`*^9, 3.613083531231271*^9}, {3.61308380517819*^9, 
+   3.613083875133977*^9}, {3.613084416029666*^9, 3.613084490479455*^9}, {
+   3.613084867664146*^9, 3.613084876535153*^9}, {3.6130866651450453`*^9, 
+   3.6130866751449833`*^9}, 3.613088074382803*^9, {3.613089007547125*^9, 
+   3.613089015018792*^9}, {3.6130898127692423`*^9, 3.613089812843029*^9}, 
+   3.6130898631335497`*^9, {3.613090125053224*^9, 3.613090193128191*^9}, {
+   3.613090632819557*^9, 3.613090638273303*^9}, {3.613192810275569*^9, 
+   3.6131928742991753`*^9}, {3.613192931065254*^9, 3.613192935081172*^9}, {
+   3.6145112420950127`*^9, 3.614511269887596*^9}, {3.614511313920863*^9, 
+   3.614511347696714*^9}, {3.614511472068465*^9, 3.614511633617523*^9}, {
+   3.6145116650295467`*^9, 3.614511679848028*^9}, {3.614511724647305*^9, 
+   3.614511741329794*^9}, {3.614511783834506*^9, 3.61451200073036*^9}, {
+   3.614512090574029*^9, 3.6145121256580753`*^9}, {3.614512183753292*^9, 
+   3.614512234280442*^9}, {3.614512296878427*^9, 3.614512337507703*^9}, {
+   3.6145123797173977`*^9, 3.614512485799417*^9}, {3.614513285499172*^9, 
+   3.614513318344557*^9}, {3.614513385430694*^9, 3.614513469243806*^9}, {
+   3.614515068353573*^9, 3.6145151394192753`*^9}, 3.614515169734282*^9, {
+   3.614515501033285*^9, 3.614515506297526*^9}, {3.614515575594268*^9, 
+   3.614515617048359*^9}, {3.614516258014077*^9, 3.614516259109364*^9}, {
+   3.614516502551553*^9, 3.614516584333652*^9}, 3.6145166158716173`*^9, {
+   3.614516676257833*^9, 3.6145167180185213`*^9}, {3.614516795309229*^9, 
+   3.614516799281987*^9}, 3.6145168638383827`*^9, {3.614517043313878*^9, 
+   3.614517049069057*^9}, {3.614547331039587*^9, 3.614547432304735*^9}, {
+   3.614547537016734*^9, 3.614547553699428*^9}, {3.6145477385497513`*^9, 
+   3.61454778019945*^9}, {3.6145478474809837`*^9, 3.614547856678059*^9}, 
+   3.614547892603861*^9, {3.614547927086609*^9, 3.614547934202297*^9}, {
+   3.614548683655397*^9, 3.614548705501964*^9}, {3.6145487451964808`*^9, 
+   3.614548761305078*^9}, {3.614560687356503*^9, 3.614560724708187*^9}, {
+   3.61456077008434*^9, 3.614560830280937*^9}, 3.6145613337531633`*^9, {
+   3.614561377383315*^9, 3.614561380000568*^9}, 3.614561432952039*^9, {
+   3.6145614673987417`*^9, 3.614561467519977*^9}, {3.614561584979886*^9, 
+   3.6145616688742037`*^9}, {3.61456186398631*^9, 3.614561866565956*^9}, 
+   3.614562070685017*^9, 3.614563609277566*^9, {3.614563739166016*^9, 
+   3.614563800177965*^9}, {3.614563863602662*^9, 3.6145639038909082`*^9}, {
+   3.614564028875751*^9, 3.614564043976598*^9}, {3.614564090001936*^9, 
+   3.614564096277379*^9}, {3.61456417085579*^9, 3.6145643581383457`*^9}, {
+   3.614564411840958*^9, 3.614564413541711*^9}, 3.614564679675274*^9, {
+   3.6145647124523687`*^9, 3.614564748887821*^9}, {3.614565090853127*^9, 
+   3.61456509980326*^9}, {3.6145653208975983`*^9, 3.61456532364775*^9}, 
+   3.614567251934053*^9, {3.614568099855777*^9, 3.614568135603891*^9}, {
+   3.6145681753482857`*^9, 3.61456817595191*^9}, {3.6145693531211977`*^9, 
+   3.614569382246002*^9}, {3.6145694207425003`*^9, 3.614569422550228*^9}, {
+   3.6145694751886883`*^9, 3.614569521838703*^9}, {3.614572561475232*^9, 
+   3.614572568850635*^9}, {3.614574262543744*^9, 3.614574296423677*^9}, 
+   3.614574684997746*^9, {3.614584977834337*^9, 3.6145850095792828`*^9}, {
+   3.61458505429578*^9, 3.614585057035284*^9}, {3.61458568850874*^9, 
+   3.614585707519079*^9}, {3.614587581160256*^9, 3.614587665049244*^9}, {
+   3.61458859286444*^9, 3.614588615851194*^9}, {3.614588671711095*^9, 
+   3.6145886743313427`*^9}, 3.650424430380764*^9, {3.650424499273816*^9, 
+   3.6504245102547197`*^9}, {3.650424551934355*^9, 3.65042462646065*^9}, {
+   3.650424722070489*^9, 3.650424763881627*^9}, {3.650424830619973*^9, 
+   3.650424833368896*^9}, 3.650424872760565*^9, {3.650425184494025*^9, 
+   3.650425354829587*^9}, {3.650425403424115*^9, 3.650425602743466*^9}, {
+   3.650425640518792*^9, 3.6504257043068037`*^9}, {3.65042578180017*^9, 
+   3.650425850145228*^9}, {3.6504263814570713`*^9, 3.650426385552084*^9}, {
+   3.650432442352813*^9, 3.65043244601849*^9}, {3.650433453171286*^9, 
+   3.6504334971605988`*^9}, {3.650434131264441*^9, 3.65043421818968*^9}, {
+   3.650434269629331*^9, 3.6504342697095327`*^9}, 3.650434595563089*^9, {
+   3.650436265941326*^9, 3.650436270745276*^9}, {3.65043660310509*^9, 
+   3.650436637744562*^9}, {3.650436748854795*^9, 3.650436796989973*^9}, {
+   3.650440384435354*^9, 3.650440428176787*^9}, {3.650440506723991*^9, 
+   3.65044051275177*^9}, {3.650653316192499*^9, 3.650653322574031*^9}, {
+   3.650653488312834*^9, 3.650653508731832*^9}, {3.650655136355329*^9, 
+   3.650655157075481*^9}, {3.650655207572801*^9, 3.650655297971509*^9}, {
+   3.65065533998464*^9, 3.650655349662941*^9}, {3.650657716959126*^9, 
+   3.650657720770278*^9}, {3.650670328240369*^9, 3.650670388895032*^9}, {
+   3.650670426578453*^9, 3.6506704947526493`*^9}, {3.650670610921989*^9, 
+   3.65067061200318*^9}, {3.6506708498574533`*^9, 3.6506708555659103`*^9}, {
+   3.65067091538326*^9, 3.650670920513521*^9}, 3.654943481732554*^9, {
+   3.6549435194335623`*^9, 3.654943649570937*^9}, 3.654953401968*^9, {
+   3.6549535961252937`*^9, 3.6549536294528713`*^9}, {3.6549546690395393`*^9, 
+   3.654954762030205*^9}, {3.65497731348517*^9, 3.654977377708466*^9}, {
+   3.6549775796891203`*^9, 3.654977586128557*^9}, {3.654978022451295*^9, 
+   3.654978034626915*^9}, 3.654978192899849*^9, {3.654978342638762*^9, 
+   3.654978381428734*^9}, {3.654979038149156*^9, 3.654979108644236*^9}, {
+   3.654995825518643*^9, 3.654995828478299*^9}, {3.6549972683740063`*^9, 
+   3.654997268399185*^9}, {3.654997426729817*^9, 3.6549974661377077`*^9}, {
+   3.655000079687758*^9, 3.655000086471596*^9}, {3.65500789685073*^9, 
+   3.655008175327053*^9}, {3.655008207678975*^9, 3.655008453227943*^9}, {
+   3.655008495771571*^9, 3.6550088259754133`*^9}, {3.655008883766675*^9, 
+   3.6550089547416*^9}, {3.6550090172373466`*^9, 3.655009067460204*^9}, {
+   3.655009260961884*^9, 3.655009487247054*^9}, {3.655009532862505*^9, 
+   3.655009680188634*^9}, {3.655009725324292*^9, 3.655009731580049*^9}, {
+   3.6550098018513527`*^9, 3.655009832458589*^9}, {3.6550109845402822`*^9, 
+   3.655010987845729*^9}, 3.655011065067329*^9, {3.655011095322938*^9, 
+   3.6550111259466667`*^9}, 3.6550115090140553`*^9, {3.655011617540484*^9, 
+   3.655011624372224*^9}, {3.655011858513529*^9, 3.655011895456953*^9}, {
+   3.655011946928502*^9, 3.655011954672277*^9}, {3.6550120300473537`*^9, 
+   3.6550120424630404`*^9}, {3.6550122633244457`*^9, 3.655012404410725*^9}, {
+   3.655012543800992*^9, 3.655012606920034*^9}, {3.655012687238964*^9, 
+   3.655012828613366*^9}, {3.655012893508424*^9, 3.655012900068281*^9}, {
+   3.655013440477304*^9, 3.655013449821059*^9}, {3.655013529772069*^9, 
+   3.655013537516129*^9}, {3.655013585067466*^9, 3.6550136059792213`*^9}, {
+   3.6550138870954657`*^9, 3.655013955110317*^9}, {3.655014215731079*^9, 
+   3.6550142377146273`*^9}, {3.655150445759767*^9, 3.655150482654862*^9}, {
+   3.655152573219742*^9, 3.655152599603087*^9}, {3.655155997573711*^9, 
+   3.6551559980214*^9}, {3.6551561668034563`*^9, 3.655156170387033*^9}, {
+   3.6551562533942204`*^9, 3.655156253586194*^9}, {3.655156411056189*^9, 
+   3.655156419664052*^9}, {3.655165682776677*^9, 3.65516571504322*^9}, {
+   3.655249075689743*^9, 3.655249078153533*^9}, {3.6552494358954897`*^9, 
+   3.655249484436467*^9}, {3.6552499985420523`*^9, 3.6552500143658113`*^9}}],
+
+Cell["Automatically start when this package is loaded,", "Text",
+ CellChangeTimes->{{3.65524975209702*^9, 3.6552497707367373`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"StartShortWindowTitles", "[", "]"}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{3.655249795872588*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"End", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"EndPackage", "[", "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.613087912015175*^9, 3.613087914330413*^9}, 
+   3.613090431012343*^9, {3.654996221531559*^9, 3.654996241611973*^9}, 
+   3.655004854644075*^9, {3.6550146374208193`*^9, 3.655014639932907*^9}, 
+   3.655182245344973*^9, {3.655249054345787*^9, 3.6552490644266033`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Example for s0 \[Rule] s1 \[Rule] ...", "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655162016480652*^9, 3.655162019486562*^9}, {
+  3.655162773660699*^9, 3.655162827692644*^9}}],
+
+Cell[BoxData[
+ RowBox[{"s0", "=", 
+  RowBox[{"RunProcess", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\"\</usr/bin/wmctrl\>\"", ",", " ", "\"\<-l\>\""}], "}"}], ",", 
+    "\"\<StandardOutput\>\""}], "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655159816250636*^9, 3.655159871538525*^9}, {
+   3.6551599100665216`*^9, 3.655159940176631*^9}, {3.6551601223918867`*^9, 
+   3.6551601229112577`*^9}, 3.655161966167612*^9, 3.655162773660767*^9}],
+
+Cell[BoxData["\<\"0x01e00139 -1 gupi plasma-desktop\\n0x01e00130 -1 gupi \
+plasma-desktop\\n0x04e0003c  2 gupi Mirror_leo : tcsh\\n0x04e000b9  7 gupi \
+Mirror_leo : tcsh\\n0x04e000d2  8 gupi Mirror_leo : tcsh\\n0x04e000eb  9 gupi \
+Mirror_leo : tcsh\\n0x04e0011d 11 gupi Mirror_leo : tcsh\\n0x00800012  5 gupi \
+tpTensor0x5 \[AHat]\.80\.93 Dolphin\\n0x05a00015  0 gupi KMail \
+Folders/Computer -- admin/no-ip \[AHat]\.80\.93 KMail\\n0x06a00012  0 gupi \
+Downloads \[AHat]\.80\.93 Dolphin\\n0x0680002e  0 gupi ReadMe -\\n0x05200013  \
+1 gupi KDiskFree\\n0x0540002e  5 gupi ReleaseNotes.txt -\\n0x02e00012  5 gupi \
+Build_Function_Reference_via_ApplicationMaker \[AHat]\.80\.93 \
+Dolphin\\n0x06200012  5 gupi Atlas \[AHat]\.80\.93 Dolphin\\n0x06c0002e  5 \
+gupi Atlas.m -\\n0x05c00012  4 gupi OptionalPackages \[AHat]\.80\.93 \
+Dolphin\\n0x04e00502 10 gupi Mirror_leo : tcsh\\n0x04e0064b  4 gupi \
+Mirror_leo : tcsh\\n0x04e00664  4 gupi MultiNotebook : tcsh\\n0x0560001e  1 \
+gupi System Monitor\\n0x0500002e  4 gupi init.m -\\n0x0640002e  4 gupi \
+ReadMe.txt -\\n0x0600068c  4 gupi main.nb * \\n0x0600365a  4 gupi \
+Part0--Setup_and_Usage.nb \\n0x0603917b  4 gupi Ref - Messages \\n0x0660068c  \
+4 gupi Running... ShortWindowTitles.nb - Wolfram Mathematica 10.3\\n\"\>"], \
+"Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6551601013457537`*^9, 3.655160123861071*^9}, 
+   3.6551619676847*^9, 3.6551627736608152`*^9, 3.655163405747048*^9, 
+   3.655181109694358*^9}],
+
+Cell[BoxData[
+ RowBox[{"s1", "=", 
+  RowBox[{"StringSplit", "[", 
+   RowBox[{"s0", ",", "\"\<\\n\>\""}], "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655159966767321*^9, 3.65515998140891*^9}, {
+   3.655160032016342*^9, 3.655160033801458*^9}, {3.655160127519085*^9, 
+   3.655160128079054*^9}, {3.655160173231139*^9, 3.655160178462556*^9}, {
+   3.655160210405568*^9, 3.65516021151795*^9}, 3.655161971033504*^9, 
+   3.6551627736608562`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"0x01e00139 -1 gupi plasma-desktop\"\>", 
+   ",", "\<\"0x01e00130 -1 gupi plasma-desktop\"\>", 
+   ",", "\<\"0x04e0003c  2 gupi Mirror_leo : tcsh\"\>", 
+   ",", "\<\"0x04e000b9  7 gupi Mirror_leo : tcsh\"\>", 
+   ",", "\<\"0x04e000d2  8 gupi Mirror_leo : tcsh\"\>", 
+   ",", "\<\"0x04e000eb  9 gupi Mirror_leo : tcsh\"\>", 
+   ",", "\<\"0x04e0011d 11 gupi Mirror_leo : tcsh\"\>", 
+   ",", "\<\"0x00800012  5 gupi tpTensor0x5 \[AHat]\.80\.93 Dolphin\"\>", 
+   ",", "\<\"0x05a00015  0 gupi KMail Folders/Computer -- admin/no-ip \[AHat]\
+\.80\.93 KMail\"\>", 
+   ",", "\<\"0x06a00012  0 gupi Downloads \[AHat]\.80\.93 Dolphin\"\>", 
+   ",", "\<\"0x0680002e  0 gupi ReadMe -\"\>", 
+   ",", "\<\"0x05200013  1 gupi KDiskFree\"\>", 
+   ",", "\<\"0x0500001e  1 gupi System Monitor\"\>", 
+   ",", "\<\"0x0540002e  5 gupi ReleaseNotes.txt -\"\>", 
+   ",", "\<\"0x02e00012  5 gupi Build_Function_Reference_via_ApplicationMaker \
+\[AHat]\.80\.93 Dolphin\"\>", 
+   ",", "\<\"0x06200012  5 gupi Atlas \[AHat]\.80\.93 Dolphin\"\>", 
+   ",", "\<\"0x06c0002e  5 gupi Atlas.m -\"\>", 
+   ",", "\<\"0x05c00012  4 gupi MultiNotebook \[AHat]\.80\.93 Dolphin\"\>", 
+   ",", "\<\"0x04e00502 10 gupi Mirror_leo : tcsh\"\>", 
+   ",", "\<\"0x04e005e0  4 gupi man : man\"\>", 
+   ",", "\<\"0x0560068c  4 gupi Running... main.nb - Wolfram Mathematica 10.3\
+\"\>", ",", "\<\"0x056069ec  4 gupi part1.nb *\"\>", 
+   ",", "\<\"0x05606bb6  4 gupi part2.nb \"\>", 
+   ",", "\<\"0x056173a4  4 gupi $ProcessorCount - Wolfram Mathematica \
+10.3\"\>", ",", "\<\"0x0640068c  4 gupi BackupVer3.nb \"\>", 
+   ",", "\<\"0x04e0064b  4 gupi Mirror_leo : tcsh\"\>"}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.655160129085107*^9, 3.655160180660985*^9, 
+  3.655160212575399*^9, 3.655161974087266*^9, 3.655162773660887*^9, 
+  3.655163411461722*^9}],
+
+Cell[BoxData[
+ RowBox[{"s2", "=", 
+  RowBox[{"StringCases", "[", 
+   RowBox[{"s1", ",", 
+    RowBox[{
+     RowBox[{"x__", "~~", "\"\< - Wolfram Mathematica 10.3\>\""}], "\[Rule]", 
+     "x"}]}], "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6551602432622643`*^9, 3.655160289517061*^9}, {
+   3.655160506778701*^9, 3.65516052824575*^9}, 3.655160589170742*^9, 
+   3.6551627736609297`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "\<\"0x0560068c  4 gupi Running... main.nb\"\>", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "\<\"0x056173a4  4 gupi $ProcessorCount\"\>", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}]}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.65516059503353*^9, 3.655161982513949*^9, 
+  3.655162773660968*^9, 3.655163416363578*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"s3", " ", "=", " ", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"DeleteCases", "[", 
+     RowBox[{"s2", ",", 
+      RowBox[{"{", "}"}]}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"s3", "//", "Column"}]}], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655160611323167*^9, 3.6551606271925917`*^9}, {
+   3.655160971812027*^9, 3.65516099483561*^9}, 3.65516277366101*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"0x0560068c  4 gupi Running... main.nb\"\>"},
+    {"\<\"0x056173a4  4 gupi $ProcessorCount\"\>"}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{
+  3.6551606280854883`*^9, {3.655160979865294*^9, 3.6551609955959797`*^9}, 
+   3.655161985481927*^9, 3.6551627736610403`*^9, 3.655163419324546*^9}],
+
+Cell[BoxData[
+ RowBox[{"s4", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringSplit", "[", "#", "]"}], "&"}], ",", "s3"}], 
+   "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655160677765444*^9, 3.655160717719304*^9}, {
+   3.65516085784548*^9, 3.655160877813197*^9}, 3.655161205745201*^9, {
+   3.655161237216442*^9, 3.655161244480421*^9}, {3.655161279730671*^9, 
+   3.6551612809598827`*^9}, 3.655162773661077*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"0x0560068c\"\>", ",", "\<\"4\"\>", ",", "\<\"gupi\"\>", 
+     ",", "\<\"Running...\"\>", ",", "\<\"main.nb\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"0x056173a4\"\>", ",", "\<\"4\"\>", ",", "\<\"gupi\"\>", 
+     ",", "\<\"$ProcessorCount\"\>"}], "}"}]}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.655160885797277*^9, 3.65516100689296*^9, 
+  3.655161246176175*^9, 3.655161282218713*^9, 3.655161988574547*^9, 
+  3.655162773661104*^9, 3.655163422849471*^9}],
+
+Cell[BoxData[
+ RowBox[{"s5", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Drop", "[", 
+      RowBox[{"#", ",", "3"}], "]"}], "&"}], ",", "s4"}], "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655160677765444*^9, 3.655160717719304*^9}, {
+   3.655160897333356*^9, 3.6551609013590603`*^9}, {3.655161117202073*^9, 
+   3.6551611199189167`*^9}, 3.655161303246908*^9, 3.6551627736611423`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"Running...\"\>", ",", "\<\"main.nb\"\>"}], "}"}], ",", 
+   RowBox[{"{", "\<\"$ProcessorCount\"\>", "}"}]}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{
+  3.6551607183127537`*^9, 3.655160901883212*^9, 3.655161013810389*^9, 
+   3.655161120911193*^9, {3.655161297479208*^9, 3.655161303709153*^9}, 
+   3.6551619899284163`*^9, 3.655162773661171*^9, 3.655163427327355*^9}],
+
+Cell[BoxData[
+ RowBox[{"s6", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"#", ",", "\"\< \>\""}], "]"}], "&"}], ",", "s5", ",", 
+    RowBox[{"{", "2", "}"}]}], "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655161475565343*^9, 3.655161515532609*^9}, {
+   3.655161555164812*^9, 3.655161556620311*^9}, 3.655162773661208*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"Running... \"\>", ",", "\<\"main.nb \"\>"}], "}"}], ",", 
+   RowBox[{"{", "\<\"$ProcessorCount \"\>", "}"}]}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.655161515998886*^9, 3.6551615575834084`*^9, 
+  3.655161993215583*^9, 3.6551627736612377`*^9, 3.655163430218109*^9}],
+
+Cell[BoxData[
+ RowBox[{"s7", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{"StringJoin", ",", "s6"}], "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655161566798236*^9, 3.655161600235878*^9}, 
+   3.655162773661272*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Running... main.nb \"\>", ",", "\<\"$ProcessorCount \"\>"}], 
+  "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.65516160075839*^9, 3.655161994578714*^9, 
+  3.655162773661302*^9, 3.655163433503051*^9}],
+
+Cell[BoxData[
+ RowBox[{"s8", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"StringContainsQ", "[", 
+         RowBox[{"#", ",", "\"\<.nb\>\""}], "]"}]}], ",", " ", 
+       RowBox[{"\"\<ref/ \>\"", "<>", "#"}], ",", "#"}], "]"}], "&"}], " ", 
+    ",", "s7"}], "]"}], " "}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655161624566784*^9, 3.655161646171217*^9}, {
+   3.65516174084543*^9, 3.655161846250663*^9}, {3.6551618828991213`*^9, 
+   3.655161924039773*^9}, 3.655162773661346*^9, 3.6551634861494503`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "\"\<Running... main.nb \>\"", ",", "\"\<Ref: $ProcessorCount \>\""}], 
+  "}"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.655163494771543*^9, 3.65516349733165*^9}, 
+   3.6551638087356453`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Running... main.nb \"\>", 
+   ",", "\<\"Ref: $ProcessorCount \"\>"}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.655163498643737*^9, 3.655163808735709*^9}],
+
+Cell[BoxData[
+ RowBox[{"w", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{"First", ",", "s4"}], "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6551622058161297`*^9, 3.6551622313964777`*^9}, 
+   3.6551627736614122`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"0x0560068c\"\>", ",", "\<\"0x056173a4\"\>"}], "}"}]], "Output",\
+
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.655162232302967*^9, 3.655162773661439*^9, 
+  3.6551634401982737`*^9}]
+}, Closed]],
+
+Cell["\<\
+
+Only one copy of this need ever run, so it can be done from a script if this \
+were initialized,
+math -script ShortWindowTitles.m
+
+Run for 1 hour then exit,\
+\>", "Text",
+ CellChangeTimes->{{3.655167552945228*^9, 3.6551676191686697`*^9}, {
+  3.6552468961326437`*^9, 3.655246899844521*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Pause", "[", 
+  RowBox[{"60", "*", "60"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RemoveScheduledTask", "[", "RunShortTitleTask", "]"}], ";"}], 
+  "   "}]}], "Input",
+ CellChangeTimes->{{3.6551670602715816`*^9, 3.655167090935111*^9}, {
+  3.655167528897768*^9, 3.6551675445441933`*^9}}]
+}, Open  ]]
+},
+WindowSize->{1698, 853},
+WindowMargins->{{115, Automatic}, {Automatic, 46}},
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (October 9, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info-da570af2-c1e7-48c7-b71d-7ec13d3b92b5"->{
+  Cell[3577, 82, 1477, 20, 360, "Print",
+   CellTags->"Info-da570af2-c1e7-48c7-b71d-7ec13d3b92b5"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info-da570af2-c1e7-48c7-b71d-7ec13d3b92b5", 38988, 844}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 104, 1, 96, "Title"],
+Cell[687, 25, 259, 4, 32, "Input",
+ InitializationCell->True],
+Cell[949, 31, 2498, 43, 561, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[3472, 78, 102, 2, 32, "Input"],
+Cell[3577, 82, 1477, 20, 360, "Print",
+ CellTags->"Info-da570af2-c1e7-48c7-b71d-7ec13d3b92b5"]
+}, Open  ]],
+Cell[5069, 105, 379, 7, 32, "Input",
+ InitializationCell->True],
+Cell[5451, 114, 184, 4, 31, "Text"],
+Cell[5638, 120, 3812, 90, 319, "Input"],
+Cell[9453, 212, 321, 6, 31, "Text"],
+Cell[9777, 220, 2529, 48, 209, "Input",
+ InitializationCell->True],
+Cell[12309, 270, 4338, 98, 341, "Input",
+ InitializationCell->True],
+Cell[16650, 370, 8366, 122, 55, "Input",
+ InitializationCell->True],
+Cell[25019, 494, 131, 1, 31, "Text"],
+Cell[25153, 497, 157, 4, 32, "Input",
+ InitializationCell->True],
+Cell[25313, 503, 461, 9, 55, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[25799, 516, 221, 3, 31, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[26023, 521, 493, 10, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[26519, 533, 1499, 21, 627, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[28021, 556, 486, 9, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[28510, 567, 1896, 33, 165, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[30409, 602, 433, 10, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[30845, 614, 1065, 31, 32, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[31913, 647, 452, 10, 55, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[32368, 659, 540, 12, 47, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[32911, 673, 484, 11, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[33398, 686, 590, 12, 32, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[33991, 700, 455, 10, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[34449, 712, 487, 10, 32, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[34939, 724, 426, 10, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[35368, 736, 392, 8, 32, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[35763, 746, 259, 6, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[36025, 754, 288, 6, 32, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[36316, 762, 632, 15, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[36951, 779, 278, 7, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[37232, 788, 248, 5, 32, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[37483, 795, 259, 6, 32, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[37745, 803, 253, 6, 32, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Closed]],
+Cell[38013, 812, 300, 9, 106, "Text"],
+Cell[38316, 823, 335, 8, 55, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

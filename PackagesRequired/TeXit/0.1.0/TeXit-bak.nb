@@ -1,0 +1,3671 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    143246,       3663]
+NotebookOptionsPosition[    126796,       3183]
+NotebookOutlinePosition[    127715,       3213]
+CellTagsIndexPosition[    127609,       3208]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.6810943884671183`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"BeginPackage", "[", "\"\<TeXit`\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"EndPackage", "[", "]"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.654857470351177*^9, 3.6548575010643787`*^9}, {
+  3.654884870254821*^9, 3.654884874030057*^9}, {3.654908419607689*^9, 
+  3.654908420118203*^9}, {3.681094399671479*^9, 3.681094404647293*^9}, {
+  3.681157215477079*^9, 3.681157215973048*^9}, {3.6811852297276382`*^9, 
+  3.68118523404764*^9}, {3.6811853527500067`*^9, 3.681185352846026*^9}, {
+  3.6817354083302727`*^9, 3.681735411465295*^9}}],
+
+Cell[TextData[{
+ "If the above Package statements were not included, then   Needs[ ",
+ Cell[BoxData["\"\<TeXit`\>\""], "Input",
+  CellChangeTimes->{{3.655197596644383*^9, 3.655197602372306*^9}}],
+ " ]   would still find and load the  .m  file, but would issue a warning \
+message\nto say that   \[OpenCurlyDoubleQuote]Context TeXit ` was not created \
+when Needs was evaluated.\[CloseCurlyDoubleQuote]"
+}], "Text",
+ CellChangeTimes->{{3.65519779148167*^9, 3.655197968439844*^9}, {
+  3.65519800249474*^9, 3.655198180988453*^9}, {3.65519821407609*^9, 
+  3.655198221307901*^9}, {3.6817354490018873`*^9, 3.681735465686891*^9}}],
+
+Cell["\<\
+
+Needs[\[OpenCurlyDoubleQuote]Backup`\[CloseCurlyDoubleQuote]]    gets the old \
+backup version !!!\
+\>", "Text",
+ CellChangeTimes->{{3.681272387062743*^9, 3.681272398246727*^9}, {
+   3.681733789525728*^9, 3.681733816852784*^9}, 3.6817338943549*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<Backup`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.681733914617962*^9, 3.6817339246304407`*^9}}],
+
+Cell[BoxData["\<\"/home/andrewn/Mirror_leo/Mathematica_files/Packages/\
+tpTensor/OtherPackages/Backup.m\"\>"], "Output",
+ CellChangeTimes->{3.6817339273758507`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindFile", "[", "\"\<BackupVer4`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.681733914617962*^9, 3.6817339246304407`*^9}, {
+  3.6817339556328573`*^9, 3.681733956559845*^9}}],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.6817339583170967`*^9}]
+}, Open  ]],
+
+Cell["If editing this file,", "Text",
+ CellChangeTimes->{{3.681272387062743*^9, 3.681272398246727*^9}, {
+   3.681733789525728*^9, 3.681733839012415*^9}, 3.681733908545578*^9}],
+
+Cell[BoxData[
+ RowBox[{"Get", "[", 
+  "\"\</home/andrewn/Mirror_leo/Mathematica_files/2015/Project-tpTensor/\
+tpTensor-0.5/RequiredPackages/Backup/BackupVer4.m\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.681733343821067*^9, 3.681733393801571*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"StartBackup", "[", "]"}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ " ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    RowBox[{"it", "  "}], 
+    RowBox[{" ", 
+     RowBox[{"and", "  ", 
+      RowBox[{"publish", "\[VeryThinSpace]", "!"}]}]}]], TraditionalForm]]],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.6547940576883707`*^9, 3.654794059032257*^9}, {
+  3.654799010568166*^9, 3.654799017304051*^9}, {3.681080028213793*^9, 
+  3.681080034469365*^9}, {3.6810939895963583`*^9, 3.681094007323936*^9}, {
+  3.681185200720068*^9, 3.6811853308341503`*^9}}],
+
+Cell[TextData[{
+ "This file is an ",
+ StyleBox["Example Notebook",
+  FontSlant->"Italic"],
+ " for tpTensor.\nCopyright \[Copyright] 2015  <Your Name Here. Adjust \
+year(s) of version(s) of this example file as necessary>.  \n\ntpTensor is a \
+computer algebra package for index-free tensor computations. \nCopyright \
+\[Copyright] 2015  Andrew H. Norton."
+}], "Text",
+ CellChangeTimes->{
+  3.654794080388735*^9, {3.654794207414565*^9, 3.6547942777556267`*^9}, {
+   3.654794316164823*^9, 3.65479434238864*^9}, {3.6547943895719213`*^9, 
+   3.654794407763636*^9}, {3.654796962034231*^9, 3.6547970379533377`*^9}, {
+   3.654797079168549*^9, 3.65479716799959*^9}, {3.654797225486847*^9, 
+   3.6547972446865892`*^9}, {3.654797444860201*^9, 3.654797446268126*^9}, {
+   3.654797963205742*^9, 3.654798069588646*^9}, {3.654798103892292*^9, 
+   3.6547981206279488`*^9}, {3.6547982481944923`*^9, 3.654798273681931*^9}, {
+   3.654798457167695*^9, 3.6547985700141478`*^9}, {3.654798958937048*^9, 
+   3.654798959464834*^9}, {3.654799701599029*^9, 3.6547997187828913`*^9}, 
+   3.654800068714348*^9, 3.6548001680729227`*^9, {3.6548002006324663`*^9, 
+   3.654800232696151*^9}, {3.654800289927326*^9, 3.654800385798175*^9}, {
+   3.6548176643712893`*^9, 3.654817674114665*^9}, {3.6548177223391323`*^9, 
+   3.654817740049796*^9}, {3.6548177792143087`*^9, 3.6548178032011213`*^9}, 
+   3.6817272129274817`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Statement of copying permission", "Subsection",
+ CellChangeTimes->{{3.654794107447795*^9, 3.654794118839467*^9}}],
+
+Cell["\<\
+    This Example Notebook is free software: you can redistribute it and/or \
+modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This Example Notebook is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this Example Notebook.  If not, see \
+<http://www.gnu.org/licenses/>.
+    \
+\>", "Text",
+ CellFrame->{{0, 0}, {0.5, 0}},
+ CellChangeTimes->{
+  3.654794150490553*^9, {3.654797197615202*^9, 3.6547972020793962`*^9}, 
+   3.654798150515575*^9, {3.654799535057385*^9, 3.6547996102884007`*^9}, {
+   3.654799740910755*^9, 3.6547997521425037`*^9}, {3.654799823149395*^9, 
+   3.6547998318764887`*^9}, {3.654799924077318*^9, 3.654799929388019*^9}, {
+   3.65480003015467*^9, 3.6548000340590763`*^9}, 3.6548005126124363`*^9}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["About this example", "Subsection",
+ CellChangeTimes->{{3.654794107447795*^9, 3.654794118839467*^9}, {
+  3.65479417893475*^9, 3.654794184246648*^9}}],
+
+Cell["An optional description here if the Title does not suffice. ", "Text",
+ CellChangeTimes->{{3.654794438755143*^9, 3.654794460802897*^9}, {
+  3.654799324772039*^9, 3.6547994177788258`*^9}, {3.65480083660816*^9, 
+  3.654800839807993*^9}, {3.6548009280308123`*^9, 3.6548009330067997`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["About the author", "Subsection",
+ CellChangeTimes->{{3.654794107447795*^9, 3.654794118839467*^9}, {
+   3.65479417893475*^9, 3.654794184246648*^9}, {3.654798660844842*^9, 
+   3.654798672588747*^9}, 3.6547987621234217`*^9, 3.654799032743878*^9}],
+
+Cell[TextData[{
+ "Optional contact details.  Delete or adjust as you like. \n\n",
+ StyleBox["Name:",
+  FontWeight->"Bold"],
+ "         \n",
+ StyleBox["Affiliation:",
+  FontWeight->"Bold"],
+ "        \n",
+ StyleBox["Email:\nWeb page:",
+  FontWeight->"Bold"],
+ "       \n",
+ StyleBox["Interests:",
+  FontWeight->"Bold"],
+ "         "
+}], "Text",
+ CellChangeTimes->{{3.654798685839645*^9, 3.654798744603736*^9}, {
+   3.654798777611349*^9, 3.654798909401593*^9}, {3.654799038871855*^9, 
+   3.654799083959156*^9}, {3.6547991293027763`*^9, 3.654799302228733*^9}, {
+   3.654799443922553*^9, 3.6547994664339647`*^9}, {3.654800851919887*^9, 
+   3.654800921070936*^9}, 3.681436008970255*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "Section",
+ CellChangeTimes->{{3.654794548449685*^9, 3.654794574129176*^9}, 
+   3.68109416503411*^9}],
+
+Cell["\<\
+This is a bit useless,
+
+         ExportString[ x, \"TeX\" ]\
+\>", "Text",
+ CellChangeTimes->{{3.681080836955348*^9, 3.681080837131366*^9}, {
+  3.6810809049863377`*^9, 3.681080912074444*^9}, {3.681080964089765*^9, 
+  3.681080989529437*^9}, {3.681081157079438*^9, 3.6810811702153807`*^9}, {
+  3.681103229419792*^9, 3.681103259180677*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Idea:   Nested conversion from  FullForm  to  string input form.\
+\>", "Subsubsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6810822792729816`*^9, 3.6810822988247147`*^9}, {
+  3.681082389479616*^9, 3.6810824451908703`*^9}, {3.681092592925501*^9, 
+  3.68109270106814*^9}, {3.681092787931039*^9, 3.68109278845893*^9}}],
+
+Cell["\<\
+The only messy bit is getting ( ) around a Plus that appears inside a Times  \
+\
+\>", "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681092785065687*^9, 3.6810927963949947`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ToString", "[", 
+  RowBox[{"TeXForm", "[", "\[Alpha]", "]"}], "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6810830319237423`*^9, 3.681083059295486*^9}, 
+   3.681092701068213*^9}],
+
+Cell[BoxData["\<\"\\\\alpha\"\>"], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.6810830598363323`*^9, 3.681092701068261*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ToString", "[", 
+   RowBox[{"TeXForm", "[", "x", "]"}], "]"}], "//", "FullForm"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681083072041479*^9, 3.681083098894823*^9}, 
+   3.681092701068303*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox["\"\<x\>\"",
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681083073277833*^9, 3.681083101520534*^9}, 
+   3.681092701068336*^9}],
+
+Cell[BoxData[
+ RowBox[{"TeXForm", "[", "\[Alpha]", "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681082985072824*^9, 3.681082998368472*^9}, 
+   3.681092701068371*^9}],
+
+Cell["\\alpha", "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681082990909251*^9, 3.681082999656176*^9}, 
+   3.681092701068405*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXForm", "[", "\[Alpha]", "]"}], "//", "FullForm"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.681083010471756*^9, 3.681092701068441*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"TeXForm", "[", "\\[Alpha]", "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.68108301180758*^9, 3.681092701068472*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Sin", "[", "x", "]"}], "//", "FullForm"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681082573497034*^9, 3.6810825788373213`*^9}, 
+   3.681092701068508*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Sin", "[", "x", "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.681082579440938*^9, 3.6810927010685387`*^9}],
+
+Cell[BoxData[
+ RowBox[{"Head", "[", "\[Alpha]", "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681082711878845*^9, 3.6810827208677883`*^9}, 
+   3.681092701068574*^9}],
+
+Cell[BoxData["Symbol"], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.681082721988517*^9, 3.681092701068605*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeX", "[", "x_Symbol", "]"}], ":=", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"TeXForm", "[", "x", "]"}], "]"}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681082758838769*^9, 3.681082774371037*^9}, {
+   3.681083106978612*^9, 3.681083117246661*^9}, 3.681092701068644*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeX", "[", 
+   RowBox[{"Sin", "[", "x_", "]"}], "]"}], ":=", 
+  RowBox[{"\"\<\\\\sin\\\\!\\\\left( \>\"", "<>", 
+   RowBox[{"TeX", "[", "x", "]"}], "<>", "\"\< \\\\right)\>\""}]}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6810825476540527`*^9, 3.6810826646923532`*^9}, {
+   3.681083161710195*^9, 3.681083165694004*^9}, 3.681092701068686*^9}],
+
+Cell[BoxData[
+ RowBox[{"TeX", "[", 
+  RowBox[{"Sin", "[", "y", "]"}], "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6810826784840403`*^9, 3.6810826798280907`*^9}, 
+   3.6810927010687313`*^9}],
+
+Cell[BoxData["\<\"\\\\sin\\\\!\\\\left( y \\\\right)\"\>"], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.681082680389814*^9, 3.681083145209756*^9, 
+  3.681083175665056*^9, 3.681092701068763*^9}]
+}, Closed]],
+
+Cell[TextData[{
+ "Better idea:  Fix up ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ "\[CloseCurlyQuote]s ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]]
+}], "Subsubsection",
+ CellChangeTimes->{{3.681092712460061*^9, 3.681092741308419*^9}, {
+   3.681092807483698*^9, 3.681092811018804*^9}, 3.681535228595043*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Documentation", "Section",
+ CellChangeTimes->{{3.654794548449685*^9, 3.654794574129176*^9}, 
+   3.68109416503411*^9, {3.681157260338975*^9, 3.6811572651068974`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXitDirectory", "::", "usage"}], "=", "\"\<\>\""}]], "Input",
+ CellChangeTimes->{3.681187420819559*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXit", "::", "usage"}], "=", "\"\<\>\""}]], "Input",
+ CellChangeTimes->{{3.681157423227573*^9, 3.681157439960692*^9}, {
+  3.681187429380261*^9, 3.6811874325640173`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CustomTeX", "::", "usage"}], "=", "\"\<\>\""}]], "Input",
+ CellChangeTimes->{3.681158686863154*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RemoveCustomTeX", "::", "usage"}], "=", "\"\<\>\""}]], "Input",
+ CellChangeTimes->{3.681158687667728*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXPreamble", "::", "usage"}], "=", "\"\<\>\""}]], "Input",
+ CellChangeTimes->{3.681158688366722*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"PDFViewer", "::", "usage"}], "=", 
+   "\"\<\nPDFViewer[ cmd ]    sets the default PDF viewer to be used, and \
+then runs it. \nPDFViewer[ ]           runs the default PDF viewer.\n\nThe \
+full command to be used is  \nIn either case, the value returned is the full \
+pathname of the command that was used.\n\nThe initial default is  PDFViewer[ \
+\\\"okular\\\" ].\>\""}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.6811586891427917`*^9, {3.681159161015316*^9, 3.681159390406212*^9}, {
+   3.681159420854303*^9, 3.6811594388375883`*^9}, {3.681159472116969*^9, 
+   3.681159740817721*^9}, {3.681161694119237*^9, 3.681161737463369*^9}, {
+   3.681161834038013*^9, 3.6811619302613287`*^9}, {3.68116196618005*^9, 
+   3.681161979987836*^9}, {3.681162114690076*^9, 3.681162200576745*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "PDFViewer"}]], "Input",
+ CellChangeTimes->{{3.681159481885879*^9, 3.681159485024188*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"\\nPDFViewer[ cmd ]    sets the default PDF viewer to be used, \
+and then runs it. \\nPDFViewer[ ]           runs the default PDF \
+viewer.\\n\\nIn either case, the value returned is the full pathname of the \
+command that was used.\\n\\nThe initial default is  PDFViewer[ \\\"okular\\\" \
+].\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6811619841560783`*^9},
+ CellTags->"Info-3222b06e-8723-415f-81d1-359ed8db9b6c"]
+}, Open  ]]
+}, Closed]],
+
+Cell[BoxData[
+ RowBox[{
+  ButtonBox["Begin",
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Begin"], "[", "\"\<`Private`\>\"", "]"}]], "Input",\
+
+ CellID->782891883],
+
+Cell[CellGroupData[{
+
+Cell["Code", "Section",
+ CellChangeTimes->{{3.654794548449685*^9, 3.654794574129176*^9}, 
+   3.68109416503411*^9, {3.681157270147738*^9, 3.681157270946487*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Get any required packages", "Subsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681092823994644*^9, 3.681092836074478*^9}, {
+   3.681183608483924*^9, 3.68118363925135*^9}, 3.681184283179319*^9, {
+   3.681728099067141*^9, 3.6817281270090513`*^9}}],
+
+Cell["We want ReadFile[ ]  from this package, ", "Text",
+ CellChangeTimes->{{3.681193185802991*^9, 3.681193201770885*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Get", "[", "\"\<FileFunctions.m\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6811565222436647`*^9, 3.6811565515650187`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A list of ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " replacements"
+}], "Subsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681092823994644*^9, 3.681092836074478*^9}, {
+   3.681183608483924*^9, 3.68118363925135*^9}, 3.681184283179319*^9, 
+   3.681728149482564*^9}],
+
+Cell[TextData[{
+ "Customize names etc.  Best to keep the replacement  ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ "  code short, eg., by using one of your own tex defns, since the \nthe \
+replacement strings will appear throughout the generated .tex file, which you \
+may want to edit by hand later. "
+}], "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681183657251258*^9, 3.681183832352972*^9}, 
+   3.6811842831793756`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$TeXReplacements", " ", "=", " ", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ InitializationCell->True,
+ CellChangeTimes->{{3.681091092671421*^9, 3.681091142878878*^9}, {
+   3.681091440953817*^9, 3.681091447963524*^9}, {3.681091596809699*^9, 
+   3.681091651929*^9}, 3.6811507314219103`*^9, 3.681183624579997*^9, 
+   3.6811842831794367`*^9, {3.6811932742341423`*^9, 3.6811932786016607`*^9}}],
+
+Cell["Provide an easy way to make new fix-ups,", "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681092855466219*^9, 3.681092886985743*^9}, 
+   3.681184283179471*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "CustomTeX", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CustomTeX", "[", 
+   RowBox[{"x_", ",", "s_String"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "s1", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"s1", "=", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"TeXForm", "[", "x", "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"$TeXReplacements", "=", 
+      RowBox[{"DeleteCases", "[", 
+       RowBox[{"$TeXReplacements", ",", 
+        RowBox[{"Rule", "[", 
+         RowBox[{"s1", ",", "_"}], "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"$TeXReplacements", ",", 
+       RowBox[{"s1", "\[Rule]", "s"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     "s"}]}], "]"}]}]}], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ InitializationCell->True,
+ CellChangeTimes->{{3.681091733358156*^9, 3.6810920880838203`*^9}, {
+   3.681092241218247*^9, 3.681092268449603*^9}, {3.681092322656749*^9, 
+   3.6810923442566347`*^9}, {3.6810985138233767`*^9, 3.68109851696638*^9}, {
+   3.681099906309195*^9, 3.68109990708267*^9}, 3.681184283179532*^9, {
+   3.681193260554474*^9, 3.681193266733218*^9}}],
+
+Cell[TextData[{
+ "NB.  Use  \[OpenCurlyDoubleQuote]\\\\\[CloseCurlyDoubleQuote]  rather than  \
+\[OpenCurlyDoubleQuote]\\\[CloseCurlyDoubleQuote]  in the string for the \
+replacement ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ ","
+}], "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.68115075761327*^9, 3.681150800797534*^9}, {
+   3.6811841876284237`*^9, 3.6811842330051537`*^9}, 3.6811842831795673`*^9}],
+
+Cell[BoxData[
+ RowBox[{"CustomTeX", "[", 
+  RowBox[{"\[Lambda]B", ",", "\"\<\\\\lambda_B\>\""}], "]"}]], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681092365680594*^9, 3.681092390512108*^9}, {
+   3.6811511285687017`*^9, 3.681151130560112*^9}, 3.681184283179605*^9}],
+
+Cell[BoxData["\<\"\\\\lambda_B\"\>"], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{
+  3.681092392956554*^9, {3.6811508329116793`*^9, 3.681150855966834*^9}, 
+   3.681150925809754*^9, 3.681184283179654*^9, 3.681193289260634*^9, 
+   3.68153528916199*^9, 3.681644361569672*^9}],
+
+Cell["\<\
+....here it would be better to replace with  \[OpenCurlyDoubleQuote]\\\\lamB\
+\[CloseCurlyDoubleQuote]  and use  \\def{\\lamB}  in the  preamble.tex  file. \
+
+Or better still, in the  preamble.tex  file, use   \\input defns.tex ,  where \
+  defns.tex  is a  file containing user defns.\
+\>", "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681183853360847*^9, 3.681184160060894*^9}, 
+   3.681184283179685*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{"$TeXReplacements", "\[IndentingNewLine]", 
+ RowBox[{"$TeXReplacements", "//", "InputForm"}]}], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6810924006100483`*^9, 3.681092407599909*^9}, {
+   3.681092469518478*^9, 3.681092511774617*^9}, 3.681184283179722*^9, {
+   3.68119329748205*^9, 3.681193299901053*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"\\\\text{$\\\\lambda $B}\"\>", 
+   "\[Rule]", "\<\"\\\\lambda_B\"\>"}], "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{
+  3.681092412667582*^9, {3.681092478726169*^9, 3.681092513008821*^9}, 
+   3.6811508633199663`*^9, {3.681150923763686*^9, 3.6811509269274683`*^9}, 
+   3.681184283179758*^9, {3.681193291646068*^9, 3.681193301246929*^9}, 
+   3.6815352893010397`*^9, 3.681644361713729*^9}],
+
+Cell["{\"\\\\text{$\\\\lambda $B}\" -> \"\\\\lambda_B\"}", "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{
+  3.681092412667582*^9, {3.681092478726169*^9, 3.681092513008821*^9}, 
+   3.6811508633199663`*^9, {3.681150923763686*^9, 3.6811509269274683`*^9}, 
+   3.681184283179758*^9, {3.681193291646068*^9, 3.681193301246929*^9}, 
+   3.6815352893010397`*^9, 3.681644361714692*^9}]
+}, Open  ]],
+
+Cell["Provide an easy way to remove fix-ups,", "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681092855466219*^9, 3.681092886985743*^9}, {
+   3.681093643344595*^9, 3.681093645316258*^9}, 3.681184283179823*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "RemoveCustomTeX", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"RemoveCustomTeX", "[", "x_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "s1", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"s1", "=", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"TeXForm", "[", "x", "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"$TeXReplacements", "=", 
+      RowBox[{"DeleteCases", "[", 
+       RowBox[{"$TeXReplacements", ",", 
+        RowBox[{"Rule", "[", 
+         RowBox[{"s1", ",", "_"}], "]"}]}], "]"}]}], ";"}]}], 
+   "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ InitializationCell->True,
+ CellChangeTimes->{{3.681093324260516*^9, 3.681093336517049*^9}, {
+   3.681093371716147*^9, 3.681093515362298*^9}, {3.681093549249913*^9, 
+   3.681093570417675*^9}, {3.68109847851303*^9, 3.681098492086483*^9}, 
+   3.681184283179873*^9, {3.681193313241459*^9, 3.681193316372149*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"RemoveCustomTeX", "[", "\[Lambda]B", 
+  "]"}], "\[IndentingNewLine]", "$TeXReplacements"}], "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.6810936058249807`*^9, 3.681093620038596*^9}, 
+   3.681184283179915*^9, 3.6811933250971613`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{3.681093621381401*^9, 3.68115093574286*^9, 
+  3.681184283179949*^9, 3.681193326521515*^9, 3.681535289443823*^9, 
+  3.681644361865098*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["TeXitDirectory[ ]", "Subsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681092823994644*^9, 3.681092836074478*^9}, {
+   3.681183608483924*^9, 3.68118363925135*^9}, 3.681184283179319*^9, {
+   3.681185493724258*^9, 3.681185501612042*^9}, {3.6811874582760468`*^9, 
+   3.681187472282135*^9}}],
+
+Cell[TextData[{
+ "For each user\[CloseCurlyQuote]s Notebook, have a default directory \
+location for where the ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " gets processed and saved,"
+}], "Text",
+ CellChangeTimes->{{3.681092911865582*^9, 3.6810929312095327`*^9}, 
+   3.681183598388179*^9, 3.6811855177878237`*^9, {3.6811855742512712`*^9, 
+   3.681185604234757*^9}, {3.681185956326517*^9, 3.6811859709420567`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$TeXitDir", "=", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    RowBox[{"FileBaseName", "[", 
+     RowBox[{"NotebookFileName", "[", "]"}], "]"}], "<>", 
+    "\"\<_TeXit\>\""}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681090295386674*^9, 3.681090301696679*^9}, {
+   3.681090343672001*^9, 3.681090380039357*^9}, 3.6811855220280123`*^9, {
+   3.681185629257753*^9, 3.681185678457954*^9}, {3.681185810281433*^9, 
+   3.681185862263843*^9}, {3.681185984598338*^9, 3.681186076150755*^9}, {
+   3.681186129252803*^9, 3.681186158068224*^9}, {3.681186271342586*^9, 
+   3.6811862754666452`*^9}, {3.681186315925071*^9, 3.6811863199059687`*^9}, {
+   3.681186378225603*^9, 3.681186382609366*^9}, {3.6811864444008007`*^9, 
+   3.6811864444805107`*^9}, 3.6811873665492983`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "TeXitDirectory", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"TeXitDirectory", "[", "]"}], ":=", "$TeXitDir"}], ";"}]}], "Input",\
+
+ InitializationCell->True,
+ CellChangeTimes->{{3.681090414951374*^9, 3.68109048074238*^9}, {
+  3.681098455373579*^9, 3.6810984599029503`*^9}, {3.681103390521845*^9, 
+  3.681103427689042*^9}, {3.681103587927176*^9, 3.681103595382991*^9}, {
+  3.681107740129977*^9, 3.6811077742895403`*^9}, {3.6811864122426863`*^9, 
+  3.6811864608164673`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXitDirectory", "[", "d_", "]"}], ":=", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"DirectoryQ", "[", "d", "]"}]}], ",", 
+      RowBox[{"CreateDirectory", "[", "d", "]"}]}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"$TeXitDir", "=", "d"}]}], ")"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681090414951374*^9, 3.68109048074238*^9}, {
+  3.681098455373579*^9, 3.6810984599029503`*^9}, {3.681103390521845*^9, 
+  3.681103427689042*^9}, {3.681103587927176*^9, 3.681103595382991*^9}, {
+  3.681107740129977*^9, 3.6811077742895403`*^9}, {3.6811864122426863`*^9, 
+  3.681186435331854*^9}, {3.681186470448357*^9, 3.681186625182254*^9}, {
+  3.681186757324745*^9, 3.681186769516614*^9}, {3.681186900891547*^9, 
+  3.681186904506999*^9}, {3.681187077768664*^9, 3.6811870876725903`*^9}, {
+  3.681187124552184*^9, 3.681187138471925*^9}, {3.681187205927123*^9, 
+  3.6811872148549*^9}, {3.681187293750018*^9, 3.68118731442169*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXitDirectory", "[", "$TeXitDir", "]"}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681186659421804*^9, 3.6811866799927998`*^9}, {
+  3.681186820795939*^9, 3.681186837771572*^9}, {3.681186980042398*^9, 
+  3.681186994057835*^9}, {3.681187324277629*^9, 3.68118734581349*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["TeXit[ ]", "Subsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.681092823994644*^9, 3.681092836074478*^9}, {
+   3.681183608483924*^9, 3.68118363925135*^9}, 3.681184283179319*^9, {
+   3.681185493724258*^9, 3.681185501612042*^9}, {3.681187493571206*^9, 
+   3.6811875012670927`*^9}}],
+
+Cell[TextData[{
+ "Add   // ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox["TeXit",
+    SingleLetterItalics->False], TraditionalForm]]],
+ "   to the end of a mathematica expression to be ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ "ed  and it does everything needed....\nthe ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ "  version of it will be appended in the PDF viewer. No other change to \
+existing code is required to ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " your output.\n\nSimilarly,  ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"TeXit", "[", "  ", "]"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ "  can be wrapped around intermediate expressions  (probably not useful)."
+}], "Text",
+ CellChangeTimes->{{3.681091211437801*^9, 3.681091392555799*^9}, 
+   3.681092944521228*^9, {3.6811875444668493`*^9, 3.6811876728171473`*^9}, {
+   3.681187719072321*^9, 3.6811878827344933`*^9}, {3.6811887613157873`*^9, 
+   3.681188794867087*^9}, {3.681190300048265*^9, 3.681190300384262*^9}, {
+   3.681644421337493*^9, 3.68164443892096*^9}}],
+
+Cell["\<\
+If  x  is a mathematical expression, then  TeXit[ x ]  will generate the tex \
+code.
+ 
+If  x  is a string, then it is assumed to be valid tex code, as it would \
+appear in a .tex file. Of course, this could be text without any maths in it. \
+
+The catch is that all  \[OpenCurlyDoubleQuote]/\[CloseCurlyDoubleQuote] in \
+the tex code must appear in the string x  as \[OpenCurlyDoubleQuote]//\
+\[CloseCurlyDoubleQuote],  which means typing and reading a string like that \
+would be a pain.
+E.g., this is valid string:   x = \[OpenCurlyDoubleQuote]An in-line demo, $ \
+\\\\sin y + 3 $  and a displayed eqn,  $$ \\\\frac{1}{2} x = 1 $$\
+\[CloseCurlyDoubleQuote]
+
+The solution is to use a special input box to type inside. We do that later.\
+\>", "Text",
+ CellChangeTimes->{{3.6811903036585827`*^9, 3.681190746043288*^9}, {
+  3.681644456792515*^9, 3.681644782147437*^9}, {3.6816448246410313`*^9, 
+  3.681644832050296*^9}}],
+
+Cell["The defn for one argument,", "Text",
+ CellChangeTimes->{{3.681644847552335*^9, 3.6816448588642*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "TeXit", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TeXit", "[", "x_", "]"}], ":=", 
+  RowBox[{"TeXit", "[", 
+   RowBox[{"x", ",", "\"\<\>\""}], "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681086798411327*^9, 3.6810870160949717`*^9}, {
+   3.681087111437752*^9, 3.681087268219824*^9}, {3.681087368410965*^9, 
+   3.6810875266648893`*^9}, {3.681090524155491*^9, 3.681090544085968*^9}, {
+   3.681090669412451*^9, 3.681090826650885*^9}, {3.681091019424471*^9, 
+   3.6810910536640253`*^9}, 3.6810911077543592`*^9, 3.681094588245307*^9, 
+   3.681094654628399*^9, {3.68109468854811*^9, 3.681094689203947*^9}, 
+   3.681094727792057*^9, {3.6810948511539927`*^9, 3.681094852377441*^9}, {
+   3.681094884512932*^9, 3.681094954560608*^9}, {3.681095122910734*^9, 
+   3.681095128926436*^9}, {3.6810953205082417`*^9, 3.681095320588152*^9}, {
+   3.681095693982204*^9, 3.681095702343712*^9}, 3.681098379208229*^9, {
+   3.681098439015328*^9, 3.681098447399292*^9}, {3.681098645499724*^9, 
+   3.681098650378899*^9}, {3.681098844034237*^9, 3.681098878433704*^9}, 
+   3.6810989806247787`*^9, {3.681099052239958*^9, 3.681099115389629*^9}, {
+   3.681105043364511*^9, 3.6811050952199306`*^9}, {3.681105185266838*^9, 
+   3.681105185938993*^9}, {3.681105232402372*^9, 3.6811052490901203`*^9}, {
+   3.681105445263533*^9, 3.6811054516316147`*^9}, {3.681105694044422*^9, 
+   3.681105713356247*^9}, {3.681105774572657*^9, 3.681105790506913*^9}, 
+   3.681105841898678*^9, {3.6811059629694138`*^9, 3.681105968792986*^9}, {
+   3.681106032440029*^9, 3.681106079975379*^9}, {3.681106461010702*^9, 
+   3.681106468178501*^9}, {3.68110669956744*^9, 3.68110671246353*^9}, 
+   3.681106776893312*^9, 3.6811068321960773`*^9, {3.681120197469954*^9, 
+   3.681120200653981*^9}, 3.6811203559001827`*^9, {3.681120530617653*^9, 
+   3.681120533561883*^9}, 3.681121560893034*^9, {3.681122781695212*^9, 
+   3.6811227929410563`*^9}, {3.681154060880836*^9, 3.681154087104437*^9}, {
+   3.681154427322607*^9, 3.681154440874311*^9}, {3.681187688193001*^9, 
+   3.68118769966494*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TeXit", "[", "\"\<a b c\>\"", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"TeXit", "[", 
+  RowBox[{"\<\"a b c\"\>", ",", "\<\"\"\>"}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.681196186684537*^9, {3.681196265208501*^9, 3.681196288199842*^9}, {
+   3.6811964882912188`*^9, 3.6811965007861423`*^9}, {3.681196652185413*^9, 
+   3.6811966731674356`*^9}, {3.6811967552463417`*^9, 3.681196785877665*^9}, {
+   3.681197097136392*^9, 3.681197107456505*^9}, {3.681198155112331*^9, 
+   3.681198156775361*^9}, 3.68119824491639*^9, {3.681198309411139*^9, 
+   3.6811983150008173`*^9}, 3.6816447999414387`*^9}]
+}, Open  ]],
+
+Cell["\<\
+The defn for two arguments. This will be used inside the fn  Eqn[ ]  from \
+tpTensor.
+Eqn[ label ] = eqn   will call  TeXit [ eqn, label ]   and will use label in \
+the tex code.
+
+If the output to be TeXed is an expression  x  rather than an equation, then \
+it can be labeled by hand using TeXit [ x, label ]  or  x // TeXit [ #, label \
+]& .\
+\>", "Text",
+ CellChangeTimes->{{3.681644847552335*^9, 3.681644915614863*^9}, {
+  3.6816449636460342`*^9, 3.6816450339165087`*^9}, {3.6816451070031347`*^9, 
+  3.6816451565702477`*^9}, {3.6816451886816797`*^9, 3.681645240504746*^9}, {
+  3.681645337494677*^9, 3.681645373221863*^9}, {3.681645412197255*^9, 
+  3.6816454726443233`*^9}, {3.681645519459207*^9, 3.681645577154114*^9}}],
+
+Cell["\<\
+preamble.tex  and   postamble.tex   are links to the files selected for use.
+$Preamble  and   $Postamble  are supposed to be always be in sync with the \
+file contents. The safest way to ensure that is to read them each time they \
+are used.\
+\>", "Text",
+ CellChangeTimes->{{3.681646497851735*^9, 3.681646724269188*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$TeXitBody", " ", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"$TeXitDir", ",", "\"\<body.tex\>\""}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"$TeXCommand", "=", "\"\</usr/bin/pdflatex\>\""}], ";"}]}], "Input",\
+
+ InitializationCell->True,
+ CellChangeTimes->{{3.681684750506834*^9, 3.681684764896199*^9}, {
+  3.681705976873537*^9, 3.681705977824914*^9}, {3.6817060154975653`*^9, 
+  3.681706045513365*^9}, {3.681709061157937*^9, 3.6817090705482693`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXit", "[", 
+   RowBox[{"x_", ",", "label_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"s1", ",", "s2", ",", "s3", ",", "s4", ",", "s5", ",", "f"}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{
+         RowBox[{"Head", "[", "x", "]"}], "===", " ", "String"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"s1", "=", 
+         RowBox[{"ToString", "[", 
+          RowBox[{"TeXForm", "[", "x", "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"label", "===", "\"\<\>\""}], ",", "\[IndentingNewLine]", 
+          RowBox[{"s2", "=", 
+           RowBox[{
+           "\"\<$$\\n\>\"", "<>", "\[IndentingNewLine]", "s1", "<>", 
+            "\[IndentingNewLine]", "\"\<\\n$$\\n\>\""}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"s2", "=", 
+           RowBox[{
+           "\"\<\\\\begin{equation}\\n\>\"", "<>", "\[IndentingNewLine]", 
+            "s1", "<>", "\[IndentingNewLine]", "\"\<\\n\\\\label{\>\"", "<>", 
+            
+            RowBox[{"ToString", "[", "label", "]"}], "<>", "\"\<}\>\"", "<>", 
+            "\[IndentingNewLine]", "\"\<\\n\\\\end{equation}\\n\>\""}]}]}], 
+         "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"s3", "=", 
+         RowBox[{"StringReplace", "[", 
+          RowBox[{"s2", ",", 
+           RowBox[{"\"\<+\>\"", "\[Rule]", "\"\<\\n + \>\""}]}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"s4", "=", 
+         RowBox[{"StringReplace", "[", 
+          RowBox[{"s3", ",", 
+           RowBox[{"\"\<-\>\"", "\[Rule]", "\"\<\\n - \>\""}]}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"s5", "=", 
+         RowBox[{"StringReplace", "[", 
+          RowBox[{"s4", ",", "$TeXReplacements"}], "]"}]}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"s5", "=", 
+        RowBox[{"x", "<>", "\"\<\\n\\n\>\""}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"OpenAppend", "[", "$TeXitBody", "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"WriteString", "[", 
+      RowBox[{"$TeXitBody", ",", "s5"}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Close", "[", "$TeXitBody", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Run", "[", 
+      RowBox[{
+       RowBox[{"\"\<cd \>\"", "<>", "$TeXitDir", "<>", "\"\<; \>\""}], " ", 
+       RowBox[{"$TeXCommand", "<>", "\"\< main.tex\>\""}]}], "]"}], ";", 
+     "\[IndentingNewLine]", "x"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681086798411327*^9, 3.6810870160949717`*^9}, {
+   3.681087111437752*^9, 3.681087268219824*^9}, {3.681087368410965*^9, 
+   3.6810875266648893`*^9}, {3.681090524155491*^9, 3.681090544085968*^9}, {
+   3.681090669412451*^9, 3.681090826650885*^9}, {3.681091019424471*^9, 
+   3.6810910536640253`*^9}, 3.6810911077543592`*^9, 3.681094588245307*^9, 
+   3.681094654628399*^9, {3.68109468854811*^9, 3.681094689203947*^9}, 
+   3.681094727792057*^9, {3.6810948511539927`*^9, 3.681094852377441*^9}, {
+   3.681094884512932*^9, 3.681094954560608*^9}, {3.681095122910734*^9, 
+   3.681095128926436*^9}, {3.6810953205082417`*^9, 3.681095320588152*^9}, {
+   3.681095693982204*^9, 3.681095702343712*^9}, 3.681098379208229*^9, {
+   3.681098439015328*^9, 3.681098447399292*^9}, {3.681098645499724*^9, 
+   3.681098650378899*^9}, {3.681098844034237*^9, 3.681098878433704*^9}, 
+   3.6810989806247787`*^9, {3.681099052239958*^9, 3.681099115389629*^9}, {
+   3.681105043364511*^9, 3.6811050952199306`*^9}, {3.681105185266838*^9, 
+   3.681105185938993*^9}, {3.681105232402372*^9, 3.6811052490901203`*^9}, {
+   3.681105445263533*^9, 3.6811054516316147`*^9}, {3.681105694044422*^9, 
+   3.681105713356247*^9}, {3.681105774572657*^9, 3.681105790506913*^9}, 
+   3.681105841898678*^9, {3.6811059629694138`*^9, 3.681105968792986*^9}, {
+   3.681106032440029*^9, 3.681106079975379*^9}, {3.681106461010702*^9, 
+   3.681106468178501*^9}, {3.68110669956744*^9, 3.68110671246353*^9}, 
+   3.681106776893312*^9, 3.6811068321960773`*^9, {3.681120197469954*^9, 
+   3.681120200653981*^9}, 3.6811203559001827`*^9, {3.681120530617653*^9, 
+   3.681120533561883*^9}, 3.681121560893034*^9, {3.681122781695212*^9, 
+   3.6811227929410563`*^9}, {3.681153749060547*^9, 3.681153754515991*^9}, {
+   3.6811538132031717`*^9, 3.681153816163471*^9}, {3.681153853890684*^9, 
+   3.681153935313582*^9}, 3.681154075886306*^9, {3.68115424079722*^9, 
+   3.6811542558371058`*^9}, {3.6811542979484262`*^9, 3.681154413242868*^9}, {
+   3.681164781568206*^9, 3.681164783024042*^9}, {3.681187928734519*^9, 
+   3.681187931086054*^9}, {3.6811888168352537`*^9, 3.681188981473192*^9}, {
+   3.681190095331188*^9, 3.681190212513709*^9}, {3.681190826858054*^9, 
+   3.681190843601849*^9}, {3.681190888841277*^9, 3.681190901190847*^9}, 
+   3.6811909796238832`*^9, {3.6811910220235453`*^9, 3.681191022408148*^9}, {
+   3.681191366681437*^9, 3.681191369547824*^9}, {3.681191401826537*^9, 
+   3.681191441058023*^9}, {3.681191493537346*^9, 3.681191712094624*^9}, {
+   3.6811917530699577`*^9, 3.6811917679019613`*^9}, {3.681193408008774*^9, 
+   3.681193409560629*^9}, 3.681196167029441*^9, 3.681196257859572*^9, {
+   3.681196403457556*^9, 3.6811964036652737`*^9}, 3.681196576575083*^9, {
+   3.68119660782839*^9, 3.681196616526724*^9}, {3.681196715884925*^9, 
+   3.681196721774*^9}, {3.681197019370241*^9, 3.681197069288509*^9}, {
+   3.681197414388055*^9, 3.681197423123966*^9}, {3.681197483203121*^9, 
+   3.681197504515394*^9}, {3.681197777761709*^9, 3.6811977934386806`*^9}, {
+   3.681197944966042*^9, 3.681197957980595*^9}, {3.6811980339163713`*^9, 
+   3.681198135322454*^9}, {3.681198199017638*^9, 3.681198212361541*^9}, {
+   3.6811982673080053`*^9, 3.681198295625332*^9}, {3.681645734151479*^9, 
+   3.681645749103456*^9}, {3.6816457931830072`*^9, 3.6816458134046993`*^9}, {
+   3.681645880701393*^9, 3.681645883853096*^9}, {3.681645961500881*^9, 
+   3.681646098466157*^9}, {3.681646131096785*^9, 3.681646152344274*^9}, {
+   3.681646217239769*^9, 3.681646225769081*^9}, {3.681647020664728*^9, 
+   3.6816470256283007`*^9}, {3.681647554303035*^9, 3.681647713341151*^9}, {
+   3.681647760124815*^9, 3.6816478020536127`*^9}, {3.681647837884166*^9, 
+   3.6816479501870937`*^9}, {3.681648001483646*^9, 3.6816480131305237`*^9}, {
+   3.681648050634617*^9, 3.6816481207777348`*^9}, {3.6816481536130753`*^9, 
+   3.6816481680494003`*^9}, 3.681684577871655*^9, {3.681684632267117*^9, 
+   3.681684669002561*^9}, {3.6816847741370087`*^9, 3.681684806680695*^9}, 
+   3.6817049155431232`*^9, {3.681704965862413*^9, 3.681704997814312*^9}, 
+   3.681705078919835*^9, {3.681705993434264*^9, 3.681706091464673*^9}, {
+   3.681709086268263*^9, 3.681709205266653*^9}}],
+
+Cell["\<\
+.... x  is returned as the value so that  TeXit  is transparent and can be \
+used as  // TeXit.\
+\>", "Text",
+ CellChangeTimes->{{3.681191785069062*^9, 3.681191896779749*^9}, 
+   3.6811919276912537`*^9, {3.681192060841556*^9, 3.68119207920933*^9}, {
+   3.681198417942264*^9, 3.681198421638146*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The file  main.tex", "Subsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.68119200276239*^9, 3.6811920123623333`*^9}, {
+   3.6817078256510763`*^9, 3.6817078354592*^9}, {3.681728163418354*^9, 
+   3.681728181178214*^9}}],
+
+Cell["\<\
+Make sure we have a main.tex.  Recreate it in case someone has tried to edit \
+it,\
+\>", "Text",
+ CellChangeTimes->{{3.6817077793154163`*^9, 3.6817077898917027`*^9}, {
+  3.6817078567225437`*^9, 3.681707891186481*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+   "$TeXitMain", " ", "=", 
+    "\"\<\n%\n%  Any changes to this file will be lost.\n%  This file is \
+recreated when the TeXit package is loaded.\n%\n\\\\input preamble\n\\\\input \
+body.tex\n\\\\input postamble\n\>\""}], ";"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681707896683342*^9, 3.6817080015375233`*^9}, 
+   3.681708216446604*^9, {3.681708401692318*^9, 3.681708402142943*^9}}],
+
+Cell[BoxData["$TeXitMain"], "Input",
+ CellChangeTimes->{{3.681708405148129*^9, 3.681708405500154*^9}}],
+
+Cell[BoxData["\<\"\\n%\\n%  Any changes to this file will be lost.\\n%  This \
+file is recreated when the TeXit package is loaded.\\n%\\n\\\\input \
+preamble\\n\\\\input body.tex\\n\\\\input postamble\\n\"\>"], "Output",
+ CellChangeTimes->{3.681708006748942*^9, 3.681708224602022*^9, 
+  3.681708409815542*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$TeXitMainFile", " ", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"$TeXitDir", ",", "\"\<main.tex\>\""}], "}"}], "]"}]}], 
+  ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6817080646232357`*^9, 3.68170813884737*^9}, 
+   3.6817082021270313`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"FileExistsQ", "[", "$TeXitMainFile", "]"}], ",", 
+    RowBox[{"DeleteFile", "[", "$TeXitMainFile", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteString", "[", 
+   RowBox[{"$TeXitMainFile", ",", "$TeXitMain"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Close", "[", "$TeXitMainFile", "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681275396066607*^9, 3.681275399474545*^9}, {
+   3.681275439699279*^9, 3.681275508945127*^9}, {3.6812755449040413`*^9, 
+   3.681275594080209*^9}, {3.681275822884886*^9, 3.68127585353295*^9}, {
+   3.6815354227058773`*^9, 3.681535425889748*^9}, 3.681535560141287*^9, {
+   3.681648389286455*^9, 3.6816483903103533`*^9}, {3.681648488117292*^9, 
+   3.6816484893413477`*^9}, 3.681648675827608*^9, 3.6816487542274923`*^9, {
+   3.681651356108232*^9, 3.6816513797422667`*^9}, {3.681651739619269*^9, 
+   3.681651748715231*^9}, 3.681685798779654*^9, {3.681685893818371*^9, 
+   3.681685977849387*^9}, {3.681708259262054*^9, 3.68170826228084*^9}, {
+   3.6817083649726267`*^9, 3.681708420299919*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["PDFviewer[ ]", "Subsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.68119200276239*^9, 3.6811920123623333`*^9}}],
+
+Cell["This is for the user to specify a preferred viewer program,", "Text",
+ CellChangeTimes->{{3.681705433552051*^9, 3.681705451920085*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PDFViewer", "[", "viewer_String", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "r", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"r", "=", 
+      RowBox[{"RunProcess", "[", 
+       RowBox[{"{", 
+        RowBox[{"\"\<which\>\"", ",", " ", "viewer"}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{
+         RowBox[{"r", "[", "\"\<ExitCode\>\"", "]"}], "===", "0"}]}], ",", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+        "\"\<PDFViewer[\\\"\>\"", "<>", "viewer", "<>", "\"\<\\\"]\>\"", "<>",
+          "\[IndentingNewLine]", "\"\<   Command \\\"\>\"", "<>", "viewer", 
+         "<>", "\"\<\\\" not found.\>\""}], "]"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"$PDFViewer", "=", "viewer"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"PDFViewer", "[", "]"}]}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681157609086282*^9, 3.6811576319819508`*^9}, {
+   3.68115766201442*^9, 3.681157693742378*^9}, {3.68115803346484*^9, 
+   3.681158076615646*^9}, {3.681158320452614*^9, 3.6811583300366373`*^9}, {
+   3.681158506514121*^9, 3.681158515112054*^9}, {3.681160029485859*^9, 
+   3.681160231146901*^9}, 3.6811602669386063`*^9, {3.6811603361865797`*^9, 
+   3.681160384169043*^9}, {3.6811604200745583`*^9, 3.681160429672641*^9}, {
+   3.681160477639879*^9, 3.6811605196240177`*^9}, {3.681160575526683*^9, 
+   3.681160625205554*^9}, {3.681160683860718*^9, 3.6811607044207163`*^9}, {
+   3.68116074523623*^9, 3.681160880082325*^9}, {3.6811609356817703`*^9, 
+   3.681160937201605*^9}, 3.681161184192713*^9, {3.681162368687189*^9, 
+   3.6811623750226727`*^9}, {3.6817055181595993`*^9, 3.681705520271719*^9}, {
+   3.681705561870956*^9, 3.681705564575234*^9}}],
+
+Cell["\<\
+Run[ ]  is blocking, so without  \[OpenCurlyDoubleQuote]&\
+\[CloseCurlyDoubleQuote] ,  PDFViewer[ ]  would not finish until the PDF \
+viewer is closed,   \
+\>", "Text",
+ CellChangeTimes->{{3.681121909944043*^9, 3.6811219900551662`*^9}, {
+  3.681162715498612*^9, 3.681162735033597*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PDFViewer", "[", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "cmd", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"cmd", "=", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"$PDFViewer", ",", "\"\< \>\"", ",", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"$TeXitDir", ",", "\"\</main.pdf\>\""}], "}"}], "]"}], ",", 
+        "\"\< &\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Run", "[", "cmd", "]"}], ";", "\[IndentingNewLine]", "cmd"}]}], 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681120137639185*^9, 3.6811201721261463`*^9}, 
+   3.68112190016002*^9, {3.6811228271005793`*^9, 3.6811228461722393`*^9}, {
+   3.681158271991263*^9, 3.681158313188662*^9}, {3.681158459762827*^9, 
+   3.681158480643716*^9}, 3.681158521265836*^9, {3.681161191054093*^9, 
+   3.6811612070859613`*^9}, {3.681161246843363*^9, 3.6811612582849483`*^9}, {
+   3.681161302088537*^9, 3.68116138759525*^9}, {3.681161529273511*^9, 
+   3.681161535625359*^9}, {3.6817055273753*^9, 3.681705578031025*^9}, {
+   3.681705626174048*^9, 3.681705638455166*^9}}],
+
+Cell["\<\
+Run[ ]  is blocking, so without  \[OpenCurlyDoubleQuote]&\
+\[CloseCurlyDoubleQuote] , PDFViewer[ ]  would not finish until the PDF \
+viewer is closed,   \
+\>", "Text",
+ CellChangeTimes->{{3.681121909944043*^9, 3.6811219900551662`*^9}, {
+   3.681162715498612*^9, 3.681162735033597*^9}, 3.681162794760992*^9}],
+
+Cell["\<\
+Start the viewer when this package is loaded. We want a valid PDF to display, \
+so do this first,\
+\>", "Text",
+ CellChangeTimes->{{3.681162832968326*^9, 3.681162861464216*^9}, {
+  3.6817057392283773`*^9, 3.681705744412511*^9}, {3.681734745285214*^9, 
+  3.6817347473483152`*^9}, {3.681734998689802*^9, 3.681735017073637*^9}, {
+  3.681735053425543*^9, 3.681735057201927*^9}}],
+
+Cell[BoxData[
+ RowBox[{"TeXit", "[", "\"\<\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6817350201434*^9, 3.6817350267378397`*^9}}],
+
+Cell["\<\
+... if this is 1st time use then the PDF will be created with an empty \
+body.tex.  Else it will append the empty string to body.tex and we shall \
+display that.\
+\>", "Text",
+ CellChangeTimes->{{3.681735103039966*^9, 3.681735260525221*^9}}],
+
+Cell["\<\
+Start the viewer when this package is loaded.  The advertised default,\
+\>", "Text",
+ CellChangeTimes->{{3.681162832968326*^9, 3.681162861464216*^9}, {
+  3.6817057392283773`*^9, 3.681705744412511*^9}, {3.681734745285214*^9, 
+  3.6817347473483152`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PDFViewer", "[", "\"\<okular\>\"", "]"}]], "Input"],
+
+Cell[BoxData["\<\"okular \
+/home/andrewn/Mirror_leo/Mathematica_files/2015/Project-tpTensor/tpTensor-0.5/\
+OptionalPackages/TeXit_TeXit/main.pdf &\"\>"], "Output",
+ CellChangeTimes->{{3.6817057883965282`*^9, 3.6817058465177307`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+But I shall use my shell script for an okular with options etc. 
+If I forget to un-initialize this you will want to,\
+\>", "Text",
+ CellChangeTimes->{{3.681193466615209*^9, 3.681193531270364*^9}, {
+  3.681193569877976*^9, 3.6811935980857687`*^9}, {3.681193648932982*^9, 
+  3.681193703940443*^9}, {3.6817347690610847`*^9, 3.681734791595818*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PDFViewer", "[", "\"\<oku\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.6811228754202013`*^9, {3.681158409859282*^9, 3.681158416387257*^9}, {
+   3.681705767899254*^9, 3.681705768268484*^9}}],
+
+Cell[BoxData["\<\"oku \
+/home/andrewn/Mirror_leo/Mathematica_files/2015/Project-tpTensor/tpTensor-0.5/\
+OptionalPackages/TeXit_TeXit/main.pdf &\"\>"], "Output",
+ CellChangeTimes->{
+  3.681158528667798*^9, 3.681158786293252*^9, 3.6811602900783043`*^9, {
+   3.6811603616584*^9, 3.681160387167041*^9}, 3.681161017013914*^9, 
+   3.681161053050002*^9, {3.681161395444862*^9, 3.681161441347364*^9}, 
+   3.6811615415391617`*^9, 3.681162391495558*^9, {3.68170580467731*^9, 
+   3.681705851446685*^9}, 3.681705893462036*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["PreambleFile[ ]", "Subsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.6811925129702053`*^9, 3.6811926003182087`*^9}, 
+   3.68127611772141*^9}],
+
+Cell["\<\
+Make sure there is always a working preamble that can be used,\
+\>", "Text",
+ CellChangeTimes->{{3.6816512208450813`*^9, 3.681651276169223*^9}, {
+  3.6816861687266283`*^9, 3.681686174230504*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Unprotect", "[", "$SimplePreamble", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"$SimplePreamble", " ", "=", 
+  RowBox[{
+  "\"\<\n%\n%  Any changes to this file will be lost.\n%  This file is \
+recreated when the TeXit package is loaded.\n%\n%  See:  ? PreambleFile\n%\n\
+\\\\documentclass[a4paper,11pt]{article}\n\n\\\\usepackage[top=1.5cm, \
+bottom=1.5cm, left=1.5cm, right=1.5cm]{geometry}\n\n\\\\usepackage{amsmath, \
+amssymb, graphics, setspace}\n\n\\\\usepackage{tensor}\n\
+\\\\usepackage[pdfnewwindow=true]{hyperref}\n\
+\\\\hypersetup{pdfnewwindow=true}\n\n\\\\newcommand{\\\\mathsym}[1]{{}}\n\
+\\\\newcommand{\\\\unicode}[1]{{}}\n\\\\newcounter{mathematicapage}\n\
+\\\\begin{document}\n\n\\\\noindent\n\>\"", "<>", 
+   RowBox[{"DateString", "[", "]"}], "<>", 
+   "\"\<\n\n\\\\medskip\n\\\\noindent\n\\\\url{\>\"", "<>", 
+   RowBox[{"NotebookFileName", "[", "]"}], "<>", 
+   "\"\<}\n\n\\\\medskip\n\>\""}]}], "\n", 
+ RowBox[{
+  RowBox[{"Protect", "[", "$SimplePreamble", "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6811011006301737`*^9, 3.681101135573987*^9}, {
+   3.6811012095117607`*^9, 3.681101210315976*^9}, 3.6811082472914124`*^9, {
+   3.68110837735358*^9, 3.681108383913624*^9}, 3.681108414265108*^9, {
+   3.68110929912038*^9, 3.6811093081577682`*^9}, {3.6811210511391487`*^9, 
+   3.681121052883151*^9}, {3.681164549458872*^9, 3.6811645759863997`*^9}, 
+   3.681165006765217*^9, 3.681167151826112*^9, {3.6811675830210943`*^9, 
+   3.681167588668785*^9}, {3.681168464562276*^9, 3.6811684646581707`*^9}, {
+   3.681169247208625*^9, 3.681169250520657*^9}, {3.68119266238594*^9, 
+   3.681192706353566*^9}, {3.6811938037089167`*^9, 3.681193824496702*^9}, {
+   3.681648414246189*^9, 3.681648432965824*^9}, {3.681648789298691*^9, 
+   3.681648813010438*^9}, {3.681684861383675*^9, 3.6816849481025467`*^9}, {
+   3.6816850225820913`*^9, 3.6816852011075907`*^9}, {3.6816854746882963`*^9, 
+   3.681685555438813*^9}, {3.6816856760293903`*^9, 3.6816858652591343`*^9}, {
+   3.6816863350133657`*^9, 3.681686335956853*^9}, {3.6816865356825666`*^9, 
+   3.6816865560827417`*^9}, {3.681686784927602*^9, 3.681686792655633*^9}, {
+   3.6816868896464767`*^9, 3.68168693166153*^9}, {3.681687290024843*^9, 
+   3.6816872940573883`*^9}, {3.681687343337081*^9, 3.681687345960956*^9}, {
+   3.68168751663067*^9, 3.681687544022408*^9}, {3.6816876320535*^9, 
+   3.681687639701014*^9}, {3.6816879837774*^9, 3.681688043449726*^9}, {
+   3.68168809111961*^9, 3.681688091663813*^9}}],
+
+Cell[BoxData["\<\"\\n%\\n%  Any changes to this file will be lost.\\n%  This \
+file is recreated when the TeXit package is loaded.\\n%\\n%  See:  ? \
+PreambleFile\\n%\\n\\\\documentclass[a4paper,11pt]{article}\\n\\n\\\\\
+usepackage[top=1.5cm, bottom=1.5cm, left=1.5cm, \
+right=1.5cm]{geometry}\\n\\n\\\\usepackage{amsmath, amssymb, graphics, \
+setspace}\\n\\n\\\\usepackage{tensor}\\n\\\\usepackage[pdfnewwindow=true]{\
+hyperref}\\n\\\\hypersetup{pdfnewwindow=true}\\n\\n\\\\newcommand{\\\\mathsym}\
+[1]{{}}\\n\\\\newcommand{\\\\unicode}[1]{{}}\\n\\\\newcounter{mathematicapage}\
+\\n\\\\begin{document}\\n\\n\\\\noindent\\nThu 1 Sep 2016 \
+13:08:28\\n\\n\\\\medskip\\n\\\\noindent\\n\\\\url{/home/andrewn/Mirror_leo/\
+Mathematica_files/2015/Project-tpTensor/tpTensor-0.5/OptionalPackages/TeXit.\
+nb}\\n\\n\\\\medskip\\n\"\>"], "Output",
+ CellChangeTimes->{3.68168695852744*^9, 3.681687552537307*^9, 
+  3.6816876421875668`*^9, 3.681688108109087*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$SimplePreambleFile", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"$TeXitDir", ",", "\"\<simple_preamble.tex\>\""}], "}"}], 
+    "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681275396066607*^9, 3.681275399474545*^9}, {
+   3.681275439699279*^9, 3.681275508945127*^9}, {3.6812755449040413`*^9, 
+   3.681275594080209*^9}, {3.681275822884886*^9, 3.68127585353295*^9}, {
+   3.6815354227058773`*^9, 3.681535425889748*^9}, 3.681535560141287*^9, {
+   3.681648389286455*^9, 3.6816483903103533`*^9}, {3.681648488117292*^9, 
+   3.6816484893413477`*^9}, {3.681648625349051*^9, 3.681648641171866*^9}, {
+   3.681649756473775*^9, 3.6816497571619596`*^9}, {3.681651353196154*^9, 
+   3.6816513735809717`*^9}, {3.6816517085210857`*^9, 3.681651724416893*^9}, 
+   3.6817081532792788`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"FileExistsQ", "[", "$SimplePreambleFile", "]"}], ",", 
+    RowBox[{"DeleteFile", "[", "$SimplePreambleFile", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteString", "[", 
+   RowBox[{"$SimplePreambleFile", ",", "$SimplePreamble"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Close", "[", "$SimplePreambleFile", "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681275396066607*^9, 3.681275399474545*^9}, {
+   3.681275439699279*^9, 3.681275508945127*^9}, {3.6812755449040413`*^9, 
+   3.681275594080209*^9}, {3.681275822884886*^9, 3.68127585353295*^9}, {
+   3.6815354227058773`*^9, 3.681535425889748*^9}, 3.681535560141287*^9, {
+   3.681648389286455*^9, 3.6816483903103533`*^9}, {3.681648488117292*^9, 
+   3.6816484893413477`*^9}, 3.681648675827608*^9, 3.6816487542274923`*^9, {
+   3.681651356108232*^9, 3.6816513797422667`*^9}, {3.681651739619269*^9, 
+   3.681651748715231*^9}, 3.681685798779654*^9, {3.681685893818371*^9, 
+   3.681685977849387*^9}}],
+
+Cell["\<\
+Allow the user to specify use of an existing preamble file from  $TeXitDir   \
+by linking to it,  \
+\>", "Text",
+ CellChangeTimes->{{3.681168951307941*^9, 3.681169021506867*^9}, {
+  3.6811690579147987`*^9, 3.681169112986104*^9}, {3.681169947215728*^9, 
+  3.681169947720004*^9}, {3.681170112653653*^9, 3.681170164717083*^9}, {
+  3.681170773333469*^9, 3.681170773717236*^9}, {3.6811928323355494`*^9, 
+  3.68119284263947*^9}, {3.6811928780629587`*^9, 3.6811929335500526`*^9}, {
+  3.681275530992713*^9, 3.68127553301657*^9}, {3.6812757792912416`*^9, 
+  3.68127578313374*^9}, {3.681275900668477*^9, 3.681275915356175*^9}, {
+  3.681649361293132*^9, 3.681649404364768*^9}, {3.6816514717869997`*^9, 
+  3.681651500650799*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "PreambleFile", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PreambleFile", "[", "name_String", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "f", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"f", " ", "=", " ", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"$TeXitDir", ",", "name"}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"FileExistsQ", "[", "f", "]"}]}], ",", " ", 
+       RowBox[{"Return", "[", 
+        RowBox[{"\"\<File not found: \>\"", "<>", 
+         RowBox[{"ToString", "[", "f", "]"}]}], "]"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"$PreambleFile", " ", "=", "f"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Run", "[", 
+      RowBox[{
+      "\"\<ln -sf \>\"", "<>", "name", "<>", "\"\< \>\"", "<>", "$TeXitDir", 
+       "<>", "\"\</preamble\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"$Preamble", "=", 
+      RowBox[{"ReadFile", "[", "f", "]"}]}], ";"}]}], "\[IndentingNewLine]", 
+   "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6811688108619757`*^9, 3.681168850812286*^9}, {
+   3.681169192185418*^9, 3.681169192281126*^9}, {3.681169261608653*^9, 
+   3.681169262984333*^9}, {3.681169713666832*^9, 3.681169715170788*^9}, {
+   3.681169967567889*^9, 3.681169991911395*^9}, {3.6811700305009623`*^9, 
+   3.681170088110165*^9}, {3.681170191101108*^9, 3.6811702071966677`*^9}, {
+   3.681170260204159*^9, 3.681170471961527*^9}, {3.681170516584956*^9, 
+   3.681170529590293*^9}, 3.68117104345861*^9, {3.6811928894230757`*^9, 
+   3.6811928955028343`*^9}, 3.6811931540600443`*^9, {3.681275806461845*^9, 
+   3.6812758134696093`*^9}, {3.681649278412817*^9, 3.681649286622253*^9}, {
+   3.681649547644105*^9, 3.681649604595118*^9}, {3.681649644923128*^9, 
+   3.681649655753339*^9}, {3.6816516125864067`*^9, 3.6816516276739273`*^9}, 
+   3.6816518444388638`*^9, {3.68165188624582*^9, 3.681651945942775*^9}, {
+   3.681652039719702*^9, 3.681652120100978*^9}, {3.681652235092*^9, 
+   3.6816522420199966`*^9}, {3.681652402770492*^9, 3.68165242657682*^9}, 
+   3.681652669151924*^9, {3.68165333317899*^9, 3.6816533448650227`*^9}, {
+   3.681653793559635*^9, 3.681653829431211*^9}, {3.681653916063553*^9, 
+   3.681653920406754*^9}}],
+
+Cell["No args returns current value,", "Text",
+ CellChangeTimes->{{3.681193008701214*^9, 3.681193022509161*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PreambleFile", "[", "]"}], ":=", "$PreambleFile"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681170851428636*^9, 3.681170866676371*^9}, {
+   3.6811709266754723`*^9, 3.681170927731662*^9}, {3.681192978733692*^9, 
+   3.681193000253606*^9}, 3.681275949915782*^9, {3.6816522676195593`*^9, 
+   3.6816522682115726`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Preamble", "[", "]"}], ":=", 
+  RowBox[{"$Preamble", "=", 
+   RowBox[{"ReadFile", "[", 
+    RowBox[{"PreambleFile", "[", "]"}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.68165012589495*^9, 3.681650150240859*^9}, {
+  3.681652280083405*^9, 3.681652293652442*^9}, {3.681652919149341*^9, 
+  3.6816529312101803`*^9}}],
+
+Cell["Starting defaults,", "Text",
+ CellChangeTimes->{{3.681275692462709*^9, 3.681275744462085*^9}, {
+  3.68127603124258*^9, 3.681276033258512*^9}, {3.681648325558826*^9, 
+  3.681648363622443*^9}, {3.68164844251763*^9, 3.681648462565403*^9}, {
+  3.6816486113638287`*^9, 3.6816486199405193`*^9}, {3.681649752393496*^9, 
+  3.681649775753285*^9}}],
+
+Cell[BoxData[
+ RowBox[{"PreambleFile", "[", "\"\<simple_preamble.tex\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.681649789249628*^9, {3.6816498561531563`*^9, 3.6816498620313396`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"PreambleFile", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Preamble", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.681648769298133*^9, 3.681648771522625*^9}}],
+
+Cell[BoxData["\<\"/home/andrewn/Mirror_leo/Mathematica_files/2015/Project-\
+tpTensor/tpTensor-0.5/OptionalPackages/TeXit_TeXit/simple_preamble.tex\"\>"], \
+"Output",
+ CellChangeTimes->{
+  3.681535460442835*^9, 3.681648772828001*^9, 3.681648868306593*^9, 
+   3.681648923703137*^9, 3.681649664767799*^9, 3.681649867980846*^9, 
+   3.681650000942297*^9, 3.681652777643442*^9, 3.68165293895922*^9, {
+   3.68165399947143*^9, 3.6816540198700666`*^9}, 3.68168608601674*^9}],
+
+Cell[BoxData["\<\"\\n%\\n%  Any changes to this file be lost.\\n%  This file \
+is recreated when the TeXit package is \
+loaded.\\n%\\n\\\\documentclass{article}\\n\\\\usepackage{amsmath, amssymb, \
+graphics, \
+setspace}\\n\\\\newcommand{\\\\mathsym}[1]{{}}\\n\\\\newcommand{\\\\unicode}[\
+1]{{}}\\n\\\\newcounter{mathematicapage}\\n\\\\begin{document}\\n\\n\\\\\
+noindent\\nThu 1 Sep 2016 \
+12:33:13\\n\\n\\\\noindent\\n\\\\url{\\\"/home/andrewn/Mirror_leo/Mathematica_\
+files/2015/Project-tpTensor/tpTensor-0.5/OptionalPackages/TeXit.nb\\\"}\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.681535460442835*^9, 3.681648772828001*^9, 3.681648868306593*^9, 
+   3.681648923703137*^9, 3.681649664767799*^9, 3.681649867980846*^9, 
+   3.681650000942297*^9, 3.681652777643442*^9, 3.68165293895922*^9, {
+   3.68165399947143*^9, 3.6816540198700666`*^9}, 3.681686086017643*^9}]
+}, Open  ]],
+
+Cell["Error message example,", "Text",
+ CellChangeTimes->{{3.681183479782291*^9, 3.681183530348934*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PreambleFile", "[", "\"\<xxx.tex\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.681170818036994*^9, 3.6811708356208076`*^9}, {
+  3.6811711759378633`*^9, 3.681171197616562*^9}, {3.681276078538216*^9, 
+  3.681276078882218*^9}}],
+
+Cell[BoxData["\<\"File not found: \
+/home/andrewn/Mirror_leo/Mathematica_files/2015/Project-tpTensor/tpTensor-0.5/\
+OptionalPackages/TeXit_TeXit/xxx.tex\"\>"], "Output",
+ CellChangeTimes->{{3.6811711773962793`*^9, 3.681171201301217*^9}, 
+   3.68119389366777*^9, 3.681535369540148*^9, 3.681648948684544*^9, 
+   3.681652976887567*^9, 3.681686116452396*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["PostambleFile[ ]", "Subsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.6811925129702053`*^9, 3.6811926003182087`*^9}, 
+   3.68127611772141*^9, {3.6816541491085157`*^9, 3.681654149732566*^9}}],
+
+Cell["\<\
+Make sure there is always a working postamble that can be used,\
+\>", "Text",
+ CellChangeTimes->{{3.6816512208450813`*^9, 3.681651276169223*^9}, {
+  3.6816861453188553`*^9, 3.681686162374723*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Unprotect", "[", "$SimplePostamble", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "$SimplePostamble", " ", "=", 
+   "\"\<\n%\n%  Any changes to this file will be lost.\n%  This file is \
+recreated when the TeXit package is loaded.\n%\n%  See:  ? PostambleFile\n%\n\
+\\\\end{document}\\n\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Protect", "[", "$SimplePostamble", "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6811011006301737`*^9, 3.681101135573987*^9}, {
+   3.6811012095117607`*^9, 3.681101210315976*^9}, 3.6811082472914124`*^9, {
+   3.68110837735358*^9, 3.681108383913624*^9}, 3.681108414265108*^9, {
+   3.68110929912038*^9, 3.6811093081577682`*^9}, {3.6811210511391487`*^9, 
+   3.681121052883151*^9}, {3.681164549458872*^9, 3.6811645759863997`*^9}, 
+   3.681165006765217*^9, 3.681167151826112*^9, {3.6811675830210943`*^9, 
+   3.681167588668785*^9}, {3.681168464562276*^9, 3.6811684646581707`*^9}, {
+   3.681169247208625*^9, 3.681169250520657*^9}, {3.68119266238594*^9, 
+   3.681192706353566*^9}, {3.6811938037089167`*^9, 3.681193824496702*^9}, {
+   3.681648414246189*^9, 3.681648432965824*^9}, {3.681648789298691*^9, 
+   3.681648813010438*^9}, {3.6816541779098053`*^9, 3.681654179112402*^9}, {
+   3.68165432398757*^9, 3.681654340291518*^9}, {3.681686316236058*^9, 
+   3.681686322118191*^9}, {3.6816880629024153`*^9, 3.6816880782238827`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$SimplePostambleFile", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"$TeXitDir", ",", "\"\<simple_postamble.tex\>\""}], "}"}], 
+    "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681275396066607*^9, 3.681275399474545*^9}, {
+   3.681275439699279*^9, 3.681275508945127*^9}, {3.6812755449040413`*^9, 
+   3.681275594080209*^9}, {3.681275822884886*^9, 3.68127585353295*^9}, {
+   3.6815354227058773`*^9, 3.681535425889748*^9}, 3.681535560141287*^9, {
+   3.681648389286455*^9, 3.6816483903103533`*^9}, {3.681648488117292*^9, 
+   3.6816484893413477`*^9}, {3.681648625349051*^9, 3.681648641171866*^9}, {
+   3.681649756473775*^9, 3.6816497571619596`*^9}, {3.681651353196154*^9, 
+   3.6816513735809717`*^9}, {3.6816517085210857`*^9, 3.681651724416893*^9}, 
+   3.681654179696086*^9, {3.681654225044866*^9, 3.6816542270123043`*^9}, 
+   3.6817081719351*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"FileExistsQ", "[", "$SimplePostambleFile", "]"}], ",", 
+    RowBox[{"DeleteFile", "[", "$SimplePostambleFile", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteString", "[", 
+   RowBox[{"$SimplePostambleFile", ",", "$SimplePostamble"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Close", "[", "$SimplePostambleFile", "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681275396066607*^9, 3.681275399474545*^9}, {
+   3.681275439699279*^9, 3.681275508945127*^9}, {3.6812755449040413`*^9, 
+   3.681275594080209*^9}, {3.681275822884886*^9, 3.68127585353295*^9}, {
+   3.6815354227058773`*^9, 3.681535425889748*^9}, 3.681535560141287*^9, {
+   3.681648389286455*^9, 3.6816483903103533`*^9}, {3.681648488117292*^9, 
+   3.6816484893413477`*^9}, 3.681648675827608*^9, 3.6816487542274923`*^9, {
+   3.681651356108232*^9, 3.6816513797422667`*^9}, {3.681651739619269*^9, 
+   3.681651748715231*^9}, 3.681685798779654*^9, {3.681685893818371*^9, 
+   3.681685977849387*^9}, {3.68168622202227*^9, 3.6816862484218273`*^9}}],
+
+Cell["\<\
+Allow the user to specify use of an existing preamble file from  $TeXitDir   \
+by linking to it,  \
+\>", "Text",
+ CellChangeTimes->{{3.681168951307941*^9, 3.681169021506867*^9}, {
+  3.6811690579147987`*^9, 3.681169112986104*^9}, {3.681169947215728*^9, 
+  3.681169947720004*^9}, {3.681170112653653*^9, 3.681170164717083*^9}, {
+  3.681170773333469*^9, 3.681170773717236*^9}, {3.6811928323355494`*^9, 
+  3.68119284263947*^9}, {3.6811928780629587`*^9, 3.6811929335500526`*^9}, {
+  3.681275530992713*^9, 3.68127553301657*^9}, {3.6812757792912416`*^9, 
+  3.68127578313374*^9}, {3.681275900668477*^9, 3.681275915356175*^9}, {
+  3.681649361293132*^9, 3.681649404364768*^9}, {3.6816514717869997`*^9, 
+  3.681651500650799*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "PostambleFile", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PostambleFile", "[", "name_String", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "f", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"f", " ", "=", " ", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"$TeXitDir", ",", "name"}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"FileExistsQ", "[", "f", "]"}]}], ",", " ", 
+       RowBox[{"Return", "[", 
+        RowBox[{"\"\<File not found: \>\"", "<>", 
+         RowBox[{"ToString", "[", "f", "]"}]}], "]"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"$PostambleFile", " ", "=", "f"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Run", "[", 
+      RowBox[{
+      "\"\<ln -sf \>\"", "<>", "name", "<>", "\"\< \>\"", "<>", "$TeXitDir", 
+       "<>", "\"\</postamble\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"$Postamble", "=", 
+      RowBox[{"ReadFile", "[", "f", "]"}]}], ";"}]}], "\[IndentingNewLine]", 
+   "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6811688108619757`*^9, 3.681168850812286*^9}, {
+   3.681169192185418*^9, 3.681169192281126*^9}, {3.681169261608653*^9, 
+   3.681169262984333*^9}, {3.681169713666832*^9, 3.681169715170788*^9}, {
+   3.681169967567889*^9, 3.681169991911395*^9}, {3.6811700305009623`*^9, 
+   3.681170088110165*^9}, {3.681170191101108*^9, 3.6811702071966677`*^9}, {
+   3.681170260204159*^9, 3.681170471961527*^9}, {3.681170516584956*^9, 
+   3.681170529590293*^9}, 3.68117104345861*^9, {3.6811928894230757`*^9, 
+   3.6811928955028343`*^9}, 3.6811931540600443`*^9, {3.681275806461845*^9, 
+   3.6812758134696093`*^9}, {3.681649278412817*^9, 3.681649286622253*^9}, {
+   3.681649547644105*^9, 3.681649604595118*^9}, {3.681649644923128*^9, 
+   3.681649655753339*^9}, {3.6816516125864067`*^9, 3.6816516276739273`*^9}, 
+   3.6816518444388638`*^9, {3.68165188624582*^9, 3.681651945942775*^9}, {
+   3.681652039719702*^9, 3.681652120100978*^9}, {3.681652235092*^9, 
+   3.6816522420199966`*^9}, {3.681652402770492*^9, 3.68165242657682*^9}, 
+   3.681652669151924*^9, {3.68165333317899*^9, 3.6816533448650227`*^9}, {
+   3.681653793559635*^9, 3.681653829431211*^9}, {3.681653916063553*^9, 
+   3.681653920406754*^9}, {3.681654183608712*^9, 3.681654185384601*^9}, {
+   3.681654247540279*^9, 3.6816542493002167`*^9}}],
+
+Cell["No args returns current value,", "Text",
+ CellChangeTimes->{{3.681193008701214*^9, 3.681193022509161*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PostambleFile", "[", "]"}], ":=", "$PostambleFile"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681170851428636*^9, 3.681170866676371*^9}, {
+   3.6811709266754723`*^9, 3.681170927731662*^9}, {3.681192978733692*^9, 
+   3.681193000253606*^9}, 3.681275949915782*^9, {3.6816522676195593`*^9, 
+   3.6816522682115726`*^9}, {3.681654186608528*^9, 3.681654187255981*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Postamble", "[", "]"}], ":=", 
+  RowBox[{"$Postamble", "=", 
+   RowBox[{"ReadFile", "[", 
+    RowBox[{"PostambleFile", "[", "]"}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.68165012589495*^9, 3.681650150240859*^9}, {
+  3.681652280083405*^9, 3.681652293652442*^9}, {3.681652919149341*^9, 
+  3.6816529312101803`*^9}, {3.681654187856801*^9, 3.6816541891118298`*^9}}],
+
+Cell["Starting defaults,", "Text",
+ CellChangeTimes->{{3.681275692462709*^9, 3.681275744462085*^9}, {
+  3.68127603124258*^9, 3.681276033258512*^9}, {3.681648325558826*^9, 
+  3.681648363622443*^9}, {3.68164844251763*^9, 3.681648462565403*^9}, {
+  3.6816486113638287`*^9, 3.6816486199405193`*^9}, {3.681649752393496*^9, 
+  3.681649775753285*^9}}],
+
+Cell[BoxData[
+ RowBox[{"PostambleFile", "[", "\"\<simple_postamble.tex\>\"", "]"}]], "Input",\
+
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.681649789249628*^9, {3.6816498561531563`*^9, 3.6816498620313396`*^9}, 
+   3.6816541935910063`*^9, {3.6816542701008377`*^9, 3.681654271363996*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"PostambleFile", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Postamble", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.681648769298133*^9, 3.681648771522625*^9}, {
+  3.681654194767071*^9, 3.681654195511845*^9}}],
+
+Cell[BoxData["\<\"/home/andrewn/Mirror_leo/Mathematica_files/2015/Project-\
+tpTensor/tpTensor-0.5/OptionalPackages/TeXit_TeXit/simple_postamble.tex\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.681535460442835*^9, 3.681648772828001*^9, 3.681648868306593*^9, 
+   3.681648923703137*^9, 3.681649664767799*^9, 3.681649867980846*^9, 
+   3.681650000942297*^9, 3.681652777643442*^9, 3.68165293895922*^9, {
+   3.68165399947143*^9, 3.6816540198700666`*^9}, {3.6816542760088654`*^9, 
+   3.681654280251347*^9}, 3.681654366667315*^9, 3.681686266229085*^9}],
+
+Cell[BoxData["\<\"\\n\\\\end{document}\\n\"\>"], "Output",
+ CellChangeTimes->{
+  3.681535460442835*^9, 3.681648772828001*^9, 3.681648868306593*^9, 
+   3.681648923703137*^9, 3.681649664767799*^9, 3.681649867980846*^9, 
+   3.681650000942297*^9, 3.681652777643442*^9, 3.68165293895922*^9, {
+   3.68165399947143*^9, 3.6816540198700666`*^9}, {3.6816542760088654`*^9, 
+   3.681654280251347*^9}, 3.681654366667315*^9, 3.681686266229748*^9}]
+}, Open  ]],
+
+Cell["Error message example,", "Text",
+ CellChangeTimes->{{3.681183479782291*^9, 3.681183530348934*^9}, {
+  3.6816542846460743`*^9, 3.681654286196052*^9}, {3.681686275575626*^9, 
+  3.6816862787732763`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PostambleFile", "[", "\"\<xxx.tex\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.681170818036994*^9, 3.6811708356208076`*^9}, {
+   3.6811711759378633`*^9, 3.681171197616562*^9}, {3.681276078538216*^9, 
+   3.681276078882218*^9}, 3.681654199079752*^9}],
+
+Cell[BoxData["\<\"File not found: \
+/home/andrewn/Mirror_leo/Mathematica_files/2015/Project-tpTensor/tpTensor-0.5/\
+OptionalPackages/TeXit_TeXit/xxx.tex\"\>"], "Output",
+ CellChangeTimes->{{3.6811711773962793`*^9, 3.681171201301217*^9}, 
+   3.68119389366777*^9, 3.681535369540148*^9, 3.681648948684544*^9, 
+   3.681652976887567*^9, 3.681654287460697*^9, 3.6816862804324617`*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+How to make an InputField with a proper newline/carriage return:    \
+InputText[ ]\
+\>", "Subsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.6811925129702053`*^9, 3.6811926003182087`*^9}, {
+   3.68119406772783*^9, 3.681194103983041*^9}, {3.681273383418953*^9, 
+   3.6812734032747087`*^9}, {3.681520786982711*^9, 3.681520810310327*^9}, {
+   3.681524032782124*^9, 3.6815240694536657`*^9}, {3.681701037473804*^9, 
+   3.681701043893569*^9}}],
+
+Cell[TextData[{
+ "We want to use  InputField[ ]   so that  \[OpenCurlyDoubleQuote]\\\
+\[CloseCurlyDoubleQuote]  can be typed easily for ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ " input.\nBut  InputField[ ]   ignores  Enter  ( ReturnKeyDown ).  So it \
+needs some work..."
+}], "Text",
+ CellChangeTimes->{{3.6817006835285473`*^9, 3.6817007999683247`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Messing about", "Subsubsection",
+ CellChangeTimes->{{3.6816982690295467`*^9, 3.681698271957768*^9}}],
+
+Cell["\<\
+
+Hyperlink[http://mathematica.stackexchange.com/questions/6457/how-can-i-make-\
+an-inputfield-with-a-proper-newline-carriage-return/6460#6460]\
+\>", "Text",
+ CellChangeTimes->{
+  3.681524079271225*^9, {3.68152490991335*^9, 3.681524916515379*^9}, 
+   3.6816982776375103`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  "\"\<http://mathematica.stackexchange.com/questions/6457/how-can-i-make-an-\
+inputfield-with-a-proper-newline-carriage-return/6460#6460\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.681524919188712*^9, 3.681524927955448*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"http://mathematica.stackexchange.com/questions/6457/how-can-i-\
+make-an-inputfield-with-a-proper-newline-carriage-return/6460#6460\"\>", True->
+    
+    StyleBox["\<\"http://mathematica.stackexchange.com/questions/6457/how-can-\
+i-make-an-inputfield-with-a-proper-newline-carriage-return/6460#6460\"\>", 
+     "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Hyperlink",
+   ButtonData->{
+     URL["http://mathematica.stackexchange.com/questions/6457/how-can-i-make-\
+an-inputfield-with-a-proper-newline-carriage-return/6460#6460"], None},
+   ButtonNote->
+    "http://mathematica.stackexchange.com/questions/6457/how-can-i-make-an-\
+inputfield-with-a-proper-newline-carriage-return/6460#6460"],
+  Annotation[#, 
+   "http://mathematica.stackexchange.com/questions/6457/how-can-i-make-an-\
+inputfield-with-a-proper-newline-carriage-return/6460#6460", 
+   "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{3.6815249288192987`*^9}]
+}, Open  ]],
+
+Cell["\<\
+http://stackoverflow.com/questions/6946475/simple-text-input-field-accepting-\
+line-breaks/\
+\>", "Text",
+ CellChangeTimes->{3.68152674181628*^9}],
+
+Cell["\<\
+
+This works for dialog boxes,\
+\>", "Text",
+ CellChangeTimes->{{3.681689702462089*^9, 3.681689718843339*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"text", "=", "\"\<\>\""}], ";"}], "\n", 
+ RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+     "TextCell", "[", "\"\<Try to type a text with linebreaks :-)\>\"", "]"}],
+      ",", "\[IndentingNewLine]", 
+     RowBox[{"InputField", "[", 
+      RowBox[{
+       RowBox[{"Dynamic", "[", "text", "]"}], ",", "String", ",", 
+       RowBox[{"FieldSize", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"30", ",", "6"}], "}"}]}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"DefaultButton", "[", 
+      RowBox[{"DialogReturn", "[", "text", "]"}], "]"}]}], 
+    "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"NotebookEventActions", "\[Rule]", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<ReturnKeyDown\>\"", "\[RuleDelayed]", 
+      RowBox[{"FrontEndExecute", "[", 
+       RowBox[{"NotebookWrite", "[", 
+        RowBox[{
+         RowBox[{"InputNotebook", "[", "]"}], ",", "\"\<\\n\>\""}], "]"}], 
+       "]"}]}], "}"}]}]}], "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.681525332177637*^9, 3.681525332178124*^9}, {
+  3.681525447743134*^9, 3.6815255240539827`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CellPrint", "[", 
+   RowBox[{"TextCell", "[", 
+    RowBox[{
+    "\"\<>>>>   Click in this cell and press Enter to make it go green   <<<<\
+\>\"", ",", "\"\<Text\>\"", ",", 
+     RowBox[{"CellEventActions", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<ReturnKeyDown\>\"", "\[RuleDelayed]", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"CurrentValue", "[", 
+           RowBox[{
+            RowBox[{"EvaluationCell", "[", "]"}], ",", "Background"}], "]"}], 
+          "=", "LightGreen"}], ")"}]}], "}"}]}]}], "]"}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.681689790075045*^9, 3.681689825147637*^9}, {
+  3.681691360068449*^9, 3.6816913650002413`*^9}},
+ CellID->1139363254],
+
+Cell["\<\
+>>>>   Click in this cell and press Enter to make it go green   <<<<\
+\>", "Text",
+ CellEventActions->{"ReturnKeyDown" :> (CurrentValue[
+      EvaluationCell[], Background] = LightGreen)},
+ CellChangeTimes->{
+  3.681689827425768*^9, {3.6816915820875196`*^9, 3.6816915848050413`*^9}},
+ Background->RGBColor[0.88, 1, 0.88]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\"\<ReturnKeyDown\>\"", "\[RuleDelayed]", 
+   RowBox[{"(", 
+    RowBox[{"Paste", "[", "\"\<\\n\>\"", "]"}], ")"}]}], ","}]], "Input"],
+
+Cell["\<\
+Not sure if  \[OpenCurlyDoubleQuote]HandleShiftReturn\[CloseCurlyDoubleQuote] \
+ is a real thing but it doesn\[CloseCurlyQuote]t do anything here,\
+\>", "Text",
+ CellChangeTimes->{{3.681691781733284*^9, 3.681691807138536*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CellPrint", "[", 
+   RowBox[{"TextCell", "[", 
+    RowBox[{
+    "\"\<Click in this cell and press Enter\>\"", ",", "\"\<Text\>\"", ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"CellEventActions", "\[Rule]", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<ReturnKeyDown\>\"", "\[RuleDelayed]", 
+         RowBox[{"(", 
+          RowBox[{"Paste", "[", "\"\<xx\\nxxx\>\"", "]"}], ")"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"\"\<HandleShiftReturn\>\"", "\[RuleDelayed]", 
+         RowBox[{"(", 
+          RowBox[{"Paste", "[", "\"\<yyy\>\"", "]"}], ")"}]}]}], 
+       "\[IndentingNewLine]", "}"}]}]}], "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.68152602535014*^9, 3.681526033024407*^9}, {
+  3.681691650614458*^9, 3.681691653620574*^9}, {3.681691689540024*^9, 
+  3.681691743435836*^9}},
+ CellID->2130873007]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keyboard example", "Subsubsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.6811925129702053`*^9, 3.6811926003182087`*^9}, {
+   3.68119406772783*^9, 3.681194103983041*^9}, {3.681194947332163*^9, 
+   3.6811949503880463`*^9}, {3.681700894310068*^9, 3.681700896255186*^9}}],
+
+Cell["This has nothing to do with  TeXit,  it is just cute.", "Text",
+ CellChangeTimes->{{3.681194961315929*^9, 3.681195010435361*^9}}],
+
+Cell["\<\
+Found it while trying to figure out how to do input,
+http://mathematica.stackexchange.com/questions/77283/substitute-for-\
+inputfield-in-wolfram-demonstration\
+\>", "Text",
+ CellChangeTimes->{{3.681193980832683*^9, 3.6811940286240997`*^9}, 
+   3.681195015971339*^9}]
+}, Closed]],
+
+Cell["\<\
+
+This works. But the search highlights the prompt and it gets deleted unless \
+you click before typing.
+If no cursor is specified, it defaults to a thin-space cursor so we can still \
+search for it,\
+\>", "Text",
+ CellChangeTimes->{{3.681689594396791*^9, 3.68168959802897*^9}, 
+   3.681698181942627*^9, {3.681699286329458*^9, 3.681699419815811*^9}, {
+   3.681700102847715*^9, 3.6817001205274153`*^9}, {3.681700201038509*^9, 
+   3.681700248670232*^9}, {3.681700632089444*^9, 3.681700635257369*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "InputText", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InputText", "[", "]"}], ":=", 
+  RowBox[{
+  "InputText", "[", "\"\<\[VeryThinSpace]\>\"", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InputText", "[", "\"\<\>\"", "]"}], ":=", 
+  RowBox[{
+  "InputText", "[", "\"\<\[VeryThinSpace]\>\"", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InputText", "[", "prompt_String", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"len", ",", "str"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"len", " ", "=", " ", 
+      RowBox[{"StringLength", "[", "prompt", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"f", "=", 
+      RowBox[{
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"RowBox", "[", 
+         RowBox[{"{", 
+          RowBox[{"\"\<StringDrop[Setting[\>\"", ",", "#", ",", 
+           RowBox[{"\"\<], \>\"", "<>", 
+            RowBox[{"ToString", "[", "len", "]"}], "<>", "\"\<]\>\""}]}], 
+          "}"}], "]"}], "]"}], "&"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"CellPrint", "[", 
+      RowBox[{"Cell", "[", 
+       RowBox[{
+        RowBox[{"BoxData", "[", "\n", " ", 
+         RowBox[{"TagBox", "[", "\n", "  ", 
+          RowBox[{
+           RowBox[{"DynamicModuleBox", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"s", " ", "=", " ", "prompt"}], "}"}], ",", " ", "\n", 
+             "   ", 
+             RowBox[{"InputFieldBox", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", "s", "]"}], ",", " ", "String", ",", 
+               RowBox[{"FieldSize", "\[Rule]", " ", "120"}], ",", 
+               RowBox[{"Appearance", "\[Rule]", "\"\<Frameless\>\""}]}], 
+              "]"}], ",", "\n", "   ", 
+             RowBox[{"DynamicModuleValues", ":>", 
+              RowBox[{"{", "}"}]}]}], "]"}], ",", "\n", "  ", 
+           RowBox[{
+            RowBox[{"InputField", "[", "\n", "   ", 
+             RowBox[{
+              RowBox[{"Setting", "[", "#", "]"}], ",", " ", "String"}], "]"}],
+             "&"}]}], " ", "]"}], "]"}], ",", " ", "\[IndentingNewLine]", 
+        "\"\<Input\>\"", ",", "\[IndentingNewLine]", 
+        RowBox[{"CellEventActions", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<ReturnKeyDown\>\"", "\[RuleDelayed]", 
+           RowBox[{"Paste", "[", "\"\<\\n\>\"", "]"}]}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"CellEvaluationFunction", "\[Rule]", "f"}]}], 
+       "\[IndentingNewLine]", "]"}], "]"}], ";", 
+     RowBox[{"NotebookFind", "[", 
+      RowBox[{
+       RowBox[{"EvaluationNotebook", "[", "]"}], ",", "prompt", ",", 
+       "Previous"}], "]"}], ";"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{
+  3.6816968603283577`*^9, {3.681697792691951*^9, 3.6816978628110933`*^9}, {
+   3.6816979174026947`*^9, 3.681697969114111*^9}, 3.6816981664556227`*^9, 
+   3.681698708497139*^9, {3.6816987538092413`*^9, 3.681698804208418*^9}, {
+   3.681698864831292*^9, 3.681698867503499*^9}, {3.681698949486549*^9, 
+   3.681698965406452*^9}, {3.68169912922795*^9, 3.681699129520103*^9}, {
+   3.681699276859376*^9, 3.681699280007118*^9}, {3.681699528210699*^9, 
+   3.68169953943125*^9}, 3.681700167728434*^9}],
+
+Cell["\<\
+
+This works. We put  \[OpenCurlyDoubleQuote].\[CloseCurlyDoubleQuote]  in the \
+the box and then search for  \[OpenCurlyDoubleQuote].\[CloseCurlyDoubleQuote] \
+ to put the cursor in the right place to start typing. Then we paste the \
+prompt.
+It requires that  the evaluation fn not be a module variable, so we give it a \
+long name.
+When  Shift+Enter  is pressed, the function specified by the 2nd argument is \
+applied to the string.  If no 2nd arg, then Print  is assumed.\
+\>", "Text",
+ CellChangeTimes->{{3.681689594396791*^9, 3.68168959802897*^9}, 
+   3.681698181942627*^9, {3.681699286329458*^9, 3.681699419815811*^9}, {
+   3.681700102847715*^9, 3.681700150191111*^9}, {3.681700272637597*^9, 
+   3.681700309613242*^9}, {3.681700392012291*^9, 3.681700454100113*^9}, 
+   3.681700643497121*^9, {3.681701203330309*^9, 3.6817012644820232`*^9}, {
+   3.681701761163684*^9, 3.68170183396332*^9}, {3.6817033914643*^9, 
+   3.681703521255124*^9}, {3.681703552198368*^9, 3.681703571687316*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "InputText", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InputText", "[", "]"}], ":=", 
+  RowBox[{"InputText", "[", 
+   RowBox[{"\"\<\>\"", ",", "Print", ",", "False"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InputText", "[", "prompt_String", "]"}], ":=", 
+  RowBox[{"InputText", "[", 
+   RowBox[{"prompt", ",", "Print", ",", "False"}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InputText", "[", 
+   RowBox[{"prompt_String", ",", "f_"}], "]"}], ":=", 
+  RowBox[{"InputText", "[", 
+   RowBox[{"prompt", ",", "f", ",", "False"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InputText", "[", 
+   RowBox[{"prompt_String", ",", "f_", ",", " ", "keepprompt_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"len", ",", "str", ",", "ans"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"len", " ", "=", " ", 
+      RowBox[{"StringLength", "[", "prompt", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{"keepprompt", ",", 
+       RowBox[{"len", "=", "0"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"$InputTextFunction", " ", "=."}], ";", "\[IndentingNewLine]", 
+     RowBox[{"$InputTextFunction", " ", "=", " ", "f"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"$InputTextCellEval", "=", 
+      RowBox[{
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"RowBox", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<$InputTextFunction[StringDrop[Setting[\>\"", ",", "#", ",", 
+           RowBox[{"\"\<], \>\"", "<>", 
+            RowBox[{"ToString", "[", "len", "]"}], "<>", "\"\<]];\>\""}]}], 
+          "}"}], "]"}], "]"}], "&"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"CellPrint", "[", 
+      RowBox[{"Cell", "[", 
+       RowBox[{
+        RowBox[{"BoxData", "[", "\n", " ", 
+         RowBox[{"TagBox", "[", "\n", "  ", 
+          RowBox[{
+           RowBox[{"DynamicModuleBox", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"s", " ", "=", " ", "\"\<.\>\""}], "}"}], ",", " ", 
+             "\n", "   ", 
+             RowBox[{"InputFieldBox", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", "s", "]"}], ",", " ", "String", ",", 
+               RowBox[{"FieldSize", "\[Rule]", " ", "120"}], ",", 
+               RowBox[{"Appearance", "\[Rule]", "\"\<Frameless\>\""}]}], 
+              "]"}], ",", "\n", "   ", 
+             RowBox[{"DynamicModuleValues", ":>", 
+              RowBox[{"{", "}"}]}]}], "]"}], ",", "\n", "  ", 
+           RowBox[{
+            RowBox[{"InputField", "[", "\n", "   ", 
+             RowBox[{
+              RowBox[{"Setting", "[", "#", "]"}], ",", " ", "String"}], "]"}],
+             "&"}]}], " ", "]"}], "]"}], ",", " ", "\[IndentingNewLine]", 
+        "\"\<Input\>\"", ",", "\[IndentingNewLine]", 
+        RowBox[{"CellEventActions", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"\"\<ReturnKeyDown\>\"", "\[RuleDelayed]", 
+           RowBox[{"Paste", "[", "\"\<\\n\>\"", "]"}]}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"CellEvaluationFunction", "\[Rule]", "$InputTextCellEval"}]}],
+        "\[IndentingNewLine]", "]"}], "]"}], ";", 
+     RowBox[{"NotebookFind", "[", 
+      RowBox[{
+       RowBox[{"EvaluationNotebook", "[", "]"}], ",", "\"\<.\>\"", ",", 
+       "Previous"}], "]"}], ";", 
+     RowBox[{"Paste", "[", "prompt", "]"}], ";"}]}], "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.6816968603283577`*^9, {3.681697792691951*^9, 3.6816978628110933`*^9}, {
+   3.6816979174026947`*^9, 3.681697969114111*^9}, 3.6816981664556227`*^9, 
+   3.681698708497139*^9, {3.6816987538092413`*^9, 3.681698804208418*^9}, {
+   3.681698864831292*^9, 3.681698867503499*^9}, {3.681698949486549*^9, 
+   3.681698965406452*^9}, {3.68169912922795*^9, 3.681699129520103*^9}, {
+   3.681699276859376*^9, 3.681699280007118*^9}, {3.681699528210699*^9, 
+   3.68169953943125*^9}, {3.6816997523569927`*^9, 3.6816998254918137`*^9}, {
+   3.681699871750064*^9, 3.681699872611697*^9}, {3.6817010842289762`*^9, 
+   3.681701084308722*^9}, {3.6817011703237886`*^9, 3.681701170935985*^9}, {
+   3.681701276083037*^9, 3.681701318770359*^9}, {3.6817015986866627`*^9, 
+   3.681701628318366*^9}, 3.681701706909121*^9, {3.6817018403958282`*^9, 
+   3.6817018487876167`*^9}, {3.68170202541751*^9, 3.681702028841724*^9}, {
+   3.681702063337385*^9, 3.6817020945527773`*^9}, {3.681702125640551*^9, 
+   3.681702125793666*^9}, {3.681702163735969*^9, 3.6817021782796993`*^9}, {
+   3.681702669217884*^9, 3.681702730705171*^9}, {3.681702885791703*^9, 
+   3.681702913071189*^9}, {3.681702964789687*^9, 3.681703063532979*^9}, {
+   3.6817129232062807`*^9, 3.681712970821866*^9}, {3.681713240322517*^9, 
+   3.681713344874672*^9}, {3.68171342851223*^9, 3.6817134989116583`*^9}, 
+   3.681713534702721*^9, 3.68171357655849*^9, {3.681713637293679*^9, 
+   3.681713638989521*^9}, {3.681714382319642*^9, 3.681714399908785*^9}, {
+   3.6817144647075577`*^9, 3.68171446486738*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<Would you like to continue? \>\"", ",", "Print"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.681698317381261*^9, {3.681698985725501*^9, 3.6816989864934673`*^9}, {
+   3.681699987057501*^9, 3.68169998720975*^9}, {3.6817000544647903`*^9, 
+   3.681700066000618*^9}, {3.6817129924847593`*^9, 3.681713020388446*^9}, {
+   3.681713547998192*^9, 3.681713549310322*^9}, 3.6817143576682863`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = "Would you like to continue? h"}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$322850], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.681714403218668*^9}],
+
+Cell[BoxData["\<\"h\"\>"], "Print",
+ CellChangeTimes->{3.681714406711739*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<Would you like to continue? \>\"", ",", "Print", ",", "True"}],
+   "]"}]], "Input",
+ CellChangeTimes->{
+  3.681698317381261*^9, {3.681698985725501*^9, 3.6816989864934673`*^9}, {
+   3.681699987057501*^9, 3.68169998720975*^9}, {3.6817000544647903`*^9, 
+   3.681700066000618*^9}, {3.6817129924847593`*^9, 3.681713020388446*^9}, {
+   3.681713547998192*^9, 3.681713549310322*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = "Would you like to continue? ooo"}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$322881], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.681714508128354*^9}],
+
+Cell[BoxData["\<\"Would you like to continue? ooo\"\>"], "Print",
+ CellChangeTimes->{3.681714514187169*^9}],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = "Would you like to continue? "}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$322878], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.681714498072452*^9}],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = "Would you like to continue? ggggggg"}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$322870], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.681714469348311*^9}],
+
+Cell[BoxData["\<\"Would you like to continue? ggggggg\"\>"], "Print",
+ CellChangeTimes->{3.6817144733437*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = 
+   "Would you like to continue? hhhhhhhhhh"}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$322861], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.6817144400439253`*^9}],
+
+Cell[BoxData["\<\"ould you like to continue? hhhhhhhhhh\"\>"], "Print",
+ CellChangeTimes->{3.681714451270773*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", "\"\<> \>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.681701395776305*^9, 3.681701420687997*^9}, {
+   3.6817014764153357`*^9, 3.681701479359483*^9}, 3.681701716364593*^9, {
+   3.6817022063430643`*^9, 3.681702211638843*^9}, 3.681702787391902*^9, 
+   3.681703619877927*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = "> a\nb\nc"}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$37558], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.6817036728897953`*^9}],
+
+Cell[BoxData["\<\"a\\nb\\nc\"\>"], "Print",
+ CellChangeTimes->{3.6817036870621557`*^9}]
+}, Open  ]],
+
+Cell[BoxData["$InputTextFunction"], "Input",
+ CellChangeTimes->{{3.6817028108153887`*^9, 3.681702812469063*^9}, 
+   3.681703700116905*^9}],
+
+Cell[BoxData["Print"], "Output",
+ CellChangeTimes->{3.6817028199701242`*^9, 3.681703700695629*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", "[", "x_String", "]"}], ":=", " ", 
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<*******  \>\"", "<>", "x", "<>", "\"\<  *******\>\""}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.681703733636592*^9, 3.681703752861837*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<Highlight it: \>\"", ",", "g"}], "]"}]], "Input",
+ CellChangeTimes->{{3.681703080412414*^9, 3.6817030815644693`*^9}, {
+  3.6817037613322773`*^9, 3.6817037846119947`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = "Highlight it: Some stuff here."}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$37596], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.681703786665447*^9}],
+
+Cell[BoxData["\"\<*******  Some stuff heren>   *******\>\""], "Print",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{3.6817038049381943`*^9, 3.6817139137247868`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"InputText", "[", 
+   RowBox[{"\"\<: \>\"", ",", " ", 
+    RowBox[{
+     RowBox[{"Set", "[", 
+      RowBox[{"x1", ",", "#"}], " ", "]"}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.681703995041638*^9, 3.68170407396883*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = ": 3 4 5"}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$39022], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.681707652112208*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["x1"], "Input",
+ CellChangeTimes->{{3.6817040889562063`*^9, 3.6817040891525993`*^9}}],
+
+Cell[BoxData["\<\"3 4 5\"\>"], "Output",
+ CellChangeTimes->{3.681704090313931*^9, 3.681707667031249*^9}]
+}, Open  ]],
+
+Cell["This is what we really want,", "Text",
+ CellChangeTimes->{{3.681703833586915*^9, 3.681703844131214*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PDFViewer", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.681706157124901*^9, 3.681706162065132*^9}}],
+
+Cell[BoxData["\<\"oku \
+/home/andrewn/Mirror_leo/Mathematica_files/2015/Project-tpTensor/tpTensor-0.5/\
+OptionalPackages/TeXit_TeXit/main.pdf &\"\>"], "Output",
+ CellChangeTimes->{3.6817061626438437`*^9, 3.68170768808146*^9, 
+  3.681709248912078*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<\>\"", ",", "TeXit"}], "]"}]], "Input",
+ CellChangeTimes->{{3.681704157007428*^9, 3.681704170655612*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = "jnvlj\nkvsknv"}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$39063], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.6817086815857153`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<\>\"", ",", "TeXit"}], "]"}]], "Input",
+ CellChangeTimes->{{3.681704157007428*^9, 3.681704170655612*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = 
+   "The contents of this cell is sent to TeXit as a string every time \n\
+shift-enter is pressed in this cell. It will get \nappended to the file \
+body.tex, then TeXed, and then displayed."}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$38010], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.6817041771721973`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PDFViewer", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6817094565098133`*^9, 3.6817094622397327`*^9}}],
+
+Cell[BoxData["\<\"oku \
+/home/andrewn/Mirror_leo/Mathematica_files/2015/Project-tpTensor/tpTensor-0.5/\
+OptionalPackages/TeXit_TeXit/main.pdf &\"\>"], "Output",
+ CellChangeTimes->{{3.6817094628771553`*^9, 3.681709477529217*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["ClearTex[ ]", "Subsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.6811925129702053`*^9, 3.6811926003182087`*^9}, {
+   3.68119406772783*^9, 3.681194103983041*^9}, {3.681273383418953*^9, 
+   3.6812734032747087`*^9}, {3.681520786982711*^9, 3.681520810310327*^9}, {
+   3.681524032782124*^9, 3.6815240694536657`*^9}, {3.681701037473804*^9, 
+   3.681701043893569*^9}, {3.6817104993306103`*^9, 3.681710516994328*^9}}],
+
+Cell["\<\
+We don\[CloseCurlyQuote]t want to delete main.tex, that is just a few generic \
+ \\input file   commands.\
+\>", "Text",
+ CellChangeTimes->{{3.681718247443879*^9, 3.681718303315856*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearTeX", "[", "]"}], ":=", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DeleteFile", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"$TeXitDir", ",", "\"\</body.tex\>\""}], "}"}], "]"}], "]"}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"DeleteFile", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"$TeXitDir", ",", "\"\</main.pdf\>\""}], "}"}], "]"}], "]"}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"DeleteFile", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"$TeXitDir", ",", "\"\</main.log\>\""}], "}"}], "]"}], "]"}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"DeleteFile", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"$TeXitDir", ",", "\"\</main.aux\>\""}], "}"}], "]"}], "]"}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"DeleteFile", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"$TeXitDir", ",", "\"\</main.out\>\""}], "}"}], "]"}], "]"}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"TeXit", "[", "\"\<\>\"", "]"}], ";"}], ")"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681152179923184*^9, 3.681152196729567*^9}, {
+   3.681152232824942*^9, 3.6811522643730288`*^9}, 3.681152393030897*^9, {
+   3.6817073386652327`*^9, 3.6817073510812807`*^9}, {3.681707383976557*^9, 
+   3.6817074612557*^9}, {3.6817075107757473`*^9, 3.681707575702465*^9}, 
+   3.681707724804606*^9, {3.681709484527383*^9, 3.681709509182951*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["How to remove an input cell and replace it with its output ", \
+"Subsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.6811925129702053`*^9, 3.6811926003182087`*^9}, {
+   3.68119406772783*^9, 3.681194103983041*^9}, {3.681273383418953*^9, 
+   3.6812734032747087`*^9}, {3.681520786982711*^9, 3.681520810310327*^9}, {
+   3.681712483898603*^9, 3.6817125453697147`*^9}, {3.681712587337414*^9, 
+   3.6817125908097763`*^9}, {3.6817282106818027`*^9, 3.681728230652974*^9}, 
+   3.681729564617216*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Hyperlink", "[", 
+  "\"\<http://stackoverflow.com/questions/5908111/how-to-delete-the-input-\
+cell-upon-evaluation\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.681711444913583*^9, 3.681711457063343*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  ButtonBox[
+   PaneSelectorBox[{
+    False->"\<\"http://stackoverflow.com/questions/5908111/how-to-delete-the-\
+input-cell-upon-evaluation\"\>", True->
+    StyleBox["\<\"http://stackoverflow.com/questions/5908111/how-to-delete-\
+the-input-cell-upon-evaluation\"\>", "HyperlinkActive"]}, Dynamic[
+     CurrentValue["MouseOver"]],
+    BaseStyle->{"Hyperlink"},
+    FrameMargins->0,
+    ImageSize->Automatic],
+   BaseStyle->"Hyperlink",
+   ButtonData->{
+     URL["http://stackoverflow.com/questions/5908111/how-to-delete-the-input-\
+cell-upon-evaluation"], None},
+   ButtonNote->
+    "http://stackoverflow.com/questions/5908111/how-to-delete-the-input-cell-\
+upon-evaluation"],
+  Annotation[#, 
+   "http://stackoverflow.com/questions/5908111/how-to-delete-the-input-cell-\
+upon-evaluation", "Hyperlink"]& ]], "Output",
+ CellChangeTimes->{{3.6817114494719763`*^9, 3.6817114577222633`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Evaluating  2+3 // SelfDestruct  outputs  5 and deletes the input cell,\
+\>", "Text",
+ CellChangeTimes->{{3.681520825158146*^9, 3.6815208538486137`*^9}, {
+  3.681521057965575*^9, 3.681521072485281*^9}, {3.6817107560795383`*^9, 
+  3.681710774764141*^9}, {3.68171142549542*^9, 3.681711438519333*^9}, {
+  3.681711787988171*^9, 3.681711821186829*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"SelfDestruct", ",", " ", "HoldAllComplete"}], "]"}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SelfDestruct", "[", "e_", "]"}], " ", ":=", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"$FrontEnd", " ", "=!=", " ", "$Failed"}], ",", "\n", "   ", 
+      RowBox[{
+       RowBox[{"SelectionMove", "[", 
+        RowBox[{
+         RowBox[{"EvaluationNotebook", "[", "]"}], ",", " ", "All", ",", " ", 
+         "EvaluationCell"}], "]"}], ";", " ", "\n", "   ", 
+       RowBox[{"NotebookDelete", "[", "]"}]}]}], "]"}], ";", " ", "e"}], 
+   ")"}]}]}], "Input",
+ CellChangeTimes->{{3.681710626275113*^9, 3.68171062627559*^9}}],
+
+Cell["\<\
+....but it only works in the right place if you are at the end of the \
+notebook.\
+\>", "Text",
+ CellChangeTimes->{{3.681711740211615*^9, 3.681711762707753*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.681729629008278*^9}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell[BoxData[
+ RowBox[{"NotebookDelete", "[", 
+  RowBox[{"PreviousCell", "[", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.681711613361252*^9, 3.681711613361627*^9}, {
+  3.681711693581025*^9, 3.68171169974874*^9}},
+ CellID->1829249673],
+
+Cell["\<\
+....use this to delete the cell above it.
+\
+\>", "Text",
+ CellChangeTimes->{{3.681711883122037*^9, 3.681711913153431*^9}, 
+   3.681729626920362*^9}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell["A cell you can delete.", "Text",
+ CellChangeTimes->{{3.6817118476342688`*^9, 3.68171186697859*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<> \>\"", ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Print", "[", "#", "]"}], ";", 
+      RowBox[{"NotebookDelete", "[", 
+       RowBox[{"PreviousCell", "[", "]"}], "]"}], ";"}], ")"}], "&"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.68171200300856*^9, 3.6817120768156757`*^9}, {
+  3.681712123599419*^9, 3.681712131407166*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<> \>\"", ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Print", "[", "#", "]"}], ";", 
+      RowBox[{"NotebookDelete", "[", 
+       RowBox[{"PreviousCell", "[", "]"}], "]"}], ";"}], ")"}], "&"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.68171200300856*^9, 3.6817120768156757`*^9}, {
+  3.681712123599419*^9, 3.681712131407166*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<> \>\"", ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Print", "[", "#", "]"}], ";", 
+      RowBox[{"NotebookDelete", "[", 
+       RowBox[{"PreviousCell", "[", "]"}], "]"}], ";"}], ")"}], "&"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.68171200300856*^9, 3.6817120768156757`*^9}, {
+  3.681712123599419*^9, 3.681712131407166*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<> \>\"", ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Print", "[", "#", "]"}], ";", 
+      RowBox[{"NotebookDelete", "[", 
+       RowBox[{"PreviousCell", "[", "]"}], "]"}], ";"}], ")"}], "&"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.68171200300856*^9, 3.6817120768156757`*^9}, {
+  3.681712123599419*^9, 3.681712131407166*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InputText", "[", 
+  RowBox[{"\"\<> \>\"", ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Print", "[", "#", "]"}], ";", 
+      RowBox[{"NotebookDelete", "[", 
+       RowBox[{"PreviousCell", "[", "]"}], "]"}], ";"}], ")"}], "&"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.68171200300856*^9, 3.6817120768156757`*^9}, {
+  3.681712123599419*^9, 3.681712131407166*^9}}],
+
+Cell["\<\
+
+Copy these and then try them....\
+\>", "Text",
+ CellChangeTimes->{{3.6817178503289022`*^9, 3.681717859869935*^9}, 
+   3.681732023899186*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DeleteInputCell", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"NotebookDelete", "[", 
+     RowBox[{"EvaluationCell", "[", "]"}], "]"}], ";", "x"}], 
+   ")"}]}]], "Input",
+ CellChangeTimes->{{3.6817176233560133`*^9, 3.681717626492606*^9}, {
+  3.681717662939404*^9, 3.681717668676468*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], "2"], "//", "Expand"}], "//", 
+  "DeleteInputCell"}]], "Input",
+ CellChangeTimes->{{3.681717471088645*^9, 3.6817174804787827`*^9}, {
+  3.681717764778224*^9, 3.681717821769597*^9}, {3.681717906200563*^9, 
+  3.681717908345007*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], "3"], "//", "Expand"}], "//", 
+  "DeleteInputCell"}]], "Input",
+ CellChangeTimes->{{3.681717471088645*^9, 3.6817174804787827`*^9}, {
+   3.6817177671302843`*^9, 3.681717788948174*^9}, {3.681717824793449*^9, 
+   3.681717833177415*^9}, 3.681717872588081*^9, 3.681717912794826*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], "4"], "//", "Expand"}], "//", 
+  "DeleteInputCell"}]], "Input",
+ CellChangeTimes->{{3.681717770482255*^9, 3.681717792827325*^9}, {
+   3.681717825916863*^9, 3.681717839178906*^9}, 3.6817178719803057`*^9, 
+   3.681717913713517*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], "5"], "//", "Expand"}], "//", 
+  "DeleteInputCell"}]], "Input",
+ CellChangeTimes->{{3.6817177764579268`*^9, 3.681717796377488*^9}, {
+   3.68171782690585*^9, 3.681717871388191*^9}, 3.681717914609622*^9}],
+
+Cell["This is what you get...", "Text",
+ CellChangeTimes->{{3.681717880232449*^9, 3.6817178852109213`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"1", "+", 
+  RowBox[{"2", " ", "x"}], "+", 
+  SuperscriptBox["x", "2"]}]], "Output",
+ CellChangeTimes->{3.6817179266980467`*^9}],
+
+Cell[BoxData[
+ RowBox[{"1", "+", 
+  RowBox[{"3", " ", "x"}], "+", 
+  RowBox[{"3", " ", 
+   SuperscriptBox["x", "2"]}], "+", 
+  SuperscriptBox["x", "3"]}]], "Output",
+ CellChangeTimes->{3.681717930129436*^9}],
+
+Cell[BoxData[
+ RowBox[{"1", "+", 
+  RowBox[{"4", " ", "x"}], "+", 
+  RowBox[{"6", " ", 
+   SuperscriptBox["x", "2"]}], "+", 
+  RowBox[{"4", " ", 
+   SuperscriptBox["x", "3"]}], "+", 
+  SuperscriptBox["x", "4"]}]], "Output",
+ CellChangeTimes->{3.681717931300185*^9}],
+
+Cell[BoxData[
+ RowBox[{"1", "+", 
+  RowBox[{"5", " ", "x"}], "+", 
+  RowBox[{"10", " ", 
+   SuperscriptBox["x", "2"]}], "+", 
+  RowBox[{"10", " ", 
+   SuperscriptBox["x", "3"]}], "+", 
+  RowBox[{"5", " ", 
+   SuperscriptBox["x", "4"]}], "+", 
+  SuperscriptBox["x", "5"]}]], "Output",
+ CellChangeTimes->{3.681717932506751*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], "3"], "//", "Expand"}], "//", 
+  "DeleteInputCell"}]], "Input",
+ CellChangeTimes->{{3.681717471088645*^9, 3.6817174804787827`*^9}, {
+   3.6817177671302843`*^9, 3.681717788948174*^9}, {3.681717824793449*^9, 
+   3.681717833177415*^9}, 3.681717872588081*^9, 3.681717912794826*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], "4"], "//", "Expand"}], "//", 
+  "DeleteInputCell"}]], "Input",
+ CellChangeTimes->{{3.681717770482255*^9, 3.681717792827325*^9}, {
+   3.681717825916863*^9, 3.681717839178906*^9}, 3.6817178719803057`*^9, 
+   3.681717913713517*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], "5"], "//", "Expand"}], "//", 
+  "DeleteInputCell"}]], "Input",
+ CellChangeTimes->{{3.6817177764579268`*^9, 3.681717796377488*^9}, {
+   3.68171782690585*^9, 3.681717871388191*^9}, 3.681717914609622*^9}],
+
+Cell[BoxData[
+ RowBox[{"1", "+", 
+  RowBox[{"2", " ", "x"}], "+", 
+  SuperscriptBox["x", "2"]}]], "Output",
+ CellChangeTimes->{3.6817179526919117`*^9}],
+
+Cell[BoxData[
+ RowBox[{"1", "+", 
+  RowBox[{"3", " ", "x"}], "+", 
+  RowBox[{"3", " ", 
+   SuperscriptBox["x", "2"]}], "+", 
+  SuperscriptBox["x", "3"]}]], "Output",
+ CellChangeTimes->{3.681717975834305*^9}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+InputTeXit[ ] ,   InputTeXitFromFile[ ],    and the alias    o\
+\>", "Subsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.6811925129702053`*^9, 3.6811926003182087`*^9}, {
+   3.68119406772783*^9, 3.681194103983041*^9}, {3.681273383418953*^9, 
+   3.6812734032747087`*^9}, {3.681520786982711*^9, 3.681520810310327*^9}, {
+   3.681712483898603*^9, 3.6817125453697147`*^9}, {3.681712587337414*^9, 
+   3.6817125908097763`*^9}, {3.6817282106818027`*^9, 3.681728230652974*^9}, 
+   3.681729449130554*^9, {3.6817295475453453`*^9, 3.681729556137227*^9}, {
+   3.681731511169525*^9, 3.681731533665132*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+This is the function that the user most often uses to generate an   InputText \
+  box that sends its contents to get  TeXed  and displayed.
+It cleans up after itself by deleting the cell used to call it, \
+\>", "Text",
+ CellChangeTimes->{{3.68172967605582*^9, 3.6817298278066053`*^9}, {
+  3.681730992759821*^9, 3.68173100271159*^9}, {3.681732116426188*^9, 
+  3.681732117594179*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "InputTeXit", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InputTeXit", "[", "]"}], ":=", 
+  RowBox[{"InputText", "[", 
+   RowBox[{"\"\<\>\"", ",", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"TeXit", "[", "#", "]"}], ";", 
+       RowBox[{"NotebookDelete", "[", 
+        RowBox[{"PreviousCell", "[", "]"}], "]"}], ";"}], ")"}], "&"}], ",", 
+    "True"}], "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681712265677616*^9, 3.681712308509451*^9}, {
+  3.681712603033614*^9, 3.681712613458646*^9}, {3.6817128734462843`*^9, 
+  3.6817128992310143`*^9}, {3.681714659200625*^9, 3.681714667488936*^9}, {
+  3.681718868076914*^9, 3.681718875461761*^9}, {3.681718956263811*^9, 
+  3.6817189796597958`*^9}, {3.6817310142605667`*^9, 3.6817310384889517`*^9}}],
+
+Cell["\<\
+These are similar, but allow for a pre-filled text input box.
+These do not clean up after themselves by deleting the calling cell because \
+the argument might be useful info.  
+The user can delete the calling cell by using the mouse.  The text input box \
+will still keep working....  each time a 
+Shift-Enter is done the text will get  TeXed  and displayed,\
+\>", "Text",
+ CellChangeTimes->{{3.68172967605582*^9, 3.6817298278066053`*^9}, {
+  3.681730992759821*^9, 3.68173100271159*^9}, {3.6817310571070633`*^9, 
+  3.6817313878351088`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"InputTeXit", "[", "text_String", "]"}], ":=", 
+  RowBox[{"InputText", "[", 
+   RowBox[{"text", ",", "TeXit", ",", "True"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6817314447705507`*^9, 3.681731446330413*^9}}],
+
+Cell["\<\
+.....if present, the string argument is used as initial content of the input \
+box. 
+Instead of passing a string, the initial content could come from a file using \
+this,\
+\>", "Text",
+ CellChangeTimes->{{3.681730293120347*^9, 3.681730427534828*^9}, {
+  3.681730550825809*^9, 3.6817305707329597`*^9}, {3.681730888793209*^9, 
+  3.6817308938254843`*^9}, {3.681731409058902*^9, 3.681731425426564*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"InputTeXitFromFile", "[", "f_String", "]"}], ":=", " ", 
+  RowBox[{"InputTeXit", "[", 
+   RowBox[{"ReadFile", "[", "f", "]"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681719321462965*^9, 3.68171941189468*^9}, 
+   3.6817200201905203`*^9, {3.681730608524784*^9, 3.681730619641255*^9}}],
+
+Cell["\<\
+
+Since the user will want to call   InputTeXit [ ]  for every block of text to \
+be TeXed, we want a convenient alias .   
+If you don\[CloseCurlyQuote]t want to use the letter o,  clear it and use \
+something else,\
+\>", "Text",
+ CellChangeTimes->{{3.681154630279324*^9, 3.681154650343099*^9}, {
+  3.6811551427364483`*^9, 3.681155143072254*^9}, {3.681709599389513*^9, 
+  3.681709604125407*^9}, {3.681710098903233*^9, 3.6817101008713627`*^9}, {
+  3.681712374987977*^9, 3.681712424667745*^9}, {3.6817183532666817`*^9, 
+  3.6817183592345657`*^9}, {3.68171910268132*^9, 3.681719176664556*^9}, {
+  3.681729843637898*^9, 3.681729954420535*^9}, {3.681730247574862*^9, 
+  3.681730266080817*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "o", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"o", ":=", 
+  RowBox[{"InputTeXit", "[", "]"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681719018490713*^9, 3.681719057514406*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"PDFViewer", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.681714729088067*^9, 3.681714733032501*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["InputTextFromFile[ ]   and   EditFile[ ]", "Subsection",
+ CellChangeTimes->{{3.681163255251027*^9, 3.681163273922697*^9}, 
+   3.681169212248848*^9, {3.6811925129702053`*^9, 3.6811926003182087`*^9}, {
+   3.68119406772783*^9, 3.681194103983041*^9}, {3.681273383418953*^9, 
+   3.6812734032747087`*^9}, {3.681520786982711*^9, 3.681520810310327*^9}, {
+   3.681712483898603*^9, 3.6817125453697147`*^9}, {3.681712587337414*^9, 
+   3.6817125908097763`*^9}, {3.6817282106818027`*^9, 3.681728230652974*^9}, 
+   3.681729449130554*^9, {3.6817295475453453`*^9, 3.681729556137227*^9}, {
+   3.681730672747726*^9, 3.681730692899444*^9}}],
+
+Cell["\<\
+This is a version of   InputText   that initially fills its box with the \
+contents of a file,\
+\>", "Text",
+ CellChangeTimes->{{3.681717114818286*^9, 3.681717161282125*^9}, 
+   3.681729967348432*^9, 3.681731556144918*^9, {3.681731588816571*^9, 
+   3.681731656847777*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"InputTextFromFile", "[", 
+   RowBox[{"f_String", ",", "g_"}], "]"}], ":=", " ", 
+  RowBox[{"InputText", "[", 
+   RowBox[{
+    RowBox[{"ReadFile", "[", "f", "]"}], ",", "g", ",", "True"}], 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681716709063291*^9, 3.681716743767308*^9}, {
+   3.6817170428192377`*^9, 3.68171704496314*^9}, {3.681717075394693*^9, 
+   3.68171707726016*^9}, {3.681719254711815*^9, 3.68171927640807*^9}, {
+   3.6817193984543123`*^9, 3.681719406367346*^9}, 3.681719524356588*^9, 
+   3.6817199933589687`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputTextFromFile", "[", 
+  RowBox[{
+   RowBox[{"$TeXitDir", "<>", "\"\</postamble\>\""}], ",", "Print"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.681717205921228*^9, 3.6817172292814903`*^9}, {
+  3.68171943301366*^9, 3.681719434598092*^9}, {3.681719472661313*^9, 
+  3.681719473253584*^9}, {3.681719732258082*^9, 3.681719739329618*^9}}],
+
+Cell["\<\
+A simple file editor. Every time Shift-Enter is done, the text will get saved \
+back to the file that it originally came from,\
+\>", "Text",
+ CellChangeTimes->{{3.681717114818286*^9, 3.681717161282125*^9}, 
+   3.681729967348432*^9, 3.681731556144918*^9, {3.681731588816571*^9, 
+   3.681731656847777*^9}, {3.681731808509815*^9, 3.6817318783170424`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EditFile", "[", "f_String", "]"}], ":=", " ", 
+  RowBox[{"InputTextFromFile", "[", 
+   RowBox[{"f", ",", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"WriteString", "[", 
+        RowBox[{"f", ",", "#"}], "]"}], ";", 
+       RowBox[{"Close", "[", "f", "]"}], ";"}], ")"}], "&"}]}], 
+   "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.681719601347271*^9, 3.681719635011238*^9}, {
+  3.68171985264047*^9, 3.681719897360963*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EditFile", "[", 
+  RowBox[{"$TeXitDir", "<>", "\"\</postamble\>\""}], "]"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{$CellContext`s = "\n\\end{document}"}, 
+   InputFieldBox[Dynamic[$CellContext`s], String,
+    Appearance->"Frameless",
+    FieldSize->120],
+   DynamicModuleValues:>{}],
+  InputField[
+   Setting[#], String]& ]], "Input",
+ CellEvaluationFunction->(ToExpression[
+   RowBox[{"$InputTextFunction[StringDrop[Setting[", #, 
+     StringJoin["], ", 
+      ToString[$CellContext`len$325727], "]];"]}]]& ),
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellEventActions->{"ReturnKeyDown" :> Paste["\n"]},
+ CellChangeTimes->{3.6817201323701344`*^9}]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{"End", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"EndPackage", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.681707252714169*^9, 3.681707259562105*^9}}]
+},
+CellGrouping->Manual,
+WindowSize->{2552, 1288},
+WindowMargins->{{4, Automatic}, {37, Automatic}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    RawData["Cell[StyleData[\"InputTeX\"],\n MenuSortingValue->10000]"], 
+    MenuSortingValue -> 10000]}, Visible -> False, FrontEndVersion -> 
+  "11.0 for Linux x86 (64-bit) (July 28, 2016)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info-3222b06e-8723-415f-81d1-359ed8db9b6c"->{
+  Cell[15794, 438, 459, 7, 356, "Print",
+   CellTags->"Info-3222b06e-8723-415f-81d1-359ed8db9b6c"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info-3222b06e-8723-415f-81d1-359ed8db9b6c", 127485, 3202}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 89, 1, 64, "Input"],
+Cell[650, 23, 597, 11, 84, "Input",
+ InitializationCell->True],
+Cell[1250, 36, 623, 10, 64, "Text"],
+Cell[1876, 48, 259, 6, 62, "Text"],
+Cell[CellGroupData[{
+Cell[2160, 58, 143, 2, 38, "Input"],
+Cell[2306, 62, 164, 2, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2507, 69, 198, 3, 38, "Input"],
+Cell[2708, 74, 78, 1, 38, "Output"]
+}, Open  ]],
+Cell[2801, 78, 175, 2, 38, "Text"],
+Cell[2979, 82, 248, 4, 38, "Input"],
+Cell[3230, 88, 77, 2, 38, "Input"],
+Cell[CellGroupData[{
+Cell[3332, 94, 706, 22, 124, "Title"],
+Cell[4041, 118, 1386, 23, 136, "Text"],
+Cell[CellGroupData[{
+Cell[5452, 145, 119, 1, 56, "Subsection"],
+Cell[5574, 148, 1135, 23, 3965, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6746, 176, 154, 2, 45, "Subsection"],
+Cell[6903, 180, 291, 3, 38, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7231, 188, 249, 3, 56, "Subsection"],
+Cell[7483, 193, 681, 19, 182, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8201, 217, 110, 2, 81, "Section"],
+Cell[8314, 221, 346, 8, 86, "Text"],
+Cell[CellGroupData[{
+Cell[8685, 233, 364, 6, 44, "Subsubsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[9052, 241, 224, 5, 72, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[9279, 248, 249, 5, 72, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[9531, 255, 163, 2, 72, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[9697, 259, 272, 6, 72, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[9972, 267, 302, 9, 72, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[10277, 278, 212, 4, 72, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[10492, 284, 170, 3, 72, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[10665, 289, 215, 4, 72, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[10883, 295, 308, 9, 72, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[11194, 306, 234, 5, 72, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[11431, 313, 299, 9, 72, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[11733, 324, 211, 4, 72, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[11947, 330, 150, 2, 72, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[12100, 334, 348, 7, 72, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[12451, 343, 420, 8, 72, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[12874, 353, 237, 5, 72, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[13114, 360, 233, 3, 72, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Closed]],
+Cell[13362, 366, 483, 15, 39, "Subsubsection"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13882, 386, 171, 2, 81, "Section"],
+Cell[14056, 390, 139, 3, 72, "Input"],
+Cell[14198, 395, 205, 4, 72, "Input"],
+Cell[14406, 401, 134, 3, 72, "Input"],
+Cell[14543, 406, 140, 3, 72, "Input"],
+Cell[14686, 411, 136, 3, 72, "Input"],
+Cell[14825, 416, 823, 14, 416, "Input"],
+Cell[CellGroupData[{
+Cell[15673, 434, 118, 2, 72, "Input"],
+Cell[15794, 438, 459, 7, 356, "Print",
+ CellTags->"Info-3222b06e-8723-415f-81d1-359ed8db9b6c"]
+}, Open  ]]
+}, Closed]],
+Cell[16280, 449, 167, 6, 30, "Input",
+ CellID->782891883],
+Cell[CellGroupData[{
+Cell[16472, 459, 160, 2, 81, "Section"],
+Cell[CellGroupData[{
+Cell[16657, 465, 289, 4, 56, "Subsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[16949, 471, 122, 1, 38, "Text"],
+Cell[17074, 474, 175, 3, 58, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17286, 482, 491, 15, 59, "Subsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[17780, 499, 630, 16, 65, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[18413, 517, 478, 9, 58, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ InitializationCell->True],
+Cell[18894, 528, 201, 3, 38, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[19098, 533, 1275, 30, 184, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ InitializationCell->True],
+Cell[20376, 565, 608, 16, 40, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[20987, 583, 306, 5, 38, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[21296, 590, 310, 5, 38, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[21609, 597, 454, 9, 63, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[CellGroupData[{
+Cell[22088, 610, 360, 5, 64, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[22451, 617, 475, 9, 38, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[22929, 628, 410, 6, 38, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Open  ]],
+Cell[23354, 637, 245, 3, 38, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[23602, 642, 1043, 25, 159, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ InitializationCell->True],
+Cell[24648, 669, 296, 5, 64, "Input",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[24947, 676, 255, 5, 38, "Output",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25239, 686, 331, 5, 56, "Subsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[25573, 693, 583, 15, 40, "Text"],
+Cell[26159, 710, 843, 16, 58, "Input",
+ InitializationCell->True],
+Cell[27005, 728, 549, 12, 84, "Input",
+ InitializationCell->True],
+Cell[27557, 742, 1063, 21, 109, "Input",
+ InitializationCell->True],
+Cell[28623, 765, 331, 6, 58, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28991, 776, 322, 5, 56, "Subsection",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[29316, 783, 1561, 46, 117, "Text"],
+Cell[30880, 831, 927, 19, 185, "Text"],
+Cell[31810, 852, 106, 1, 38, "Text"],
+Cell[31919, 855, 2114, 33, 84, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[34058, 892, 70, 1, 38, "Input"],
+Cell[34131, 895, 543, 9, 38, "Output"]
+}, Open  ]],
+Cell[34689, 907, 733, 14, 112, "Text"],
+Cell[35425, 923, 331, 6, 63, "Text"],
+Cell[35759, 931, 550, 13, 84, "Input",
+ InitializationCell->True],
+Cell[36312, 946, 6833, 121, 534, "Input",
+ InitializationCell->True],
+Cell[43148, 1069, 308, 6, 38, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43493, 1080, 279, 4, 56, "Subsection"],
+Cell[43775, 1086, 227, 5, 37, "Text"],
+Cell[CellGroupData[{
+Cell[44027, 1095, 478, 10, 284, "Input",
+ InitializationCell->True],
+Cell[44508, 1107, 102, 1, 38, "Input"],
+Cell[44613, 1110, 309, 4, 239, "Output"]
+}, Open  ]],
+Cell[44937, 1117, 329, 9, 58, "Input",
+ InitializationCell->True],
+Cell[45269, 1128, 1164, 23, 109, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46470, 1156, 173, 2, 56, "Subsection"],
+Cell[46646, 1160, 141, 1, 38, "Text"],
+Cell[46790, 1163, 1851, 37, 184, "Input",
+ InitializationCell->True],
+Cell[48644, 1202, 295, 6, 38, "Text"],
+Cell[48942, 1210, 1177, 24, 134, "Input",
+ InitializationCell->True],
+Cell[50122, 1236, 317, 6, 38, "Text"],
+Cell[50442, 1244, 384, 7, 38, "Text"],
+Cell[50829, 1253, 158, 3, 58, "Input",
+ InitializationCell->True],
+Cell[50990, 1258, 251, 5, 38, "Text"],
+Cell[51244, 1265, 262, 5, 38, "Text"],
+Cell[CellGroupData[{
+Cell[51531, 1274, 75, 1, 38, "Input"],
+Cell[51609, 1277, 233, 3, 38, "Output"]
+}, Open  ]],
+Cell[51857, 1283, 354, 6, 63, "Text"],
+Cell[CellGroupData[{
+Cell[52236, 1293, 242, 5, 58, "Input",
+ InitializationCell->True],
+Cell[52481, 1300, 514, 8, 38, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53044, 1314, 204, 3, 56, "Subsection"],
+Cell[53251, 1319, 205, 4, 38, "Text"],
+Cell[CellGroupData[{
+Cell[53481, 1327, 2527, 41, 859, "Input",
+ InitializationCell->True],
+Cell[56011, 1370, 948, 13, 789, "Output"]
+}, Open  ]],
+Cell[56974, 1386, 864, 16, 58, "Input",
+ InitializationCell->True],
+Cell[57841, 1404, 1092, 22, 109, "Input",
+ InitializationCell->True],
+Cell[58936, 1428, 727, 12, 38, "Text"],
+Cell[59666, 1442, 2380, 46, 234, "Input",
+ InitializationCell->True],
+Cell[62049, 1490, 112, 1, 38, "Text"],
+Cell[62164, 1493, 367, 7, 58, "Input",
+ InitializationCell->True],
+Cell[62534, 1502, 375, 9, 58, "Input",
+ InitializationCell->True],
+Cell[62912, 1513, 344, 5, 38, "Text"],
+Cell[63259, 1520, 213, 4, 58, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[63497, 1528, 185, 3, 64, "Input"],
+Cell[63685, 1533, 465, 7, 38, "Output"],
+Cell[64153, 1542, 862, 14, 439, "Output"]
+}, Open  ]],
+Cell[65030, 1559, 104, 1, 38, "Text"],
+Cell[CellGroupData[{
+Cell[65159, 1564, 247, 4, 38, "Input"],
+Cell[65409, 1570, 354, 5, 38, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[65812, 1581, 253, 3, 45, "Subsection"],
+Cell[66068, 1586, 206, 4, 38, "Text"],
+Cell[66277, 1592, 1446, 25, 284, "Input",
+ InitializationCell->True],
+Cell[67726, 1619, 936, 17, 58, "Input",
+ InitializationCell->True],
+Cell[68665, 1638, 1144, 22, 109, "Input",
+ InitializationCell->True],
+Cell[69812, 1662, 727, 12, 38, "Text"],
+Cell[70542, 1676, 2483, 47, 234, "Input",
+ InitializationCell->True],
+Cell[73028, 1725, 112, 1, 38, "Text"],
+Cell[73143, 1728, 415, 7, 58, "Input",
+ InitializationCell->True],
+Cell[73561, 1737, 426, 9, 58, "Input",
+ InitializationCell->True],
+Cell[73990, 1748, 344, 5, 38, "Text"],
+Cell[74337, 1755, 293, 6, 58, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[74655, 1765, 236, 4, 64, "Input"],
+Cell[74894, 1771, 541, 8, 38, "Output"],
+Cell[75438, 1781, 433, 6, 89, "Output"]
+}, Open  ]],
+Cell[75886, 1790, 206, 3, 38, "Text"],
+Cell[CellGroupData[{
+Cell[76117, 1797, 272, 4, 38, "Input"],
+Cell[76392, 1803, 378, 5, 38, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[76819, 1814, 503, 9, 45, "Subsection"],
+Cell[77325, 1825, 526, 14, 65, "Text"],
+Cell[CellGroupData[{
+Cell[77876, 1843, 106, 1, 44, "Subsubsection"],
+Cell[77985, 1846, 284, 7, 96, "Text"],
+Cell[CellGroupData[{
+Cell[78294, 1857, 271, 5, 58, "Input"],
+Cell[78568, 1864, 1103, 25, 58, "Output"]
+}, Open  ]],
+Cell[79686, 1892, 156, 4, 58, "Text"],
+Cell[79845, 1898, 119, 4, 96, "Text"],
+Cell[79967, 1904, 1244, 29, 412, "Input"],
+Cell[CellGroupData[{
+Cell[81236, 1937, 733, 19, 58, "Input",
+ CellID->1139363254],
+Cell[81972, 1958, 331, 7, 90, "Text"]
+}, Open  ]],
+Cell[82318, 1968, 168, 4, 58, "Input"],
+Cell[82489, 1974, 236, 4, 58, "Text"],
+Cell[82728, 1980, 902, 21, 216, "Input",
+ CellID->2130873007]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[83667, 2006, 330, 4, 35, "Subsubsection"],
+Cell[84000, 2012, 135, 1, 175, "Text"],
+Cell[84138, 2015, 276, 6, 293, "Text"]
+}, Closed]],
+Cell[84429, 2024, 507, 10, 82, "Text"],
+Cell[84939, 2036, 3259, 74, 464, "Input"],
+Cell[88201, 2112, 999, 17, 112, "Text"],
+Cell[89203, 2131, 5067, 104, 584, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[94295, 2239, 443, 8, 38, "Input"],
+Cell[CellGroupData[{
+Cell[94763, 2251, 593, 16, 42, "Input"],
+Cell[95359, 2269, 77, 1, 28, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[95463, 2274, 432, 8, 38, "Input"],
+Cell[95898, 2284, 595, 16, 42, "Input"],
+Cell[96496, 2302, 107, 1, 28, "Print"],
+Cell[96606, 2305, 592, 16, 42, "Input"],
+Cell[97201, 2323, 599, 16, 42, "Input"],
+Cell[97803, 2341, 109, 1, 28, "Print"],
+Cell[CellGroupData[{
+Cell[97937, 2346, 608, 17, 42, "Input"],
+Cell[98548, 2365, 113, 1, 28, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[98698, 2371, 311, 5, 38, "Input"],
+Cell[CellGroupData[{
+Cell[99034, 2380, 574, 16, 92, "Input"],
+Cell[99611, 2398, 87, 1, 75, "Print"]
+}, Open  ]],
+Cell[99713, 2402, 138, 2, 38, "Input"],
+Cell[99854, 2406, 98, 1, 38, "Output"],
+Cell[99955, 2409, 260, 6, 38, "Input"],
+Cell[100218, 2417, 227, 4, 38, "Input"]
+}, Open  ]],
+Cell[100460, 2424, 593, 16, 42, "Input"],
+Cell[101056, 2442, 188, 3, 28, "Print"],
+Cell[CellGroupData[{
+Cell[101269, 2449, 287, 7, 64, "Input"],
+Cell[101559, 2458, 570, 16, 42, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[102166, 2479, 98, 1, 38, "Input"],
+Cell[102267, 2482, 104, 1, 38, "Output"]
+}, Open  ]],
+Cell[102386, 2486, 110, 1, 38, "Text"],
+Cell[CellGroupData[{
+Cell[102521, 2491, 123, 2, 38, "Input"],
+Cell[102647, 2495, 250, 4, 38, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[102934, 2504, 162, 3, 38, "Input"],
+Cell[103099, 2509, 578, 16, 67, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[103714, 2530, 162, 3, 38, "Input"],
+Cell[103879, 2535, 754, 19, 92, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[104670, 2559, 127, 2, 38, "Input"],
+Cell[104800, 2563, 228, 3, 38, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[105077, 2572, 472, 6, 45, "Subsection"],
+Cell[105552, 2580, 195, 4, 38, "Text"],
+Cell[105750, 2586, 1565, 36, 209, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[107352, 2627, 550, 8, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[107927, 2639, 227, 4, 38, "Input"],
+Cell[108157, 2645, 909, 22, 38, "Output"]
+}, Open  ]],
+Cell[109081, 2670, 357, 6, 38, "Text"],
+Cell[109441, 2678, 723, 19, 114, "Input"],
+Cell[110167, 2699, 171, 4, 38, "Text"],
+Cell[110341, 2705, 87, 1, 64, "Input"],
+Cell[110431, 2708, 105, 1, 38, "Text"],
+Cell[110539, 2711, 105, 1, 38, "Text"],
+Cell[110647, 2714, 105, 1, 38, "Text"],
+Cell[110755, 2717, 105, 1, 38, "Text"],
+Cell[110863, 2720, 105, 1, 38, "Text"],
+Cell[110971, 2723, 105, 1, 38, "Text"],
+Cell[111079, 2726, 236, 5, 38, "Input",
+ CellID->1829249673],
+Cell[111318, 2733, 158, 5, 61, "Text"],
+Cell[111479, 2740, 105, 1, 38, "Text"],
+Cell[111587, 2743, 105, 1, 38, "Text"],
+Cell[111695, 2746, 105, 1, 38, "Text"],
+Cell[111803, 2749, 105, 1, 38, "Text"],
+Cell[111911, 2752, 105, 1, 38, "Text"],
+Cell[112019, 2755, 408, 11, 38, "Input"],
+Cell[112430, 2768, 408, 11, 38, "Input"],
+Cell[112841, 2781, 408, 11, 38, "Input"],
+Cell[113252, 2794, 408, 11, 38, "Input"],
+Cell[113663, 2807, 408, 11, 38, "Input"],
+Cell[114074, 2820, 151, 5, 62, "Text"],
+Cell[114228, 2827, 343, 9, 38, "Input"],
+Cell[114574, 2838, 338, 9, 40, "Input"],
+Cell[114915, 2849, 386, 9, 40, "Input"],
+Cell[115304, 2860, 338, 9, 40, "Input"],
+Cell[115645, 2871, 311, 8, 40, "Input"],
+Cell[115959, 2881, 107, 1, 38, "Text"],
+Cell[116069, 2884, 151, 4, 40, "Output"],
+Cell[116223, 2890, 207, 6, 40, "Output"],
+Cell[116433, 2898, 265, 8, 40, "Output"],
+Cell[116701, 2908, 325, 10, 40, "Output"],
+Cell[117029, 2920, 386, 9, 40, "Input"],
+Cell[117418, 2931, 338, 9, 40, "Input"],
+Cell[117759, 2942, 311, 8, 40, "Input"],
+Cell[118073, 2952, 151, 4, 40, "Output"],
+Cell[118227, 2958, 207, 6, 40, "Output"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[118471, 2969, 657, 10, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[119153, 2983, 392, 7, 63, "Text"],
+Cell[119548, 2992, 829, 18, 84, "Input",
+ InitializationCell->True],
+Cell[120380, 3012, 550, 10, 113, "Text"],
+Cell[120933, 3024, 272, 6, 58, "Input",
+ InitializationCell->True],
+Cell[121208, 3032, 408, 8, 63, "Text"],
+Cell[121619, 3042, 346, 7, 58, "Input",
+ InitializationCell->True],
+Cell[121968, 3051, 697, 13, 87, "Text"],
+Cell[122668, 3066, 236, 5, 84, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[122919, 3074, 123, 2, 38, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[123079, 3081, 627, 8, 45, "Subsection"],
+Cell[123709, 3091, 282, 6, 38, "Text"],
+Cell[123994, 3099, 585, 13, 58, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[124604, 3116, 361, 7, 38, "Input"],
+Cell[124968, 3125, 362, 6, 38, "Text"],
+Cell[125333, 3133, 497, 14, 58, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[125867, 3152, 110, 2, 38, "Input"],
+Cell[125980, 3156, 583, 16, 67, "Input"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}, Open  ]],
+Cell[126614, 3178, 178, 3, 64, "Input"]
+}
+]
+*)
+

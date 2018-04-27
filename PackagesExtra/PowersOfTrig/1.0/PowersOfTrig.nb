@@ -1,0 +1,341 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     11056,        332]
+NotebookOptionsPosition[      9911,        292]
+NotebookOutlinePosition[     10330,        310]
+CellTagsIndexPosition[     10287,        307]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"BeginPackage", "[", "\"\<PowersOfTrig`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480178936879558*^9, 3.480178961028187*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"PowersOfTrig", "::", "usage"}], " ", "=", " ", 
+   "\"\<The package PowersOfTrig` provides the functions,\[IndentingNewLine]\n\
+UsePowersOfSin[\[Theta]]\nUsePowersOfCos[\[Theta]]\nUsePowersOfSinh[\[Theta]]\
+\nUsePowersOfCosh[\[Theta]]\n\nwhere \[Theta] is the variable for which the \
+transformations are to be automatically done.\nThe transformation rules that \
+are set up by one of the above can be cleared by using\nthe corresponding \
+ClearPowersOf...[ ]  function,\n\nClearPowersOfSin[\[Theta]]\n\
+ClearPowersOfCos[\[Theta]]\nClearPowersOfSinh[\[Theta]]\nClearPowersOfCosh[\
+\[Theta]]\n\n\>\""}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480179499226658*^9, 3.48017975406827*^9}, {
+  3.4801852937737*^9, 3.480185300940522*^9}, {3.610662946459963*^9, 
+  3.6106632886906433`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"UsePowersOfSin", "::", "usage"}], "=", 
+  RowBox[{"PowersOfTrig", "::", "usage"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"UsePowersOfCos", "::", "usage"}], "=", 
+  RowBox[{"PowersOfTrig", "::", "usage"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"UsePowersOfSinh", "::", "usage"}], "=", 
+  RowBox[{"PowersOfTrig", "::", "usage"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"UsePowersOfCosh", "::", "usage"}], "=", 
+  RowBox[{"PowersOfTrig", "::", "usage"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ClearPowersOfSin", "::", "usage"}], "=", 
+  RowBox[{"PowersOfTrig", "::", "usage"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ClearPowersOfCos", "::", "usage"}], "=", 
+  RowBox[{"PowersOfTrig", "::", "usage"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ClearPowersOfSinh", "::", "usage"}], "=", 
+  RowBox[{"PowersOfTrig", "::", "usage"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ClearPowersOfCosh", "::", "usage"}], "=", 
+  RowBox[{"PowersOfTrig", "::", "usage"}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480185394108088*^9, 3.480185450196379*^9}, {
+  3.610663355580161*^9, 3.610663375609069*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480185312504206*^9, 3.480185316380201*^9}, {
+  3.480185355204298*^9, 3.480185368769348*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"UsePowersOfSin", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Unprotect", "[", "Power", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cos", "[", "x", "]"}], "^", "2"}], "=", 
+     RowBox[{"1", "-", 
+      RowBox[{
+       RowBox[{"Sin", "[", "x", "]"}], "^", "2"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Cos", "[", "x", "]"}], "^", "n_"}], "/;", 
+      RowBox[{"n", ">", "2"}]}], ":=", 
+     RowBox[{"Expand", "[", 
+      RowBox[{
+       RowBox[{"(", " ", 
+        RowBox[{"1", "-", 
+         RowBox[{
+          RowBox[{"Sin", "[", "x", "]"}], "^", "2"}]}], ")"}], 
+       RowBox[{
+        RowBox[{"Cos", "[", "x", "]"}], "^", 
+        RowBox[{"(", 
+         RowBox[{"n", "-", "2"}], ")"}]}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Protect", "[", "Power", "]"}], ";"}], ")"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480185176691951*^9, 3.480185180899137*^9}, {
+  3.480185248291916*^9, 3.48018525285052*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"UsePowersOfCos", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Unprotect", "[", "Power", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", "x", "]"}], "^", "2"}], "=", 
+     RowBox[{"1", "-", 
+      RowBox[{
+       RowBox[{"Cos", "[", "x", "]"}], "^", "2"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sin", "[", "x", "]"}], "^", "n_"}], "/;", 
+      RowBox[{"n", ">", "2"}]}], ":=", 
+     RowBox[{"Expand", "[", 
+      RowBox[{
+       RowBox[{"(", " ", 
+        RowBox[{"1", "-", 
+         RowBox[{
+          RowBox[{"Cos", "[", "x", "]"}], "^", "2"}]}], ")"}], 
+       RowBox[{
+        RowBox[{"Sin", "[", "x", "]"}], "^", 
+        RowBox[{"(", 
+         RowBox[{"n", "-", "2"}], ")"}]}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Protect", "[", "Power", "]"}], ";"}], ")"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearPowersOfSin", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Unprotect", "[", "Power", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cos", "[", "x", "]"}], "^", "2"}], "=."}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Cos", "[", "x", "]"}], "^", "n_"}], "/;", 
+      RowBox[{"n", ">", "2"}]}], "=."}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Protect", "[", "Power", "]"}], ";"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.610662442302416*^9, 3.610662493578557*^9}, 
+   3.610662672331032*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearPowersOfCos", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Unprotect", "[", "Power", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", "x", "]"}], "^", "2"}], "=."}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", "x", "]"}], "^", "n_"}], "/;", 
+     RowBox[{"n", ">", "2."}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Protect", "[", "Power", "]"}], ";"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.610662646817527*^9, 3.6106626639627438`*^9}}],
+
+Cell["Hyperbolic fns...", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"UsePowersOfSinh", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Unprotect", "[", "Power", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cosh", "[", "x", "]"}], "^", "2"}], "=", 
+     RowBox[{"1", "+", 
+      RowBox[{
+       RowBox[{"Sinh", "[", "x", "]"}], "^", "2"}]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Cosh", "[", "x", "]"}], "^", "n_"}], "/;", 
+      RowBox[{"n", ">", "2"}]}], ":=", 
+     RowBox[{"Expand", "[", 
+      RowBox[{
+       RowBox[{"(", " ", 
+        RowBox[{"1", "+", 
+         RowBox[{
+          RowBox[{"Sinh", "[", "x", "]"}], "^", "2"}]}], ")"}], 
+       RowBox[{
+        RowBox[{"Cosh", "[", "x", "]"}], "^", 
+        RowBox[{"(", 
+         RowBox[{"n", "-", "2"}], ")"}]}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Protect", "[", "Power", "]"}], ";"}], ")"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"UsePowersOfCosh", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Unprotect", "[", "Power", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sinh", "[", "x", "]"}], "^", "2"}], "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Cosh", "[", "x", "]"}], "^", "2"}], " ", "-", " ", "1"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sinh", "[", "x", "]"}], "^", "n_"}], "/;", 
+      RowBox[{"n", ">", "2"}]}], ":=", 
+     RowBox[{"Expand", "[", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Cosh", "[", "x", "]"}], "^", "2"}], " ", "-", " ", "1"}], 
+        ")"}], 
+       RowBox[{
+        RowBox[{"Sinh", "[", "x", "]"}], "^", 
+        RowBox[{"(", 
+         RowBox[{"n", "-", "2"}], ")"}]}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Protect", "[", "Power", "]"}], ";"}], ")"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.610662842880334*^9, 3.610662844306985*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearPowersOfSinh", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Unprotect", "[", "Power", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Cosh", "[", "x", "]"}], "^", "2"}], "=."}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Cosh", "[", "x", "]"}], "^", "n_"}], "/;", 
+      RowBox[{"n", ">", "2"}]}], "=."}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Protect", "[", "Power", "]"}], ";"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.6106627744660683`*^9, 3.610662794571402*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearPowersOfCosh", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Unprotect", "[", "Power", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sinh", "[", "x", "]"}], "^", "2"}], "=."}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sinh", "[", "x", "]"}], "^", "n_"}], "/;", 
+     RowBox[{"n", ">", "2."}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Protect", "[", "Power", "]"}], ";"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.610662779539187*^9, 3.610662807386793*^9}}],
+
+Cell[BoxData[
+ RowBox[{"End", "[", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480185379657125*^9, 3.48018538164612*^9}}],
+
+Cell[BoxData[
+ RowBox[{"EndPackage", "[", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.480178968034277*^9, 3.480178971601643*^9}}]
+},
+AutoGeneratedPackage->Automatic,
+WindowToolbars->"EditBar",
+WindowSize->{1092, 1014},
+WindowMargins->{{215, Automatic}, {Automatic, 0}},
+Magnification->1.25,
+FrontEndVersion->"8.0 for Linux x86 (64-bit) (November 7, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 178, 3, 36, "Input",
+ InitializationCell->True],
+Cell[726, 25, 856, 15, 405, "Input",
+ InitializationCell->True],
+Cell[1585, 42, 1195, 27, 198, "Input",
+ InitializationCell->True],
+Cell[2783, 71, 216, 4, 36, "Input",
+ InitializationCell->True],
+Cell[3002, 77, 1093, 32, 106, "Input",
+ InitializationCell->True],
+Cell[4098, 111, 979, 30, 106, "Input",
+ InitializationCell->True],
+Cell[5080, 143, 633, 17, 106, "Input"],
+Cell[5716, 162, 585, 15, 106, "Input"],
+Cell[6304, 179, 33, 0, 35, "Text"],
+Cell[6340, 181, 985, 30, 106, "Input",
+ InitializationCell->True],
+Cell[7328, 213, 1075, 32, 106, "Input",
+ InitializationCell->True],
+Cell[8406, 247, 612, 16, 106, "Input"],
+Cell[9021, 265, 586, 15, 106, "Input"],
+Cell[9610, 282, 143, 3, 36, "Input",
+ InitializationCell->True],
+Cell[9756, 287, 151, 3, 36, "Input",
+ InitializationCell->True]
+}
+]
+*)
+
+(* End of internal cache information *)

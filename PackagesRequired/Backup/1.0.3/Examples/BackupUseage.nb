@@ -1,0 +1,284 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11716,        276]
+NotebookOptionsPosition[      9958,        212]
+NotebookOutlinePosition[     10764,        241]
+CellTagsIndexPosition[     10593,        234]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Backup usage demo", "Title",
+ CellChangeTimes->{{3.655017383714237*^9, 3.6550173875280247`*^9}, {
+  3.6826281505269737`*^9, 3.6826281519186068`*^9}}],
+
+Cell["Load the package,", "Text",
+ CellChangeTimes->{{3.682628174685677*^9, 3.682628182477693*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<Backup`\>\"", "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.6550048917186337`*^9, 3.655004905671274*^9}, 
+   3.655013699369492*^9, 3.655237069073985*^9, {3.655278835461787*^9, 
+   3.655278835765799*^9}, 3.682627428249443*^9, 3.682628163886985*^9}],
+
+Cell["The package Backup provides 3 user functions:", "Text",
+ CellChangeTimes->{{3.6826277566758633`*^9, 3.6826277966563663`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"StartBackup", "[", "]"}], "          "}]], "Input",
+ CellChangeTimes->{{3.6550050350701447`*^9, 3.655005048725337*^9}, 
+   3.655233037045306*^9, 3.655234432723667*^9, {3.655237168458365*^9, 
+   3.655237184640403*^9}}],
+
+Cell[BoxData["\<\"Backup started.\"\>"], "Output",
+ CellChangeTimes->{
+  3.6550172965676517`*^9, 3.655017901620201*^9, 3.655017963852398*^9, 
+   3.65501810018421*^9, 3.655018550056365*^9, 3.655018694266768*^9, 
+   3.655018798076572*^9, 3.655018839907333*^9, 3.65523268169705*^9, 
+   3.655233910077261*^9, 3.6552370925312643`*^9, {3.655278492031769*^9, 
+   3.655278521615141*^9}, {3.655278893068974*^9, 3.655278912521819*^9}, {
+   3.6552807457477283`*^9, 3.655280751140729*^9}, 3.6826280204380713`*^9, {
+   3.682628272059753*^9, 3.682628298248918*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StopBackup", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6552342404585447`*^9, 3.655234246773836*^9}}],
+
+Cell[BoxData["\<\"Backup stopped.\"\>"], "Output",
+ CellChangeTimes->{3.6552342486276617`*^9, 3.655234343027471*^9, 
+  3.655282040019837*^9, 3.682628023369341*^9, 3.682628289964324*^9, 
+  3.682628336898651*^9}]
+}, Open  ]],
+
+Cell["\<\
+If you forget to  StopBackup[ ]  before closing your Notebook, then next time \
+you try to  StartBackup[ ],  it will fail and you will be prompted to do this,\
+\>", "Text",
+ CellChangeTimes->{{3.682627528213937*^9, 3.682627563877528*^9}, {
+  3.682627807187422*^9, 3.682627888337626*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DeleteLockFile", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.655018106429262*^9, 3.655018117358047*^9}}],
+
+Cell[BoxData["\<\"No lock-file was found.\"\>"], "Output",
+ CellChangeTimes->{3.682628027730654*^9}]
+}, Open  ]],
+
+Cell["\<\
+.... the lock-file will prevent you from trying to run Backup from 2 \
+different copies of the same Notebook (in case you forgot that you had an old \
+version of it open and being backed-up).\
+\>", "Text",
+ CellChangeTimes->{{3.682627581446279*^9, 3.682627741459208*^9}, {
+   3.682627903857504*^9, 3.682627932352791*^9}, 3.6826279660804996`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Documentation ", "Subsection",
+ CellChangeTimes->{{3.6826279865381308`*^9, 3.682628007584119*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Backup"}]], "Input",
+ CellChangeTimes->{{3.655007111800516*^9, 3.6550071146195927`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"StartBackup[ ]  schedules a set of tasks to save your notebook \
+every 3 min, and to make regular backups of it. \\n                           \
+           \\nThe directory for the backup files will be  ./<name>_bak   \
+where  ./<name>.nb  is the notebook file.  \\n\\nThe backup files are:\\n\\n  \
+      <name>_session-N.nb   where N = Mod[\[VeryThinSpace]s, 10] is the \
+session number. \\n\\n                              When  StartBackup[] is \
+executed, the Notebook is saved and then a backup copy of that is made.\\n    \
+                          The last 10 of these initial state backups are \
+kept. Usually  StartBackup[]  would only be run once\\n                       \
+       once per edit session, so you will have backups of the Notebook in its \
+initial state for the last\\n                              10 edit sessions. \
+The current session number is saved in the file \
+./<name>_bak/<name>_session.dat. \\n\\n                              Note \
+that all other backup files are saved at times that are random w.r.t. the \
+edited state of the file,\\n                              so they might \
+contain incomplete statements that you have not finished typing...\\n\\n      \
+  <name>_03min-N.nb     A backup for each 3 min, but only written if it will \
+differ from any of the last backups written.\\n                              \
+Two file names used, N = 0,1.\\n\\n        <name>_15min-N.nb     where  N = \
+0,..3  is the quarter of the hour (4 files).\\n                              \
+A backup for each new 1/4 hour, but only written if it will differ from the \
+last 1/4 hr backup written.\\n          \\n        <name>_hourly-N.nb    \
+where N = 00,..,23  is the hour of the day (24 files)\\n                      \
+        A backup for each new hour, but only written if it will differ from \
+the last hourly backup written.\\n          \\n        <name>_daily-ddd.nb   \
+where ddd = Mon, Tue,... is the day of the week (7 files).\\n                 \
+             A backup for each new day, but only written if it will differ \
+from the last daily backup written.\\n          \\n        \
+<name>_monthly-N.nb   where N = 01,..,12  is the month of the year (12 \
+files).\\n                              A backup for each new month, but only \
+written if it will differ from the last monthy backup written. \\n    \\nA \
+full backup set (collected over a year or more) will contain  10 + 2 + 4 + 24 \
++ 7 + 12 = 59  files, none of which are the same.\\nYou will need to sort \
+them by modification time to determine which backups are most recent (that \
+*_hourly-03.nb file that looks \\nlike it might be a backup from last night, \
+could actually be from months ago unless you were editing in the early \
+hours).\\n\\nAfter writing each backup to disk, the built-in Mathematica \
+function FileFormat[ ] is used to check that the written file is \
+recognized\\nas a notebook file (format \\\"NB\\\"). If it is not recognised \
+as such, then it is likely to be a binary mess. Moreover, all subsequent \
+\\nsaves of your notebook are likely to be corrupted too (even if your \
+already-opened notebook looks OK). When you try to open such a \\nnotebook \
+you will get an obscure error message from Mathematica, with instructions \
+to\\n\\n      \\\"...close it without saving, then check the \\\"Load entire \
+notebook into memory\\\" checkbox in the Notebook Options dialog.\\\"\\n\\nIn \
+other words, \!\(\*\\nStyleBox[\\\"your\\\",\\nFontSlant->\\\"Italic\\\"]\)\!\
+\(\*\\nStyleBox[\\\" \\\",\\nFontSlant->\\\"Italic\\\"]\)\!\(\*\\nStyleBox[\\\
+\"file\\\",\\nFontSlant->\\\"Italic\\\"]\)\!\(\*\\nStyleBox[\\\" \
+\\\",\\nFontSlant->\\\"Italic\\\"]\)\!\(\*\\nStyleBox[\\\"has\\\",\\\
+nFontSlant->\\\"Italic\\\"]\)\!\(\*\\nStyleBox[\\\" \
+\\\",\\nFontSlant->\\\"Italic\\\"]\)\!\(\*\\nStyleBox[\\\"been\\\",\\\
+nFontSlant->\\\"Italic\\\"]\)\!\(\*\\nStyleBox[\\\" \
+\\\",\\nFontSlant->\\\"Italic\\\"]\)\!\(\*\\nStyleBox[\\\"trashed\\\",\\\
+nFontSlant->\\\"Italic\\\"]\)  (the instructions mean that from the menu of a \
+new notebook do:  File \[Rule] Open, then select \\nyour corrupted notebook \
+file in the pop-up dialog, then click on the Options button at the lower \
+right corner of that diaglog, ....).\\n\\nIf the written backup is detected \
+as anything other than format \\\"NB\\\", the backup program will issue a \
+pop-up error message and \\nthen stop running, so as to not over-write good \
+backups with new trash. With luck, you will have lost no more than 3 minutes \
+of work. \\nHowever, notebooks can become corrupted and still be recognised \
+as format \\\"NB\\\", so the format check will not catch all crashes and \
+\\nthere is still a chance that old backups could get replaced by corrupted \
+new backups, and that you wont know this until you try\\nto re-open your \
+notebook.\\n\\nManually saving your notebook (via the File menu or via \
+[Clt]+s) does not interfere in any way with the backup schedule. \
+\\n\\nB.T.W., I suspect that using (*  *) for comments within code may have \
+something to do with Mathematica crashing as described above.\\n\\nSee also:  \
+StopBackup[ ]\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682628065433735*^9},
+ CellTags->"Info63682664065-4496485"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "StopBackup"}]], "Input",
+ CellChangeTimes->{{3.682628079120734*^9, 3.682628096623028*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"StopBackup[]  Stop backing up. \\n\\nIf you close your \
+notebook without first executing  StopBackup[ ],  then next time you try \
+to\\nStartBackup[ ]  you will be prompted to delete a lock-file. \\n\\nSee \
+also:  StartBackup[]\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.68262809822967*^9},
+ CellTags->"Info73682664098-4496485"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DeleteLockFile"}]], "Input",
+ CellChangeTimes->{{3.682628079120734*^9, 3.6826281177746353`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"DeleteLockFile[ ]  can be used to delete the file  \
+./<name>_bak/Locked  from the backup directory.\"\>", "MSG"]], "Print", \
+"PrintUsage",
+ CellChangeTimes->{3.682628777149302*^9},
+ CellTags->"Info173682664777-4496485"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1742, 911},
+WindowMargins->{{Automatic, 207}, {147, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info63682664065-4496485"->{
+  Cell[3693, 107, 5276, 71, 1012, "Print",
+   CellTags->"Info63682664065-4496485"]},
+ "Info73682664098-4496485"->{
+  Cell[9128, 187, 375, 6, 130, "Print",
+   CellTags->"Info73682664098-4496485"]},
+ "Info173682664777-4496485"->{
+  Cell[9668, 202, 250, 5, 42, "Print",
+   CellTags->"Info173682664777-4496485"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info63682664065-4496485", 10260, 222},
+ {"Info73682664098-4496485", 10375, 225},
+ {"Info173682664777-4496485", 10488, 228}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 155, 2, 93, "Title"],
+Cell[738, 26, 99, 1, 31, "Text"],
+Cell[840, 29, 300, 5, 32, "Input"],
+Cell[1143, 36, 131, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[1299, 41, 252, 5, 32, "Input"],
+Cell[1554, 48, 551, 8, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2142, 61, 126, 2, 32, "Input"],
+Cell[2271, 65, 210, 3, 32, "Output"]
+}, Open  ]],
+Cell[2496, 71, 297, 5, 31, "Text"],
+Cell[CellGroupData[{
+Cell[2818, 80, 128, 2, 32, "Input"],
+Cell[2949, 84, 100, 1, 32, "Output"]
+}, Open  ]],
+Cell[3064, 88, 355, 6, 31, "Text"],
+Cell[CellGroupData[{
+Cell[3444, 98, 104, 1, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[3573, 103, 117, 2, 32, "Input"],
+Cell[3693, 107, 5276, 71, 1012, "Print",
+ CellTags->"Info63682664065-4496485"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9006, 183, 119, 2, 32, "Input"],
+Cell[9128, 187, 375, 6, 130, "Print",
+ CellTags->"Info73682664098-4496485"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9540, 198, 125, 2, 32, "Input"],
+Cell[9668, 202, 250, 5, 42, "Print",
+ CellTags->"Info173682664777-4496485"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

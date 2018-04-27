@@ -1,0 +1,654 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16177,        646]
+NotebookOptionsPosition[     12495,        514]
+NotebookOutlinePosition[     12858,        530]
+CellTagsIndexPosition[     12815,        527]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<tpTensor`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DeleteLockFile", "[", " ", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"StartBackup", "[", "]"}]}], "Input",
+ InitializationCell->True],
+
+Cell[BoxData["\<\"The lock-file can not be deleted while backup is running. \
+Use StopBackup[ ].\"\>"], "Output"],
+
+Cell[BoxData["\<\"Nothing done: Backup is already running.\"\>"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<TeXit`\>\"", "]"}], " "}]], "Input"],
+
+Cell[BoxData["\<\"TeXit version 0.1.0.\"\>"], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"StartTeXit", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"ClearTeX", "[", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"TeXit", "[", "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TeXit", "[", "\"\<\>\"", "]"}]], "Input"],
+
+Cell[BoxData["\<\"\"\>"], "Output",
+ Background->RGBColor[{
+    Rational[242, 255], 
+    Rational[242, 255], 
+    Rational[242, 255]}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Eqn", "[", "xy", "]"}], "=", 
+  RowBox[{
+   RowBox[{"a", "\[Equal]", "b"}], "//", "noTeX"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"a", "\[Equal]", "b"}]], "Output",
+ Background->None]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Eqn", "[", "xy", "]"}], "=", 
+  RowBox[{
+   RowBox[{"a", "\[Equal]", "b"}], "//", "noTeX"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"a", "\[Equal]", "b"}]], "Output",
+ Background->None]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["xxx"], "Input"],
+
+Cell[BoxData["xxx"], "Output",
+ Background->None]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"a", "\[Equal]", "b"}], "//", 
+  RowBox[{"label", "[", "ab", "]"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"a", "\[Equal]", "b"}]], "Output",
+ Background->RGBColor[{
+    Rational[242, 255], 
+    Rational[242, 255], 
+    Rational[242, 255]}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"a", "\[Equal]", "c"}], "//", "noleft"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"\<\"    \"\>", "\[Equal]", "c"}]], "Output",
+ Background->RGBColor[{
+    Rational[242, 255], 
+    Rational[242, 255], 
+    Rational[242, 255]}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "FullForm"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Equal", "[", 
+    RowBox[{"a", ",", "b"}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["%"], "Input"],
+
+Cell[BoxData[
+ RowBox[{"a", "\[Equal]", "c"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Hidden", "[", "x", "]"}], "\[Equal]", "y"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"\<\"    \"\>", "\[Equal]", "y"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["%"], "Input"],
+
+Cell[BoxData[
+ RowBox[{"\<\"    \"\>", "\[Equal]", "y"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "FullForm"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Equal", "[", 
+    RowBox[{
+     RowBox[{"Hidden", "[", "x", "]"}], ",", "y"}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"aa", "\[Equal]", "bb"}], "//", "noleft"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"HiddenX", "[", "aa", "]"}], "\[Equal]", "bb"}]], "Output",
+ Background->RGBColor[{
+    Rational[242, 255], 
+    Rational[242, 255], 
+    Rational[242, 255]}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["%"], "Input"],
+
+Cell[BoxData["\<\"\"\>"], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXitBackground", "[", "x_", "]"}], ":=", " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"!", 
+     RowBox[{"x", "===", "Null"}]}], ",", 
+    RowBox[{
+     RowBox[{"CellPrint", "[", 
+      RowBox[{"Cell", "[", 
+       RowBox[{
+        RowBox[{"BoxData", "[", 
+         RowBox[{"ToBoxes", "[", "x", "]"}], "]"}], ",", 
+        "\[IndentingNewLine]", "\"\<Output\>\"", ",", "\[IndentingNewLine]", 
+        RowBox[{"Background", "\[Rule]", "TeXitBackgroundColor"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"ShowCellLabel", "\[Rule]", "True"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"CellLabel", "\[Rule]", "\"\<XXXX\>\""}]}], "]"}], "]"}], ";",
+      "x", ";"}]}], "]"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXitBackground", "[", "x_", "]"}], ":=", " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"!", 
+     RowBox[{"x", "===", "Null"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"CellPrint", "[", 
+      RowBox[{"Cell", "[", 
+       RowBox[{
+        RowBox[{"BoxData", "[", 
+         RowBox[{"ToBoxes", "[", "x", "]"}], "]"}], ",", 
+        "\[IndentingNewLine]", "\"\<Output\>\"", ",", "\[IndentingNewLine]", 
+        RowBox[{"Background", "\[Rule]", "TeXitBackgroundColor"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"ShowCellLabel", "\[Rule]", "True"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"CellLabel", "\[Rule]", 
+         RowBox[{"ToString", "[", 
+          RowBox[{"Out", "[", "$Line", "]"}], "]"}]}]}], "]"}], "]"}], ";", 
+     "x", ";"}]}], "]"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"x", "//", "TeXit"}]], "Input"],
+
+Cell[BoxData["x"], "Output",
+ Background->RGBColor[{
+    Rational[242, 255], 
+    Rational[242, 255], 
+    Rational[242, 255]}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["%"], "Input"],
+
+Cell[BoxData["x"], "Output"]
+}, Open  ]],
+
+Cell["Some text with (* \[Alpha] *) in it.", "TeX: Text"],
+
+Cell["Some text with (* \[LeftAngleBracket]a,b\[RightAngleBracket] *) in \
+it.", "TeX: Text"],
+
+Cell["Some text with (* \[LeftAngleBracket]a,b\[RightAngleBracket]\[Beta]/\
+\[Gamma] *) in it.", "TeX: Text"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     TagBox[
+      StyleBox["\"\<Some text with (* \\\\[Alpha] *) in it.\\n\>\"",
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {"\<\"--------------\"\>"},
+    {
+     TagBox[
+      StyleBox[
+       "\"\<Some text with $\\\\text{ $\\\\backslash \\\\backslash $[Alpha] \
+}$ in it.\\n\>\"",
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {"\<\"--------------\"\>"},
+    {
+     TagBox[
+      StyleBox["s2",
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {"\<\"--------------\"\>"},
+    {
+     TagBox[
+      StyleBox["s3",
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {"\<\"--------------\"\>"},
+    {
+     TagBox[
+      StyleBox["s4",
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {"\<\"--------------\"\>"},
+    {
+     TagBox[
+      StyleBox["s5",
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {"\<\"--------------\"\>"},
+    {
+     TagBox[
+      StyleBox["s6",
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {"\<\"--------------\"\>"},
+    {
+     TagBox[
+      StyleBox[
+       "\"\<                 Some text with $\\\\text{ $\\\\backslash \
+\\\\backslash $[Alpha] }$ in it.\\n\>\"",
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"s5", "//", "FullForm"}]], "Input"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox["\"\<\\n                       &=&  b\\n\\\\nonumber\\n\>\"",
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output"]
+}, Open  ]],
+
+Cell["\<\
+------------------------------------------------------------------------------\
+-----------------------\
+\>", "Text"],
+
+Cell["\<\
+You can get this sort of error by miss-spelling   //noTeX ,  //label,   \
+//nonumber.   Then you\[CloseCurlyQuote]ll get 
+something like the function   f   here,\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", 
+   RowBox[{"(", 
+    RowBox[{"a", "\[Equal]", "b"}], ")"}]}], "//", "TeXit"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"f", " ", 
+  RowBox[{"(", 
+   RowBox[{"a", "\[Equal]", "b"}], ")"}]}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"a", "/", "c"}], "\[Equal]", 
+     RowBox[{"b", "/", "d"}]}], ")"}]}], "//", "TeXit"}]], "Input"],
+
+Cell[BoxData[
+ StyleBox["\<\"! Extra }, or forgotten \\\\right.\\n<template> }\\n           \
+ $\\\\@eqnsel \\\\endtemplate \\nl.3                        &\\n              \
+              =&  \\\\frac{b}{d}\\\\right)\\n!  ==> Fatal error occurred, no \
+output PDF file produced!\\nTranscript written on main-fragment.log.\\n\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[0.8627450980392157, 0., 0.],
+  FrontFaceColor->RGBColor[0.8627450980392157, 0., 0.],
+  BackFaceColor->RGBColor[0.8627450980392157, 0., 0.],
+  GraphicsColor->RGBColor[0.8627450980392157, 0., 0.],
+  FontColor->RGBColor[0.8627450980392157, 0., 0.]]], "Print"],
+
+Cell[BoxData[
+ RowBox[{"f", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    FractionBox["a", "c"], "\[Equal]", 
+    FractionBox["b", "d"]}], ")"}]}]], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+ "....this is because tex does not like   \\left(  ....  &=&  .... \\right).\n\
+On the other hand  ( .... &=& .... ) ,   as in the example  f(a=b),  is OK.   \
+\n\nBTW.,   \\left(  ....   =  .... \\right)   is OK,  but ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}],
+    SingleLetterItalics->False], TraditionalForm]]],
+ "it uses   &=&.  \n  "
+}], "Text"],
+
+Cell["\<\
+------------------------------------------------------------------------------\
+-----------------------\
+\>", "Text"],
+
+Cell["This is not working:", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"eqn", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"a", "\[Equal]", "b"}], " ", "//", "TeXit"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"a", "\[Equal]", "b"}]], "Output",
+ ShowCellLabel->True,
+ Background->RGBColor[{
+    Rational[244, 255], 
+    Rational[244, 255], 
+    Rational[244, 255]}]]
+}, Open  ]],
+
+Cell[BoxData["eqn"], "Input"],
+
+Cell["....get  eqn = Null.", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Eqn", "[", "ab", "]"}], " ", "=", " ", 
+  RowBox[{"a", "\[Equal]", "b"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"a", "\[Equal]", "b"}]], "Output",
+ ShowCellLabel->True,
+ Background->RGBColor[{
+    Rational[244, 255], 
+    Rational[244, 255], 
+    Rational[244, 255]}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Eqn", "[", "ab", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"a", "\[Equal]", "b"}]], "Output"]
+}, Open  ]],
+
+Cell["This sets  Eqn[ab]  to Null,", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Eqn", "[", "ab", "]"}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"a", "\[Equal]", "b"}], "//", "TeXit"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"a", "\[Equal]", "b"}]], "Output",
+ ShowCellLabel->True,
+ Background->RGBColor[{
+    Rational[244, 255], 
+    Rational[244, 255], 
+    Rational[244, 255]}]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Eqn", "[", "ab", "]"}]], "Input"]
+},
+CellGrouping->Manual,
+WindowSize->{1643, 1196},
+WindowMargins->{{Automatic, 65}, {-331, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"TeXitStyle.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 231, 4, 99, "Input",
+ InitializationCell->True],
+Cell[814, 28, 113, 1, 34, "Output"],
+Cell[930, 31, 75, 0, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1042, 36, 87, 2, 34, "Input"],
+Cell[1132, 40, 55, 0, 34, "Output"]
+}, Open  ]],
+Cell[1202, 43, 58, 1, 34, "Input"],
+Cell[1263, 46, 56, 1, 34, "Input"],
+Cell[1322, 49, 53, 1, 34, "Input"],
+Cell[CellGroupData[{
+Cell[1400, 54, 65, 1, 34, "Input"],
+Cell[1468, 57, 135, 4, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1640, 66, 139, 4, 34, "Input"],
+Cell[1782, 72, 76, 2, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1895, 79, 139, 4, 34, "Input"],
+Cell[2037, 85, 76, 2, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2150, 92, 29, 0, 34, "Input"],
+Cell[2182, 94, 49, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2268, 100, 113, 3, 34, "Input"],
+Cell[2384, 105, 157, 5, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2578, 115, 85, 2, 34, "Input"],
+Cell[2666, 119, 168, 5, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2871, 129, 57, 1, 34, "Input"],
+Cell[2931, 132, 207, 8, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3175, 145, 27, 0, 34, "Input"],
+Cell[3205, 147, 57, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3299, 153, 89, 2, 34, "Input"],
+Cell[3391, 157, 68, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3496, 163, 27, 0, 34, "Input"],
+Cell[3526, 165, 68, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3631, 171, 57, 1, 34, "Input"],
+Cell[3691, 174, 243, 9, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3971, 188, 87, 2, 34, "Input"],
+Cell[4061, 192, 193, 6, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4291, 203, 27, 0, 34, "Input"],
+Cell[4321, 205, 35, 0, 34, "Output"]
+}, Open  ]],
+Cell[4371, 208, 777, 20, 172, "Input",
+ InitializationCell->True],
+Cell[5151, 230, 873, 22, 196, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[6049, 256, 54, 1, 34, "Input"],
+Cell[6106, 259, 128, 4, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6271, 268, 27, 0, 34, "Input"],
+Cell[6301, 270, 28, 0, 34, "Output"]
+}, Open  ]],
+Cell[6344, 273, 57, 0, 38, "TeX: Text"],
+Cell[6404, 275, 93, 1, 39, "TeX: Text"],
+Cell[6500, 278, 109, 1, 39, "TeX: Text"],
+Cell[6612, 281, 1942, 73, 320, "Output"],
+Cell[CellGroupData[{
+Cell[8579, 358, 58, 1, 34, "Input"],
+Cell[8640, 361, 206, 6, 34, "Output"]
+}, Open  ]],
+Cell[8861, 370, 127, 3, 36, "Text"],
+Cell[8991, 375, 185, 4, 61, "Text"],
+Cell[CellGroupData[{
+Cell[9201, 383, 128, 4, 34, "Input"],
+Cell[9332, 389, 104, 3, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9473, 397, 180, 6, 34, "Input"],
+Cell[9656, 405, 632, 10, 180, "Print"],
+Cell[10291, 417, 150, 5, 60, "Output"]
+}, Open  ]],
+Cell[10456, 425, 483, 13, 138, "Text"],
+Cell[10942, 440, 127, 3, 36, "Text"],
+Cell[11072, 445, 36, 0, 36, "Text"],
+Cell[CellGroupData[{
+Cell[11133, 449, 125, 3, 34, "Input"],
+Cell[11261, 454, 179, 6, 50, "Output"]
+}, Open  ]],
+Cell[11455, 463, 29, 0, 34, "Input"],
+Cell[11487, 465, 36, 0, 36, "Text"],
+Cell[CellGroupData[{
+Cell[11548, 469, 120, 3, 34, "Input"],
+Cell[11671, 474, 179, 6, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11887, 485, 57, 1, 34, "Input"],
+Cell[11947, 488, 57, 1, 34, "Output"]
+}, Open  ]],
+Cell[12019, 492, 44, 0, 36, "Text"],
+Cell[CellGroupData[{
+Cell[12088, 496, 149, 4, 34, "Input"],
+Cell[12240, 502, 179, 6, 50, "Output"]
+}, Open  ]],
+Cell[12434, 511, 57, 1, 34, "Input"]
+}
+]
+*)
+

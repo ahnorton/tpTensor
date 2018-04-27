@@ -1,0 +1,1250 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     52418,       1242]
+NotebookOptionsPosition[     48745,       1118]
+NotebookOutlinePosition[     49090,       1133]
+CellTagsIndexPosition[     49047,       1130]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[" tpTensor  --  main notebook", "Title",
+ CellChangeTimes->{{3.6551081154380608`*^9, 3.65510812030289*^9}, {
+  3.655250969585875*^9, 3.655251053360465*^9}, {3.682823802599412*^9, 
+  3.6828238061512957`*^9}}],
+
+Cell["\<\
+For copyright and license, see the end of this file.   
+
+For bug reports/fixes, requests, suggestions, feedback, please contact me \
+(Andrew) at  norton.ah@gmail.com. \
+\>", "Text"],
+
+Cell[TextData[{
+ "To ",
+ StyleBox["edit this file",
+  FontColor->RGBColor[0, 0, 1],
+  Background->GrayLevel[1]],
+ " and its other parts, run the next input cell and answer ",
+ StyleBox["\[OpenCurlyDoubleQuote]No\[CloseCurlyDoubleQuote]",
+  FontColor->RGBColor[0, 0, 1]],
+ " to the pop-up.  \nAll notebook-parts will be opened in their own windows \
+and their initialization cells will then automatically be run.\nWhat to \
+expect.... lots of windows suddenly opening. Dont panic. It takes about 85 \
+sec to finish running all\ntheir initialization cells,"
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$tpTensorEditMode", " ", "=", " ", "True"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FrontEndExecute", "[", 
+   RowBox[{"FrontEndToken", "[", "\"\<EvaluateInitialization\>\"", "]"}], 
+   "]"}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6551659604372187`*^9, 3.6551659706130877`*^9}, {
+   3.655182706096324*^9, 3.6551827203039494`*^9}, 3.655182932608924*^9, 
+   3.655251076464529*^9, 3.681815545929183*^9, 3.6818601306161413`*^9}],
+
+Cell[TextData[{
+ "To ",
+ StyleBox["exit gracefully",
+  FontColor->RGBColor[0, 0, 1]],
+ " after editing,  do not do  File \[Rule] Quit   in any of the windows that \
+were opened. If you do, they will all close, \nincluding this main one and \
+you will have to clean up lock-files.  Instead, run the following cell to \
+stop scheduled backups, \nthen do  File \[Rule] Quit  from this window, "
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.655184130047117*^9, 3.655184149054685*^9}, {
+   3.655184393388242*^9, 3.655184416011582*^9}, {3.655184850459076*^9, 
+   3.6551848532064*^9}, 3.655283149279338*^9, {3.681815278155415*^9, 
+   3.681815487305373*^9}, {3.6818601012237473`*^9, 3.681860111447506*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Quiet", "[", 
+  RowBox[{
+   RowBox[{"RemoveScheduledTask", "[", "RunShortTitleTask", "]"}], ";"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"StopBackup", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NBFilePart", "[", 
+       RowBox[{"[", "j", "]"}], "]"}], ",", "\"\<-\>\"", ",", 
+      RowBox[{"StopBackup", "[", 
+       RowBox[{"NBObjPart", "[", "j", "]"}], "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"j", ",", "1", ",", "NBPartMax"}], "}"}]}], "]"}], "//", 
+  "TableForm"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.655184214018519*^9, 3.6551842259660683`*^9}, {
+   3.655184278205917*^9, 3.655184376172172*^9}, {3.6551969479967117`*^9, 
+   3.655196953258773*^9}, 3.6552831345755777`*^9, {3.6817642163907537`*^9, 
+   3.6817642274944687`*^9}}],
+
+Cell[BoxData["\<\"Backup stopped.\"\>"], "Output"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Part0--Setup_and_usage_docs.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+stopped.\"\>"},
+    {"\<\"Part1--Declarations_and_basic_fns.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+stopped.\"\>"},
+    {"\<\"Part2--Gradient_series_and_metric.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+stopped.\"\>"},
+    {"\<\"Part3--Tensor_symmetries_and_standard_forms.nb\"\>", "\<\"-\"\>", "\
+\<\"Backup stopped.\"\>"},
+    {"\<\"Part4--Differential_geometry.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+stopped.\"\>"},
+    {"\<\"Part5--EqnNumbers.nb\"\>", "\<\"-\"\>", "\<\"Backup stopped.\"\>"},
+    {"\<\"Part6--Canonicalization.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+stopped.\"\>"},
+    {"\<\"PartX--Last_section.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+stopped.\"\>"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell["Set the version info and path for this release.", "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{
+  3.654857000727173*^9, {3.654882182620596*^9, 3.654882257307509*^9}, {
+   3.6548849393208427`*^9, 3.654884946634111*^9}, 3.655123103690201*^9, {
+   3.655176963560874*^9, 3.655176965617498*^9}, {3.655177019320162*^9, 
+   3.6551770201199512`*^9}, {3.682821847776164*^9, 3.682821848911406*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"TrueQ", "[", "$tpTensorEditMode", "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"$tpTensorDirectory", "=", 
+    RowBox[{"Directory", "[", "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"$tpTensorDirectory", "=", 
+    RowBox[{"DirectoryName", "[", "$InputFileName", "]"}]}]}], "]"}]], "Input",\
+
+ InitializationCell->True],
+
+Cell[BoxData["\<\"/home/andrewn/Mirror_leo/ahn-scientific/Mathematica/\
+Applications/tpTensor/0.6.0\"\>"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$tpTensorVersion", "=", 
+  RowBox[{"Last", "[", 
+   RowBox[{"FileNameSplit", "[", "$tpTensorDirectory", "]"}], 
+   "]"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData["\<\"0.6.0\"\>"], "Output"]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["Optional:",
+  FontColor->RGBColor[0, 0, 1]],
+ "  ShortWindowTitles  will only work for Linux,  and only if Linux package  \
+\[OpenCurlyDoubleQuote]wmctrl\[CloseCurlyDoubleQuote]  is installed.   \nThis \
+removes the text  \[OpenCurlyDoubleQuote]Wolfram Mathematica...\
+\[CloseCurlyDoubleQuote]  from window titles, the taskbar, and the desktop \
+pager."
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.655167762638667*^9, 3.6551678019342003`*^9}, {
+   3.655167864237443*^9, 3.655167898781027*^9}, {3.6552501439321127`*^9, 
+   3.6552501700117407`*^9}, {3.655250381673284*^9, 3.655250385545183*^9}, {
+   3.655250566838849*^9, 3.6552507995239487`*^9}, {3.655251983173101*^9, 
+   3.655252037012348*^9}, 3.655283317981256*^9}],
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"StringContainsQ", "[", 
+    RowBox[{"$System", ",", "\"\<Linux\>\""}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Needs", "[", "\"\<ShortWindowTitles`\>\"", "]"}]}], 
+  "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.655166309398891*^9, 3.6551663373764544`*^9}, {
+   3.655167717263564*^9, 3.6551677196786737`*^9}, 3.655246601912211*^9, {
+   3.655246634695771*^9, 3.655246643703617*^9}, {3.655246747366456*^9, 
+   3.6552468015917597`*^9}, {3.655250035149487*^9, 3.6552500533107367`*^9}, {
+   3.6552503892891417`*^9, 3.65525042972088*^9}, {3.655251934149848*^9, 
+   3.6552519486297283`*^9}, {3.6552833256294823`*^9, 3.6552833338852158`*^9}}],
+
+Cell["", "Text",
+ CellFrame->{{0, 0}, {0.5, 0}},
+ CellChangeTimes->{{3.655251801560129*^9, 3.655251822662964*^9}}],
+
+Cell[TextData[{
+ "Large notebooks can get too big for ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " to scroll properly. Splitting a large notebook into smaller parts, each \
+with\nits own window also makes it easier to edit.  All data is shared \
+between parts, so it is just like having one big notebook.\n\nEdit as \
+required.  The list of notebook parts, "
+}], "Text",
+ CellChangeTimes->{{3.655177804941169*^9, 3.6551778136454268`*^9}, {
+   3.6551780756418123`*^9, 3.655178075945644*^9}, {3.655196624176835*^9, 
+   3.655196688015771*^9}, {3.6551967748627872`*^9, 3.6551968394380207`*^9}, {
+   3.6552515694502068`*^9, 3.655251751192007*^9}, {3.655252069220065*^9, 
+   3.6552522672814302`*^9}, 3.6828237112565603`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"NBFilePart", "=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+     "\"\<Part0--Setup_and_usage_docs.nb\>\"", ",", "\[IndentingNewLine]", 
+      "\"\<Part1--Declarations_and_basic_fns.nb\>\"", ",", 
+      "\[IndentingNewLine]", "\"\<Part2--Gradient_series_and_metric.nb\>\"", 
+      ",", "\[IndentingNewLine]", 
+      "\"\<Part3--Tensor_symmetries_and_standard_forms.nb\>\"", ",", 
+      "\[IndentingNewLine]", "\"\<Part4--Differential_geometry.nb\>\"", ",", 
+      "\[IndentingNewLine]", "\"\<Part5--EqnNumbers.nb\>\"", ",", 
+      "\[IndentingNewLine]", "\"\<Part6--Canonicalization.nb\>\"", ",", 
+      "\[IndentingNewLine]", "\"\<PartX--Last_section.nb\>\""}], 
+     "\[IndentingNewLine]", "}"}]}], ";"}], "\[IndentingNewLine]"}]], "Input",\
+
+ InitializationCell->True,
+ CellChangeTimes->{{3.6551780427562523`*^9, 3.655178064122106*^9}, {
+   3.655178145352949*^9, 3.655178207512014*^9}, {3.655178267959443*^9, 
+   3.655178324502736*^9}, 3.655178355862335*^9, {3.655179020012958*^9, 
+   3.655179031437311*^9}, {3.655179179483211*^9, 3.655179182138835*^9}, 
+   3.6552514004924498`*^9, {3.6552514632914457`*^9, 3.655251528458832*^9}}],
+
+Cell["\<\
+No further edits of this file are required to add a new notebook part.
+
+Open the notebook parts in their own windows,\
+\>", "Text",
+ CellFrame->{{0, 0}, {0, 3}},
+ CellChangeTimes->{{3.655178094985425*^9, 3.6551781190108747`*^9}, {
+  3.655259088235804*^9, 3.6552591137714233`*^9}, {3.6552833680446577`*^9, 
+  3.6552834349558363`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NBPartMax", " ", "=", " ", 
+   RowBox[{"Length", "[", "NBFilePart", "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6551783362783833`*^9, 3.6551783478303337`*^9}, 
+   3.655179041068808*^9}],
+
+Cell[TextData[{
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " bug:   In the following,  Directory[ ]  must be added to the notebook \
+filename.  If not, then  NotebookFileName[ ],  when evaluated in that \
+notebook does\nnot return the full path as it usually does, but only the name \
+passed to  NotebookOpen[ ] .  Moreover, it then also appends a ",
+ Cell[BoxData[
+  RowBox[{" ", "$PathnameSeparator"}]], "Input",
+  InitializationCell->True,
+  CellChangeTimes->{{3.613081309014983*^9, 3.6130813516467648`*^9}, {
+    3.613081670672722*^9, 3.613081727080574*^9}, {3.613081892009708*^9, 
+    3.61308191891063*^9}, {3.613082177147334*^9, 3.613082187435192*^9}, {
+    3.613082246907909*^9, 3.613082248917954*^9}, {3.613082933293125*^9, 
+    3.61308312380289*^9}, 3.613083165082822*^9, {3.613083244236515*^9, 
+    3.613083273579834*^9}, {3.6130833120912857`*^9, 3.613083354453597*^9}, {
+    3.6130834420054073`*^9, 3.613083531231271*^9}, {3.61308380517819*^9, 
+    3.613083875133977*^9}, {3.613084416029666*^9, 3.613084490479455*^9}, {
+    3.613084867664146*^9, 3.613084876535153*^9}, {3.6130866651450453`*^9, 
+    3.6130866751449833`*^9}, 3.613088074382803*^9, {3.613089007547125*^9, 
+    3.613089015018792*^9}, {3.6130898127692423`*^9, 3.613089812843029*^9}, 
+    3.6130898631335497`*^9, {3.613090125053224*^9, 3.613090193128191*^9}, {
+    3.613090632819557*^9, 3.613090638273303*^9}, {3.613192810275569*^9, 
+    3.6131928742991753`*^9}, {3.613192931065254*^9, 3.613192935081172*^9}, {
+    3.6145112420950127`*^9, 3.614511269887596*^9}, {3.614511313920863*^9, 
+    3.614511347696714*^9}, {3.614511472068465*^9, 3.614511633617523*^9}, {
+    3.6145116650295467`*^9, 3.614511679848028*^9}, {3.614511724647305*^9, 
+    3.614511741329794*^9}, {3.614511783834506*^9, 3.61451200073036*^9}, {
+    3.614512090574029*^9, 3.6145121256580753`*^9}, {3.614512183753292*^9, 
+    3.614512234280442*^9}, {3.614512296878427*^9, 3.614512337507703*^9}, {
+    3.6145123797173977`*^9, 3.614512485799417*^9}, {3.614513285499172*^9, 
+    3.614513318344557*^9}, {3.614513385430694*^9, 3.614513469243806*^9}, {
+    3.614515068353573*^9, 3.6145151394192753`*^9}, 3.614515169734282*^9, {
+    3.614515501033285*^9, 3.614515506297526*^9}, {3.614515575594268*^9, 
+    3.614515617048359*^9}, {3.614516258014077*^9, 3.614516259109364*^9}, {
+    3.614516502551553*^9, 3.614516584333652*^9}, 3.6145166158716173`*^9, {
+    3.614516676257833*^9, 3.6145167180185213`*^9}, {3.614516795309229*^9, 
+    3.614516799281987*^9}, 3.6145168638383827`*^9, {3.614517043313878*^9, 
+    3.614517049069057*^9}, {3.614547331039587*^9, 3.614547432304735*^9}, {
+    3.614547537016734*^9, 3.614547553699428*^9}, {3.6145477385497513`*^9, 
+    3.61454778019945*^9}, {3.6145478474809837`*^9, 3.614547856678059*^9}, 
+    3.614547892603861*^9, {3.614547927086609*^9, 3.614547934202297*^9}, {
+    3.614548683655397*^9, 3.614548705501964*^9}, {3.6145487451964808`*^9, 
+    3.614548761305078*^9}, {3.614560687356503*^9, 3.614560724708187*^9}, {
+    3.61456077008434*^9, 3.614560830280937*^9}, 3.6145613337531633`*^9, {
+    3.614561377383315*^9, 3.614561380000568*^9}, 3.614561432952039*^9, {
+    3.6145614673987417`*^9, 3.614561467519977*^9}, {3.614561584979886*^9, 
+    3.6145616688742037`*^9}, {3.61456186398631*^9, 3.614561866565956*^9}, 
+    3.614562070685017*^9, 3.614563609277566*^9, {3.614563739166016*^9, 
+    3.614563800177965*^9}, {3.614563863602662*^9, 3.6145639038909082`*^9}, {
+    3.614564028875751*^9, 3.614564043976598*^9}, {3.614564090001936*^9, 
+    3.614564096277379*^9}, {3.61456417085579*^9, 3.6145643581383457`*^9}, {
+    3.614564411840958*^9, 3.614564413541711*^9}, 3.614564679675274*^9, {
+    3.6145647124523687`*^9, 3.614564748887821*^9}, {3.614565090853127*^9, 
+    3.61456509980326*^9}, {3.6145653208975983`*^9, 3.61456532364775*^9}, 
+    3.614567251934053*^9, {3.614568099855777*^9, 3.614568135603891*^9}, {
+    3.6145681753482857`*^9, 3.61456817595191*^9}, {3.6145693531211977`*^9, 
+    3.614569382246002*^9}, {3.6145694207425003`*^9, 3.614569422550228*^9}, {
+    3.6145694751886883`*^9, 3.614569521838703*^9}, {3.614572561475232*^9, 
+    3.614572568850635*^9}, {3.614574262543744*^9, 3.614574296423677*^9}, 
+    3.614574684997746*^9, {3.614584977834337*^9, 3.6145850095792828`*^9}, {
+    3.61458505429578*^9, 3.614585057035284*^9}, {3.61458568850874*^9, 
+    3.614585707519079*^9}, {3.614587581160256*^9, 3.614587665049244*^9}, {
+    3.61458859286444*^9, 3.614588615851194*^9}, {3.614588671711095*^9, 
+    3.6145886743313427`*^9}, 3.650424430380764*^9, {3.650424499273816*^9, 
+    3.6504245102547197`*^9}, {3.650424551934355*^9, 3.65042462646065*^9}, {
+    3.650424722070489*^9, 3.650424763881627*^9}, {3.650424830619973*^9, 
+    3.650424833368896*^9}, 3.650424872760565*^9, {3.650425184494025*^9, 
+    3.650425354829587*^9}, {3.650425403424115*^9, 3.650425602743466*^9}, {
+    3.650425640518792*^9, 3.6504257043068037`*^9}, {3.65042578180017*^9, 
+    3.650425850145228*^9}, {3.6504263814570713`*^9, 3.650426385552084*^9}, {
+    3.650432442352813*^9, 3.65043244601849*^9}, {3.650433453171286*^9, 
+    3.6504334971605988`*^9}, {3.650434131264441*^9, 3.65043421818968*^9}, {
+    3.650434269629331*^9, 3.6504342697095327`*^9}, 3.650434595563089*^9, {
+    3.650436265941326*^9, 3.650436270745276*^9}, {3.65043660310509*^9, 
+    3.650436637744562*^9}, {3.650436748854795*^9, 3.650436796989973*^9}, {
+    3.650440384435354*^9, 3.650440428176787*^9}, {3.650440506723991*^9, 
+    3.65044051275177*^9}, {3.650653316192499*^9, 3.650653322574031*^9}, {
+    3.650653488312834*^9, 3.650653508731832*^9}, {3.650655136355329*^9, 
+    3.650655157075481*^9}, {3.650655207572801*^9, 3.650655297971509*^9}, {
+    3.65065533998464*^9, 3.650655349662941*^9}, {3.650657716959126*^9, 
+    3.650657720770278*^9}, {3.650670328240369*^9, 3.650670388895032*^9}, {
+    3.650670426578453*^9, 3.6506704947526493`*^9}, {3.650670610921989*^9, 
+    3.65067061200318*^9}, {3.6506708498574533`*^9, 3.6506708555659103`*^9}, {
+    3.65067091538326*^9, 3.650670920513521*^9}, 3.654943481732554*^9, {
+    3.6549435194335623`*^9, 3.654943649570937*^9}, 3.654953401968*^9, {
+    3.6549535961252937`*^9, 3.6549536294528713`*^9}, {3.6549546690395393`*^9, 
+    3.654954762030205*^9}, {3.65497731348517*^9, 3.654977377708466*^9}, {
+    3.6549775796891203`*^9, 3.654977586128557*^9}, {3.654978022451295*^9, 
+    3.654978034626915*^9}, 3.654978192899849*^9, {3.654978342638762*^9, 
+    3.654978381428734*^9}, {3.654979038149156*^9, 3.654979108644236*^9}, {
+    3.654995825518643*^9, 3.654995828478299*^9}, {3.6549972683740063`*^9, 
+    3.654997268399185*^9}, {3.654997426729817*^9, 3.6549974661377077`*^9}, {
+    3.655000079687758*^9, 3.655000086471596*^9}, {3.65500789685073*^9, 
+    3.655008175327053*^9}, {3.655008207678975*^9, 3.655008453227943*^9}, {
+    3.655008495771571*^9, 3.6550088259754133`*^9}, {3.655008883766675*^9, 
+    3.6550089547416*^9}, {3.6550090172373466`*^9, 3.655009067460204*^9}, {
+    3.655009260961884*^9, 3.655009487247054*^9}, {3.655009532862505*^9, 
+    3.655009680188634*^9}, {3.655009725324292*^9, 3.655009731580049*^9}, {
+    3.6550098018513527`*^9, 3.655009832458589*^9}, {3.6550109845402822`*^9, 
+    3.655010987845729*^9}, 3.655011065067329*^9, {3.655011095322938*^9, 
+    3.6550111259466667`*^9}, 3.6550115090140553`*^9, {3.655011617540484*^9, 
+    3.655011624372224*^9}, {3.655011858513529*^9, 3.655011895456953*^9}, {
+    3.655011946928502*^9, 3.655011954672277*^9}, {3.6550120300473537`*^9, 
+    3.6550120424630404`*^9}, {3.6550122633244457`*^9, 3.655012404410725*^9}, {
+    3.655012543800992*^9, 3.655012606920034*^9}, {3.655012687238964*^9, 
+    3.655012828613366*^9}, {3.655012893508424*^9, 3.655012900068281*^9}, {
+    3.655013440477304*^9, 3.655013449821059*^9}, {3.655013529772069*^9, 
+    3.655013537516129*^9}, {3.655013585067466*^9, 3.6550136059792213`*^9}, {
+    3.6550138870954657`*^9, 3.655013955110317*^9}, {3.655014215731079*^9, 
+    3.6550142377146273`*^9}, {3.655219121454563*^9, 3.6552191633736143`*^9}, {
+    3.6552214253600063`*^9, 3.655221428943874*^9}, {3.655221460290813*^9, 
+    3.6552214642716017`*^9}, {3.655221500623125*^9, 3.6552215032149*^9}, {
+    3.655221577325934*^9, 3.6552217763312607`*^9}, {3.655221856073172*^9, 
+    3.655221868394168*^9}}],
+ "  (which it does not normally do),"
+}], "Text",
+ CellChangeTimes->{{3.655223184407812*^9, 3.655223433533112*^9}, {
+  3.655223789103705*^9, 3.6552238078076897`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{"$tpTensorEditMode", ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NBObjPart", "[", "j", "]"}], "=", 
+        RowBox[{"NotebookOpen", "[", 
+         RowBox[{"FileNameJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{"$tpTensorDirectory", ",", 
+            RowBox[{"NBFilePart", "[", 
+             RowBox[{"[", "j", "]"}], "]"}]}], "}"}], "]"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", "NBPartMax"}], "}"}]}], "]"}], "//", 
+     "Column"}]}], " ", "]"}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6551110231876497`*^9, 3.655111077896303*^9}, {
+   3.6551132775558777`*^9, 3.655113288284547*^9}, {3.655113343819767*^9, 
+   3.655113465146014*^9}, {3.655113508203511*^9, 3.655113510585287*^9}, {
+   3.655115160614015*^9, 3.655115168147584*^9}, {3.6551155500003653`*^9, 
+   3.655115566671685*^9}, 3.655123393222228*^9, {3.655147471670834*^9, 
+   3.6551474762634573`*^9}, {3.655148152206203*^9, 3.6551481774054728`*^9}, {
+   3.655150876266189*^9, 3.655150883801804*^9}, 3.6551509143777523`*^9, 
+   3.655150988393022*^9, 3.655151308372106*^9, {3.655166051030305*^9, 
+   3.655166071187948*^9}, 3.655166108499496*^9, {3.65517765725447*^9, 
+   3.655177682095398*^9}, {3.655177717855153*^9, 3.65517773519855*^9}, {
+   3.655177857134861*^9, 3.6551778838828773`*^9}, {3.6551779215649977`*^9, 
+   3.655178037914475*^9}, {3.6551783786620197`*^9, 3.655178378709791*^9}, {
+   3.655178461558014*^9, 3.6551784768365498`*^9}, {3.6551790770044737`*^9, 
+   3.655179078956304*^9}, 3.6551828204837008`*^9, 3.655182937410133*^9, {
+   3.655223061978752*^9, 3.655223085689561*^9}, 3.656376881960972*^9, {
+   3.6828275416624203`*^9, 3.682827547963076*^9}}],
+
+Cell["\<\
+..... any options given to NotebookOpen are set in the notebook. If the \
+notebook is saved, these options get saved with it.
+Eg, passing the option  Visible \[Rule] False  means that it will never later \
+be seen as normal until its option is changed
+and the notebook re-saved with its new option, eg, using SetOption[ ].  See  \
+tutorial/OptionsForNotebooks\
+\>", "Text",
+ CellChangeTimes->{{3.655151362443664*^9, 3.655151619423827*^9}, {
+   3.655166150642742*^9, 3.655166153842767*^9}, {3.655166188421565*^9, 
+   3.655166215074622*^9}, {3.6551745387459097`*^9, 3.6551745646325417`*^9}, {
+   3.6551748175892887`*^9, 3.655174820821123*^9}, 3.656366834581946*^9, 
+   3.656366864885645*^9}],
+
+Cell["\<\
+If editing then start backup schedules for this file and for each notebook \
+part.  
+If  tpTensor  is simply being being loaded by a user, then they ought to be \
+using backup anyway. So get it in either case,\
+\>", "Text",
+ CellFrame->{{0, 0}, {0, 0.5}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Backup`\>\"", "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.655281429968266*^9, 3.655281478031979*^9}, {
+   3.655281517187483*^9, 3.655281655313552*^9}, {3.655282370041623*^9, 
+   3.655282371959182*^9}, {3.655282790196007*^9, 3.655282792355713*^9}, 
+   3.655283468588434*^9, {3.6552843430571747`*^9, 3.655284357280806*^9}, {
+   3.655660536197031*^9, 3.655660539172818*^9}, 3.682824103828088*^9}],
+
+Cell[BoxData["\<\"Backup version 1.0.3.\"\>"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"If", "[", 
+  RowBox[{"$tpTensorEditMode", ",", 
+   RowBox[{
+    RowBox[{"DeleteFile", "[", 
+     RowBox[{"FileNames", "[", 
+      RowBox[{"\"\<Locked\>\"", ",", 
+       RowBox[{"FileNames", "[", "\"\<*_bak\>\"", "]"}]}], "]"}], "]"}], ";", 
+    
+    RowBox[{"StartBackup", "[", "]"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"If", "[", 
+  RowBox[{"$tpTensorEditMode", ",", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NBFilePart", "[", 
+         RowBox[{"[", "j", "]"}], "]"}], ",", "\"\<-\>\"", ",", 
+        RowBox[{"StartBackup", "[", 
+         RowBox[{"NBObjPart", "[", "j", "]"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "1", ",", "NBPartMax"}], "}"}]}], "]"}], "//", 
+    "TableForm"}]}], "]"}]}], "Input",
+ InitializationCell->True],
+
+Cell[BoxData["\<\"Backup started.\"\>"], "Output"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Part0--Setup_and_usage_docs.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+started.\"\>"},
+    {"\<\"Part1--Declarations_and_basic_fns.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+started.\"\>"},
+    {"\<\"Part2--Gradient_series_and_metric.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+started.\"\>"},
+    {"\<\"Part3--Tensor_symmetries_and_standard_forms.nb\"\>", "\<\"-\"\>", "\
+\<\"Backup started.\"\>"},
+    {"\<\"Part4--Differential_geometry.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+started.\"\>"},
+    {"\<\"Part5--EqnNumbers.nb\"\>", "\<\"-\"\>", "\<\"Backup started.\"\>"},
+    {"\<\"Part6--Canonicalization.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+started.\"\>"},
+    {"\<\"PartX--Last_section.nb\"\>", "\<\"-\"\>", "\<\"Backup \
+started.\"\>"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell["\<\
+To do timings for the initialization of each notebook part,  one needs to put \
+  SaveInitTime[ ]   at the end of each part,
+(if this file is being loaded rather than edited, then these will be not very \
+interesting load times)\
+\>", "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.655166225681652*^9, 3.655166242689893*^9}, {
+  3.6551750088508663`*^9, 3.6551750211867237`*^9}, {3.655258900062549*^9, 
+  3.65525901140443*^9}, {3.655259068027812*^9, 3.655259070397209*^9}, {
+  3.6552591718026237`*^9, 3.655259228937904*^9}, {3.6552601807666817`*^9, 
+  3.655260185086577*^9}, {3.655260399931993*^9, 3.655260414683778*^9}, {
+  3.6552817402889757`*^9, 3.655281800927617*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$InitializationTimes", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"$InitializationTimeZero", " ", "=", " ", 
+    RowBox[{"AbsoluteTime", "[", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SaveInitTime", "[", "]"}], ":=", 
+   RowBox[{"(", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"AppendTo", "[", 
+      RowBox[{"$InitializationTimes", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"FileBaseName", "[", 
+          RowBox[{"NotebookFileName", "[", "]"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"AbsoluteTime", "[", "]"}], "-", 
+          "$InitializationTimeZero"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"$InitializationTimeZero", " ", "=", " ", 
+      RowBox[{"AbsoluteTime", "[", "]"}]}], ";"}], ")"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"InitTimes", "[", "]"}], ":=", " ", 
+  RowBox[{"$InitializationTimes", "//", "Table"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TotalInitTime", "[", "]"}], ":=", 
+  RowBox[{"Total", "[", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "&"}], ",", "$InitializationTimes"}], 
+    "]"}], "]"}]}], "\[IndentingNewLine]"}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.655258065288197*^9, 3.655258070344242*^9}, {
+   3.655258136743492*^9, 3.655258154327181*^9}, {3.655258355652752*^9, 
+   3.6552583779725122`*^9}, 3.655258423283825*^9, 3.655259157371121*^9, {
+   3.65525976029185*^9, 3.6552597838740187`*^9}, {3.655259820130982*^9, 
+   3.655259874066607*^9}, {3.655259973905402*^9, 3.655260011576332*^9}, {
+   3.6552600779040833`*^9, 3.6552600838719177`*^9}, {3.655260195486618*^9, 
+   3.655260214862422*^9}}],
+
+Cell["\<\
+To see a table of timing results for each part,
+(done after all initializations had finished)\
+\>", "Text",
+ CellChangeTimes->{{3.655259584853614*^9, 3.6552596806285133`*^9}, {
+  3.655260128015183*^9, 3.6552601389434357`*^9}, {3.655260246029768*^9, 
+  3.655260275149529*^9}, {3.655260453339306*^9, 3.655260456459324*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{"InitTimes", "[", " ", "]"}], "//", "TableForm"}]}]], "Input",
+ CellChangeTimes->{{3.655259691724998*^9, 3.655259691726884*^9}, {
+  3.6552601098716593`*^9, 3.655260110445683*^9}, {3.655260287757848*^9, 
+  3.65526028830164*^9}, {3.655318465205495*^9, 3.655318468788896*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Part0--Setup_and_usage_docs\"\>", "5.888711`7.221565234488238"},
+    {"\<\"Part1--Declarations_and_basic_fns\"\>", 
+     "25.982598`7.866227567509845"},
+    {"\<\"Part2--Gradient_series_and_metric\"\>", "6.620338`7.27242515631749"},
+    {"\<\"Part3--Tensor_symmetries_and_standard_forms\"\>", 
+     "17.719569`7.699998147661107"},
+    {"\<\"Part4--Differential_geometry\"\>", "9.19998`7.415331876722062"},
+    {"\<\"Part5--EqnNumbers\"\>", "4.871093`7.1391714147945455"},
+    {"\<\"Part6--Canonicalization\"\>", "1.809098`6.7090070870038945"},
+    {"\<\"PartX--Last_section\"\>", "0.474224`6.127528522901554"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.655259695018532*^9, 3.6552601179141073`*^9, 3.655260289739202*^9, {
+   3.655318456107588*^9, 3.655318470386939*^9}}]
+}, Open  ]],
+
+Cell["The total time to initialize all parts, ", "Text",
+ CellChangeTimes->{{3.655260297677185*^9, 3.6552603401566553`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"TotalInitTime", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Date", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.6552603483327637`*^9, 3.655260350676929*^9}}],
+
+Cell[BoxData["72.565611`7.4091858628620795"], "Output",
+ CellChangeTimes->{3.655260351253991*^9, 3.655318476660911*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2015", ",", "11", ",", "1", ",", "9", ",", "14", ",", 
+   "36.653529`8.31669077418276"}], "}"}]], "Output",
+ CellChangeTimes->{3.655260351253991*^9, 3.655318476661276*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{"InitTimes", "[", " ", "]"}], "//", "TableForm"}]}]], "Input"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Part0--Setup_and_usage_docs\"\>", 
+     "6.5175609999999999999`7.265630098060456"},
+    {"\<\"Part1--Declarations_and_basic_fns\"\>", 
+     "29.920768`7.927517730211173"},
+    {"\<\"Part2--Gradient_series_and_metric\"\>", "5.10589`7.159616447734749"},
+    {"\<\"Part3--Tensor_symmetries_and_standard_forms\"\>", 
+     "18.358804`7.7153893787969885"},
+    {"\<\"Part4--Differential_geometry\"\>", "14.951447`7.626228219180162"},
+    {"\<\"Part5--EqnNumbers\"\>", "7.63066`7.3341070965834545"},
+    {"\<\"Part6--Canonicalization\"\>", "1.829442`6.713863638813956"},
+    {"\<\"PartX--Last_section\"\>", "0.555658`6.196352564912302"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"TotalInitTime", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Date", "[", "]"}]}], "Input"],
+
+Cell[BoxData["84.87023`7.477210385628906"], "Output"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2016", ",", "11", ",", "28", ",", "21", ",", "51", ",", 
+   "23.839281`8.129868135698064"}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell["\<\
+In case we get any unwanted output while loading file, or encounter any \
+errors, we can put some of these  If [... ]  through the code.
+To print some messages to say where we are during loading, set the following \
+variable to True,\
+\>", "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.655166225681652*^9, 3.655166242689893*^9}, {
+   3.6551750088508663`*^9, 3.6551750211867237`*^9}, {3.655258900062549*^9, 
+   3.655258901741988*^9}, 3.6552589450054092`*^9, {3.655660669571093*^9, 
+   3.6556607830896797`*^9}, {3.655661013710739*^9, 3.655661065965891*^9}, {
+   3.655866713404846*^9, 3.655866751148096*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$PrintDebugLocation", "=", "False"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"TrueQ", "[", "$PrintDebugLocation", "]"}], ",", 
+   RowBox[{"Print", "[", "\"\<In tpTensor.nb\>\"", "]"}]}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.655660796012*^9, 3.655660837856824*^9}, {
+   3.6556609261441307`*^9, 3.655660983807139*^9}, {3.655661405235326*^9, 
+   3.655661421657833*^9}, {3.6558666680298443`*^9, 3.655866669149659*^9}, 
+   3.6828276618657093`*^9}],
+
+Cell["Run the initialization cells for each part,", "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.655166225681652*^9, 3.655166242689893*^9}, {
+   3.6551750088508663`*^9, 3.6551750211867237`*^9}, {3.655258900062549*^9, 
+   3.655258901741988*^9}, 3.6552589450054092`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{"$tpTensorEditMode", ",", "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"FrontEndExecute", "[", 
+       RowBox[{"FrontEndToken", "[", 
+        RowBox[{
+         RowBox[{"NBObjPart", "[", "j", "]"}], ",", 
+         "\"\<EvaluateInitialization\>\""}], "]"}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "1", ",", "NBPartMax"}], "}"}]}], "]"}]}], "]"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6548569444824953`*^9, 3.654856976191169*^9}, {
+   3.6548579795385437`*^9, 3.654858031617981*^9}, 3.654858353118078*^9, {
+   3.6548584833723*^9, 3.6548584976758842`*^9}, {3.654898914822028*^9, 
+   3.654898915365292*^9}, {3.6551470589724007`*^9, 3.655147073340397*^9}, {
+   3.6551471154356413`*^9, 3.655147124971449*^9}, {3.655158267267157*^9, 
+   3.655158268188097*^9}, {3.655158546095381*^9, 3.655158598662718*^9}, {
+   3.655177754937007*^9, 3.655177759054145*^9}, {3.655178516692412*^9, 
+   3.6551785682913513`*^9}, 3.655182821426372*^9, 3.65518294032974*^9, {
+   3.655252660940654*^9, 3.655252700700103*^9}, {3.655252831402668*^9, 
+   3.65525293197716*^9}, {3.6552549208802843`*^9, 3.655254953679069*^9}, {
+   3.655257153859713*^9, 3.655257160979547*^9}, {3.655257472047608*^9, 
+   3.65525751059114*^9}, 3.6552580358487997`*^9, 3.655258934989716*^9}],
+
+Cell["\<\
+The above initializations are are done sequentially, but are non-blocking. \
+That is why we can\[CloseCurlyQuote]t just use  Timing[ ]  from here. 
+For example, in edit mode this will be done before the above finishes, \
+\>", "Text",
+ CellChangeTimes->{{3.6552592575295877`*^9, 3.655259399112112*^9}, {
+  3.6828277119449987`*^9, 3.682827767528434*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{"$tpTensorEditMode", ",", 
+   RowBox[{"1", "+", "2"}]}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.655259040363494*^9, 3.655259044620152*^9}, {
+  3.65525941979979*^9, 3.6552594220716963`*^9}}],
+
+Cell[BoxData["3"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Load the parts. This is only done when loading this file, not in editing \
+mode. \
+\>", "Subsection",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.65511288395332*^9, 3.6551129842089787`*^9}, 
+   3.655113246732547*^9}],
+
+Cell["\<\
+Make a table so we can see if there is any output from any part,\
+\>", "Text",
+ CellChangeTimes->{{3.655113110142412*^9, 3.655113140254024*^9}, {
+  3.655113236382029*^9, 3.655113238220726*^9}, {3.6551137050947123`*^9, 
+  3.65511370880639*^9}, {3.655178899886581*^9, 3.655178908094305*^9}}],
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"!", 
+    RowBox[{"TrueQ", "[", "$tpTensorEditMode", "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NBFileGets", " ", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Get", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"$tpTensorDirectory", ",", 
+           RowBox[{
+            RowBox[{"FileBaseName", "[", 
+             RowBox[{"NBFilePart", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "]"}], "<>", "\"\<.m\>\""}]}], 
+          "}"}], "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", "NBPartMax"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"Apply", "[", 
+        RowBox[{"And", ",", 
+         RowBox[{"Map", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"SameQ", "[", 
+             RowBox[{"#", ",", "Null"}], "]"}], "&"}], ",", "NBFileGets"}], 
+          "]"}]}], "]"}]}], ",", "NBFileGets"}], "]"}]}]}], "]"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.65510921219199*^9, 3.655109223456015*^9}, {
+   3.655109660346918*^9, 3.655109660874299*^9}, {3.655112710761606*^9, 
+   3.655112736099196*^9}, {3.6551130229595737`*^9, 3.655113044831602*^9}, 
+   3.655113081215124*^9, {3.655113148095717*^9, 3.6551131642859287`*^9}, {
+   3.6551786474580812`*^9, 3.6551786981539087`*^9}, {3.655178728630869*^9, 
+   3.655178849496229*^9}, 3.655182822442347*^9, 3.655182941355898*^9, {
+   3.65518506736388*^9, 3.655185071507946*^9}, {3.655196574148287*^9, 
+   3.655196594017262*^9}, {3.655197334839851*^9, 3.655197352598036*^9}, {
+   3.682827930022777*^9, 3.6828279921340227`*^9}, {3.682828122692625*^9, 
+   3.6828281235491467`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Notes about stuff ", "Subsection",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.65511288395332*^9, 3.6551129842089787`*^9}, 
+   3.655113246732547*^9, {3.655223703312845*^9, 3.6552237060006638`*^9}, {
+   3.655283589578068*^9, 3.655283593817771*^9}}],
+
+Cell["\<\
+NotebookOpen[ ]   searches  NotebookPath,  which is given by,\
+\>", "Text",
+ CellChangeTimes->{{3.65522372780585*^9, 3.655223747872362*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CurrentValue", "[", "NotebookPath", "]"}]], "Input",
+ CellChangeTimes->{{3.6552234943628883`*^9, 3.655223503500996*^9}, {
+  3.655223589075053*^9, 3.655223651793703*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$UserBaseDirectory", ",", "\<\"Autoload\"\>", ",", "_", 
+      ",", "\<\"FrontEnd\"\>", ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$UserBaseDirectory", ",", "\<\"Applications\"\>", ",", "_", 
+      ",", "\<\"FrontEnd\"\>", ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$BaseDirectory", ",", "\<\"Autoload\"\>", ",", "_", 
+      ",", "\<\"FrontEnd\"\>", ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$BaseDirectory", ",", "\<\"Applications\"\>", ",", "_", 
+      ",", "\<\"FrontEnd\"\>", ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$InstallationDirectory", ",", "\<\"AddOns\"\>", ",", "\<\"Autoload\"\>",
+       ",", "_", ",", "\<\"FrontEnd\"\>", ",", "\<\"Palettes\"\>"}], "}"}], 
+    "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$InstallationDirectory", ",", "\<\"AddOns\"\>", 
+      ",", "\<\"Applications\"\>", ",", "_", ",", "\<\"FrontEnd\"\>", 
+      ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$UserBaseDirectory", ",", "\<\"SystemFiles\"\>", 
+      ",", "\<\"FrontEnd\"\>", ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$BaseDirectory", ",", "\<\"SystemFiles\"\>", ",", "\<\"FrontEnd\"\>", 
+      ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$InstallationDirectory", ",", "\<\"Configuration\"\>", 
+      ",", "\<\"FrontEnd\"\>", ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$InstallationDirectory", ",", "\<\"SystemFiles\"\>", 
+      ",", "\<\"Components\"\>", ",", "_", ",", "\<\"FrontEnd\"\>", 
+      ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$InstallationDirectory", ",", "\<\"SystemFiles\"\>", 
+      ",", "\<\"FrontEnd\"\>", ",", "\<\"Palettes\"\>"}], "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", "$HomeDirectory", "}"}], "]"}], ",", 
+   RowBox[{"FrontEnd`FileName", "[", 
+    RowBox[{"{", "$InstallationDirectory", "}"}], "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.655223500689268*^9, 3.655223504028145*^9}, {
+  3.655223590505226*^9, 3.655223652864868*^9}}]
+}, Open  ]],
+
+Cell["Needs[ ]   adds to the list of packages,", "Text",
+ CellChangeTimes->{{3.655251279645852*^9, 3.655251321133288*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$Packages"], "Input",
+ CellChangeTimes->{{3.655250201860859*^9, 3.655250204971361*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"GeneralUtilities`\"\>", ",", "\<\"Macros`\"\>", 
+   ",", "\<\"ProcessLink`\"\>", ",", "\<\"ShortWindowTitles`\"\>", 
+   ",", "\<\"GetFEKernelInit`\"\>", ",", "\<\"StreamingLoader`\"\>", 
+   ",", "\<\"IconizeLoader`\"\>", ",", "\<\"CloudObjectLoader`\"\>", 
+   ",", "\<\"ResourceLocator`\"\>", ",", "\<\"PacletManager`\"\>", 
+   ",", "\<\"System`\"\>", ",", "\<\"Global`\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.6552502086123257`*^9, 3.655250514455968*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Copyright Statement", "Subsection",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.65511288395332*^9, 3.6551129842089787`*^9}, 
+   3.655113246732547*^9, {3.655223703312845*^9, 3.6552237060006638`*^9}, {
+   3.655283589578068*^9, 3.655283610300014*^9}, 3.655318327824004*^9}],
+
+Cell["\<\
+Output the start-up message. The user can suppress this message by \
+terminating  Needs[ ]  with   \[OpenCurlyDoubleQuote] ; \
+\[OpenCurlyDoubleQuote].
+This is here because only the last result in a file is returned by  Get[ ]  \
+and  Needs[ ].  This is output, not printed,\
+\>", "Text",
+ CellChangeTimes->{
+  3.654857386633567*^9, {3.654889125841983*^9, 3.6548891374098177`*^9}, {
+   3.655283784567647*^9, 3.655283957093574*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CopyrightStatement", "=", 
+  RowBox[{"OpenerView", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+     "\"\< tpTensor \>\"", "<>", "$tpTensorVersion", "<>", 
+      "\"\<: A package for index-free tensor algebra.\>\"", "<>", 
+      "\"\<\n Copyright \[Copyright] 2015 Andrew H. Norton.\n \
+\[VeryThinSpace]Released under GPLv3 or later.\>\""}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<\n    tpTensor is free software: you can redistribute it and/or \
+modify\n    it under the terms of the GNU General Public License as published \
+by\n    the Free Software Foundation, either version 3 of the License, or\n   \
+ (at your option) any later version.\n  \n    tpTensor is distributed in the \
+hope that it will be useful,\n    but WITHOUT ANY WARRANTY; without even the \
+implied warranty of\n    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \
+ See the\n    GNU General Public License for more details.\n  \n    You \
+should have received a copy of the GNU General Public License\n    along with \
+tpTensor. If not, see \>\"", ",", 
+        RowBox[{
+        "Hyperlink", "[", "\"\<http://www.gnu.org/licenses/\>\"", "]"}], ",", 
+        "\"\<.\>\""}], "}"}], "//", "Row"}]}], "}"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.654857367215312*^9, 3.654857367215554*^9}, {
+   3.654858233858923*^9, 3.6548582811856947`*^9}, {3.654859343453843*^9, 
+   3.654859349708398*^9}, {3.654859387663368*^9, 3.654859437086203*^9}, {
+   3.654885017078971*^9, 3.654885021980014*^9}, {3.654885134641451*^9, 
+   3.654885142676818*^9}, {3.654885367958872*^9, 3.654885398418045*^9}, {
+   3.654888785701346*^9, 3.6548888088527927`*^9}, {3.654888990815104*^9, 
+   3.654888994738126*^9}, {3.654889030196952*^9, 3.6548890804810038`*^9}, {
+   3.654889249460958*^9, 3.6548892516465397`*^9}, {3.65488928758537*^9, 
+   3.654889295264587*^9}, {3.6548893326279287`*^9, 3.654889382351007*^9}, 
+   3.6548894381844177`*^9, {3.6548894720205393`*^9, 3.654889554955508*^9}, {
+   3.654889585135809*^9, 3.654889612347007*^9}, {3.654889644795196*^9, 
+   3.654889658861883*^9}, {3.654907679806468*^9, 3.654907703918277*^9}, {
+   3.655198582710972*^9, 3.6551985906953363`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  DynamicModuleBox[{Typeset`var$$ = False}, 
+   InterpretationBox[
+    StyleBox[
+     PaneSelectorBox[{False->GridBox[{
+        {
+         OpenerBox[Dynamic[Typeset`var$$],
+          Appearance->Automatic,
+          AutoAction->False,
+          ContinuousAction->False,
+          
+          Enabled->
+           Automatic], "\<\" tpTensor 0.6.0: A package for index-free tensor \
+algebra.\\n Copyright \[Copyright] 2015 Andrew H. Norton.\\n \
+\[VeryThinSpace]Released under GPLv3 or later.\"\>"}
+       },
+       AutoDelete->False,
+       BaselinePosition->{1, 1},
+       GridBoxAlignment->{"Columns" -> {{Left}}},
+       GridBoxBackground->{"Columns" -> {{Automatic}}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+       
+       GridBoxSpacings->{"Columns" -> {{0.2}}, "Rows" -> {{0.5}}}], True->
+      GridBox[{
+        {
+         OpenerBox[Dynamic[Typeset`var$$],
+          Appearance->Automatic,
+          AutoAction->False,
+          ContinuousAction->False,
+          
+          Enabled->
+           Automatic], "\<\" tpTensor 0.6.0: A package for index-free tensor \
+algebra.\\n Copyright \[Copyright] 2015 Andrew H. Norton.\\n \
+\[VeryThinSpace]Released under GPLv3 or later.\"\>"},
+        {"", 
+         PaneBox[
+          
+          TemplateBox[{
+           "\"\\n    tpTensor is free software: you can redistribute it \
+and/or modify\\n    it under the terms of the GNU General Public License as \
+published by\\n    the Free Software Foundation, either version 3 of the \
+License, or\\n    (at your option) any later version.\\n  \\n    tpTensor is \
+distributed in the hope that it will be useful,\\n    but WITHOUT ANY \
+WARRANTY; without even the implied warranty of\\n    MERCHANTABILITY or \
+FITNESS FOR A PARTICULAR PURPOSE.  See the\\n    GNU General Public License \
+for more details.\\n  \\n    You should have received a copy of the GNU \
+General Public License\\n    along with tpTensor. If not, see \"",TagBox[
+             ButtonBox[
+              
+              PaneSelectorBox[{
+               False -> "\"http://www.gnu.org/licenses/\"", True -> 
+                StyleBox[
+                 "\"http://www.gnu.org/licenses/\"", {"HyperlinkActive"}]}, 
+               Dynamic[
+                CurrentValue["MouseOver"]], BaseStyle -> {"Hyperlink"}, 
+               FrameMargins -> 0, ImageSize -> Automatic], BaseStyle -> 
+              "Hyperlink", ButtonData -> {
+                URL["http://www.gnu.org/licenses/"], None}, ButtonNote -> 
+              "http://www.gnu.org/licenses/"], 
+             Annotation[#, "http://www.gnu.org/licenses/", "Hyperlink"]& ],
+            "\".\""},
+           "RowDefault"],
+          ImageMargins->0]}
+       },
+       AutoDelete->False,
+       BaselinePosition->{1, 1},
+       GridBoxAlignment->{"Columns" -> {{Left}}},
+       GridBoxBackground->{"Columns" -> {{Automatic}}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+       
+       GridBoxSpacings->{"Columns" -> {{0.2}}, "Rows" -> {{0.5}}}]}, Dynamic[
+      Typeset`var$$],
+      Alignment->Automatic,
+      BaselinePosition->Baseline,
+      DefaultBaseStyle->"OpenerView",
+      ImageMargins->0,
+      ImageSize->Automatic],
+     Deployed->False,
+     StripOnInput->False],
+    OpenerView[{
+     " tpTensor 0.6.0: A package for index-free tensor algebra.\n Copyright \
+\[Copyright] 2015 Andrew H. Norton.\n \[VeryThinSpace]Released under GPLv3 or \
+later.", 
+      Row[{
+       "\n    tpTensor is free software: you can redistribute it and/or \
+modify\n    it under the terms of the GNU General Public License as published \
+by\n    the Free Software Foundation, either version 3 of the License, or\n   \
+ (at your option) any later version.\n  \n    tpTensor is distributed in the \
+hope that it will be useful,\n    but WITHOUT ANY WARRANTY; without even the \
+implied warranty of\n    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. \
+ See the\n    GNU General Public License for more details.\n  \n    You \
+should have received a copy of the GNU General Public License\n    along with \
+tpTensor. If not, see ", 
+        Hyperlink["http://www.gnu.org/licenses/"], "."}]}, False]],
+   DynamicModuleValues:>{}],
+  Setting[#, {0}]& ]], "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1670, 1191},
+WindowMargins->{{Automatic, 140}, {27, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"TeXitStyle.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 212, 3, 100, "Title"],
+Cell[795, 27, 191, 5, 86, "Text"],
+Cell[989, 34, 599, 13, 119, "Text"],
+Cell[1591, 49, 501, 10, 86, "Input"],
+Cell[2095, 61, 719, 13, 94, "Text"],
+Cell[CellGroupData[{
+Cell[2839, 78, 881, 21, 111, "Input"],
+Cell[3723, 101, 50, 0, 35, "Output"],
+Cell[3776, 103, 1227, 29, 177, "Output"]
+}, Open  ]],
+Cell[5018, 135, 408, 6, 44, "Text"],
+Cell[CellGroupData[{
+Cell[5451, 145, 386, 10, 102, "Input",
+ InitializationCell->True],
+Cell[5840, 157, 116, 1, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5993, 163, 184, 5, 51, "Input",
+ InitializationCell->True],
+Cell[6180, 170, 40, 0, 35, "Output"]
+}, Open  ]],
+Cell[6235, 173, 766, 14, 69, "Text"],
+Cell[7004, 189, 724, 14, 77, "Input",
+ InitializationCell->True],
+Cell[7731, 205, 114, 2, 44, "Text"],
+Cell[7848, 209, 728, 13, 111, "Text"],
+Cell[8579, 224, 1193, 22, 302, "Input",
+ InitializationCell->True],
+Cell[9775, 248, 343, 8, 97, "Text"],
+Cell[10121, 258, 251, 6, 51, "Input",
+ InitializationCell->True],
+Cell[10375, 266, 8406, 118, 87, "Text"],
+Cell[18784, 386, 1818, 34, 77, "Input",
+ InitializationCell->True],
+Cell[20605, 422, 699, 12, 86, "Text"],
+Cell[21307, 436, 265, 6, 69, "Text"],
+Cell[CellGroupData[{
+Cell[21597, 446, 457, 7, 51, "Input",
+ InitializationCell->True],
+Cell[22057, 455, 56, 0, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22150, 460, 857, 24, 77, "Input",
+ InitializationCell->True],
+Cell[23010, 486, 50, 0, 35, "Output"],
+Cell[23063, 488, 1227, 29, 191, "Output"]
+}, Open  ]],
+Cell[24305, 520, 696, 12, 69, "Text"],
+Cell[25004, 534, 1874, 46, 277, "Input",
+ InitializationCell->True],
+Cell[26881, 582, 331, 6, 61, "Text"],
+Cell[CellGroupData[{
+Cell[27237, 592, 324, 6, 35, "Input"],
+Cell[27564, 600, 1264, 27, 177, "Output"]
+}, Open  ]],
+Cell[28843, 630, 124, 1, 36, "Text"],
+Cell[CellGroupData[{
+Cell[28992, 635, 184, 3, 61, "Input"],
+Cell[29179, 640, 119, 1, 35, "Output"],
+Cell[29301, 643, 214, 5, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29552, 653, 113, 3, 35, "Input"],
+Cell[29668, 658, 1143, 25, 177, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30848, 688, 116, 2, 61, "Input"],
+Cell[30967, 692, 53, 0, 35, "Output"],
+Cell[31023, 694, 153, 4, 35, "Output"]
+}, Open  ]],
+Cell[31191, 701, 631, 11, 69, "Text"],
+Cell[31825, 714, 569, 12, 102, "Input",
+ InitializationCell->True],
+Cell[32397, 728, 285, 4, 44, "Text"],
+Cell[32685, 734, 1444, 27, 152, "Input",
+ InitializationCell->True],
+Cell[34132, 763, 362, 6, 61, "Text"],
+Cell[CellGroupData[{
+Cell[34519, 773, 261, 6, 51, "Input",
+ InitializationCell->True],
+Cell[34783, 781, 28, 0, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34848, 786, 236, 6, 59, "Subsection"],
+Cell[35087, 794, 299, 5, 36, "Text"],
+Cell[35389, 801, 1806, 43, 102, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37232, 849, 263, 4, 59, "Subsection"],
+Cell[37498, 855, 150, 3, 36, "Text"],
+Cell[CellGroupData[{
+Cell[37673, 862, 193, 3, 35, "Input"],
+Cell[37869, 867, 2772, 66, 236, "Output"]
+}, Open  ]],
+Cell[40656, 936, 122, 1, 36, "Text"],
+Cell[CellGroupData[{
+Cell[40803, 941, 101, 1, 35, "Input"],
+Cell[40907, 944, 505, 8, 61, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41461, 958, 286, 4, 59, "Subsection"],
+Cell[41750, 964, 441, 9, 61, "Text"],
+Cell[CellGroupData[{
+Cell[42216, 977, 2220, 38, 402, "Input",
+ InitializationCell->True],
+Cell[44439, 1017, 4266, 96, 86, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

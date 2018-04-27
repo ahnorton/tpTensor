@@ -1,0 +1,285 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9652,        277]
+NotebookOptionsPosition[      7787,        212]
+NotebookOutlinePosition[      8589,        241]
+CellTagsIndexPosition[      8419,        234]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+
+20/09/2016
+\
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{"BeginPackage", "[", "\"\<NotebookEvaluation`\>\"", "]"}]], "Input",
+ InitializationCell->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NotebookEvaluation", "::", "usage"}], "=", 
+  "\"\<This package provides the functions:  \
+EvaluateStopsHere\[VeryThinSpace],  EvaluateUntilHere  and  \
+CPUTimeUntilHere\>\""}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData["\<\"This package provides the functions:  EvaluateStopsHere\
+\[VeryThinSpace],  EvaluateUntilHere  and  CPUTimeUntilHere\"\>"], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "NotebookEvaluation"}]], "Input"],
+
+Cell[BoxData[
+ StyleBox["\<\"This package provides the functions:  EvaluateStopsHere\
+\[VeryThinSpace],  EvaluateUntilHere  and  CPUTimeUntilHere\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellTags->"Info63683455897-8420602"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"EvaluateStopsHere", "::", "usage"}], "=", 
+   "\"\<EvaluateStopsHere\[VeryThinSpace][ ]  returns Null. It doesn't \
+normally do anything, but if you do  \\\"Evaluation \[Rule] Evaluate Notebook\
+\\\"  from the menu,\nthen the evaluation of the notebook will stop at this \
+statement.\n\nSimilarly, this statement will stop evaluation of a selection, \
+initiated by selecting with the mouse and then doing Shift+Enter.\>\""}], " ",
+   ";"}]], "Input",
+ InitializationCell->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "EvaluateStopsHere"}]], "Input"],
+
+Cell[BoxData[
+ StyleBox["\<\"EvaluateStopsHere\[VeryThinSpace][ ]  returns Null. It doesn't \
+normally do anything, but if you do  \\\"Evaluation \[Rule] Evaluate Notebook\
+\\\"  from the menu,\\nthen the evaluation of the notebook will stop at this \
+statement.\\n\\nSimilarly, this statement will stop evaluation of a \
+selection, initiated by selecting with the mouse and then doing \
+Shift+Enter.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellTags->"Info83683455958-8420602"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"EvaluateUntilHere", "::", "usage"}], "=", 
+   "\"\<EvaluateUntilHere\[VeryThinSpace][ ] returns Null.  It will cause the \
+notebook to be evaluated as if   \\\"Evaluation \[Rule] Evaluate Notebook\\\" \
+ had been chosen from the menu,\nbut the evaluation will stop at the place \
+where this statement is evaluated.\n\nEvaluateUntilHere\[VeryThinSpace][\
+\[VeryThinSpace]pre, post\[VeryThinSpace]]   will execute pre, then evaluate \
+all cells until here, then evaluate post.\n\nFor example, this is the \
+definition of the function  CPUTimeUntilHere\[VeryThinSpace][ ]\
+\[VeryThinSpace],\n\nCPUTimeUntilHere[ ] := \n  EvaluateUntilHere[            \
+          \n    ClearSystemCache[ ] ;\n    $TimeUsedStart = TimeUsed[ ]\n    \
+,                \n    $TimeUsedEnd=TimeUsed[ ] ;                   \n    \
+$TimeUsedEnd-$TimeUsedStart                        \n  ]\>\""}], 
+  ";"}]], "Input",
+ InitializationCell->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "EvaluateUntilHere"}]], "Input"],
+
+Cell[BoxData[
+ StyleBox["\<\"EvaluateUntilHere\[VeryThinSpace][ ] returns Null.  It will \
+cause the notebook to be evaluated as if   \\\"Evaluation \[Rule] Evaluate \
+Notebook\\\"  had been chosen from the menu,\\nbut the evaluation will stop \
+at the place where this statement is evaluated.\\n\\nEvaluateUntilHere\
+\[VeryThinSpace][\[VeryThinSpace]pre, post\[VeryThinSpace]]   will execute \
+pre, then evaluate all cells until here, then evaluate post.\\n\\nFor \
+example, this is the definition of the function  CPUTimeUntilHere\
+\[VeryThinSpace][ ]\[VeryThinSpace],\\n\\nCPUTimeUntilHere[ ] := \\n  \
+EvaluateUntilHere[                      \\n    ClearSystemCache[ ] ;\\n    \
+$TimeUsedStart = TimeUsed[ ]\\n    ,                \\n    \
+$TimeUsedEnd=TimeUsed[ ] ;                   \\n    \
+$TimeUsedEnd-$TimeUsedStart                        \\n  ]\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellTags->"Info35403683433854-9863664"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Begin", "[", "\"\<`Private`\>\"", "]"}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EvaluateStopsHere", "[", "]"}], ":=", 
+  RowBox[{"CheckAbort", "[", 
+   RowBox[{
+    RowBox[{"FrontEndTokenExecute", "[", "\"\<EvaluatorAbort\>\"", "]"}], " ",
+     ",", "Null"}], "]"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[""], "Input"],
+
+Cell["\<\
+The abort is only caught most times. Maybe the pause helps...\
+\>", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"EvaluateUntilHere", ",", "HoldAll"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"EvaluateUntilHere", "[", "]"}], ":=", 
+  RowBox[{"EvaluateUntilHere", "[", 
+   RowBox[{"Null", ",", "Null"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"EvaluateUntilHere", "[", 
+   RowBox[{"pre_", ",", "post_"}], "]"}], ":=", 
+  RowBox[{"CheckAbort", "[", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"TrueQ", "[", "$UpToHere", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"$UpToHere", "=", "False"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"SelectionMove", "[", 
+        RowBox[{
+         RowBox[{"EvaluationNotebook", "[", "]"}], ",", "Before", ",", 
+         "GeneratedCell"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"SelectionMove", "[", 
+        RowBox[{
+         RowBox[{"EvaluationNotebook", "[", "]"}], ",", "Previous", ",", 
+         "Cell"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"SelectionMove", "[", 
+        RowBox[{
+         RowBox[{"EvaluationNotebook", "[", "]"}], ",", "Before", ",", 
+         "Cell"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"CheckAbort", "[", 
+        RowBox[{
+         RowBox[{"FrontEndTokenExecute", "[", "\"\<EvaluatorAbort\>\"", "]"}],
+          ",", "Null"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Pause", "[", "1", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"CheckAbort", "[", 
+        RowBox[{
+         RowBox[{"Abort", "[", "]"}], ",", "post"}], "]"}]}], 
+      "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"$UpToHere", "=", "True"}], ";", "\[IndentingNewLine]", "pre", 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"FrontEndTokenExecute", "[", "\"\<SelectAll\>\"", "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+       "FrontEndTokenExecute", "[", "\"\<EvaluateCells\>\"", "]"}]}]}], "]"}],
+     ",", "post"}], "]"}]}]}], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CPUTimeUntilHere", "[", "]"}], ":=", " ", 
+  RowBox[{"EvaluateUntilHere", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ClearSystemCache", "[", "]"}], ";", 
+     RowBox[{"$TimeUsedStart", "=", 
+      RowBox[{"TimeUsed", "[", "]"}]}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"$TimeUsedEnd", "=", 
+      RowBox[{"TimeUsed", "[", "]"}]}], ";", 
+     RowBox[{"$TimeUsedEnd", "-", "$TimeUsedStart"}]}]}], "]"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[{
+ RowBox[{"End", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"EndPackage", "[", "]"}]}], "Input",
+ InitializationCell->True]
+},
+WindowSize->{1742, 911},
+WindowMargins->{{Automatic, 251}, {76, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"math11.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info63683455897-8420602"->{
+  Cell[1244, 49, 224, 4, 42, "Print",
+   CellTags->"Info63683455897-8420602"]},
+ "Info83683455958-8420602"->{
+  Cell[2095, 73, 476, 7, 95, "Print",
+   CellTags->"Info83683455958-8420602"]},
+ "Info35403683433854-9863664"->{
+  Cell[3637, 106, 937, 14, 289, "Print",
+   CellTags->"Info35403683433854-9863664"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info63683455897-8420602", 8087, 222},
+ {"Info83683455958-8420602", 8197, 225},
+ {"Info35403683433854-9863664", 8310, 228}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 36, 4, 80, "Text"],
+Cell[597, 26, 118, 2, 50, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[740, 32, 249, 6, 50, "Input",
+ InitializationCell->True],
+Cell[992, 40, 151, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1180, 46, 61, 1, 34, "Input"],
+Cell[1244, 49, 224, 4, 42, "Print",
+ CellTags->"Info63683455897-8420602"]
+}, Open  ]],
+Cell[1483, 56, 524, 10, 147, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[2032, 70, 60, 1, 34, "Input"],
+Cell[2095, 73, 476, 7, 95, "Print",
+ CellTags->"Info83683455958-8420602"]
+}, Open  ]],
+Cell[2586, 83, 963, 16, 411, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[3574, 103, 60, 1, 34, "Input"],
+Cell[3637, 106, 937, 14, 289, "Print",
+ CellTags->"Info35403683433854-9863664"]
+}, Open  ]],
+Cell[4589, 123, 101, 2, 50, "Input",
+ InitializationCell->True],
+Cell[4693, 127, 260, 7, 50, "Input",
+ InitializationCell->True],
+Cell[4956, 136, 26, 0, 34, "Input"],
+Cell[4985, 138, 85, 2, 34, "Text"],
+Cell[5073, 142, 2046, 48, 388, "Input",
+ InitializationCell->True],
+Cell[7122, 192, 519, 13, 123, "Input",
+ InitializationCell->True],
+Cell[7644, 207, 139, 3, 75, "Input",
+ InitializationCell->True]
+}
+]
+*)
+
