@@ -22,7 +22,7 @@ future version of tpTensor might make use of Mathematica's built-in canonical te
 
       ./RequiredPackages/TeXit   --  allows a Mathematica notebook to be used as LaTeX editor that has a PDF preview window.
 
-   For brief descriptions of all packages in the bundle, see the [package manifest.](https://ahnorton.github.io/tpTensor/PackageManifest.txt)
+   For brief descriptions of all packages in the bundle, see the [package manifest.](https://ahnorton.github.io/tpTensor/PackageManifest.md)
 
    At some later date, these other packages may be separated out into their own git repositories. Until then, releases of the
    tpTensor bundle are identified by a date of the form yyyy-mm-dd, whereas the packages within the bundle have their
