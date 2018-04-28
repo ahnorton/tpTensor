@@ -5,3 +5,7 @@
 **/*_bak/**
 **/*~
 **/.*~
+**/Gemfile
+**/Gemfile.lock
+**/_site/**
+
