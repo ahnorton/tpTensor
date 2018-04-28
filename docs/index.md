@@ -15,8 +15,9 @@ future version of tpTensor might make use of Mathematica's built-in canonical te
 Getting tpTensor
 ----------------
 
-The *tpTensor* package is currently released and maintained within a bundle of about a dozen related Mathematica packages. The .zip and .tar
-[releases](https://github.com/ahnorton/tpTensor/releases) contain the entire package bundle. Notable amongst these packages are:
+The *tpTensor* package is currently released and maintained within a bundle of about a dozen related Mathematica packages. 
+The .zip and .tar [downloads](https://github.com/ahnorton/tpTensor/releases) contain the entire package bundle. Notable 
+amongst these packages are:
 
   *  tpTensor      ---  the actual tpTensor package; 
   *  Backup  --- a scheduled backup for Mathematica notebooks;
