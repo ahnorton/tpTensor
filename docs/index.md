@@ -38,10 +38,9 @@ own individual version numbers of the form x.x.x (see the [release notes](Releas
 
    These instructions are for a single user installation in the standard location.  
 
-  1. Download the latest tpTensor bundle via the download button (under the title of this page), or from the 
-     [release page](https://github.com/ahnorton/tpTensor/releases).
+  1. Download the latest tpTensor bundle from the [release page](https://github.com/ahnorton/tpTensor/releases).
 
-  2. The download will extract to a directory named by the release date of the bundle. For example, either of
+  2. The download will extract to a directory named by the release date of the bundle. For example, either of the commands
 
              > unzip tpTensor-2018-04-29.zip
              > tar xf tpTensor-2018-04-29.tar.gz
