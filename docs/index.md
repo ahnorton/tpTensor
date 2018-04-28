@@ -21,7 +21,7 @@ amongst these packages are:
 
   *  tpTensor      ---  the actual tpTensor package; 
   *  Backup  --- a scheduled backup for Mathematica notebooks;
-  *  TeXit   ---  allows a Mathematica notebook to be used as LaTeX editor with a PDF preview window.
+  *  TeXit   ---  allows a Mathematica notebook to be used as LaTeX editor with PDF preview.
 
 For brief descriptions of all packages in the bundle, see the [package manifest.](PackageManifest.md)
 
