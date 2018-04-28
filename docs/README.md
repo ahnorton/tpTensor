@@ -1,33 +1,32 @@
-# tpTensor
+---
+---
+
+tpTensor
+========
 
 *tpTensor* is a Mathematica package for doing index-free tensor calculations.
 Its development has been driven by the author's interest in electromagnetic radiation reaction for charged multipole particles.
 As such it is rather good at some things, but still not so good at others.
 
-
-
 The current version of *tpTensor* uses a large set of ad hoc rules for simplifying tensor expressions. This is 
 adequate for many purposes, but of little use for problems like simplifying polynomials of the Riemann tensor. A
 future version of tpTensor might make use of Mathematica's built-in canonical tensor simplification. 
 
-## Getting tpTensor
+Getting tpTensor
+----------------
 
-   *tpTensor* is currently released and maintained as one package within a bundle of related packages. The .zip and .tar
-   [releases](https://github.com/ahnorton/tpTensor/releases)
-   contain the entire bundle of about a dozen packages. Notable amongst these packages are:
+The *tpTensor* package is currently released and maintained within a bundle of about a dozen related Mathematica packages. The .zip and .tar
+[releases](https://github.com/ahnorton/tpTensor/releases) contain the entire package bundle. Notable amongst these packages are:
 
-      ./tpTensor   --  the actual tpTensor package; 
+  *  tpTensor      ---  the actual tpTensor package; 
+  *  Backup  --- a scheduled backup for Mathematica notebooks;
+  *  TeXit   ---  allows a Mathematica notebook to be used as LaTeX editor with a PDF preview window.
 
-      ./RequiredPackages/Backup  -- a scheduled backup for Mathematica notebooks;
+For brief descriptions of all packages in the bundle, see the [package manifest.](PackageManifest.md)
 
-      ./RequiredPackages/TeXit   --  allows a Mathematica notebook to be used as LaTeX editor that has a PDF preview window.
-
-   For brief descriptions of all packages in the bundle, see the [package manifest.](https://ahnorton.github.io/tpTensor/PackageManifest.md)
-
-   At some later date, these other packages may be separated out into their own git repositories. Until then, releases of the
-   tpTensor bundle are identified by a date of the form yyyy-mm-dd, whereas the packages within the bundle have their
-   own individual version numbers
-   of the form x.x.x (see the [release notes](https://ahnorton.github.io/tpTensor/ReleaseNotes.txt) for these).
+At a later date, some of the packages (in particular, the three above) may be separated out into their own git repositories. Until then,
+releases of the tpTensor bundle will be identified by a date of the form yyyy-mm-dd, whereas the packages within the bundle have their
+own individual version numbers of the form x.x.x (see the [release notes](ReleaseNotes.txt) for these).
 
 ## Requirements
 
@@ -36,62 +35,65 @@ future version of tpTensor might make use of Mathematica's built-in canonical te
   
 ## Installation
 
-  (1) Download the latest tpTensor bundle via the download button (under the title of this page). Previous releases of the 
-      bundle can be downloaded from the [release page](https://github.com/ahnorton/tpTensor/releases).
+   These instructions are for a single user installation in the standard location.  
 
-  (2) The download extracts to a directory named by the release date of the bundle: tpTensor-yyyy-mm-dd. 
-      Move this directory to somewhere listed in your Mathematica $Path variable. Standard locations are returned by the
-      Mathematica expressions, 
+  1. Download the latest tpTensor bundle via the download button (under the title of this page), or from the 
+     [release page](https://github.com/ahnorton/tpTensor/releases).
 
-          FileNameJoin[{$UserBaseDirectory, "Applications"}]      (for single user installation)
+  2. The download will extract to a directory named by the release date of the bundle. For example, either of
 
-          FileNameJoin[{$BaseDirectory, "Applications"}]          (for system wide installation) 
+             > unzip tpTensor-2018-04-28.zip
+             > tar xf tpTensor-2018-04-28.tar.gz
+             
+     will create the directory `tpTensor-2018-04-28`. This extracted directory needs to be moved to the location returned by the
+     following Mathematica expression, 
+
+             FileNameJoin[{$UserBaseDirectory, "Applications"}] 
            
-      On Linux, these directories are typically  "/home/username/.Mathematica/Applications" and  "/usr/share/Mathematica/Applications".
+     On Linux, this location is typically `/home/username/.Mathematica/Applications`. For example,
 
-      Example. Extract using uzip or tar xf. Then,
+             > mv tpTensor-2018-04-28 /home/username/.Mathematica/Applications
 
-         mv  tpTensor-2018-04-27  /home/username/.Mathematica/Applications
+     You will need to edit both the date and username in the above commands. 
 
-      where "2018-04-27" and "username" will need to be edited appropriately. 
+  3. Add the following lines to the end of your Kernel/init.m  (for Linux this file should be at: `~/.Mathematica/Kernel/init.m`), 
 
-  (3) Edit the file:  ~/.Mathematica/Kernel/init.m
+           $tpTensorBundle = FileNameJoin[{$UserBaseDirectory,"Applications","tpTensor-2018-04-28"}];
+           $PathOriginal = $Path;
+           $Path = Join[ $PathOriginal,
+                     {
+                       $tpTensorBundle,
+                       FileNameJoin[{$tpTensorBundle,"PackagesRequired"}],
+                       FileNameJoin[{$tpTensorBundle,"PackagesExtra"}]
+                     }];
+           $TeXitBaseurl = FileNameJoin[{$tpTensorBundle,"PackagesRequired"}];
+           $TeXitAuthor = "your name";
 
-      Add the following lines to the end of your init.m
+     Edit the first line above to match the release date of your download.
 
-        $tpTensorBundle = FileNameJoin[{$UserBaseDirectory,"Applications","tpTensor-2018-04-27"}];
-        $PathOriginal = $Path;
-        $Path = Join[ $PathOriginal,
-                  {
-                    $tpTensorBundle,
-                    FileNameJoin[{$tpTensorBundle,"PackagesRequired"}],
-                    FileNameJoin[{$tpTensorBundle,"PackagesExtra"}]
-                  }];
-        $TeXitBaseurl = FileNameJoin[{$tpTensorBundle,"PackagesRequired"}];
-        $TeXitAuthor = "Andrew~H.~Norton";
+     The string `$TeXitAuthor` will be the default author name for any documents generated by TeXit. 
+     Edit the last line above so that the string `$TeXitAuthor` is *your* name as you would write it in LaTeX. For example, I use 
+     `$TeXitAuthor = "Andrew~H.~Norton"`.
 
-      Edit the first line to correct for the release date. Here, the variable $tpTensorBundle is has been defined for a single user
-      installation. For a system wide or non-standard installation location this variable will have to be adjusted accordingly.
+  4. Install the Notebook style file that is required for using *TeXit*.
 
-      Edit the last line to contain *your* name. This is the default author name for any documents you generate with TeXit.
+     This style file provides TeX versions of various Mathematica cell types. Follow the installation instructions given in the
+     file `StyesheetInstall.txt`, which is to be found in the directory containing the *TeXit* source files. 
 
-   (4) Install the Notebook style file that is required for using TeXit (it provides TeX versions of various cell types). Installation
-       instructions are given in the file StyesheetInstall.txt, which is to be found in the directory containing the TeXit source. 
+  5. For Linux systems only, install the linux package `wmctrl`. This is required for running the package *ShortWindowTitles*.
+     See the [package manifest.](PackageManifest.md) for further details.
 
 ## Getting started
 
-   See the notebooks in the Examples directories for the individual packages.
+   See the Mathematica Notebooks in the Examples directories for the individual packages.
 
 ## Documentation
 
-   At this point, the *tpTensor* documentation has not yet been integrated into
-   Mathematica's help center.
+   The *tpTensor* documentation has not yet been integrated into Mathematica's help center.
+   However, help for most *tpTensor* functions is available via the usual `?<fn-name>` command within Mathematica.
+   Otherwise, use `??<fn-name>` to see the code.
 
-   Help for most tpTensor functions is available via `? <function-name>`.
-
-   Most of the smaller packages are only documented within their source (.nb file). 
-
-   (The directory ./docs contains only web pages for this GitHub-Pages site.)   
+   Most of the smaller packages are only documented within their source (.nb) files. 
 
 ## Licence
 

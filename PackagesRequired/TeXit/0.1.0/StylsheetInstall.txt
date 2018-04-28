@@ -8,5 +8,5 @@ After moving the stylesheet to its correct location the TeXitStyle should be a m
 
    Format -> Stylesheet -> TeXitStyle
 
-(but perhaps Mathematica needs to be restarted before this item appears?)
+(Mathematica may need to be restarted before this item appears on the menu.)
 

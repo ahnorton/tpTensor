@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>tpTensor | a Mathematica package for index-free tensor algebra.</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="tpTensor" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="a Mathematica package for index-free tensor algebra." />
+<meta property="og:description" content="a Mathematica package for index-free tensor algebra." />
+<meta property="og:site_name" content="tpTensor" />
+<script type="application/ld+json">
+{"description":"a Mathematica package for index-free tensor algebra.","@type":"WebPage","url":"/README.html","headline":"tpTensor","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=2b3a14430e4f13455efe2bf9a9324ce04281178e">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">tpTensor</h1>
+      <h2 class="project-tagline">a Mathematica package for index-free tensor algebra. </h2>
+      
+        <a href="http://github.com/ahnorton/tpTensor" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="tptensor">tpTensor</h1>
+
+<p><em>tpTensor</em> is a Mathematica package for doing index-free tensor calculations.
+Its development has been driven by the author’s interest in electromagnetic radiation reaction for charged multipole particles.
+As such it is rather good at some things, but still not so good at others.</p>
+
+<p>The current version of <em>tpTensor</em> uses a large set of ad hoc rules for simplifying tensor expressions. This is 
+adequate for many purposes, but of little use for problems like simplifying polynomials of the Riemann tensor. A
+future version of tpTensor might make use of Mathematica’s built-in canonical tensor simplification.</p>
+
+<h2 id="getting-tptensor">Getting tpTensor</h2>
+
+<p>The <em>tpTensor</em> package is currently released and maintained within a bundle of about a dozen related Mathematica packages. The .zip and .tar
+<a href="https://github.com/ahnorton/tpTensor/releases">releases</a> contain the entire package bundle. Notable amongst these packages are:</p>
+
+<ul>
+  <li>tpTensor      —  the actual tpTensor package;</li>
+  <li>Backup  — a scheduled backup for Mathematica notebooks;</li>
+  <li>TeXit   —  allows a Mathematica notebook to be used as LaTeX editor with a PDF preview window.</li>
+</ul>
+
+<p>For brief descriptions of all packages in the bundle, see the <a href="/PackageManifest.html">package manifest.</a></p>
+
+<p>At a later date, some of the packages (in particular, the three above) may be separated out into their own git repositories. Until then,
+releases of the tpTensor bundle will be identified by a date of the form yyyy-mm-dd, whereas the packages within the bundle have their
+own individual version numbers of the form x.x.x (see the <a href="/ReleaseNotes.txt">release notes</a> for these).</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p><em>tpTensor</em> is well tested with Mathematica 10.3 and 11.0.1. Development is done using the latest Mathematica version (at the time of
+   writing, 11.3.0).</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>These instructions are for a single user installation in the standard location.</p>
+
+<ol>
+  <li>
+    <p>Download the latest tpTensor bundle via the download button (under the title of this page), or from the 
+<a href="https://github.com/ahnorton/tpTensor/releases">release page</a>.</p>
+  </li>
+  <li>
+    <p>The download will extract to a directory named by the release date of the bundle. For example, either of</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &gt; unzip tpTensor-2018-04-28.zip
+    &gt; tar xf tpTensor-2018-04-28.tar.gz
+</code></pre></div>    </div>
+
+    <p>will create the directory <code class="highlighter-rouge">tpTensor-2018-04-28</code>. This extracted directory needs to be moved to the location returned by the
+following Mathematica expression,</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    FileNameJoin[{$UserBaseDirectory, "Applications"}] 
+</code></pre></div>    </div>
+
+    <p>On Linux, this location is typically <code class="highlighter-rouge">/home/username/.Mathematica/Applications</code>. For example,</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &gt; mv tpTensor-2018-04-28 /home/username/.Mathematica/Applications
+</code></pre></div>    </div>
+
+    <p>You will need to edit both the date and username in the above commands.</p>
+  </li>
+  <li>
+    <p>Add the following lines to the end of your Kernel/init.m  (for Linux this file should be at: <code class="highlighter-rouge">~/.Mathematica/Kernel/init.m</code>),</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $tpTensorBundle = FileNameJoin[{$UserBaseDirectory,"Applications","tpTensor-2018-04-28"}];
+  $PathOriginal = $Path;
+  $Path = Join[ $PathOriginal,
+            {
+              $tpTensorBundle,
+              FileNameJoin[{$tpTensorBundle,"PackagesRequired"}],
+              FileNameJoin[{$tpTensorBundle,"PackagesExtra"}]
+            }];
+  $TeXitBaseurl = FileNameJoin[{$tpTensorBundle,"PackagesRequired"}];
+  $TeXitAuthor = "your name";
+</code></pre></div>    </div>
+
+    <p>Edit the first line above to match the release date of your download.</p>
+
+    <p>The string <code class="highlighter-rouge">$TeXitAuthor</code> will be the default author name for any documents generated by TeXit. 
+Edit the last line above so that the string <code class="highlighter-rouge">$TeXitAuthor</code> is <em>your</em> name as you would write it in LaTeX. For example, I use 
+<code class="highlighter-rouge">$TeXitAuthor = "Andrew~H.~Norton"</code>.</p>
+  </li>
+  <li>
+    <p>Install the Notebook style file that is required for using <em>TeXit</em>.</p>
+
+    <p>This style file provides TeX versions of various Mathematica cell types. Follow the installation instructions given in the
+file <code class="highlighter-rouge">StyesheetInstall.txt</code>, which is to be found in the directory containing the <em>TeXit</em> source files.</p>
+  </li>
+  <li>
+    <p>For Linux systems only, install the linux package <code class="highlighter-rouge">wmctrl</code>. This is required for running the package <em>ShortWindowTitles</em>.
+See the <a href="/PackageManifest.html">package manifest.</a> for further details.</p>
+  </li>
+</ol>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>See the Mathematica Notebooks in the Examples directories for the individual packages.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>The <em>tpTensor</em> documentation has not yet been integrated into Mathematica’s help center.
+   However, help for most <em>tpTensor</em> functions is available via the usual <code class="highlighter-rouge">?&lt;fn-name&gt;</code> command within Mathematica.
+   Otherwise, use <code class="highlighter-rouge">??&lt;fn-name&gt;</code> to see the code.</p>
+
+<p>Most of the smaller packages are only documented within their source (.nb) files.</p>
+
+<h2 id="licence">Licence</h2>
+
+<p><em>tpTensor</em> is a Mathematica package.
+ <br />
+ Copywrite © 2016-2018  Andrew H. Norton.</p>
+
+<p>Statement of copying permission:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tpTensor is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+tpTensor is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with tpTensor. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+</code></pre></div></div>
+
+<p>norton.ah@gmail.com <br />
+<a href="https://ahnorton.github.io/tpTensor/">https://ahnorton.github.io/tpTensor/</a></p>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="http://github.com/ahnorton/tpTensor">tpTensor</a> is maintained by <a href="http://github.com/ahnorton">ahnorton</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>
