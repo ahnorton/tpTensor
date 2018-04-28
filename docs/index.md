@@ -42,23 +42,23 @@ own individual version numbers of the form x.x.x (see the [release notes](Releas
 
   2. The download will extract to a directory named by the release date of the bundle. For example, either of
 
-             > unzip tpTensor-2018-04-28.zip
-             > tar xf tpTensor-2018-04-28.tar.gz
+             > unzip tpTensor-2018-04-29.zip
+             > tar xf tpTensor-2018-04-29.tar.gz
              
-     will create the directory `tpTensor-2018-04-28`. This extracted directory needs to be moved to the location returned by the
+     will create the directory `tpTensor-2018-04-29`. This extracted directory needs to be moved to the location returned by the
      following Mathematica expression, 
 
              FileNameJoin[{$UserBaseDirectory, "Applications"}] 
            
      On Linux, this location is typically `/home/username/.Mathematica/Applications`. For example,
 
-             > mv tpTensor-2018-04-28 /home/username/.Mathematica/Applications
+             > mv tpTensor-2018-04-29 /home/username/.Mathematica/Applications
 
      You will need to edit both the date and username in the above commands. 
 
   3. Add the following lines to the end of your Kernel/init.m  (for Linux this file should be at: `~/.Mathematica/Kernel/init.m`), 
 
-           $tpTensorBundle = FileNameJoin[{$UserBaseDirectory,"Applications","tpTensor-2018-04-28"}];
+           $tpTensorBundle = FileNameJoin[{$UserBaseDirectory,"Applications","tpTensor-2018-04-29"}];
            $PathOriginal = $Path;
            $Path = Join[ $PathOriginal,
                      {
