@@ -7,7 +7,7 @@ Browsing the above web site would be easier than looking in this directory.
 
 -------------------------------------------------------------------------------
 
-To view the site off-line (e.g. if editing these pages) one can install grip:
+To view this site off-line (e.g. if editing these pages) one can install grip:
 
            https://github.com/joeyespo/grip
 
