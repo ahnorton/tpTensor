@@ -1,7 +1,7 @@
 ---
 ---
 
-The [*tpTensor bundle*](README.md) contains the following packages:
+The [*tpTensor bundle*](index.md) contains the following packages:
 
 The main package
 -----------------
